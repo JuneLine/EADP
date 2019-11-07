@@ -3,8 +3,8 @@
 
 **Goals**
 - [x] Find JunLin A Good Friend
-- [] Find JunLin A Friend
-- [] Get An A For The Module
+- [ ] Find JunLin A Friend
+- [ ] Get An A For The Module
 
 **Features**
 * Master Page
