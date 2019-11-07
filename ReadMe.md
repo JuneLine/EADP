@@ -3,7 +3,7 @@
 
 **Goals**
 - [x] Find JunLin A Good Friend
-- [ ] Find JunLin A Friend
+- [ ] Find JunLin A Girl Friend
 - [ ] Get An A For The Module
 
 **Features**
