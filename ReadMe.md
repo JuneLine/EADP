@@ -10,5 +10,3 @@
 * Master Page
 * Shop
 * Itinerary
-
-test
