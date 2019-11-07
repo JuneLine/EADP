@@ -5206,7 +5206,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-static-top {
     z-index: 1000;
-    border-width: 0 0 1px;
+    border-width: 0 0 0px;
 }
 
 @media (min-width: 768px) {
@@ -5232,7 +5232,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-fixed-top {
     top: 0;
-    border-width: 0 0 1px;
+    border-width: 0 0 0px;
 }
 
 .navbar-fixed-bottom {
@@ -5649,7 +5649,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
         .navbar-inverse .navbar-nav > li > a:hover,
         .navbar-inverse .navbar-nav > li > a:focus {
             color: #fff;
-            background-color: transparent;
+            background-color: red;
         }
 
     .navbar-inverse .navbar-nav > .active > a,
@@ -8190,6 +8190,19 @@ button.close {
     }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 80px;
+    text-align: center;
+    background-color: #101010;
+    z-index: 1;
+}
+
+.hiddenText {
+    color: #9d9d9d;
+}
+
 
 .shoppingCart {
     font-size: 10em;
@@ -8217,3 +8230,15 @@ button.close {
     }
 }
 
+.hideItems:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content:hover {
+    background-color: red;
+}
+
+    .dropdown-content:hover .hiddenText {
+        color: white;
+        text-decoration: none;
+    }
