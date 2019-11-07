@@ -9,4 +9,4 @@
 **Features**
 * Master Page
 * Shop
-* Itenery
+* Itinerary
