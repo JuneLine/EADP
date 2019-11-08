@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="Shopping Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shopping.aspx.cs" Inherits="SREX.Shopping" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="row">
+        <div class="col-sm-4 mx-auto text-center">
+            <img src="default.png"  id="ShoppingLogo"/>
+        </div>
+        <div class="col-sm-8">
+
+        </div>
+
+    </div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
