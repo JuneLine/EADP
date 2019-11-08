@@ -22,7 +22,7 @@
 
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Pictures/NightSafari.jpg" Height="200px" Width="350px" />
+                    <asp:Image ID="NightSafari" runat="server" ImageUrl="~/Pictures/NightSafari.jpg" Height="200px" Width="350px" />
                     <div class="caption">
                         <p></p>
                         <p>
@@ -35,7 +35,7 @@
 
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Pictures/RiverSafari.jfif" Height="200px" Width="350px" />
+                    <asp:Image ID="RiverSafari" runat="server" ImageUrl="~/Pictures/RiverSafari.jfif" Height="200px" Width="350px" />
                     <div class="caption">
                         <p></p>
                         <p>

@@ -31,13 +31,13 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Button BtnZoo;
         
         /// <summary>
-        /// Image1 control.
+        /// NightSafari control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image NightSafari;
         
         /// <summary>
         /// BtnNightSafari control.
@@ -49,21 +49,21 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Button BtnNightSafari;
         
         /// <summary>
-        /// Image2 control.
+        /// RiverSafari control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Image RiverSafari;
         
         /// <summary>
-        /// BtnRiverSafari   control.
+        /// BtnRiverSafari control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRiverSafari  ;
+        protected global::System.Web.UI.WebControls.Button BtnRiverSafari;
     }
 }
