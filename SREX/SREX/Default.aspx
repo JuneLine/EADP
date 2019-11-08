@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 text-center leaveSpace">
-                <a>
+                <a href="Shopping">
                     <i class="fa fa-shopping-cart shoppingCart"></i>
                 </a>
                 <h3>Shopping</h3>
