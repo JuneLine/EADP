@@ -57,11 +57,19 @@
                                 <div class="dropdown">Shops<i class="fa fa-caret-down"></i></div>
                             </a>
                             <div class="dropdown-content">
-                                <a href="~/" class="hiddenText">Purchase History</a>
+                                <a href="~/">Purchase History</a>
                             </div>
                             
                         </li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Plans</a></li>
+                        <li class="nav-item hideItems">
+                            <a class="nav-link" runat="server" href="~/">
+                                <div class="dropdown">Plans<i class="fa fa-caret-down"></i></div>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="~/">Self-Plan History</a>
+                                <a href="~/">Planning History</a>
+                            </div>
+                        </li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Log in/Sign in</a></li>
