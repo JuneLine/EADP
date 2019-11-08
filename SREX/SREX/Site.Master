@@ -8,12 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - SreX</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/profile.png" rel="shortcut icon" type="image/x-icon" />
 
 
 </head>
@@ -47,6 +51,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <img src="profile.png" style="width:45px;float:left;" />
                     <a class="navbar-brand active" runat="server" href="~/">SreX</a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -72,7 +77,7 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Log in/Sign in</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="#">Log in/Sign in</a></li>
                     </ul>
                 </div>
             </div>
@@ -80,10 +85,10 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+            
             <!-- Footer -->
-            <footer class="page-footer font-small special-color-dark pt-4">
-
+            <footer class="page-footer font-small special-color-dark pt-4 navbar-fixed-bottom">
+                <hr />
                 <!-- Footer Elements -->
                 <div class="container">
 
