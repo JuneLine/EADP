@@ -18,7 +18,7 @@
                 <a>
                     <i class="fa fa-file-text-o fileText"></i>
                 </a>
-                <h3>Planing</h3>
+                <h3>Planning</h3>
             </div>
         </div>
     </div>
