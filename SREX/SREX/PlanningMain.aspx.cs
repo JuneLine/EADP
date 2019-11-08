@@ -28,5 +28,20 @@ namespace SREX
         {
             Response.Redirect("https://www.wrs.com.sg/en/river-safari.html");
         }
+
+        protected void BtnGBTB_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://www.gardensbythebay.com.sg/en.html");
+        }
+
+        protected void BtnJBP_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://www.wrs.com.sg/en/jurong-bird-park.html");
+        }
+
+        protected void BtnUSS_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://www.rwsentosa.com/en");
+        }
     }
 }

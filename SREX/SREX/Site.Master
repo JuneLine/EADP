@@ -67,7 +67,7 @@
                             
                         </li>
                         <li class="nav-item hideItems">
-                            <a class="nav-link" runat="server" href="~/">
+                            <a class="nav-link" runat="server" href="~/PlanningMain">
                                 <div class="dropdown">Plans<i class="fa fa-caret-down"></i></div>
                             </a>
                             <div class="dropdown-content">
