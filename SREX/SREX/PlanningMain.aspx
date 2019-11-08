@@ -61,7 +61,7 @@
                     <p>Join Us In A Day Tour And Enjoy Your Time In Singapore</p>
                 </div>
                 <div class="col-sm-6 text-center leaveSpace">
-                    <a href="#">
+                    <a href="SelfPlanMain">
                         <i class="fa fa-list planIcons"></i>
                     </a>
                     <h3>Self-Plan</h3>
