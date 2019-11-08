@@ -15,7 +15,7 @@
                 <h3>Shopping</h3>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 text-center leaveSpace">
-                <a>
+                <a href="PlanningMain.aspx">
                     <i class="fa fa-file-text-o fileText"></i>
                 </a>
                 <h3>Planning</h3>
