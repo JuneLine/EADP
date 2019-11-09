@@ -56,9 +56,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Default">Home</a></li>
                         <li class="nav-item hideItems">
-                            <a class="nav-link" runat="server" href="~/">
+                            <a class="nav-link" runat="server" href="Shopping">
                                 <div class="dropdown">Shops<i class="fa fa-caret-down"></i></div>
                             </a>
                             <div class="dropdown-content">
@@ -71,7 +71,7 @@
                                 <div class="dropdown">Plans<i class="fa fa-caret-down"></i></div>
                             </a>
                             <div class="dropdown-content">
-                                <a href="SelfPlanMain">Self-Plan History</a>
+                                <a href="~/">Self-Plan History</a>
                                 <a href="~/">Planning History</a>
                             </div>
                         </li>
