@@ -133,6 +133,7 @@
     <Content Include="Pictures\RiverSafari.jfif" />
     <Content Include="Pictures\SingaporeZoo.jpg" />
     <Content Include="Pictures\USS.jpg" />
+    <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
     <Content Include="profile.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -204,6 +205,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningHistory.aspx.cs">
+      <DependentUpon>PlanningHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanningHistory.aspx.designer.cs">
+      <DependentUpon>PlanningHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlanningMain.aspx.cs">
       <DependentUpon>PlanningMain.aspx</DependentUpon>
