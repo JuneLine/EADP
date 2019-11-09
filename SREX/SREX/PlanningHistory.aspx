@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlanningHistory.aspx.cs" Inherits="SREX.PlanningHistory" %>
+﻿<%@ Page Title="Planning History" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlanningHistory.aspx.cs" Inherits="SREX.PlanningHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="container">
         <div class="page-header">
