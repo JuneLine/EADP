@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="SelfPlanner" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SelfPlanMain.aspx.cs" Inherits="SREX.SelfPlanMain" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-        <div class="page-header">
-        <h1 class="text-center">Self plan</h1>
-        </div>
-
+            <div class="page-header">
+                <h1 class="text-center">Self plan</h1>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='PlanningHistory.aspx'">History</button>
+                </div>
+            </div>
     </div>
     <div class="container">
         <div class="row">
