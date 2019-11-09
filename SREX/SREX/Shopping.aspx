@@ -2,13 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-        <div class="col-sm-4 mx-auto text-center">
-            <img src="default.png"  id="ShoppingLogo"/>
+        <div class="col-sm-2 mx-auto text-center">
+            <img src="default.png" id="ShoppingLogo" />
         </div>
         <div class="col-sm-8">
 
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
         </div>
-
     </div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->

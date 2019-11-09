@@ -11,12 +11,6 @@ body {
     padding-right: 15px;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
 
 /* Responsive: Portrait tablets and up */
@@ -68,7 +62,7 @@ textarea {
     }
 
     .leaveSpace {
-        margin-bottom:10%;
+        margin-bottom: 10%;
     }
 }
 
@@ -83,16 +77,20 @@ textarea {
     padding: 6px;
 }
 
-.dropdown-content a:hover {
-    background-color: red;
-    color: white;
-    text-decoration: none;
-}
+    .dropdown-content a:hover {
+        background-color: red;
+        color: white;
+        text-decoration: none;
+    }
 
 #ShoppingLogo {
     width: 100px;
 }
 
 .planIcons {
-    font-size:10em;
+    font-size: 10em;
+}
+
+.input-group {
+    margin-top: 4%;
 }
