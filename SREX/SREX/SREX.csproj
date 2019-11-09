@@ -133,6 +133,15 @@
     <Content Include="Pictures\Electronic.jpg" />
     <Content Include="Pictures\LocalFood.jpg" />
     <Content Include="Pictures\Makeup.jpg" />
+    <Content Include="Pictures\model-1.jpg" />
+    <Content Include="Pictures\model-2.jpg" />
+    <Content Include="Pictures\model-3.jpg" />
+    <Content Include="Pictures\model-5.jpg" />
+    <Content Include="Pictures\model-6.jpg" />
+    <Content Include="Pictures\model-7.jpg" />
+    <Content Include="Pictures\model-8.jpg" />
+    <Content Include="Pictures\model-9.jpg" />
+    <Content Include="Pictures\model4.jpg" />
     <Content Include="Pictures\Shoes.jpg" />
     <Content Include="Pictures\Accessories.jpg" />
     <Content Include="Pictures\GBTB.jpg" />

@@ -57,7 +57,17 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="top_catagory_area section-padding-80 clearfix">
+    <!-- Catagory -->
+    <div class="container section-padding-40-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Categories</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top_catagory_area section-padding-0-40 clearfix">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
@@ -87,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div class="top_catagory_area section-padding-40 clearfix">
+    <div class="top_catagory_area clearfix">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
@@ -117,7 +127,7 @@
             </div>
         </div>
     </div>
-    <div class="top_catagory_area section-padding-80 clearfix">
+    <div class="top_catagory_area section-padding-40 clearfix">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
@@ -147,4 +157,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>

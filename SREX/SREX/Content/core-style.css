@@ -134,17 +134,17 @@ img {
   height: 800px !important; }
 
 /* Section Padding */
-.section-padding-80 {
-  padding-top: 80px;
-  padding-bottom: 80px; }
+.section-padding-40 {
+  padding-top: 40px;
+  padding-bottom: 40px; }
 
-.section-padding-80-0 {
-  padding-top: 80px;
+.section-padding-40-0 {
+  padding-top: 40px;
   padding-bottom: 0; }
 
-.section-padding-0-80 {
+.section-padding-0-40 {
   padding-top: 0;
-  padding-bottom: 80px; }
+  padding-bottom: 40px; }
 
 /* Section Heading */
 .section-heading {
