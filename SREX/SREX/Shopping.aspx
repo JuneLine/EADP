@@ -127,7 +127,7 @@
             </div>
         </div>
     </div>
-    <div class="top_catagory_area section-padding-40 clearfix">
+    <div class="top_catagory_area section-padding-40 clearfix body-container-own">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Single Catagory -->

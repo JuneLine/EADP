@@ -2,6 +2,8 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    min-height:100vh;
+    position:relative;
 }
 
 /* Wrapping element */
@@ -28,7 +30,7 @@ body {
     display: none;
     position: absolute;
     min-width: 120px;
-    right: -30%;
+    right: -15%;
     text-align: center;
     background-color: #101010;
     z-index: 1;
@@ -93,4 +95,16 @@ body {
 
 .input-group {
     margin-top: 4%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body-container-own {
+    margin-bottom:10%
 }
