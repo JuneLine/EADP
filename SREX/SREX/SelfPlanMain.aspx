@@ -9,12 +9,15 @@
                 </div>
             </div>
     </div>
-    <div class="container">
+    <div class="container plans">
         <div class="row">
             <div class="col-sm-3 col-lg-3">
                 <div class="row">
-                    <div class="md-form active-cyan active-cyan-2 mb-3 col-sm-12 col-lg-12">
-                      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                    <div class="input-group col-sm-11 col-lg-11">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
                     </div>
                 </div>
                 <br />

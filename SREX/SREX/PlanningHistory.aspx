@@ -16,7 +16,7 @@
                 <p class="mb-1">Fill in your trip details here</p>
                 <p class="mb-1">Fill in your trip details here2</p>
             <div class="row">
-                <button type="button" class="btn btn-primary" style="float:right;margin: 1%">View</button>
+                <a href="selfplanView.aspx" class="btn btn-primary" style="float:right;margin: 1%">View</a>
             </div>
         </div>
         <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -29,7 +29,7 @@
             <p class="mb-1">Fill in your trip details here3</p>
             <p class="mb-1">Fill in your trip details here3</p>
             <div class="row">
-                <button type="button" class="btn btn-primary" style="float:right;margin: 1%">Edit</button>
+                <a href="SelfPlanMain.aspx" type="button" class="btn btn-primary" style="float:right;margin: 1%">Edit</a>
             </div>
         </div>
         <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -42,8 +42,12 @@
             <p class="mb-1">Fill in your trip details here4</p>
             <p class="mb-1">Fill in your trip details here4</p>
             <div class="row">
-                <button type="button" class="btn btn-primary" style="float:right;margin: 1%">View</button>
+                <a href="selfplanView.aspx" class="btn btn-primary" style="float:right;margin: 1%">View</a>
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
 </asp:Content>
