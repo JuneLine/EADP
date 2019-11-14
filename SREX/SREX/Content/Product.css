@@ -1,0 +1,15 @@
+﻿.body-content {
+    margin: auto;
+}
+
+.OptionButton {
+    margin-right: 10px;
+}
+
+.ProductImage {
+    max-height: 490px;
+    max-width: 440px;
+    /*width: 100%;
+    height: 100%;*/
+    margin-top: 5%;
+}

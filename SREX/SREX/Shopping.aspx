@@ -120,7 +120,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Watch.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Watch</a>
+                            <a href="Product.aspx">Watch</a>
                         </div>
                     </div>
                 </div>
