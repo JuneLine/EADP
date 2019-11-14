@@ -94,3 +94,18 @@ body {
 .input-group {
     margin-top: 4%;
 }
+
+.Rightfloat{
+    float:right;
+    position:absolute;
+    right:10%;
+}
+
+.font24 {
+    font-size:24px;
+}
+
+.wellBox {
+    height:600px;
+    width:auto;
+}

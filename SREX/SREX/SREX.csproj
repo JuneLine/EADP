@@ -127,6 +127,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="GuidedTourDetails.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Pictures\Bag.jpg" />
     <Content Include="Pictures\Cloth.jpg" />
@@ -152,6 +153,7 @@
     <Content Include="Pictures\Sports.jpg" />
     <Content Include="Pictures\USS.jpg" />
     <Content Include="Pictures\Watch.jpg" />
+    <Content Include="PlannedTour.aspx" />
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
     <Content Include="profile.png" />
@@ -218,12 +220,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GuidedTourDetails.aspx.cs">
+      <DependentUpon>GuidedTourDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedTourDetails.aspx.designer.cs">
+      <DependentUpon>GuidedTourDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlannedTour.aspx.cs">
+      <DependentUpon>PlannedTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlannedTour.aspx.designer.cs">
+      <DependentUpon>PlannedTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlanningHistory.aspx.cs">
       <DependentUpon>PlanningHistory.aspx</DependentUpon>
