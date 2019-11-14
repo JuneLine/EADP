@@ -62,7 +62,7 @@
                                 <div class="dropdown">Shops<i class="fa fa-caret-down"></i></div>
                             </a>
                             <div class="dropdown-content">
-                                <a href="~/">Purchase History</a>
+                                <a href="ShoppingHistory">Purchase History</a>
                             </div>
                             
                         </li>

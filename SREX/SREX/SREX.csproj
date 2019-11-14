@@ -187,7 +187,9 @@
     <Content Include="SelfPlanMain.aspx" />
     <Content Include="selfplanView.aspx" />
     <Content Include="Shopping.aspx" />
+    <Content Include="ShoppingHistory.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="SportsGroup.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -263,6 +265,13 @@
     <Compile Include="Shopping.aspx.designer.cs">
       <DependentUpon>Shopping.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingHistory.aspx.cs">
+      <DependentUpon>ShoppingHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingHistory.aspx.designer.cs">
+      <DependentUpon>ShoppingHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,6 +285,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SportsGroup.aspx.cs">
+      <DependentUpon>SportsGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SportsGroup.aspx.designer.cs">
+      <DependentUpon>SportsGroup.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
