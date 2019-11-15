@@ -109,3 +109,11 @@ body {
     height:600px;
     width:auto;
 }
+
+.beautifulBox {
+    width:100%;
+    height:300px;
+    border:1px solid black;
+    margin-left:auto;
+    margin-right:auto;
+}

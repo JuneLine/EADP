@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 text-center leaveSpace">
-                    <a href="#">
+                    <a href="PlannedTour">
                         <i class="fa fa-clipboard planIcons"></i>
                     </a>
                     <h3>Guide Tour</h3>
