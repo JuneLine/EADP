@@ -2,6 +2,8 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    min-height:100vh;
+    position:relative;
 }
 
 /* Wrapping element */
@@ -95,14 +97,16 @@ body {
     margin-top: 4%;
 }
 
-.Rightfloat{
-    float:right;
-    position:absolute;
-    right:10%;
+footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.font24 {
-    font-size:24px;
+.body-container-own {
+    margin-bottom:10%
 }
 
-
+/*Marcus Stuff Dont Touch Plz*/

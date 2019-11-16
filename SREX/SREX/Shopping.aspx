@@ -120,7 +120,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Watch.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Watch</a>
+                            <a href="Product.aspx">Watch</a>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Sports.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Sports</a>
+                            <a href="SportsGroup">Sports</a>
                         </div>
                     </div>
                 </div>
@@ -153,6 +153,46 @@
                             <a href="#">Native Product</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Recommended Products</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-container-own">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                    <div class="panel-body">
+                        <img src="Pictures/Watch.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                    </div>
+                    <div class="panel-footer">30% Discount for last few days!</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                    <div class="panel-body">
+                        <img src="Pictures/Cloth.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                    </div>
+                    <div class="panel-footer">10% Discount</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                    <div class="panel-body">
+                        <img src="Pictures/Bag.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                    </div>
+                    <div class="panel-footer">Buy one, Get one Free</div>
                 </div>
             </div>
         </div>

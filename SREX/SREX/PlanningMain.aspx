@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Plan" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlanningMain.aspx.cs" Inherits="SREX.PlanningMain" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container text-center">
+    <div class="container text-center body-container-own">
         <br />
         <br />
         <div class="container-fluid">
