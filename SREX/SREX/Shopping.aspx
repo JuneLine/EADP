@@ -168,7 +168,7 @@
     </div>
     <div class="container body-container-own">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">BLACK FRIDAY DEAL</div>
                     <div class="panel-body">
@@ -177,7 +177,7 @@
                     <div class="panel-footer">30% Discount for last few days!</div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">BLACK FRIDAY DEAL</div>
                     <div class="panel-body">
@@ -186,13 +186,22 @@
                     <div class="panel-footer">10% Discount</div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">BLACK FRIDAY DEAL</div>
                     <div class="panel-body">
                         <img src="Pictures/Bag.jpg" class="img-responsive" style="width: 100%" alt="Image">
                     </div>
                     <div class="panel-footer">Buy one, Get one Free</div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                    <div class="panel-body">
+                        <img src="Pictures/LocalFood.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                    </div>
+                    <div class="panel-footer">20% Discount!</div>
                 </div>
             </div>
         </div>
