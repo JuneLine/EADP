@@ -1,1 +1,6 @@
 .vs/
+*.pdb
+SREX/SREX/obj/Debug/SREX.dll
+*.dll
+*.cache
+*.cache

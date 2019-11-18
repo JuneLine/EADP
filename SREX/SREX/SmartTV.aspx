@@ -1,12 +1,35 @@
 ﻿<%@ Page Title="SmartTv" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SmartTV.aspx.cs" Inherits="SREX.Product" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script>
+        var scroll = 0
+        window.onload = function () {
+            scroll = document.getElementById("MyText").clientHeight;
+        }
+        $(window).scroll(function () {
+            var Windowscroll = $(window).scrollTop();
+            if (Windowscroll + ($(window).height() / 2) <= scroll) {
+                $(".MyPicture").addClass("FixedPicture");
+                $(".MyPicture").css("top", '');
+            }
+            else if (Windowscroll + ($(window).height() / 2) >= scroll) {
+                $(".MyPicture").removeClass("FixedPicture");
+                $(".MyPicture").css("top", $("#MyText").height()*2);
+            }
+            else {
+                $(".MyPicture").addClass("FixedPicture");
+                $(".MyPicture").css("top", '');
+            }
+        });
+    </script>
     <link href="Content/Product.css" rel="stylesheet" />
-    <div class="row" style="margin-top: 50px;">
+    <div class="row body-container-own" style="margin-top: 50px;">
         <div class="col-lg-5 col-md-6 col-sm-12 center-block">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/91mqp0z-TiL._SX679_.jpg" class="ProductImage"/>
+            <%--<img src="https://images-na.ssl-images-amazon.com/images/I/91mqp0z-TiL._SX679_.jpg" class="ProductImage"/>--%>
             <%--<img src="Pictures/model-2.jpg" class="ProductImage" />--%>
+            <img src="https://images-na.ssl-images-amazon.com/images/I/61Z5%2B%2BUWAbL._AC_UY695_.jpg" class="ProductImage MyPicture" />
         </div>
-        <div class="col-lg-7 col-md-6 col-sm-12">
+        <div class="col-lg-7 col-md-6 col-sm-12" id="MyText">
             <span style="font-size: 21px;">TCL 55" Class 5-Series 4K UHD Dolby Vision HDR Roku Smart TV - 55S525</span>
             <br />
             <span style="color: green; font-size: 15px;">In Stock</span>
@@ -38,4 +61,88 @@
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </asp:Content>

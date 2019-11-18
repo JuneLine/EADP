@@ -13,3 +13,8 @@
     height: 100%;*/
     margin-top: 5%;
 }
+
+.FixedPicture {
+    position: fixed;
+    top: 5%;
+}

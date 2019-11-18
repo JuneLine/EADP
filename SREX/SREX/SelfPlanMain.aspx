@@ -11,7 +11,7 @@
     </div>
     <div class="container plans">
         <div class="row">
-            <div class="col-sm-3 col-lg-3">
+            <div class="col-sm-4 col-lg-4 destinationyourmother">
                 <div class="row">
                     <div class="input-group col-sm-11 col-lg-11">
                         <input type="text" class="form-control" placeholder="Search for...">
@@ -21,129 +21,245 @@
                     </div>
                 </div>
                 <br />
-                <div class="list-group">
                     <div class="destinationOne">
-                        <a href="#" class="list-group-item list-group-item-action firstLocation" draggable="true" ondragstart="dragStart(event)">
-                            Botanic Gardens
-                            <div class="row extra">
-                                <div class="extraDes">
-                                    Description: A place with flowers
-                                </div>
-                                <div class="extraCost">
-                                    Price: F.O.C
-                                </div>
-                                <div class="extraTags">
-                                    <h6><span class="badge badge-secondary">Outdoors</span></h6>
+                        <a href="#">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image1" runat="server" ImageUrl="~/Pictures/JurongBirdPark.jpg" Height="220px" Width="320px" />
+                                <div class="caption">
+                                    <h4>Botanic Gardens</h4>
+                                    <p></p>
+                                        <div class="extraDes">
+                                            Description: A place with Flowers
+                                        </div>
+                                        <div class="extraCost">
+                                            Price: F.O.C
+                                        </div>
+                                        <div class="extraTags">
+                                            <h6><span class="badge badge-secondary">Outdoors</span></h6>
+                                        </div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="destinationTwo">
-                        <a href="#" class="list-group-item list-group-item-action firstLocation" draggable="true" ondragstart="dragStart(event)">
-                            Singapore Zoological Gardens
-                            <div class="row extra">
-                                <div class="extraDes">
-                                    Description: A place with Animals
-                                </div>
-                                <div class="extraCost">
-                                    Price: $30 per pax
-                                </div>
-                                <div class="extraTags">
-                                    <h6><span class="badge badge-secondary">Animals</span></h6>
+                        <a href="#">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image2" runat="server" ImageUrl="~/Pictures/SingaporeZoo.jpg" Height="220px" Width="320px" />
+                                <div class="caption">
+                                    <h4>Singapore Zoological Gardens</h4>
+                                    <p></p>
+                                        <div class="extraDes">
+                                            Description: A place with Animals
+                                        </div>
+                                        <div class="extraCost">
+                                            Price: $30 per pax
+                                        </div>
+                                        <div class="extraTags">
+                                            <h6><span class="badge badge-secondary">Animals</span></h6>
+                                        </div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="destinationThree">
-                        <a href="#" class="list-group-item list-group-item-action firstLocation" draggable="true" ondragstart="dragStart(event)">
-                            Resort World Sentosa
-                            <div class="row extra">
-                                <div class="extraDes">
-                                    Description: A place with Sentosas
-                                </div>
-                                <div class="extraCost">
-                                    Price: F.O.C
-                                </div>
-                                <div class="extraTags">
-                                    <h6><span class="badge badge-secondary">Indoors</span></h6>
+                        <a href="#">
+                            <div class="thumbnail">
+                                <asp:Image ID="Image3" runat="server" ImageUrl="~/Pictures/ResortWorldSentosa.jpg" Height="220px" Width="320px" />
+                                <div class="caption">
+                                    <h4>Resort World Sentosa</h4>
+                                    <p></p>
+                                        <div class="extraDes">
+                                            Description: A place with Sandtosa
+                                        </div>
+                                        <div class="extraCost">
+                                            Price: F.O.C
+                                        </div>
+                                        <div class="extraTags">
+                                            <h6><span class="badge badge-secondary">Indoors</span></h6>
+                                        </div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="destinationOne">
-                        <a href="#" class="list-group-item list-group-item-action firstLocation" draggable="true" ondragstart="dragStart(event)">
-                            Science Centre
-                            <div class="row extra">
-                                <div class="extraDes">
-                                    Description: A place with Science
-                                </div>
-                                <div class="extraCost">
-                                    Price: $10
-                                </div>
-                                <div class="extraTags">
-                                    <h6><span class="badge badge-secondary">Indoors</span></h6>
+                        <a href="#">
+                            <div class="thumbnail">
+                                <asp:Image ID="JBP" runat="server" ImageUrl="~/Pictures/ScienceCentre.jpg" Height="220px" Width="320px" />
+                                <div class="caption">
+                                    <h4>Science Centre</h4>
+                                    <p></p>
+                                        <div class="extraDes">
+                                            Description: A place with Science
+                                        </div>
+                                        <div class="extraCost">
+                                            Price: $10
+                                        </div>
+                                        <div class="extraTags">
+                                            <h6><span class="badge badge-secondary">Indoors</span></h6>
+                                        </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                </div>
 
             </div>
-            <div class="col-sm-9 col-lg-9">
+            <div class="col-sm-8 col-lg-8 table-bordered">
                 <div class="row">
-                    <input type="date" value="">
-                </div>
-                <div class="row">
+                    <div class="col-sm-3 col-lg-3" style="padding:2%;">
+                        Plan for selected date:
+                        <input type="date" value="">
+                    </div>
+                    <div class="col-sm-5 col-lg-5" style="padding:2%;">
+                        Would you like to hire a tour guide?
+                    <asp:RadioButtonList ID="RadioButtonList2" runat="server" CellSpacing="5" RepeatDirection="Horizontal">
+                        <asp:ListItem>Yes</asp:ListItem>
+                        <asp:ListItem>No</asp:ListItem>
+                    </asp:RadioButtonList>
+                    </div>
+                 </div>
+                <hr />
+                <div class="row rounded">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col" class="col-sm-2 col-lg-2">Timings</th>
-                                <th scope="col" class="col-sm-10 col-lg-10">Activities</th>
+                                <th scope="col" class="col-sm-4 col-lg-4">Timings</th>
+                                <th scope="col" class="col-sm-8 col-lg-8">Activities</th>
                             </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <th scope="row">10am - 11am</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)" >Eat</td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList1" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">11am - 12am</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList2" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">12am - 1pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList3" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">1pm - 2pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList4" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">2pm - 3pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList5" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">3pm - 4pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList6" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">4pm - 5pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList7" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">5pm - 6pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList8" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">6pm - 7pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList9" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">7pm - 8pm</th>
-                            <td colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"><p>Eat</p></td>
+                            <td colspan="4">
+                                <p>
+                                    <asp:DropDownList ID="DropDownList10" runat="server">
+                                        <asp:ListItem>Botanic Gardens</asp:ListItem>
+                                        <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
+                                        <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
+                                        <asp:ListItem>Science Centre</asp:ListItem>
+                                    </asp:DropDownList>
+                                </p>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
+                    <hr />
                     <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='#'">Submit</button>
                 </div>
             </div>
@@ -153,18 +269,7 @@
     <br />
     <br />
     <br />
-    <script>
-        function dragStart(event) {
-            event.dataTransfer.setData("Text", event.target.id);
-        }
-
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-        function drop(event) {
-            event.preventDefault();
-            var data = event.dataTransfer.getData("Text");
-            event.target.appendChild(document.getElementById(data));
-        }
-    </script>
+    <br />
+    <br />
+    <br />
 </asp:Content>
