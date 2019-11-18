@@ -112,6 +112,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\core-style.css" />
+    <Content Include="Content\Guide.css" />
     <Content Include="Content\Product.css" />
     <Content Include="Content\selfPlan.css" />
     <Content Include="Content\Site.css" />
