@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Sports" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SportsGroup.aspx.cs" Inherits="SREX.SportsGroup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clothes.aspx.cs" Inherits="SREX.Clothes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
@@ -6,13 +6,13 @@
             <div class="col-sm-2 sidenav hidden-xs">
                 <h3>Categories</h3>
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#">Clothing</a></li>
+                    <li class="active"><a href="Clothes">Clothing</a></li>
                     <li><a href="#">Shoes</a></li>
                     <li><a href="#">Accessories</a></li>
                     <li><a href="#">Bag</a></li>
                     <li><a href="ElectronicDevices">Electronic Devices</a></li>
                     <li><a href="#">Watch</a></li>
-                    <li class="active"><a href="SportsGroup">Sports</a></li>
+                    <li><a href="SportsGroup">Sports</a></li>
                     <li><a href="#">Cosmetics & Perfume</a></li>
                     <li><a href="#">Native Product</a></li>
                 </ul>
@@ -38,22 +38,24 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                            <div class="panel-heading">iPhone 11</div>
                             <div class="panel-body">
-                                <img src="Pictures/Cloth.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                                <img src="Pictures/Electronic.jpg" class="img-responsive" style="width: 100%" alt="Image">
                             </div>
                             <div class="panel-footer">10% Discount</div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                            <div class="panel-body">
-                                <img src="Pictures/Cloth.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                    <a href="SmartTV">
+                        <div class="col-sm-3">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">HDR Roku Smart TV</div>
+                                <div class="panel-body">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/91mqp0z-TiL._SX679_.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                                </div>
+                                <div class="panel-footer">10% Discount</div>
                             </div>
-                            <div class="panel-footer">10% Discount</div>
                         </div>
-                    </div>
+                    </a>
                     <div class="col-sm-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">BLACK FRIDAY DEAL</div>

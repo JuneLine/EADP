@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="SREX.Product" %>
+﻿<%@ Page Title="SmartTv" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SmartTV.aspx.cs" Inherits="SREX.Product" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Product.css" rel="stylesheet" />
     <div class="row" style="margin-top: 50px;">

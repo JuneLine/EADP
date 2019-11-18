@@ -74,7 +74,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Cloth.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Clothing</a>
+                            <a href="Clothes">Clothing</a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Electronic.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Electronic devices</a>
+                            <a href="ElectronicDevices">Electronic devices</a>
                         </div>
                     </div>
                 </div>
