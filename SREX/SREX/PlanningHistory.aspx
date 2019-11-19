@@ -1,11 +1,18 @@
 ﻿<%@ Page Title="Planning History" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlanningHistory.aspx.cs" Inherits="SREX.PlanningHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="Content/selfPlan.css" rel="stylesheet" />
      <div class="container">
         <div class="page-header">
         <h1 class="text-center">Self Plan histories</h1>
         </div>
     </div>
-    <div class="list-group">
+    <div class="body-container-own list-group col-sm-12 col-lg-12">
+        <div class="input-group col-sm-12 col-lg-12">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Singapore trip 1</h5>

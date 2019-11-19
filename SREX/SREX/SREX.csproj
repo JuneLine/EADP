@@ -167,6 +167,7 @@
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="SelfplanConfirmation.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SmartTV.aspx" />
     <Content Include="profile.png" />
@@ -305,6 +306,13 @@
     </Compile>
     <Compile Include="PlanningMain.aspx.designer.cs">
       <DependentUpon>PlanningMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelfplanConfirmation.aspx.cs">
+      <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelfplanConfirmation.aspx.designer.cs">
+      <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>

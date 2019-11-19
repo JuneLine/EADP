@@ -3,6 +3,10 @@
 }
 
 .destinationyourmother {
-    height: 800px;
+    height: 900px;
     overflow-y: scroll;
+}
+
+.list-group {
+    padding-right: 0;
 }
