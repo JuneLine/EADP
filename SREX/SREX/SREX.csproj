@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Clothes.aspx" />
+    <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -117,6 +118,7 @@
     <Content Include="Content\Product.css" />
     <Content Include="Content\selfPlan.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ControlPanel.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
     <Content Include="ElectronicDevices.aspx" />
@@ -149,6 +151,8 @@
     <Content Include="Pictures\model-8.jpg" />
     <Content Include="Pictures\model-9.jpg" />
     <Content Include="Pictures\model4.jpg" />
+    <Content Include="Pictures\ResortWorldSentosa.jpg" />
+    <Content Include="Pictures\ScienceCentre.jpg" />
     <Content Include="Pictures\Shoes.jpg" />
     <Content Include="Pictures\Accessories.jpg" />
     <Content Include="Pictures\GBTB.jpg" />
@@ -162,6 +166,8 @@
     <Content Include="PlannedTour.aspx" />
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
+    <Content Include="Scripts\Login.js" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="SmartTV.aspx" />
     <Content Include="profile.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -220,12 +226,26 @@
     <Compile Include="Clothes.aspx.designer.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Collection.aspx.cs">
+      <DependentUpon>Collection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collection.aspx.designer.cs">
+      <DependentUpon>Collection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel.aspx.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanel.aspx.designer.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -285,6 +305,13 @@
     </Compile>
     <Compile Include="PlanningMain.aspx.designer.cs">
       <DependentUpon>PlanningMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="SmartTV.aspx.cs">
       <DependentUpon>SmartTV.aspx</DependentUpon>
