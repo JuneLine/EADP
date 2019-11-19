@@ -18,3 +18,7 @@
     position: fixed;
     top: 5%;
 }
+
+.OrderStuff th {
+    padding-right: 10%;
+}

@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Clothes.aspx" />
+    <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -116,6 +117,7 @@
     <Content Include="Content\Product.css" />
     <Content Include="Content\selfPlan.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ControlPanel.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
     <Content Include="ElectronicDevices.aspx" />
@@ -218,12 +220,26 @@
     <Compile Include="Clothes.aspx.designer.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Collection.aspx.cs">
+      <DependentUpon>Collection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collection.aspx.designer.cs">
+      <DependentUpon>Collection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel.aspx.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanel.aspx.designer.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
