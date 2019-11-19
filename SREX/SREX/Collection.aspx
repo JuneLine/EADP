@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Collection.aspx.cs" Inherits="SREX.Collection" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="Content/Product.css" rel="stylesheet" />
+        <link href="Content/Product.css" rel="stylesheet" />
     <div class="jumbotron" style="overflow: auto">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12">
