@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
-    <div class="text-center font24">
+    <div class="text-center font24 body-container-own">
         <div class="well" style="margin-top: 3%;">
             <h1>Our Plans</h1>
         </div>
@@ -69,9 +69,8 @@
             </div>
         </div>
         <div>
-            <asp:Button ID="BtnAddTours" runat="server" Text="Add" class="btn btn-primary addEvents" />
+            <%--<asp:Button ID="BtnAddTours" runat="server" Text="Add" class="btn btn-primary addEvents" />--%>
         </div>
-        <div class="body-container-own"></div>
         <br />
         <br />
     </div>

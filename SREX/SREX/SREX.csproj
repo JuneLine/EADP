@@ -132,6 +132,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="GuidedPayment.aspx" />
     <Content Include="GuidedTourDetails.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Pictures\Bag.jpg" />
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GuidedPayment.aspx.cs">
+      <DependentUpon>GuidedPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedPayment.aspx.designer.cs">
+      <DependentUpon>GuidedPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="GuidedTourDetails.aspx.cs">
       <DependentUpon>GuidedTourDetails.aspx</DependentUpon>

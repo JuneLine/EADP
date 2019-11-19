@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
     <div class="container-fluid">
-        <div class="row">
+        <div class="row body-container-own">
             <br />
             <div class="well text-center">
                 <h3>Day Tour At Singapore ZOO</h3>
@@ -51,12 +51,11 @@
                     <td>Gentle Giants Wildlife Tour</td>
                 </tr>
                 <tr>
-                    <td>1700</td>
-                    <td>End Of Tour</td>
+                    <td style="height: 38px">1700</td>
+                    <td style="height: 38px">End Of Tour</td>
                 </tr>
             </table>
+            <asp:Button ID="BtnPurchaseTicks" runat="server" class="btn btn-primary centraliseItem" OnClick="BtnPurchaseTicks_Click" Text="Buy" />
         </div>
-        <asp:Button runat="server" text="Buy" class="btn btn-group-lg btn-success centraliseItem"/>
-        <div class="body-container-own"></div>
     </div>
 </asp:Content>
