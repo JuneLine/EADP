@@ -162,6 +162,8 @@
     <Content Include="Pictures\Watch.jpg" />
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
+    <Content Include="Scripts\Login.js" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="SmartTV.aspx" />
     <Content Include="profile.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -278,6 +280,13 @@
     </Compile>
     <Compile Include="PlanningMain.aspx.designer.cs">
       <DependentUpon>PlanningMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="SmartTV.aspx.cs">
       <DependentUpon>SmartTV.aspx</DependentUpon>
