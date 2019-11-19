@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="Plan" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlanningMain.aspx.cs" Inherits="SREX.PlanningMain" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="Content/Guide.css" rel="stylesheet" />
     <div class="container text-center body-container-own">
         <br />
         <br />
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 text-center leaveSpace">
-                    <a href="#">
+                    <a href="PlannedTour">
                         <i class="fa fa-clipboard planIcons"></i>
                     </a>
                     <h3>Guide Tour</h3>
@@ -99,7 +100,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
+        <div class="body-container-own"></div>
     </div>
 </asp:Content>
