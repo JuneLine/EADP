@@ -19,7 +19,7 @@
             var data = new google.visualization.arrayToDataTable([
                 ["Items", "Quantity"],
                 ["Samsung S10+", 30],
-                ["LG 55&quot; TV", 20],
+                ['LG 55" TV', 20],
                 ["Nvidia 2080ti", 17],
                 ["Sony WF1000 XM3", 5],
                 ["Cup", 2],
@@ -52,6 +52,7 @@
                 'subtitle': "Not Including Taxes",
                 'bar.groupWidth': 61.8,
                 'chartArea.left': 0,
+                'chartArea.top': '5%',
                 'width': '100%',
                 'legend': {
                     'position': 'none',
@@ -67,34 +68,49 @@
     </script>
     <div class="row">
         <div class="col-lg-5 col-md-12 col-sm-12" style="height: 300px">
-            <div id="chart_div" style="height: 100%"></div>
+            <div id="chart_div" style="height: 100%; margin-top: 5%;"></div>
         </div>
         <div class="col-lg-7 col-md-12 col-sm-12" style="height: 300px">
-            <div id="Bar_Chart" style="height: 100%"></div>
+            <div id="Bar_Chart" style="height: 100%; margin-top: 5%;"></div>
         </div>
     </div>
-    <div class="row">
+    <br />
+    <br />
+    <div class="row body-container-own">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <table class="OrderTable" style="margin-left:auto;margin-right:auto;">
-                <tr>
-                    <th style="padding-right:40%">Item:
-                    </th>
-                    <th style="padding-right:10%">Quantity:
-                    </th>
-                    <th style="padding-right:30%">Status
-                    </th>
-                    <th>Options:
-                    </th>
-                </tr>
+            <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+                <thead>
+                    <tr>
+                        <th>Item:
+                        </th>
+                        <th>Quantity:
+                        </th>
+                        <th>Status
+                        </th>
+                        <th>Options:
+                        </th>
+                    </tr>
+                </thead>
                 <tr>
                     <td>TCL 55" OLED TV
                     </td>
                     <td>5
                     </td>
-                    <td>WARNING LOW STOCK
+                    <td>WARNING LOW ON STOCK
                     </td>
                     <td>
-                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" />
+                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" class="btn btn-primary" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nike Random Shoe
+                    </td>
+                    <td>2
+                    </td>
+                    <td>WARNING EXTREMELY LOW ON STOCK
+                    </td>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Text="Go To Page" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="Restock" class="btn btn-primary" />
                     </td>
                 </tr>
             </table>
