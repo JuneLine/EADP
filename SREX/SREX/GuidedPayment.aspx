@@ -47,18 +47,31 @@
                 <hr />
                 <div class="btmrightbox ">
                     <h4>Purchase</h4>
-                    <div style="border-bottom:0.5px solid black;">
+                    <div style="border-bottom: 0.5px solid black;">
                         <%--Quantity: 
                         <div style="border:1px solid black; width:fit-content; padding:0.5%;">
                             <input type="button" value="+" class="btnplusminus"/>&nbsp<span>0</span>&nbsp<input type="button" value="-" class="btnplusminus"/>
                         </div>--%>
-                        Cost: Reeee <br />
-                        Service Charge(10%): Reeee <br />
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                Dropdown Example
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Child</a></li>
+                                <li><a href="#">Adult</a></li>
+                                <li><a href="#">Senior Citizen</a></li>
+                            </ul>
+                        </div>
+                        Cost: Reeee
+                        <br />
+                        Service Charge(10%): Reeee
+                        <br />
                         GST(7%): Reeee
                     </div>
                     <p>Total Cost:<span>E yes</span></p>
 
-                    <asp:Button runat="server" Text="Purchase" class="btn btn-primary buttonRight" style="margin-top:2%"/>
+                    <asp:Button runat="server" Text="Purchase" class="btn btn-primary buttonRight" Style="margin-top: 2%" />
                 </div>
             </div>
         </div>
