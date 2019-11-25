@@ -106,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="App_Data\Srex.mdf" />
+    <Content Include="App_Data\Srex_log.ldf">
+      <DependentUpon>Srex.mdf</DependentUpon>
+    </Content>
     <Content Include="Clothes.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -118,7 +122,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
-    <Content Include="ElectronicDevices.aspx" />
+    <Content Include="ProductList.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -133,7 +137,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Pictures\Bag.jpg" />
-    <Content Include="Pictures\Cloth.jpg" />
+    <Content Include="Pictures\Sweater.jpg" />
     <Content Include="Pictures\Electronic.jpg" />
     <Content Include="Pictures\LocalFood.jpg" />
     <Content Include="Pictures\Makeup.jpg" />
@@ -162,7 +166,7 @@
     <Content Include="PlanningMain.aspx" />
     <Content Include="Scripts\Login.js" />
     <Content Include="ShoppingCart.aspx" />
-    <Content Include="SmartTV.aspx" />
+    <Content Include="Shoes.aspx" />
     <Content Include="profile.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -234,12 +238,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ElectronicDevices.aspx.cs">
-      <DependentUpon>ElectronicDevices.aspx</DependentUpon>
+    <Compile Include="ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ElectronicDevices.aspx.designer.cs">
-      <DependentUpon>ElectronicDevices.aspx</DependentUpon>
+    <Compile Include="ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -272,12 +276,12 @@
     <Compile Include="ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SmartTV.aspx.cs">
-      <DependentUpon>SmartTV.aspx</DependentUpon>
+    <Compile Include="Shoes.aspx.cs">
+      <DependentUpon>Shoes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SmartTV.aspx.designer.cs">
-      <DependentUpon>SmartTV.aspx</DependentUpon>
+    <Compile Include="Shoes.aspx.designer.cs">
+      <DependentUpon>Shoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelfPlanMain.aspx.cs">
@@ -338,7 +342,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="BLL\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -366,7 +371,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50744</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50744/</IISUrl>
+          <IISUrl>http://localhost:50743/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

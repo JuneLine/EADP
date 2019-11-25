@@ -72,9 +72,9 @@
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Cloth.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Sweater.jpg);">
                         <div class="catagory-content">
-                            <a href="Clothes">Clothing</a>
+                            <a href="ProductList?category=cloth">Clothing</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Shoes.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Shoes</a>
+                            <a href="ProductList?category=shoes">Shoes</a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Accessories.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Accessories</a>
+                            <a href="ProductList?category=accessories">Accessories</a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Bag.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Bag</a>
+                            <a href="ProductList?category=bag">Bag</a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Electronic.jpg);">
                         <div class="catagory-content">
-                            <a href="ElectronicDevices">Electronic devices</a>
+                            <a href="ProductList?category=electronic-devices">Electronic devices</a>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Watch.jpg);">
                         <div class="catagory-content">
-                            <a href="Product.aspx">Watch</a>
+                            <a href="ProductList?category=watch">Watch</a>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Sports.jpg);">
                         <div class="catagory-content">
-                            <a href="SportsGroup">Sports</a>
+                            <a href="ProductList?category=sportGroup">Sports</a>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Makeup.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Cosmetics & Perfume</a>
+                            <a href="ProductList?category=cosmetics-perfume">Cosmetics & Perfume</a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/LocalFood.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Native Product</a>
+                            <a href="ProductList?category=native-product">Native Product</a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">BLACK FRIDAY DEAL</div>
                     <div class="panel-body">
-                        <img src="Pictures/Cloth.jpg" class="img-responsive" style="width: 100%" alt="Image">
+                        <img src="Pictures/Sweater.jpg" class="img-responsive" style="width: 100%" alt="Image">
                     </div>
                     <div class="panel-footer">10% Discount</div>
                 </div>

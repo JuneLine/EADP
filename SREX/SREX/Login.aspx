@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SREX.Login" %>
+﻿ <%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SREX.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container" style="margin-top: 5%;margin-bottom:10%;">
@@ -16,16 +16,19 @@
                         </div>
                         <hr>
                     </div>
+                    <div class="text-center" id="hideInfo">
+                        <asp:Label ID="showInfo" runat="server"></asp:Label>
+                    </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div id="login-form">
-                                    <form action="" method="post" role="form" style="display: block;">
+                                    <div role="form" style="display: block;">
                                         <div class="form-group">
-                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                            <input type="text" name="username" id="loginUsername" tabindex="1" class="form-control" placeholder="Username" value="">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                            <input type="password" name="password" id="loginPassword" tabindex="2" class="form-control" placeholder="Password">
                                         </div>
                                         <div class="form-group text-center">
                                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -47,38 +50,42 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                                <form id="register-form" action="" method="post" role="form" style="display: none;">
+
+                                <div id="register-form" role="form" style="display: none;">
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        <asp:TextBox runat="server" TabIndex="1" ID="registerUsername" CssClass="form-control" placeholder="Username" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                        <asp:TextBox runat="server" TabIndex="1" ID="emailAddress" Type="email" CssClass="form-control" placeholder="Email Address" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="gender" name="gender" id="gender" tabindex="1" class="form-control" placeholder="Gender" value="">
+                                        <asp:DropDownList ID="ddlGender" runat="server" TabIndex="1" CssClass="form-control" placeholder="Gender">
+                                            <asp:ListItem>Male</asp:ListItem>
+                                            <asp:ListItem>Female</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                     <div class="form-group">
-                                        <input type="passportId" name="passportId" id="passportId" tabindex="1" class="form-control" placeholder="Passport ID" value="">
+                                        <asp:TextBox runat="server" TabIndex="1" CssClass="form-control" placeholder="Passport ID" ID="passportId" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="dob" name="dob" id="dob" tabindex="1" class="form-control" placeholder="Date of Birth" value="">
+                                        <asp:TextBox runat="server" TabIndex="1" CssClass="form-control" Type="Date" placeholder="Date of Birth" ID="dob"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                        <asp:TextBox runat="server" TabIndex="2" CssClass="form-control" placeholder="Password" ID="registerPassword" TextMode="Password"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        <asp:TextBox runat="server" TabIndex="2" CssClass="form-control" placeholder="Confirm Password" ID="confirmPassowrd" TextMode="Password" />
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                                <asp:Button Text="Register Now" ID="registerSubmit" runat="server" TabIndex="4" CssClass="form-control btn btn-register" OnClick="registerSubmit_Click" />
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

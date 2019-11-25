@@ -12,10 +12,11 @@
                                     <h5><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</h5>
                                 </div>
                                 <div class="col-xs-2" style="float: right">
-                                    <button type="button" class="btn btn-primary btn-sm btn-block">
-                                        <span class="glyphicon glyphicon-share-alt"></span>Continue shopping
-							
-                                    </button>
+                                    <a href="Shopping">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block">
+                                            <span class="glyphicon glyphicon-share-alt"></span>Continue shopping
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
