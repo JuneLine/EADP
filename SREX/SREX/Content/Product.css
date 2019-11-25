@@ -19,10 +19,6 @@
     top: 5%;
 }
 
-.OrderStuff th {
-    padding-right: 10%;
-}
-
-.OrderTable th {
-    padding-right: 10%;
+.MyTableThing {
+    font-size: 24px;
 }
