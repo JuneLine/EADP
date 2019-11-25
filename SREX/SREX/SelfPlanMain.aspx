@@ -2,24 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/selfPlan.css" rel="stylesheet" />
     <div class="container">
-            <div class="page-header">
+            <div class="page-header well">
                 <h1 class="text-center">Self plan</h1>
-                <div class="row">
-                    <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='PlanningHistory.aspx'">History</button>
-                </div>
             </div>
     </div>
     <div class="container plans">
-        <div class="row">
             <div class="col-sm-4 col-lg-4 destinationyourmother">
-                <div class="row">
-                    <div class="input-group col-sm-11 col-lg-11">
+
+                    <div class="input-group col-sm-12 col-lg-12">
                         <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Go!</button>
                         </span>
                     </div>
-                </div>
+
                 <br />
                     <div class="destinationOne">
                         <a href="#">
@@ -103,7 +99,18 @@
                     </div>
 
             </div>
+            <br />
             <div class="col-sm-8 col-lg-8 table-bordered">
+                <div class="row">
+                    <div class="form-group col-sm-10 col-lg-10">
+                        <label for="selfPlanTitle">Title</label>
+                        <input type="text" class="form-control" id="selfPlanTitle" aria-describedby="SelfPlanTitle" placeholder="Enter title">
+                        <small id="titleHelp" class="form-text text-muted">If left blank, title will be named as untitled</small>
+                    </div>
+                    <div class="col-sm-2 col-lg-2" style="padding:2%;">
+                        <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='PlanningHistory.aspx'">History</button>
+                    </div>
+                  </div>
                 <div class="row">
                     <div class="col-sm-3 col-lg-3" style="padding:2%;">
                         Plan for selected date:
@@ -260,11 +267,10 @@
                         </tbody>
                     </table>
                     <hr />
-                    <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='#'">Submit</button>
+                    <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='SelfPlanConfirmation.aspx'">Submit</button>
                 </div>
             </div>
         </div>
-    </div>
     <br />
     <br />
     <br />

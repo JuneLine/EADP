@@ -1,0 +1,29 @@
+﻿.addEvents{
+    padding-left:3%;
+    padding-right:3%;
+    font-size:1.3em;
+}
+
+.body-container-own {
+    margin-bottom: 10%
+}
+
+.panelHeader {
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+th{
+    text-align:center;
+}
+
+.centraliseItem{
+    position:relative;
+    margin-left:50%;
+}
+
+.buttonRight {
+    float: right;
+    position: relative;
+    right: 3%;
+}

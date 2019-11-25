@@ -73,8 +73,8 @@
                                 <div class="dropdown">Plans<i class="fa fa-caret-down"></i></div>
                             </a>
                             <div class="dropdown-content">
-                                <a href="~/">Recommanded Plans</a>
-                                <a href="~/">Plan by Yourself</a>
+                                <a href="GuidedTour">Recommanded Plans</a>
+                                <a href="SelfPlanMain">Plan by Yourself</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>

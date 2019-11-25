@@ -8,17 +8,17 @@
         }
         $(window).scroll(function () {
             var Windowscroll = $(window).scrollTop();
-            if (Windowscroll + ($(window).height() / 2) <= scroll) {
+            if (Windowscroll + ($(window).height() / 2.5) <= scroll) {
                 $(".MyPicture").addClass("FixedPicture");
-                $(".MyPicture").css("top", '');
+                $(".MyPicture").css("margin-top", "");
             }
-            else if (Windowscroll + ($(window).height() / 2) >= scroll) {
+            else if (Windowscroll + ($(window).height() / 2.5) >= scroll) {
                 $(".MyPicture").removeClass("FixedPicture");
-                $(".MyPicture").css("top", $("#MyText").height()*2);
+                $(".MyPicture").css("margin-top", $("#MyText").height() / 2);
             }
             else {
                 $(".MyPicture").addClass("FixedPicture");
-                $(".MyPicture").css("top", '');
+                $(".MyPicture").css("margin-top", "");
             }
         });
     </script>

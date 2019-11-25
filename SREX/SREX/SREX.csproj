@@ -111,15 +111,18 @@
       <DependentUpon>Srex.mdf</DependentUpon>
     </Content>
     <Content Include="Clothes.aspx" />
+    <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\core-style.css" />
+    <Content Include="Content\Guide.css" />
     <Content Include="Content\Product.css" />
     <Content Include="Content\selfPlan.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ControlPanel.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
     <Content Include="ProductList.aspx" />
@@ -135,6 +138,10 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="GuidedPayment.aspx" />
+    <Content Include="GuidedPurchaseHist.aspx" />
+    <Content Include="GuidedQRpage.aspx" />
+    <Content Include="GuidedTourDetails.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Pictures\Bag.jpg" />
     <Content Include="Pictures\Sweater.jpg" />
@@ -162,9 +169,13 @@
     <Content Include="Pictures\Sports.jpg" />
     <Content Include="Pictures\USS.jpg" />
     <Content Include="Pictures\Watch.jpg" />
+    <Content Include="GuidedTour.aspx">
+      <BrowseToURL>~/GuidedTour.aspx</BrowseToURL>
+    </Content>
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="SelfplanConfirmation.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Shoes.aspx" />
     <Content Include="profile.png" />
@@ -224,12 +235,26 @@
     <Compile Include="Clothes.aspx.designer.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Collection.aspx.cs">
+      <DependentUpon>Collection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collection.aspx.designer.cs">
+      <DependentUpon>Collection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel.aspx.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanel.aspx.designer.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -248,12 +273,47 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GuidedPayment.aspx.cs">
+      <DependentUpon>GuidedPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedPayment.aspx.designer.cs">
+      <DependentUpon>GuidedPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GuidedPurchaseHist.aspx.cs">
+      <DependentUpon>GuidedPurchaseHist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedPurchaseHist.aspx.designer.cs">
+      <DependentUpon>GuidedPurchaseHist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GuidedQRpage.aspx.cs">
+      <DependentUpon>GuidedQRpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedQRpage.aspx.designer.cs">
+      <DependentUpon>GuidedQRpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GuidedTourDetails.aspx.cs">
+      <DependentUpon>GuidedTourDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedTourDetails.aspx.designer.cs">
+      <DependentUpon>GuidedTourDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GuidedTour.aspx.cs">
+      <DependentUpon>GuidedTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedTour.aspx.designer.cs">
+      <DependentUpon>GuidedTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlanningHistory.aspx.cs">
       <DependentUpon>PlanningHistory.aspx</DependentUpon>
@@ -268,6 +328,13 @@
     </Compile>
     <Compile Include="PlanningMain.aspx.designer.cs">
       <DependentUpon>PlanningMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelfplanConfirmation.aspx.cs">
+      <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelfplanConfirmation.aspx.designer.cs">
+      <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
