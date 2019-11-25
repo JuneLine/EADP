@@ -6,15 +6,15 @@
         <div class="row body-container-own">
             <br />
             <div class="well text-center">
-                <h3>Day Tour At Singapore ZOO</h3>
+                <h2><b>Day Tour At Singapore ZOO</b></h2>
             </div>
-            <br />
-            <p>
-                MeetUp Time: 1000<br />
-                MeetUp Location: Khatib MRT Station
+            <p style="font-size:large">
+                MeetUp Time: <b>1000</b><br />
+                MeetUp Location: <b>Khatib MRT Station</b><br />
+                Estimated Cost: <b>SGD68 per pax</b>
             </p>
 
-            <br />
+            <h3>Day Schedule</h3>
             <table class="table table-hover table-bordered col-sm-12 text-center" style="font-size: 16px;">
                 <tr>
                     <th class="col-sm-3">Time</th>

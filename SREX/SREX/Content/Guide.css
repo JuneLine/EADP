@@ -22,16 +22,8 @@ th{
     margin-left:50%;
 }
 
-.buttonRight{
-    float:right;
-    position:relative;
-    right:3%;
-}
-
-.btnplusminus {
-    height:20px;
-    width:25px;
-    border:none;
-    background-color:white;
-    font-size:1.2em;
+.buttonRight {
+    float: right;
+    position: relative;
+    right: 3%;
 }

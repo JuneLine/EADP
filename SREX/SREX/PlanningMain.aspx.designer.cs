@@ -49,6 +49,24 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Button BtnJBP;
         
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// NightSafari control.
         /// </summary>
         /// <remarks>
@@ -85,39 +103,21 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Button BtnGBTB;
         
         /// <summary>
-        /// RiverSafari control.
+        /// Image2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image RiverSafari;
+        protected global::System.Web.UI.WebControls.Image Image2;
         
         /// <summary>
-        /// BtnRiverSafari control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRiverSafari;
-        
-        /// <summary>
-        /// USS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image USS;
-        
-        /// <summary>
-        /// BtnUSS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnUSS;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SREX
 {
-    public partial class PlannedTour : System.Web.UI.Page
+    public partial class GuidedQRpage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
