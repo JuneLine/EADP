@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="selfplanView.aspx.cs" Inherits="SREX.selfplanView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-            <div class="page-header">
+            <div class="page-header well">
                 <h1 class="text-center">Singapore trip (#)</h1>
             </div>
     </div>

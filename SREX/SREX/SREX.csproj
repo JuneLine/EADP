@@ -135,6 +135,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="GuidedPayment.aspx" />
+    <Content Include="GuidedPurchaseHist.aspx" />
+    <Content Include="GuidedQRpage.aspx" />
     <Content Include="GuidedTourDetails.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Pictures\Bag.jpg" />
@@ -163,7 +165,9 @@
     <Content Include="Pictures\Sports.jpg" />
     <Content Include="Pictures\USS.jpg" />
     <Content Include="Pictures\Watch.jpg" />
-    <Content Include="PlannedTour.aspx" />
+    <Content Include="GuidedTour.aspx">
+      <BrowseToURL>~/GuidedTour.aspx</BrowseToURL>
+    </Content>
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
     <Content Include="Scripts\Login.js" />
@@ -272,6 +276,20 @@
     <Compile Include="GuidedPayment.aspx.designer.cs">
       <DependentUpon>GuidedPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GuidedPurchaseHist.aspx.cs">
+      <DependentUpon>GuidedPurchaseHist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedPurchaseHist.aspx.designer.cs">
+      <DependentUpon>GuidedPurchaseHist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GuidedQRpage.aspx.cs">
+      <DependentUpon>GuidedQRpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuidedQRpage.aspx.designer.cs">
+      <DependentUpon>GuidedQRpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GuidedTourDetails.aspx.cs">
       <DependentUpon>GuidedTourDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -286,12 +304,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PlannedTour.aspx.cs">
-      <DependentUpon>PlannedTour.aspx</DependentUpon>
+    <Compile Include="GuidedTour.aspx.cs">
+      <DependentUpon>GuidedTour.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PlannedTour.aspx.designer.cs">
-      <DependentUpon>PlannedTour.aspx</DependentUpon>
+    <Compile Include="GuidedTour.aspx.designer.cs">
+      <DependentUpon>GuidedTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlanningHistory.aspx.cs">
       <DependentUpon>PlanningHistory.aspx</DependentUpon>

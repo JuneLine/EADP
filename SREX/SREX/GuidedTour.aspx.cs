@@ -7,16 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace SREX
 {
-    public partial class GuidedPayment : System.Web.UI.Page
+    public partial class PlannedTour : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnBuyTicket_Click(object sender, EventArgs e)
+        protected void btnToGuideHist_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GuidedTour.aspx");
+            Response.Redirect("GuidedPurchaseHist.aspx");
         }
     }
 }

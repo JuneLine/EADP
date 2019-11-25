@@ -10,15 +10,15 @@
 namespace SREX {
     
     
-    public partial class GuidedPayment {
+    public partial class GuidedPurchaseHist {
         
         /// <summary>
-        /// btnBuyTicket control.
+        /// BtnBackToMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuyTicket;
+        protected global::System.Web.UI.WebControls.Button BtnBackToMain;
     }
 }

@@ -14,66 +14,87 @@
                     <h3>Personal Particulars</h3>
                     <br />
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Name">
+                        <label class="input-lg">Name</label>
+                        <input type="text" class="form-control input-lg" placeholder="Name">
                     </div>
                     <br />
                     <div class="form-group">
-                        <label>Passport Number</label>
-                        <input type="text" class="form-control" placeholder="Passport Number">
+                        <label class="input-lg">Passport Number</label>
+                        <input type="text" class="form-control input-lg" placeholder="Passport Number">
                     </div>
                     <br />
                     <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" class="form-control" placeholder="Email Address">
+                        <label class="input-lg">E-mail</label>
+                        <input type="email" class="form-control input-lg" placeholder="Email Address">
                     </div>
                     <br />
                     <div class="form-group">
-                        <label>Contact</label>
-                        <input type="number" class="form-control" placeholder="Contact Number">
+                        <label class="input-lg">Contact</label>
+                        <input type="number" class="form-control input-lg" placeholder="Contact Number">
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="font-size: 1.2em;">
                 <div class="toprightbox ">
                     <h3>Tour Details</h3>
                     <br />
-                    <p>
-                        <h4>Tour Package Bought: Day Your At Singapore ZOO</h4>
-                        MeetUp Time: 1000<br />
-                        MeetUp Location: Khatib MRT Station
+                    <h4>Tour Package: <b>Day Your At Singapore ZOO</b></h4>
+                    <p style="font-size: 1.05em;">
+                        MeetUp Time: <b>1000</b>
+                        <br />
+                        MeetUp Location: <b>Khatib MRT Station</b>
                     </p>
                 </div>
                 <hr />
-                <div class="btmrightbox ">
-                    <h4>Purchase</h4>
-                    <div style="border-bottom: 0.5px solid black;">
-                        <%--Quantity: 
-                        <div style="border:1px solid black; width:fit-content; padding:0.5%;">
-                            <input type="button" value="+" class="btnplusminus"/>&nbsp<span>0</span>&nbsp<input type="button" value="-" class="btnplusminus"/>
-                        </div>--%>
+                <div class="btmrightbox" style="font-size: 1.05em;">
+                    <h3>Purchase</h3>
+                    <div>
                         <div class="dropdown">
+                            Quantity:
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                Dropdown Example
+                                Ticket Quantities
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Adult</a></li>
-                                <li><a href="#">Senior Citizen</a></li>
+                            <ul class="dropdown-menu" style="right: auto; left: 75px;">
+                                <li>
+                                    <input type="button" value="+" class="btn" />&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <span>0</span> Child
+                                    <input type="button" value="-" class="btn" style="float: right;" />
+                                </li>
+                                <li>
+                                    <input type="button" value="+" class="btn" />&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <span>0</span> Adult
+                                    <input type="button" value="-" class="btn" style="float: right;" />
+                                </li>
+                                <li>
+                                    <input type="button" value="+" class="btn" />&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <span>0</span> Senior
+                                    <input type="button" value="-" class="btn" style="float: right;" />
+                                </li>
                             </ul>
                         </div>
-                        Cost: Reeee
                         <br />
-                        Service Charge(10%): Reeee
-                        <br />
-                        GST(7%): Reeee
+                        <table class="table">
+                            <tr>
+                                <td>Cost:</td>
+                                <td>$150.00</td>
+                            </tr>
+                            <tr>
+                                <td>GST(7%):</td>
+                                <td>$10.50</td>
+                            </tr>
+                            <tr style="border-bottom: solid black;">
+                                <td>Service Charge(10%):</td>
+                                <td>$15.00</td>
+                            </tr>
+                            <tr>
+                                <td>Total Cost:</td>
+                                <td>$175.50</td>
+                            </tr>
+                        </table>
+                        <asp:Button runat="server" Text="Purchase" class="btn btn-primary buttonRight" Style="margin-top: 2%" ID="btnBuyTicket" OnClick="btnBuyTicket_Click" />
                     </div>
-                    <p>Total Cost:<span>E yes</span></p>
-
-                    <asp:Button runat="server" Text="Purchase" class="btn btn-primary buttonRight" Style="margin-top: 2%" />
                 </div>
             </div>
         </div>
-    </div>
 </asp:Content>

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/selfPlan.css" rel="stylesheet" />
     <div class="container">
-            <div class="page-header">
+            <div class="page-header well">
                 <h1 class="text-center">Self plan</h1>
             </div>
     </div>
