@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-sm-6" style="font-size: 1.2em;">
-                Total Cost: <b>$150</b>
+                Total Cost: <b>$175.50</b>
                 <br />
                 Tickets Bought: <b>2 Adults, 1 Child</b><br />
             </div>

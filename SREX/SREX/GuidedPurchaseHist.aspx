@@ -16,7 +16,7 @@
         <tr>
             <td class="text-center">1</td>
             <td class="text-center">Day Tour At Singapore ZOO</td>
-            <td class="text-center">$150(2 Adult, 1 Child)</td>
+            <td class="text-center">$175.50(2 Adult, 1 Child)</td>
             <td class="text-center">
                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#GuideDetails">View</button>
                 <div class="modal fade" id="GuideDetails" role="dialog">
