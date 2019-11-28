@@ -177,7 +177,7 @@
     <Content Include="Scripts\Login.js" />
     <Content Include="SelfplanConfirmation.aspx" />
     <Content Include="ShoppingCart.aspx" />
-    <Content Include="Shoes.aspx" />
+    <Content Include="ProductInfo.aspx" />
     <Content Include="profile.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -343,12 +343,12 @@
     <Compile Include="ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Shoes.aspx.cs">
-      <DependentUpon>Shoes.aspx</DependentUpon>
+    <Compile Include="ProductInfo.aspx.cs">
+      <DependentUpon>ProductInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Shoes.aspx.designer.cs">
-      <DependentUpon>Shoes.aspx</DependentUpon>
+    <Compile Include="ProductInfo.aspx.designer.cs">
+      <DependentUpon>ProductInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelfPlanMain.aspx.cs">

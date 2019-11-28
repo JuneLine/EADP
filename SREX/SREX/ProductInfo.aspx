@@ -1,4 +1,4 @@
-﻿<%@ Page Title="SmartTv" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shoes.aspx.cs" Inherits="SREX.Product" %>
+﻿<%@ Page Title="SmartTv" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductInfo.aspx.cs" Inherits="SREX.Product" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script>

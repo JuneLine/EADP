@@ -2,3 +2,6 @@
 *.pdb
 *.dll
 *.cache
+SREX/SREX/bin/SREX.dll
+SREX/SREX/bin/SREX.pdb
+SREX/SREX/obj/Debug/SREX.csproj.CoreCompileInputs.cache
