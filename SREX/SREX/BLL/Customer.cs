@@ -14,6 +14,7 @@ namespace SREX.BLL
         public string passnum { get; set; }
         public string dob { get; set; }
         public string email { get; set; }
+        public string role { get; set; }
 
         public Customer()
         {
@@ -35,6 +36,13 @@ namespace SREX.BLL
             CustomerDAO Cust = new CustomerDAO();
             int result = Cust.InsertUser(this);
             return result;
+        }
+
+        public List<Customer> ValidateUser(string NRIC, string Email)
+        {
+            CustomerDAO Cust = new CustomerDAO();
+            List<Customer> Custer = Cust.ValidateExisitingUser(NRIC, Email);
+            return Custer;
         }
     }
 }

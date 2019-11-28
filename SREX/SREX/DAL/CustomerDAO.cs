@@ -11,6 +11,28 @@ namespace SREX.DAL
 {
     public class CustomerDAO
     {
+        private static Customer Read(SqlDataReader dr)
+        {
+            string User = dr["Username"].ToString();
+            string Pass = dr["Password"].ToString();
+            string Gen = dr["Gender"].ToString();
+            string PPort = dr["PassportID"].ToString();
+            string Dob = dr["DOB"].ToString();
+            string Email = dr["EmailAddr"].ToString();
+
+            Customer Value = new Customer
+            {
+                user = User,
+                pass = Pass,
+                gender = Gen,
+                passnum = PPort,
+                dob = Dob,
+                email = Email,
+            };
+
+            return Value;
+        }
+
         public int InsertUser(Customer Cust)
         {
             int result = 0;
@@ -38,6 +60,35 @@ VALUES (@paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, 
             Connection.Close();
 
             return result;
+        }
+
+        public List<Customer> ValidateExisitingUser(string NRIC, string Email)
+        {
+            List<Customer> Stuff = new List<Customer>();
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM Users WHERE PassportID = @paraPassPort OR EmailAddr = @paraEmail";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraPassPort", NRIC);
+            SQLCmd.Parameters.AddWithValue("@paraEmail", Email);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Customer Td = Read(dr);
+                Stuff.Add(Td);
+            }
+
+            Connection.Close();
+
+            return Stuff;
         }
     }
 }

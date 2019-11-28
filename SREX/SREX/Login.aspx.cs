@@ -37,21 +37,30 @@ namespace SREX
 
         protected void registerSubmit_Click(object sender, EventArgs e)
         {
-            if (registerPassword.Text.Equals(confirmPassowrd.Text))
+            if (registerPassword.Text.Equals(confirmPassowrd.Text) && registerPassword.Text.Length != 0)
             {
-                string HashedPassW = MD5Hash(registerPassword.Text);
-
-                Cust = new Customer(registerUsername.Text, HashedPassW, ddlGender.Text, passportId.Text, dob.Text, emailAddress.Text);
-                int result = Cust.CreateUser();
-                if (result == 1)
+                List<Customer> PeopleStuff = Cust.ValidateUser(passportId.Text, emailAddress.Text);
+                if (!PeopleStuff.Any())
                 {
-                    showInfo.Text = "Register Success! Please Login";
-                    showInfo.ForeColor = System.Drawing.Color.Green;
-                    registerUsername.Text = "";
-                    emailAddress.Text = "";
-                    ddlGender.SelectedValue = "Male";
-                    passportId.Text = "";
-                    dob.Text = "";
+                    string HashedPassW = MD5Hash(registerPassword.Text);
+
+                    Cust = new Customer(registerUsername.Text, HashedPassW, ddlGender.Text, passportId.Text, dob.Text, emailAddress.Text);
+                    int result = Cust.CreateUser();
+                    if (result == 1)
+                    {
+                        showInfo.Text = "Register Success! Please Login";
+                        showInfo.ForeColor = System.Drawing.Color.Green;
+                        registerUsername.Text = "";
+                        emailAddress.Text = "";
+                        ddlGender.SelectedValue = "Male";
+                        passportId.Text = "";
+                        dob.Text = "";
+                    }
+                }
+                else
+                {
+                    showInfo.Text = "Existing User!";
+                    showInfo.ForeColor = System.Drawing.Color.Red;
                 }
             }
             else
