@@ -89,5 +89,7 @@
         </tr>
     </table>
     <asp:Button ID="BtnBackToMain" runat="server" Text="Back" class="btn btn-primary centraliseItem" OnClick="BtnBackToMain_Click" />
+    <br />
+    <br />
 </asp:Content>
 

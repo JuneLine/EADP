@@ -80,4 +80,6 @@
             <%--<asp:Button ID="BtnAddTours" runat="server" Text="Add" class="btn btn-primary addEvents" />--%>
         </div>
     </div>
+    <br />
+    <br />
 </asp:Content>
