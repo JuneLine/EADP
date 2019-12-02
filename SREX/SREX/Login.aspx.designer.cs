@@ -22,6 +22,42 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Label showInfo;
         
         /// <summary>
+        /// Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Email;
+        
+        /// <summary>
+        /// loginPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox loginPassword;
+        
+        /// <summary>
+        /// remember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox remember;
+        
+        /// <summary>
+        /// btnnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnnLogin;
+        
+        /// <summary>
         /// registerUsername control.
         /// </summary>
         /// <remarks>

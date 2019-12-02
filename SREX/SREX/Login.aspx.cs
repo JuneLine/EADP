@@ -70,5 +70,21 @@ namespace SREX
             }
 
         }
+
+        protected void btnnLogin_Click(object sender, EventArgs e)
+        {
+            string email = Email.Text;
+            string password = loginPassword.Text;
+            Session["email"] = email;
+            if (email.Contains("admin"))
+            {
+                Session["role"] = "Admin";
+            }
+            else
+            {
+                Session["role"] = "User";
+            }
+            Response.Redirect("Default.aspx");
+        }
     }
 }

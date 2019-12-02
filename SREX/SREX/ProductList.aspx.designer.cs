@@ -10,7 +10,7 @@
 namespace SREX {
     
     
-    public partial class ElectricalDevices {
+    public partial class ProductList {
         
         /// <summary>
         /// DataList1 control.

@@ -13,6 +13,24 @@ namespace SREX {
     public partial class SiteMaster {
         
         /// <summary>
+        /// liLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liLogin;
+        
+        /// <summary>
+        /// liLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liLogout;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

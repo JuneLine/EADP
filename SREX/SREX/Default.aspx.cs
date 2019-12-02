@@ -11,6 +11,17 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["role"] != null)
+                {
+                    lbRole.Text = Session["role"].ToString();
+                }
+                else
+                {
+                    lbRole.Text = string.Empty;
+                }
+            }
 
         }
     }

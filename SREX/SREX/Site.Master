@@ -79,7 +79,8 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Login">Log in/Sign Up</a></li>
+                        <li id="liLogin" class="nav-item" runat="server"><a class="nav-link" runat="server" href="~/Login">Login/Sign Up</a></li>
+                        <li id="liLogout" class="nav-item" runat="server"><a class="nav-link" runat="server" href="~/Logout">Logout</a></li>
                     </ul>
                 </div>
             </div>

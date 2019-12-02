@@ -25,19 +25,19 @@
                                 <div id="login-form">
                                     <div role="form" style="display: block;">
                                         <div class="form-group">
-                                            <input type="text" name="username" id="loginUsername" tabindex="1" class="form-control" placeholder="Username" value="">
+                                            <asp:TextBox runat="server" TabIndex="1" CssClass="form-control" placeholder="Email" ID="Email" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password" id="loginPassword" tabindex="2" class="form-control" placeholder="Password">
+                                            <asp:TextBox runat="server" TabIndex="2" CssClass="form-control" placeholder="Password" ID="loginPassword" />
                                         </div>
                                         <div class="form-group text-center">
-                                            <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                            <asp:CheckBox runat="server" TabIndex="3" ID="remember" />
                                             <label for="remember">Remember Me</label>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
-                                                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                                    <asp:Button Text="Login" ID="btnnLogin" runat="server" TabIndex="4" CssClass="form-control btn btn-login" OnClick="btnnLogin_Click"/>
                                                 </div>
                                             </div>
                                         </div>

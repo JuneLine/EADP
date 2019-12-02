@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Product List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="SREX.ElectricalDevices" %>
+﻿<%@ Page Title="Product List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="SREX.ProductList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
-   
+
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs">
                 <h3>Categories</h3>
@@ -39,15 +39,17 @@
                 <div class="row body-container-own">
                     <asp:DataList ID="DataList1" runat="server" RepeatColumns="3">
                         <ItemTemplate>
-                            <div class="col-sm-12">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading"><%#Eval("Name") %></div>
-                                    <div class="panel-body">
-                                        <asp:Image runat="server" class="img-responsive" ImageUrl='<%#Eval("PictureName") %>' style="width:100%;"></asp:Image>
+                            <a href="ProductInfo?productId=<%#Eval("Id") %>">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading"><%#Eval("Name") %></div>
+                                        <div class="panel-body">
+                                            <asp:Image runat="server" class="img-responsive" ImageUrl='<%#Eval("PictureName") %>' Style="width: 100%;"></asp:Image>
+                                        </div>
+                                        <div class="panel-footer">S$<%#Eval("Price") %></div>
                                     </div>
-                                    <div class="panel-footer"><%#Eval("Price") %>$</div>
                                 </div>
-                            </div>
+                            </a>
                         </ItemTemplate>
                     </asp:DataList>
 

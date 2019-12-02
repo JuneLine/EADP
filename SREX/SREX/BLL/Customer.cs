@@ -8,13 +8,13 @@ namespace SREX.BLL
 {
     public class Customer
     {
-        public string user { get; set; }
-        public string pass { get; set; }
-        public string gender { get; set; }
-        public string passnum { get; set; }
-        public string dob { get; set; }
-        public string email { get; set; }
-        public string role { get; set; }
+        public string User { get; set; }
+        public string Pass { get; set; }
+        public string Gender { get; set; }
+        public string Passnum { get; set; }
+        public string Dob { get; set; }
+        public string Email { get; set; }
+        public string Role { get; set; }
 
         public Customer()
         {
@@ -23,12 +23,12 @@ namespace SREX.BLL
 
         public Customer(string User, string Pass, string Gender, string Passnum, string DOB, string Email)
         {
-            this.user = User;
-            this.pass = Pass;
-            this.gender = Gender;
-            this.passnum = Passnum;
-            this.dob = DOB;
-            this.email = Email;
+            this.User = User;
+            this.Pass = Pass;
+            this.Gender = Gender;
+            this.Passnum = Passnum;
+            this.Dob = DOB;
+            this.Email = Email;
         }
 
         public int CreateUser()

@@ -22,12 +22,12 @@ namespace SREX.DAL
 
             Customer Value = new Customer
             {
-                user = User,
-                pass = Pass,
-                gender = Gen,
-                passnum = PPort,
-                dob = Dob,
-                email = Email,
+                User = User,
+                Pass = Pass,
+                Gender = Gen,
+                Passnum = PPort,
+                Dob = Dob,
+                Email = Email,
             };
 
             return Value;
@@ -46,12 +46,12 @@ VALUES (@paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, 
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
-            SQLCmd.Parameters.AddWithValue("@paraName", Cust.user);
-            SQLCmd.Parameters.AddWithValue("@paraPass", Cust.pass);
-            SQLCmd.Parameters.AddWithValue("@paraGender", Cust.gender);
-            SQLCmd.Parameters.AddWithValue("@paraPassPort", Cust.passnum);
-            SQLCmd.Parameters.AddWithValue("@paraDOB", Cust.dob);
-            SQLCmd.Parameters.AddWithValue("@paraEmail", Cust.email);
+            SQLCmd.Parameters.AddWithValue("@paraName", Cust.User);
+            SQLCmd.Parameters.AddWithValue("@paraPass", Cust.Pass);
+            SQLCmd.Parameters.AddWithValue("@paraGender", Cust.Gender);
+            SQLCmd.Parameters.AddWithValue("@paraPassPort", Cust.Passnum);
+            SQLCmd.Parameters.AddWithValue("@paraDOB", Cust.Dob);
+            SQLCmd.Parameters.AddWithValue("@paraEmail", Cust.Email);
             SQLCmd.Parameters.AddWithValue("@paraUser", "Normal");
   
             Connection.Open();

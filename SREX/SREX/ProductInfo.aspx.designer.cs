@@ -10,7 +10,16 @@
 namespace SREX {
     
     
-    public partial class Product {
+    public partial class ProductInfo {
+        
+        /// <summary>
+        /// lbName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbName;
         
         /// <summary>
         /// RadioButtonList1 control.
