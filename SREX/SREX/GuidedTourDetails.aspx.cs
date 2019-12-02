@@ -16,8 +16,7 @@ namespace SREX
 
         protected void BtnPurchaseTicks_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost:50744/GuidedPayment.aspx";
-            Response.Redirect(url);
+            Response.Redirect("~/GuidedPayment.aspx");
         }
     }
 }
