@@ -13,7 +13,7 @@ namespace SREX
         {
             if (!IsPostBack)
             {
-                if (Session["email"] != null)
+                if (Session["Role"] != null)
                 {
                     liLogin.Style["display"] = "none";
                     liLogout.Style["display"] = "block";

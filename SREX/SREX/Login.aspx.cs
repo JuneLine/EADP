@@ -44,7 +44,7 @@ namespace SREX
                 {
                     string HashedPassW = MD5Hash(registerPassword.Text);
 
-                    Cust = new Customer(registerUsername.Text, HashedPassW, ddlGender.Text, passportId.Text, dob.Text, emailAddress.Text);
+                    Cust = new Customer(registerUsername.Text, HashedPassW, ddlGender.Text, passportId.Text, dob.Text, emailAddress.Text.ToLower());
                     int result = Cust.CreateUser();
                     if (result == 1)
                     {
@@ -73,18 +73,24 @@ namespace SREX
 
         protected void btnnLogin_Click(object sender, EventArgs e)
         {
-            string email = Email.Text;
-            string password = loginPassword.Text;
-            Session["email"] = email;
-            if (email.Contains("admin"))
+            string email = Email.Text.ToLower();
+            string password = MD5Hash(loginPassword.Text);
+
+            Customer CustomerData = Cust.LoginGetRole(email, password);
+
+            if (CustomerData != null)
             {
-                Session["role"] = "Admin";
+                Session["Role"] = CustomerData.Role;
+                Session["Email"] = CustomerData.Email;
+                Session["Username"] = CustomerData.User;
+                Response.Redirect("Default.aspx");
             }
             else
             {
-                Session["role"] = "User";
+                //Show Error When Cannot Login @Mich
+                showInfo.Text = "Wrong Stuff";
+                showInfo.ForeColor = System.Drawing.Color.Red;
             }
-            Response.Redirect("Default.aspx");
         }
     }
 }

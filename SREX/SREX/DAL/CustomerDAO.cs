@@ -19,6 +19,7 @@ namespace SREX.DAL
             string PPort = dr["PassportID"].ToString();
             string Dob = dr["DOB"].ToString();
             string Email = dr["EmailAddr"].ToString();
+            string Role = dr["Role"].ToString();
 
             Customer Value = new Customer
             {
@@ -28,6 +29,7 @@ namespace SREX.DAL
                 Passnum = PPort,
                 Dob = Dob,
                 Email = Email,
+                Role = Role,
             };
 
             return Value;
@@ -86,6 +88,32 @@ VALUES (@paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, 
                 Stuff.Add(Td);
             }
 
+            Connection.Close();
+
+            return Stuff;
+        }
+
+        public Customer UserLoginData(string Email, string Password)
+        {
+            Customer Stuff = null;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM Users WHERE Password = @paraPassWord";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraPassWord", Password);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                Stuff = Read(dr);
+            }
             Connection.Close();
 
             return Stuff;

@@ -44,5 +44,12 @@ namespace SREX.BLL
             List<Customer> Custer = Cust.ValidateExisitingUser(NRIC, Email);
             return Custer;
         }
+
+        public Customer LoginGetRole(string Email, string Password)
+        {
+            CustomerDAO Cust = new CustomerDAO();
+            Customer CustomerStuff = Cust.UserLoginData(Email, Password);
+            return CustomerStuff;
+        }
     }
 }
