@@ -28,7 +28,7 @@
                                             <asp:TextBox runat="server" TabIndex="1" CssClass="form-control" placeholder="Email" ID="Email" />
                                         </div>
                                         <div class="form-group">
-                                            <asp:TextBox runat="server" TabIndex="2" CssClass="form-control" placeholder="Password" ID="loginPassword" />
+                                            <asp:TextBox runat="server" TabIndex="2" TextMode="Password" CssClass="form-control" placeholder="Password" ID="loginPassword" />
                                         </div>
                                         <div class="form-group text-center">
                                             <asp:CheckBox runat="server" TabIndex="3" ID="remember" />

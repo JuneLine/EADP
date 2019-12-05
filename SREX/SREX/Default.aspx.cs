@@ -16,6 +16,7 @@ namespace SREX
                 if (Session["role"] != null)
                 {
                     lbRole.Text = Session["role"].ToString();
+                    lbUsername.Text = Session["username"].ToString();
                 }
                 else
                 {

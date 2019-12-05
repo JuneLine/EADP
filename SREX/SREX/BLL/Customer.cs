@@ -15,6 +15,7 @@ namespace SREX.BLL
         public string Dob { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
+        public string Id { get; set; }
 
         public Customer()
         {
@@ -29,6 +30,7 @@ namespace SREX.BLL
             this.Passnum = Passnum;
             this.Dob = DOB;
             this.Email = Email;
+            this.Id = Guid.NewGuid().ToString();
         }
 
         public int CreateUser()

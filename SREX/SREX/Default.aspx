@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1 class="text-center">Welcome <asp:Label runat="server" ID="lbRole"></asp:Label></h1>
+        <h1 class="text-center">Welcome <asp:Label runat="server" ID="lbRole"></asp:Label> <asp:Label runat="server" ID="lbUsername"></asp:Label></h1>
         <p class="lead text-center">"Travel Safe, Travel Far, and Travel Smart."</p>
     </div>
     <div class="container-fluid">

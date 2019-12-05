@@ -83,12 +83,12 @@ namespace SREX
                 Session["Role"] = CustomerData.Role;
                 Session["Email"] = CustomerData.Email;
                 Session["Username"] = CustomerData.User;
+                Session["Id"] = CustomerData.Id;
                 Response.Redirect("Default.aspx");
             }
             else
             {
-                //Show Error When Cannot Login @Mich
-                showInfo.Text = "Wrong Stuff";
+                showInfo.Text = "Your email or password is wrong.";
                 showInfo.ForeColor = System.Drawing.Color.Red;
             }
         }

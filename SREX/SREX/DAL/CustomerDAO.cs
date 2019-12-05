@@ -20,6 +20,7 @@ namespace SREX.DAL
             string Dob = dr["DOB"].ToString();
             string Email = dr["EmailAddr"].ToString();
             string Role = dr["Role"].ToString();
+            string Id = dr["Id"].ToString();
 
             Customer Value = new Customer
             {
@@ -30,6 +31,7 @@ namespace SREX.DAL
                 Dob = Dob,
                 Email = Email,
                 Role = Role,
+                Id = Id,
             };
 
             return Value;
@@ -43,18 +45,18 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO Users (Username, Password, Gender, PassportID, DOB, EmailAddr, Role) 
-VALUES (@paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, @paraUser)";
+            string sqlStmt = @"INSERT INTO Users (Id,Username, Password, Gender, PassportID, DOB, EmailAddr, Role) 
+VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, @paraUser)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
-
+            SQLCmd.Parameters.AddWithValue("@paraId", Cust.Id);
             SQLCmd.Parameters.AddWithValue("@paraName", Cust.User);
             SQLCmd.Parameters.AddWithValue("@paraPass", Cust.Pass);
             SQLCmd.Parameters.AddWithValue("@paraGender", Cust.Gender);
             SQLCmd.Parameters.AddWithValue("@paraPassPort", Cust.Passnum);
             SQLCmd.Parameters.AddWithValue("@paraDOB", Cust.Dob);
             SQLCmd.Parameters.AddWithValue("@paraEmail", Cust.Email);
-            SQLCmd.Parameters.AddWithValue("@paraUser", "Normal");
+            SQLCmd.Parameters.AddWithValue("@paraUser", "User");
   
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
