@@ -104,11 +104,12 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT * FROM Users WHERE Password = @paraPassWord";
+            string sqlStmt = @"SELECT * FROM Users WHERE Password = @paraPassWord AND EmailAddr = @paraEmail";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
             SQLCmd.Parameters.AddWithValue("@paraPassWord", Password);
+            SQLCmd.Parameters.AddWithValue("@paraEmail", Email);
 
             Connection.Open();
             SqlDataReader dr = SQLCmd.ExecuteReader();
