@@ -19,7 +19,15 @@ namespace SREX
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["alertMessage"]!=null)
+                {
+                    showInfo.Text = Session["alertMessage"].ToString();
+                    showInfo.ForeColor = System.Drawing.Color.Red;
+                }
+                
+            }
         }
 
         public static string MD5Hash(string input)
@@ -71,7 +79,7 @@ namespace SREX
 
         }
 
-        protected void btnnLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             string email = Email.Text.ToLower();
             string password = MD5Hash(loginPassword.Text);
@@ -83,7 +91,7 @@ namespace SREX
                 Session["Role"] = CustomerData.Role;
                 Session["Email"] = CustomerData.Email;
                 Session["Username"] = CustomerData.User;
-                Session["Id"] = CustomerData.Id;
+                Session["UserId"] = CustomerData.Id;
                 Response.Redirect("Default.aspx");
             }
             else

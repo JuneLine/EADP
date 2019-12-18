@@ -7,9 +7,9 @@
         </div>
         <div class="col-sm-8">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+                <asp:TextBox CssClass="form-control" runat="server" ID="targetItem" Placeholder="Search for..."></asp:TextBox>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
+                    <asp:Button ID="SearchButton" runat="server" CssClass="btn btn-default" Text="Go" OnClick="SearchButton_Click" />
                 </span>
             </div>
         </div>
@@ -60,9 +60,19 @@
     <!-- Catagory -->
     <div class="container section-padding-40-0">
         <div class="row">
-            <div class="col-12">
-                <div class="section-heading text-center">
-                    <h2>Categories</h2>
+            <div id="catDesign" runat="server" class="col-sm-12">
+                <div id="catTitle" runat="server" class="section-heading text-right">
+                    <h2 id="cat" runat="server">Categories</h2>
+                </div>
+            </div>
+            <div id="forAdmin1" runat="server" class="col-sm-3">
+                <div id="editCarousell" runat="server" class="section-heading">
+                    <asp:Button ID="ButtonEditCrs" runat="server" CssClass="btn btn-info" Text="Edit Carousell" OnClick="btEditCRS_Click" />
+                </div>
+            </div>
+            <div id="forAdmin2" runat="server" class="col-sm-2">
+                <div id="addProduct" runat="server" class="section-heading">
+                    <asp:Button ID="ButtonAddProd" runat="server" CssClass="btn btn-primary" Text="Add Product" OnClick="btAddProduct_Click" />
                 </div>
             </div>
         </div>
@@ -167,44 +177,23 @@
         </div>
     </div>
     <div class="container body-container-own">
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body">
-                        <img src="Pictures/Watch.jpg" class="img-responsive" style="width: 100%" alt="Image">
-                    </div>
-                    <div class="panel-footer">30% Discount for last few days!</div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body">
-                        <img src="Pictures/Sweater.jpg" class="img-responsive" style="width: 100%" alt="Image">
-                    </div>
-                    <div class="panel-footer">10% Discount</div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body">
-                        <img src="Pictures/Bag.jpg" class="img-responsive" style="width: 100%" alt="Image">
-                    </div>
-                    <div class="panel-footer">Buy one, Get one Free</div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                    <div class="panel-body">
-                        <img src="Pictures/LocalFood.jpg" class="img-responsive" style="width: 100%" alt="Image">
-                    </div>
-                    <div class="panel-footer">20% Discount!</div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" RepeatLayout="Table">
+            <ItemTemplate>
+                <div style="width: 100%; padding-right: 2%; padding-left: 2%;">
+                    <a href="ProductInfo?productId=<%#Eval("Id") %>">
 
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><%#Eval("Name") %></div>
+                            <div class="panel-body">
+                                <asp:Image runat="server" class="img-responsive" ImageUrl='<%# String.Format("Pictures/{0}", Eval("PictureName") ) %>' Style="width: 100%;"></asp:Image>
+                            </div>
+                            <div class="panel-footer">S$<%#Eval("Price") %></div>
+                        </div>
+
+                    </a>
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+    </div>
+    
 </asp:Content>

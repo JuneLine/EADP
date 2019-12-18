@@ -15,13 +15,13 @@ namespace SREX
             {
                 if (Session["Role"] != null)
                 {
-                    liLogin.Style["display"] = "none";
+                    liLogin.Visible = false;
                     liLogout.Style["display"] = "block";
                 }
                 else
                 {
                     liLogin.Style["display"] = "block";
-                    liLogout.Style["display"] = "none";
+                    liLogout.Visible = false;
                 }
             }
         }

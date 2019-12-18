@@ -4,7 +4,7 @@
     <div class="container-fluid">
 
         <div class="row content">
-            <div class="col-sm-2 sidenav hidden-xs">
+            <div class="col-sm-2 sidenav hidden-xs" style="margin-top:10%;">
                 <h3>Categories</h3>
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="ProductList?category=cloth">Clothing</a></li>
@@ -40,11 +40,11 @@
                     <asp:DataList ID="DataList1" runat="server" RepeatColumns="3">
                         <ItemTemplate>
                             <a href="ProductInfo?productId=<%#Eval("Id") %>">
-                                <div class="col-sm-12">
+                                <div style="width: 100%;padding-right:2%;padding-left:2%;">
                                     <div class="panel panel-primary">
                                         <div class="panel-heading"><%#Eval("Name") %></div>
                                         <div class="panel-body">
-                                            <asp:Image runat="server" class="img-responsive" ImageUrl='<%#Eval("PictureName") %>' Style="width: 100%;"></asp:Image>
+                                            <asp:Image runat="server" class="img-responsive" ImageUrl='<%# String.Format("Pictures/{0}", Eval("PictureName") ) %>' Style="width: 100%;"></asp:Image>
                                         </div>
                                         <div class="panel-footer">S$<%#Eval("Price") %></div>
                                     </div>
@@ -52,7 +52,6 @@
                             </a>
                         </ItemTemplate>
                     </asp:DataList>
-
                 </div>
             </div>
         </div>

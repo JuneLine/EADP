@@ -2,8 +2,8 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    min-height:100vh;
-    position:relative;
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Wrapping element */
@@ -106,7 +106,7 @@ footer {
 }
 
 .body-container-own {
-    margin-bottom:10%
+    margin-bottom: 10%
 }
 
 /*Login and Register*/
@@ -221,4 +221,41 @@ footer {
     }
 
 
+/*Insert Edit product form*/
+
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    margin-top: 1%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
+
+.closeButton {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 0.5;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: initial;
+}
+
+.checkbox {
+    padding-left:0px;
+}
 /*Marcus Stuff Dont Touch Plz*/

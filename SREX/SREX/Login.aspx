@@ -37,7 +37,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
-                                                    <asp:Button Text="Login" ID="btnnLogin" runat="server" TabIndex="4" CssClass="form-control btn btn-login" OnClick="btnnLogin_Click"/>
+                                                    <asp:Button Text="Login" ID="btnnLogin" runat="server" TabIndex="4" CssClass="form-control btn btn-login" OnClick="btnLogin_Click"/>
                                                 </div>
                                             </div>
                                         </div>

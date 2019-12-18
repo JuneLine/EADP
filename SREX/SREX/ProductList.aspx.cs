@@ -13,10 +13,22 @@ namespace SREX
             if (!IsPostBack)
             {
                 string categoryId = Request.QueryString["category"];
-                Product prod = new Product();
-                productsList = prod.GetAllProductsByCategory(categoryId);
-                DataList1.DataSource = productsList;
-                DataList1.DataBind();
+                string keyword = Request.QueryString["keyword"];
+                if (Request.QueryString["category"]!=null)
+                {
+                    Product prod = new Product();
+                    productsList = prod.GetAllProductsByCategory(categoryId);
+                    DataList1.DataSource = productsList;
+                    DataList1.DataBind();
+                }
+                else if (Request.QueryString["keyword"]!=null)
+                {
+                    Product prod = new Product();
+                    productsList = prod.GetProductByKeyword(keyword);
+                    DataList1.DataSource = productsList;
+                    DataList1.DataBind();
+                }
+                
             }
 
         }

@@ -6,7 +6,7 @@
         <h1 class="text-center">Welcome <asp:Label runat="server" ID="lbRole"></asp:Label> <asp:Label runat="server" ID="lbUsername"></asp:Label></h1>
         <p class="lead text-center">"Travel Safe, Travel Far, and Travel Smart."</p>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid body-container-own">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 text-center leaveSpace">
                 <a href="Shopping">

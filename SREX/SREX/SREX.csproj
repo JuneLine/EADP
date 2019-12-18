@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddProduct.aspx" />
     <Content Include="App_Data\Srex.mdf" />
     <Content Include="App_Data\Srex_log.ldf">
       <DependentUpon>Srex.mdf</DependentUpon>
@@ -125,6 +126,7 @@
     <Content Include="ControlPanel.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
+    <Content Include="EditProductInfo.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="favicon.ico" />
@@ -218,6 +220,13 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -227,6 +236,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\CartItem.cs" />
     <Compile Include="BLL\Customer.cs" />
     <Compile Include="BLL\Product.cs" />
     <Compile Include="Clothes.aspx.cs">
@@ -257,6 +267,7 @@
     <Compile Include="ControlPanel.aspx.designer.cs">
       <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\CartItemDAO.cs" />
     <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="Default.aspx.cs">
@@ -265,6 +276,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProductInfo.aspx.cs">
+      <DependentUpon>EditProductInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProductInfo.aspx.designer.cs">
+      <DependentUpon>EditProductInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
