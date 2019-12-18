@@ -35,10 +35,11 @@
                                         <h4><small><%#Eval("Prod.Name") %></small></h4>
                                     </div>
                                     <div class="col-xs-3">
-                                        <div class="col-xs-4 text-right">
+                                        <div class="col-xs-5 text-right">
                                             <h6><strong>S$  <%#Eval("Prod.Price") %></strong></h6>
                                         </div>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
+                                            Quantity:
                                             <asp:Label runat="server" class="form-control text-center"><%#Eval("Quantity") %></asp:Label>
                                         </div>
                                         <div class="col-xs-3">
