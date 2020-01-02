@@ -12,6 +12,7 @@
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/Login.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AYsfqEHpi7QDbWDoXyglblNpv-sAfE5v7Hb9QOhEirQHzJpD31ecvAxmGGy8QJtXUZoWxEdxZdlAC9no&disable-funding=card&currency=SGD&locale=en_SG"></script>
     <link href="Content/core-style.css" rel="stylesheet" />
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -24,7 +25,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>

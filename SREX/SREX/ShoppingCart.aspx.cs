@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -76,9 +77,13 @@ namespace SREX
             }
         }
 
-        protected void CheckOutBt_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static int Result(string Info)
         {
-
+            System.Diagnostics.Debug.WriteLine(HttpContext.Current.Session["UserId"]);
+            System.Diagnostics.Debug.WriteLine(Info);
+            Purchase Purchases = new Purchase();
+            return Purchases.checkOut(HttpContext.Current.Session["UserId"].ToString(), Info);
         }
     }
 }

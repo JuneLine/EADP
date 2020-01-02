@@ -239,6 +239,7 @@
     <Compile Include="BLL\CartItem.cs" />
     <Compile Include="BLL\Customer.cs" />
     <Compile Include="BLL\Product.cs" />
+    <Compile Include="BLL\Purchase.cs" />
     <Compile Include="Clothes.aspx.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
