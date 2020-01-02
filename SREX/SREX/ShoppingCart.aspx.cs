@@ -11,6 +11,8 @@ namespace SREX
 {
     public partial class ShoppingCart : System.Web.UI.Page
     {
+        public string FeesPayable;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             List<CartItem> cartItemList;
@@ -41,6 +43,7 @@ namespace SREX
 
                         decimal totalPrice = cartItemList.Sum(item => item.Prod.Price);
                         LbTotal.Text = totalPrice.ToString();
+                        FeesPayable = totalPrice.ToString();
                         DataList1.DataSource = cartItemList;
                         DataList1.DataBind();
 
@@ -78,12 +81,11 @@ namespace SREX
         }
 
         [WebMethod]
-        public static int Result(string Info)
+        public static int Result(string Info, string Amount)
         {
-            System.Diagnostics.Debug.WriteLine(HttpContext.Current.Session["UserId"]);
-            System.Diagnostics.Debug.WriteLine(Info);
+            decimal paymentAmount = Convert.ToDecimal(Amount);
             Purchase Purchases = new Purchase();
-            return Purchases.checkOut(HttpContext.Current.Session["UserId"].ToString(), Info);
+            return Purchases.checkOut(HttpContext.Current.Session["UserId"].ToString(), Info, paymentAmount);
         }
     }
 }

@@ -271,6 +271,7 @@
     <Compile Include="DAL\CartItemDAO.cs" />
     <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
+    <Compile Include="DAL\PurchaseDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

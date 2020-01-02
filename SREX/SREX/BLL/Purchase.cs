@@ -8,30 +8,27 @@ namespace SREX.BLL
 {
     public class Purchase
     {
-        public string Id { get; set; }
-        public string ProductId { get; set; }
-        public int Quantity { get; set; }
-        public string UserId { get; set; }
+        public string ProductGroupID { get; set; }
+        public string OrderID { get; set; }
+        public decimal Amount { get; set; }
 
         public Purchase()
         {
 
         }
 
-        public Purchase(string productId, int quantity, string userId)
+        public Purchase(string productgroupID, string orderID, decimal amount)
         {
-            this.Id = Guid.NewGuid().ToString();
-            this.ProductId = productId;
-            this.Quantity = quantity;
-            this.UserId = userId;
+            this.ProductGroupID = productgroupID;
+            this.OrderID = orderID;
+            this.Amount = amount;
         }
 
-        public int checkOut(string userId, string OrderId)
+        public int checkOut(string userId, string OrderId, decimal Amount)
         {
-            CartItemDAO dao = new CartItemDAO();
-            List<CartItem> Cart = dao.SelectAllByUserId(userId);
-            System.Diagnostics.Debug.WriteLine(Cart);
-            return Cart.Count;
+            PurchaseDAO purchaseDAO = new PurchaseDAO();
+            int result = purchaseDAO.checkoutAllCurrentItems(userId, Amount, OrderId);
+            return result;
         }
     }
 }

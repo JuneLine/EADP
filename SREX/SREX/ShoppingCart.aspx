@@ -7,7 +7,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01'
+                            value: <%=FeesPayable%>
                         }
                     }]
                 });
@@ -16,7 +16,7 @@
                 return actions.order.capture().then(function (details) {
                     alert('Transaction completed by ' + details.payer.name.given_name);
                     PageMethods.set_path('ShoppingCart.aspx');
-                    PageMethods.Result(data.orderID);
+                    PageMethods.Result(data.orderID, details.purchase_units[0].amount.value);
                 });
                 
             }
