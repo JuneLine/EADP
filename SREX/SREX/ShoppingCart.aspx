@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Shopping Cart" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ShoppingCart.aspx.cs" Inherits="SREX.ShoppingCart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="https://www.paypal.com/sdk/js?client-id=AYsfqEHpi7QDbWDoXyglblNpv-sAfE5v7Hb9QOhEirQHzJpD31ecvAxmGGy8QJtXUZoWxEdxZdlAC9no&disable-funding=card&currency=SGD&locale=en_SG"></script>
     <script>
         paypal.Buttons({
             createOrder: function (data, actions) {
@@ -18,7 +19,7 @@
                     PageMethods.set_path('ShoppingCart.aspx');
                     PageMethods.Result(data.orderID, details.purchase_units[0].amount.value);
                 });
-                
+
             }
         }).render('#paypalCheckout');
     </script>

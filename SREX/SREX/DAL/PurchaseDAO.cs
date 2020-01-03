@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SREX.BLL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -9,6 +10,24 @@ namespace SREX.DAL
 {
     public class PurchaseDAO
     {
+        private static Purchase Read(SqlDataReader dr)
+        {
+            string OrderID = dr["OrderID"].ToString();
+            decimal Price = Convert.ToDecimal(dr["Price"]);
+            string DateOfPurchase = dr["DateOfPurchase"].ToString();
+            string UserID = dr["UserID"].ToString();
+
+            Purchase History = new Purchase
+            {
+                OrderID = OrderID,
+                Price = Price,
+                DateOfPurchase = DateOfPurchase,
+                UserID = UserID
+            };
+
+            return History;
+        }
+
         public int checkoutAllCurrentItems(string userId, decimal amount, string orderID)
         {
             int result = 0;
@@ -25,10 +44,11 @@ namespace SREX.DAL
             SQLCmd.Parameters.AddWithValue("@paraorderID", orderID);
             SQLCmd.Parameters.AddWithValue("@parauserId", userId);
 
-            string sqlStmt2 = @"INSERT INTO PurchaseHistoryFull (OrderId, Price) VALUES (@paraOrderID, @paraPrice)";
+            string sqlStmt2 = @"INSERT INTO PurchaseHistoryFull (OrderId, Price, UserID) VALUES (@paraOrderID, @paraPrice, @paraUserID)";
             SQLCmd2 = new SqlCommand(sqlStmt2, Connection);
             SQLCmd2.Parameters.AddWithValue("@paraOrderID", orderID);
             SQLCmd2.Parameters.AddWithValue("@paraPrice", amount);
+            SQLCmd2.Parameters.AddWithValue("@paraUserID", userId);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
@@ -36,6 +56,31 @@ namespace SREX.DAL
             Connection.Close();
 
             return result;
+        }
+
+        public List<Purchase> getPurchaseHistory(string userID)
+        {
+            List<Purchase> History = new List<Purchase>();
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM PurchaseHistoryFull WHERE UserID = @paraUserID";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraUserID", userID);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Purchase Td = Read(dr);
+                History.Add(Td);
+            }
+            return History;
         }
     }
 }

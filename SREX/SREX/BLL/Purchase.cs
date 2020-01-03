@@ -8,20 +8,22 @@ namespace SREX.BLL
 {
     public class Purchase
     {
-        public string ProductGroupID { get; set; }
         public string OrderID { get; set; }
-        public decimal Amount { get; set; }
+        public decimal Price { get; set; }
+        public string DateOfPurchase { get; set; }
+        public string UserID { get; set; }
 
         public Purchase()
         {
 
         }
 
-        public Purchase(string productgroupID, string orderID, decimal amount)
+        public Purchase(string orderID, decimal price, string dateOfPurchase, string userID)
         {
-            this.ProductGroupID = productgroupID;
             this.OrderID = orderID;
-            this.Amount = amount;
+            this.Price = price;
+            this.DateOfPurchase = dateOfPurchase;
+            this.UserID = userID;
         }
 
         public int checkOut(string userId, string OrderId, decimal Amount)
@@ -29,6 +31,13 @@ namespace SREX.BLL
             PurchaseDAO purchaseDAO = new PurchaseDAO();
             int result = purchaseDAO.checkoutAllCurrentItems(userId, Amount, OrderId);
             return result;
+        }
+
+        public List<Purchase> getBuyHistory(string userId)
+        {
+            PurchaseDAO purchaseDAO = new PurchaseDAO();
+            List<Purchase> History = purchaseDAO.getPurchaseHistory(userId);
+            return History;
         }
     }
 }
