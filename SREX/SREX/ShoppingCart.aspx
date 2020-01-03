@@ -36,6 +36,7 @@
                                     </div>
                                     <div class="col-xs-3">
                                         <div class="col-xs-5 text-right">
+                                            Price/Item
                                             <h6><strong>S$  <%#Eval("Prod.Price") %></strong></h6>
                                         </div>
                                         <div class="col-xs-4">
@@ -43,6 +44,7 @@
                                             <asp:Label runat="server" class="form-control text-center"><%#Eval("Quantity") %></asp:Label>
                                         </div>
                                         <div class="col-xs-3">
+                                            <br />
                                             <asp:LinkButton ID="DeleteCartItem" CommandArgument='<%#Eval("Prod.Id") %>' OnClick="prodDelBtn_Click" runat="server" CssClass="btn btn-danger btn-sm">Delete</asp:LinkButton>
                                         </div>
                                     </div>

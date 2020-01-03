@@ -111,8 +111,6 @@ namespace SREX.DAL
                     PictureName = pictureName,
                     InStock = inStock,
                     Sold = sold
-
-
                 };
                 CartItem cartItem = new CartItem
                 {

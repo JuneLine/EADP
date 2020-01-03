@@ -237,6 +237,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\CartItem.cs" />
+    <Compile Include="BLL\Category.cs" />
     <Compile Include="BLL\Customer.cs" />
     <Compile Include="BLL\Product.cs" />
     <Compile Include="Clothes.aspx.cs">
@@ -268,6 +269,7 @@
       <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\CartItemDAO.cs" />
+    <Compile Include="DAL\CategoryDAO.cs" />
     <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="Default.aspx.cs">

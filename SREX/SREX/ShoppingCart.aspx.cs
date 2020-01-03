@@ -38,7 +38,7 @@ namespace SREX
                             DataList1.DataBind();
                         }
 
-                        decimal totalPrice = cartItemList.Sum(item => item.Prod.Price);
+                        decimal totalPrice = cartItemList.Sum(item => item.Prod.Price * item.Quantity);
                         LbTotal.Text = totalPrice.ToString();
                         DataList1.DataSource = cartItemList;
                         DataList1.DataBind();
