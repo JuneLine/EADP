@@ -150,5 +150,63 @@ namespace SREX.DAL
 
             return empList;
         }
+
+        public List<CartItem> getSoldItem(string userId)
+        {
+            List<CartItem> Purchases = new List<CartItem>();
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM CartItem INNER JOIN Products ON CartItem.ProductId = Products.Id WHERE UserId = @paraUserID AND Status = 'Paid'";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraUserID", userId);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                string id = dr["Id"].ToString();
+                string productId = dr["ProductId"].ToString();
+                int quantity = Convert.ToInt16(dr["Quantity"]);
+                string UserId = dr["UserId"].ToString();
+                string Status = dr["Status"].ToString();
+                string OrderID = dr["OrderID"].ToString();
+                string name = dr["Name"].ToString();
+                decimal price = Convert.ToDecimal(dr["Price"].ToString());
+                string categoryID = dr["CategoryId"].ToString();
+                string description = dr["Description"].ToString();
+                string pictureName = dr["PictureName"].ToString();
+                int inStock = Convert.ToInt16(dr["InStock"].ToString());
+                int sold = Convert.ToInt16(dr["Sold"].ToString());
+                Product prod = new Product
+                {
+                    Id = productId,
+                    Name = name,
+                    Price = price,
+                    CategoryId = categoryID,
+                    Description = description,
+                    PictureName = pictureName,
+                    InStock = inStock,
+                    Sold = sold
+                };
+                CartItem cartItem = new CartItem
+                {
+                    Id = id,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    UserId = UserId,
+                    Status = Status,
+                    OrderID = OrderID,
+                    Prod = prod,
+                };
+                Purchases.Add(cartItem);
+            }
+            return Purchases;
+        }
     }
 }

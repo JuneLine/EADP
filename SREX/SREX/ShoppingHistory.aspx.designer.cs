@@ -13,12 +13,21 @@ namespace SREX {
     public partial class ShoppingHistory {
         
         /// <summary>
-        /// GridViewPurchase control.
+        /// DataListPurchase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList GridViewPurchase;
+        protected global::System.Web.UI.WebControls.DataList DataListPurchase;
+        
+        /// <summary>
+        /// DataListModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListModal;
     }
 }

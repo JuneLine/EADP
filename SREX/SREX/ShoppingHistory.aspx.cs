@@ -19,9 +19,15 @@ namespace SREX
                     Purchase History = new Purchase();
                     List<Purchase> HistoryList;
                     HistoryList = History.getBuyHistory(Session["userId"].ToString());
-                    GridViewPurchase.Visible = true;
-                    GridViewPurchase.DataSource = HistoryList;
-                    GridViewPurchase.DataBind();
+                    DataListPurchase.Visible = true;
+                    DataListPurchase.DataSource = HistoryList;
+                    DataListPurchase.DataBind();
+                    CartItem BoughtDetails = new CartItem();
+                    List<CartItem> BoughtDetailsList;
+                    BoughtDetailsList = BoughtDetails.getBoughtItems(Session["userId"].ToString());
+                    DataListModal.Visible = true;
+                    DataListModal.DataSource = BoughtDetailsList;
+                    DataListModal.DataBind();
                 }
             }
         }

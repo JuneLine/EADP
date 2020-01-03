@@ -14,6 +14,8 @@ namespace SREX.BLL
         public string ProductId { get; set; }
         public int Quantity { get; set; }
         public string UserId { get; set; }
+        public string Status { get; set; }
+        public string OrderID { get; set; }
         public Product Prod { get; set; }
 
         public CartItem()
@@ -53,6 +55,12 @@ namespace SREX.BLL
         {
             CartItemDAO dao = new CartItemDAO();
             return dao.ValidateExisitingItem(productId, userId);
+        }
+
+        public List<CartItem> getBoughtItems(string userId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getSoldItem(userId);
         }
     }
 }
