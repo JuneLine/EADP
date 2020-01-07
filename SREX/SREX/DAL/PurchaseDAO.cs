@@ -82,5 +82,34 @@ namespace SREX.DAL
             }
             return History;
         }
+
+        public List<Purchase> getMoneyEarned()
+        {
+            List<Purchase> Purchases = new List<Purchase>();
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"Select TOP 7 SUM(Price) as Price, DateOfPurchase FROM PurchaseHistoryFull GROUP BY DateOfPurchase ORDER BY CONVERT(DATETIME, DateOfPurchase, 103) DESC";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                decimal Price = Convert.ToDecimal(dr["Price"]);
+                string Date = dr["DateOfPurchase"].ToString();
+                Purchase prod = new Purchase
+                {
+                    Price = Price,
+                    DateOfPurchase = Date,
+                };
+                Purchases.Add(prod);
+            }
+            return Purchases;
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace SREX.BLL
         public string Status { get; set; }
         public string OrderID { get; set; }
         public Product Prod { get; set; }
+        public Customer Cust { get; set; }
 
         public CartItem()
         {
@@ -61,6 +62,24 @@ namespace SREX.BLL
         {
             CartItemDAO dao = new CartItemDAO();
             return dao.getSoldItem(userId);
+        }
+
+        public List<CartItem> getSoldItemFromOrderId(string orderId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getSBoughtItemsFromOrderId(orderId);
+        }
+
+        public CartItem getUserDetailsFromOrderId(string orderId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getUserFromOrderId(orderId);
+        }
+
+        public List<CartItem> getPopularItems()
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getMostPopularItem();
         }
     }
 }

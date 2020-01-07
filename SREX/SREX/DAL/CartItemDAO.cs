@@ -208,5 +208,149 @@ namespace SREX.DAL
             }
             return Purchases;
         }
+
+        public List<CartItem> getSBoughtItemsFromOrderId(string orderId)
+        {
+            List<CartItem> Purchases = new List<CartItem>();
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM CartItem INNER JOIN Products ON CartItem.ProductId = Products.Id WHERE OrderID = @paraOrderId";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraOrderId", orderId);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                string id = dr["Id"].ToString();
+                string productId = dr["ProductId"].ToString();
+                int quantity = Convert.ToInt16(dr["Quantity"]);
+                string UserId = dr["UserId"].ToString();
+                string Status = dr["Status"].ToString();
+                string OrderID = dr["OrderID"].ToString();
+                string name = dr["Name"].ToString();
+                decimal price = Convert.ToDecimal(dr["Price"].ToString());
+                string categoryID = dr["CategoryId"].ToString();
+                string description = dr["Description"].ToString();
+                string pictureName = dr["PictureName"].ToString();
+                int inStock = Convert.ToInt16(dr["InStock"].ToString());
+                int sold = Convert.ToInt16(dr["Sold"].ToString());
+                Product prod = new Product
+                {
+                    Id = productId,
+                    Name = name,
+                    Price = price,
+                    CategoryId = categoryID,
+                    Description = description,
+                    PictureName = pictureName,
+                    InStock = inStock,
+                    Sold = sold
+                };
+                CartItem cartItem = new CartItem
+                {
+                    Id = id,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    UserId = UserId,
+                    Status = Status,
+                    OrderID = OrderID,
+                    Prod = prod,
+                };
+                Purchases.Add(cartItem);
+            }
+            return Purchases;
+        }
+
+        public CartItem getUserFromOrderId(string orderId)
+        {
+            CartItem Purchases = null;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT TOP 1 * FROM CartItem INNER JOIN Users ON CartItem.UserId = Users.Id WHERE CartItem.OrderID = @paraOrderId";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraOrderId", orderId);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                string id = dr["Id"].ToString();
+                string productId = dr["ProductId"].ToString();
+                int quantity = Convert.ToInt16(dr["Quantity"]);
+                string UserId = dr["UserId"].ToString();
+                string Status = dr["Status"].ToString();
+                string OrderID = dr["OrderID"].ToString();
+                string User = dr["Username"].ToString();
+                string Pass = dr["Password"].ToString();
+                string Gender = dr["Gender"].ToString();
+                string PassportID = dr["PassportID"].ToString();
+                string DOB = dr["DOB"].ToString();
+                string Email = dr["EmailAddr"].ToString();
+                string Role = dr["Role"].ToString();
+                Customer Cust = new Customer
+                {
+                    User = User,
+                    Passnum = PassportID,
+                    Dob = DOB,
+                };
+                CartItem cartItem = new CartItem
+                {
+                    Id = id,
+                    ProductId = productId,
+                    Quantity = quantity,
+                    UserId = UserId,
+                    Status = Status,
+                    OrderID = OrderID,
+                    Cust = Cust
+                };
+                Purchases = cartItem;
+            }
+            return Purchases;
+        }
+
+        public List<CartItem> getMostPopularItem()
+        {
+            List<CartItem> Purchases = new List<CartItem>();
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT Products.Name, SUM(CartItem.Quantity) AS Quantity FROM CartItem INNER JOIN Products ON CartItem.ProductId = Products.Id GROUP BY Products.Name ORDER BY SUM(CartItem.Quantity) DESC";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int quantity = Convert.ToInt16(dr["Quantity"]);
+                string name = dr["Name"].ToString();
+                Product prod = new Product
+                {
+                    Name = name,
+                };
+                CartItem cartItem = new CartItem
+                {
+                    Quantity = quantity,
+                    Prod = prod,
+                };
+                Purchases.Add(cartItem);
+            }
+            return Purchases;
+        }
     }
 }

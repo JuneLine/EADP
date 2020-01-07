@@ -39,5 +39,12 @@ namespace SREX.BLL
             List<Purchase> History = purchaseDAO.getPurchaseHistory(userId);
             return History;
         }
+
+        public List<Purchase> getMoneyEarned()
+        {
+            PurchaseDAO purchasedao = new PurchaseDAO();
+            List<Purchase> Money = purchasedao.getMoneyEarned();
+            return Money;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace SREX
@@ -22,14 +23,15 @@ namespace SREX
                     DataListPurchase.Visible = true;
                     DataListPurchase.DataSource = HistoryList;
                     DataListPurchase.DataBind();
-                    CartItem BoughtDetails = new CartItem();
-                    List<CartItem> BoughtDetailsList;
-                    BoughtDetailsList = BoughtDetails.getBoughtItems(Session["userId"].ToString());
-                    DataListModal.Visible = true;
-                    DataListModal.DataSource = BoughtDetailsList;
-                    DataListModal.DataBind();
                 }
             }
+        }
+
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            HtmlButton btn = (HtmlButton)sender;
+            string s = btn.Attributes["Value"];
+            Response.Redirect("Collection?OrderId=" + s);
         }
     }
 }
