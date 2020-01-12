@@ -5,7 +5,6 @@
     <div class="well" style="margin-top: 20px;">
         <h3 class="text-center">Purchase History Review</h3>
     </div>
-<<<<<<< HEAD
     <asp:DataList ID="DataListPurchase" runat="server" RepeatLayout="Table" CssClass="table table-striped body-container-own">
         <HeaderTemplate>
             <th class="text-center" style="height: 38px">Order Id</th>
@@ -54,92 +53,4 @@
         </div>
     </asp:Panel>
     <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-=======
-    <table id="mytable" class="table table-bordred table-striped body-container-own">
-        <thead>
-            <th class="text-center">Order Id</th>
-            <th class="text-center">Purchase Date</th>
-            <th class="text-center">Total Cost</th>
-            <th class="text-center">Order Detail</th>
-            <th class="text-center">QR Code</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="text-center">Order 1</td>
-                <td class="text-center">2019/04/30</td>
-                <td class="text-center">$300</td>
-                <td class="text-center">
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="View">
-                        <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                    </p>
-                </td>
-                <td>
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
-                        <button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-center">Order 2</td>
-                <td class="text-center">2019/04/30</td>
-                <td class="text-center">$300</td>
-                <td class="text-center">
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="View">
-                        <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                    </p>
-                </td>
-                <td>
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
-                        <button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-center">Order 3</td>
-                <td class="text-center">2019/04/30</td>
-                <td class="text-center">$300</td>
-                <td class="text-center">
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="View">
-                        <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                    </p>
-                </td>
-                <td>
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
-                        <button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-center">Order 4</td>
-                <td class="text-center">2019/04/30</td>
-                <td class="text-center">$300</td>
-                <td class="text-center">
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="View">
-                        <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                    </p>
-                </td>
-                <td>
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
-                        <button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
-                    </p>
-                </td>
-            </tr><tr>
-                <td class="text-center">Order 5</td>
-                <td class="text-center">2019/04/30</td>
-                <td class="text-center">$300</td>
-                <td class="text-center">
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="View">
-                        <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                    </p>
-                </td>
-                <td>
-                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
-                        <button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
->>>>>>> 77cc6695268b8a54e36630618b714bd0dd75aee2
 </asp:Content>
