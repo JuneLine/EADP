@@ -8,52 +8,24 @@
         </div>
     </div>
     <div class="body-container-own list-group col-sm-12 col-lg-12">
-        <div class="input-group col-sm-12 col-lg-12">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
-            </span>
+        <div class="panel panel-info" style="width: 100%">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Existing destinations</h3>
+                    </div>
+                    <div class="panel-body">
+                        <asp:GridView ID="GvTD" runat="server" AutoGenerateColumns="False" Height="120px" Width="100%" CssClass="table table-striped" OnSelectedIndexChanged="GvTD_SelectedIndexChanged">
+                    <Columns>
+                        <asp:BoundField DataField="UniqueId" HeaderText="UniqueId"/>
+                        <asp:BoundField DataField="Title" HeaderText="Title" />
+                        <asp:BoundField DataField="Date" HeaderText="Date"/>
+                        <asp:BoundField DataField="Hire" HeaderText="Hire"/>
+                        <asp:CommandField ShowSelectButton="True" />
+                    </Columns>
+                </asp:GridView>
+                         
+                    </div>
+                </div>
         </div>
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Singapore trip 1</h5>
-                <small style="color: red;">Guided</small>
-                <br />
-                <small>11/9/2019</small>
-            </div>
-            <p class="mb-1">Fill in your trip details here</p>
-            <p class="mb-1">Fill in your trip details here2</p>
-            <div class="row">
-                <a href="selfplanView.aspx" class="btn btn-primary" style="float: right; margin: 1%">View</a>
-            </div>
-        </div>
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Singapore trip 2</h5>
-                <small style="color: red;">Not Guided</small>
-                <br />
-                <small class="text-muted">11/10/2019</small>
-            </div>
-            <p class="mb-1">Fill in your trip details here3</p>
-            <p class="mb-1">Fill in your trip details here3</p>
-            <div class="row">
-                <a href="SelfPlanMain.aspx" type="button" class="btn btn-primary" style="float: right; margin: 1%">Edit</a>
-            </div>
-        </div>
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Singapore trip 3</h5>
-                <small style="color: red;">Guided</small>
-                <br />
-                <small class="text-muted">11/11/2019</small>
-            </div>
-            <p class="mb-1">Fill in your trip details here4</p>
-            <p class="mb-1">Fill in your trip details here4</p>
-            <div class="row">
-                <a href="selfplanView.aspx" class="btn btn-primary" style="float: right; margin: 1%">View</a>
-            </div>
-        </div>
-    </div>
     <br />
     <br />
     <br />

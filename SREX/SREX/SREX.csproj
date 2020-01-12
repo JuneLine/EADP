@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddProduct.aspx" />
+    <Content Include="AdminDestination.aspx" />
     <Content Include="App_Data\Srex.mdf" />
     <Content Include="App_Data\Srex_log.ldf">
       <DependentUpon>Srex.mdf</DependentUpon>
@@ -126,6 +127,7 @@
     <Content Include="ControlPanel.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
+    <Content Include="DestinationUpdateForm.aspx" />
     <Content Include="EditProductInfo.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ProductList.aspx" />
@@ -227,6 +229,13 @@
     <Compile Include="AddProduct.aspx.designer.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminDestination.aspx.cs">
+      <DependentUpon>AdminDestination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDestination.aspx.designer.cs">
+      <DependentUpon>AdminDestination.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -238,7 +247,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\CartItem.cs" />
     <Compile Include="BLL\Customer.cs" />
+    <Compile Include="BLL\Destination.cs" />
     <Compile Include="BLL\Product.cs" />
+    <Compile Include="BLL\SelfPlan.cs" />
     <Compile Include="Clothes.aspx.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,13 +280,22 @@
     </Compile>
     <Compile Include="DAL\CartItemDAO.cs" />
     <Compile Include="DAL\CustomerDAO.cs" />
+    <Compile Include="DAL\DestinationDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
+    <Compile Include="DAL\SelfPlanDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationUpdateForm.aspx.cs">
+      <DependentUpon>DestinationUpdateForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DestinationUpdateForm.aspx.designer.cs">
+      <DependentUpon>DestinationUpdateForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProductInfo.aspx.cs">
       <DependentUpon>EditProductInfo.aspx</DependentUpon>
