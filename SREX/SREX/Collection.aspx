@@ -10,24 +10,21 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <table class="MyTableThing table" style="margin-top: .5%">
                     <tr>
-                        <td style="font-weight: bold;">Name:
+                        <td style="font-weight: bold;"> Name:
                         </td>
-                        <td style="font-size: 20px;">
-                            <asp:Label ID="LabelName" runat="server" Text="Label"></asp:Label>
+                        <td style="font-size: 20px;">Jonathan Smith
                         </td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">Passport:
+                        <td style="font-weight: bold;">NRIC:
                         </td>
-                        <td style="font-size: 20px;">
-                            <asp:Label ID="LabelPassport" runat="server" Text="Label"></asp:Label>
+                        <td style="font-size: 20px;">S1234567S
                         </td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Date Of Birth:
                         </td>
-                        <td style="font-size: 20px;">
-                            <asp:Label ID="LabelDOB" runat="server" Text="Label"></asp:Label>
+                        <td style="font-size: 20px;">05/06/2007
                         </td>
                     </tr>
                 </table>
@@ -35,28 +32,55 @@
         </div>
     </div>
     <div class="container" style="margin-top: 1%; margin-bottom: 15%;">
-        <span style="font-size: 16px;">Order: 
-            <span style="color: cadetblue">
-                <asp:Label ID="LabelOrderNum" runat="server" Text=""></asp:Label>
-            </span>
-        </span>
+        <span style="font-size: 16px;">Order: <span style="color: cadetblue">#28943898</span></span>
         <div class="row">
-            <asp:DataList ID="DataListPurchaseHistory" runat="server" RepeatLayout="Table" CssClass="table table-striped body-container-own">
-                <HeaderTemplate>
-                    <th class="text-center" style="height: 38px">Item:</th>
-                    <th class="text-center" style="height: 38px">Name:</th>
-                    <th class="text-center" style="height: 38px">Quantity</th>
-                    <th class="text-center" style="height: 38px">Price:</th>
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <td class="text-center">
-                        <img src='<%# String.Format("Pictures/{0}", Eval("Prod.PictureName")) %>' style="max-height: 200px; max-width: 400px;" />
+            <table class="table table-striped table-hover" style="margin-top: 2%;">
+                <thead>
+                    <tr>
+                        <th>Item:
+                        </th>
+                        <th>Name:
+                        </th>
+                        <th>Quantity:
+                        </th>
+                        <th>Price:
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/91mqp0z-TiL._SX679_.jpg" style="max-height: 200px; max-width: 400px;"/>
                     </td>
-                    <td class="text-center"><%#Eval("Prod.Name") %></td>
-                    <td class="text-center"><%#Eval("Quantity") %></td>
-                    <td class="text-center"><%#Eval("Prod.Price") %></td>
-                </ItemTemplate>
-            </asp:DataList>
+                    <td>TCL 55" Something OLED Special TV
+                    </td>
+                    <td>1
+                    </td>
+                    <td>S$359.99
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/61Z5%2B%2BUWAbL._AC_UY695_.jpg" style="max-height: 200px; max-width: 400px;"/>
+                    </td>
+                    <td>Very Expensive Addidas/Nike Shoe Which You Can't Afford Test Test
+                    </td>
+                    <td>1
+                    </td>
+                    <td>S$359.99
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Pictures/model-2.jpg" style="max-height: 200px; max-width: 400px;"/>
+                    </td>
+                    <td>Some Random Dress I Found On Amazon That Is Not $300 Actually
+                    </td>
+                    <td>1
+                    </td>
+                    <td>S$359.99
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </asp:Content>

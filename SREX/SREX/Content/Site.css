@@ -256,10 +256,10 @@ input[type="file"] {
 }
 
 .checkbox {
-    padding-left: 0px;
+    padding-left:0px;
 }
-
 /*Marcus Stuff Dont Touch Plz*/
+<<<<<<< HEAD
 
 .imgMaxSize {
     max-height: 200px;
@@ -302,3 +302,5 @@ input[type="file"] {
         text-decoration: none;
         cursor: pointer;
     }
+=======
+>>>>>>> 77cc6695268b8a54e36630618b714bd0dd75aee2

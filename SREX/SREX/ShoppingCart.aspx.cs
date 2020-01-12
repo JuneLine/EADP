@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,8 +10,6 @@ namespace SREX
 {
     public partial class ShoppingCart : System.Web.UI.Page
     {
-        public string FeesPayable;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             List<CartItem> cartItemList;
@@ -41,9 +38,8 @@ namespace SREX
                             DataList1.DataBind();
                         }
 
-                        decimal totalPrice = cartItemList.Sum(item => item.Prod.Price * item.Quantity);
+                        decimal totalPrice = cartItemList.Sum(item => item.Prod.Price);
                         LbTotal.Text = totalPrice.ToString();
-                        FeesPayable = totalPrice.ToString();
                         DataList1.DataSource = cartItemList;
                         DataList1.DataBind();
 
@@ -80,12 +76,9 @@ namespace SREX
             }
         }
 
-        [WebMethod]
-        public static int Result(string Info, string Amount)
+        protected void CheckOutBt_Click(object sender, EventArgs e)
         {
-            decimal paymentAmount = Convert.ToDecimal(Amount);
-            Purchase Purchases = new Purchase();
-            return Purchases.checkOut(HttpContext.Current.Session["UserId"].ToString(), Info, paymentAmount);
+
         }
     }
 }
