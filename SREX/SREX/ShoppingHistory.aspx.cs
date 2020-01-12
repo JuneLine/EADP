@@ -67,5 +67,10 @@ namespace SREX
                 PlaceHolder1.Controls.Add(imgBarCode);
             }
         }
+
+        protected void closeModalQR(object sender, EventArgs e)
+        {
+            Panel1.Visible = false;
+        }
     }
 }
