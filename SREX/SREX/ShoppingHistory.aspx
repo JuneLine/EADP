@@ -29,9 +29,9 @@
             </td>
         </ItemTemplate>
     </asp:DataList>
-    <asp:Panel ID="Panel1" runat="server" Visible="false">
+    <asp:Panel ID="Panel1" runat="server" CssClass="modal">
         <div class="modal-content">
-            <button runat="server" onserverclick="closeModalQR" class="close"><span>&times</span></button>
+            <button class="close" onclick='document.getElementById("MainContent_Panel1").style.display = "none"; return false;'><span>&times</span></button>
             <p>
                 <asp:DataList ID="DataListPurchaseHistory" runat="server" RepeatLayout="Table" CssClass="table table-striped body-container-own">
                     <HeaderTemplate>

@@ -34,7 +34,7 @@
             // Set chart options
             var options = {
                 'title': "Recent Sales",
-                'sliceVisibilityThreshold': .1,
+                'sliceVisibilityThreshold': .05,
                 'width': '100%',
             };
             $.ajax({
@@ -100,11 +100,11 @@
         }
     </script>
     <div class="row">
-        <div class="col-lg-5 col-md-12 col-sm-12" style="height: 300px">
+        <div class="col-lg-6 col-md-12 col-sm-12" style="height: 300px">
             <div id="chart_div" style="height: 100%; margin-top: 5%;">
             </div>
         </div>
-        <div class="col-lg-7 col-md-12 col-sm-12" style="height: 300px">
+        <div class="col-lg-6 col-md-12 col-sm-12" style="height: 300px">
             <div id="Bar_Chart" style="height: 100%; margin-top: 5%;">
             </div>
         </div>

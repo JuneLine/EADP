@@ -67,7 +67,12 @@ namespace SREX.BLL
         public List<CartItem> getSoldItemFromOrderId(string orderId)
         {
             CartItemDAO dao = new CartItemDAO();
-            return dao.getSBoughtItemsFromOrderId(orderId);
+            List<CartItem> cartItemList = dao.getSBoughtItemsFromOrderId(orderId);
+            for (int i = 0; i < cartItemList.Count; i++)
+            {
+                cartItemList[i].Prod.Price = cartItemList[i].Quantity * cartItemList[i].Prod.Price;
+            }
+            return cartItemList;
         }
 
         public CartItem getUserDetailsFromOrderId(string orderId)

@@ -16,6 +16,8 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Panel1.Visible = false;
+
             if (!IsPostBack)
             {
                 if (Session["userId"] != null)
@@ -38,10 +40,6 @@ namespace SREX
             CartItem cart = new CartItem();
             List<CartItem> cartItemList;
             cartItemList = cart.getSoldItemFromOrderId(s);
-            for (int i = 0; i < cartItemList.Count; i++)
-            {
-                cartItemList[i].Prod.Price = cartItemList[i].Quantity * cartItemList[i].Prod.Price;
-            }
             Panel1.Visible = true;
             DataListPurchaseHistory.DataSource = cartItemList;
             DataListPurchaseHistory.DataBind();
@@ -70,7 +68,7 @@ namespace SREX
 
         protected void closeModalQR(object sender, EventArgs e)
         {
-            Panel1.Visible = false;
+
         }
     }
 }

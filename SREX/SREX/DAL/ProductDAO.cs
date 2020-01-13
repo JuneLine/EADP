@@ -211,9 +211,29 @@ VALUES (@paraId, @paraName, @paraPrice, @paraCategoryId, @paraDescription, @para
             }
 
             return prodList;
+        }
 
+        public List<Product> getLowStockProducts()
+        {
+            List<Product> lowStockList = new List<Product>();
 
+            SqlCommand SQLCmd = new SqlCommand();
 
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM Products WHERE InStock < 10";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Purchase Td = Read(dr);
+                History.Add(Td);
+            }
+            return History;
         }
     }
 

@@ -67,7 +67,7 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT * FROM PurchaseHistoryFull WHERE UserID = @paraUserID";
+            string sqlStmt = @"SELECT * FROM PurchaseHistoryFull WHERE UserID = @paraUserID ORDER BY CONVERT(DATETIME, DateOfPurchase, 103) DESC";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
