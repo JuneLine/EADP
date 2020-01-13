@@ -422,3 +422,5 @@ C:\Users\seowz\Documents\GitHub\EADP\SREX\SREX\bin\Microsoft.CodeDom.Providers.D
 C:\Users\seowz\Documents\GitHub\EADP\SREX\SREX\obj\Debug\SREX.csprojResolveAssemblyReference.cache
 C:\Users\seowz\Documents\GitHub\EADP\SREX\SREX\obj\Debug\SREX.dll
 C:\Users\seowz\Documents\GitHub\EADP\SREX\SREX\obj\Debug\SREX.pdb
+C:\Users\Alex\Documents\GitHub\EADP\SREX\SREX\bin\QRCoder.dll
+C:\Users\Alex\Documents\GitHub\EADP\SREX\SREX\bin\System.Drawing.Common.dll

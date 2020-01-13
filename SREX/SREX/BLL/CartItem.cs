@@ -14,7 +14,10 @@ namespace SREX.BLL
         public string ProductId { get; set; }
         public int Quantity { get; set; }
         public string UserId { get; set; }
+        public string Status { get; set; }
+        public string OrderID { get; set; }
         public Product Prod { get; set; }
+        public Customer Cust { get; set; }
 
         public CartItem()
         {
@@ -36,7 +39,7 @@ namespace SREX.BLL
             return result;
         }
 
-        public int DeleteProductFromCart(string productId,string userId)
+        public int DeleteProductFromCart(string productId, string userId)
         {
             CartItemDAO itemDAO = new CartItemDAO();
             int result = itemDAO.DeleteItemFromCart(productId, userId);
@@ -53,6 +56,30 @@ namespace SREX.BLL
         {
             CartItemDAO dao = new CartItemDAO();
             return dao.ValidateExisitingItem(productId, userId);
+        }
+
+        public List<CartItem> getBoughtItems(string userId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getSoldItem(userId);
+        }
+
+        public List<CartItem> getSoldItemFromOrderId(string orderId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getSBoughtItemsFromOrderId(orderId);
+        }
+
+        public CartItem getUserDetailsFromOrderId(string orderId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getUserFromOrderId(orderId);
+        }
+
+        public List<CartItem> getPopularItems()
+        {
+            CartItemDAO dao = new CartItemDAO();
+            return dao.getMostPopularItem();
         }
     }
 }
