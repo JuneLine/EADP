@@ -13,7 +13,21 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["Role"] != null)
+                {
+                    Product Prod = new Product();
+                    List<Product> lowStockList;
+                    lowStockList = Prod.getLowStock();
+                    DataListStock.DataSource = lowStockList;
+                    DataListStock.DataBind();
+                }
+                else
+                {
+                    Response.Redirect("/login");
+                }
+            }
         }
 
         [WebMethod]
@@ -54,6 +68,13 @@ namespace SREX
                 });
             }
             return chartData;
+        }
+
+        protected void ButtonToPage_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string s = btn.Attributes["Value"];
+            Response.Redirect("ProductInfo?productId=" + s);
         }
     }
 }

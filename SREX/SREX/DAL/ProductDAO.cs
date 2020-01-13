@@ -222,7 +222,7 @@ VALUES (@paraId, @paraName, @paraPrice, @paraCategoryId, @paraDescription, @para
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT * FROM Products WHERE InStock < 10";
+            string sqlStmt = @"SELECT Products.Id, Products.Name, Products.InStock, Categories.Name as Category FROM Products INNER JOIN Categories ON Products.CategoryId = Categories.Id WHERE InStock <= 20 ORDER BY InStock ASC";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
@@ -230,10 +230,21 @@ VALUES (@paraId, @paraName, @paraPrice, @paraCategoryId, @paraDescription, @para
             SqlDataReader dr = SQLCmd.ExecuteReader();
             while (dr.Read())
             {
-                Purchase Td = Read(dr);
-                History.Add(Td);
+                string id = dr["Id"].ToString();
+                string name = dr["Name"].ToString();
+                int inStock = Convert.ToInt32(dr["InStock"]);
+                string catName = dr["Category"].ToString();
+
+                Product lowItem = new Product
+                {
+                    Id = id,
+                    Name = name,
+                    InStock = inStock,
+                    Category = catName,
+                };
+                lowStockList.Add(lowItem);
             }
-            return History;
+            return lowStockList;
         }
     }
 

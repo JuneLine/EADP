@@ -17,6 +17,8 @@ namespace SREX.BLL
         public string PictureName { get; set; }
         public int InStock { get; set; }
         public int Sold { get; set; }
+        public string Status { get; set; }
+        public string Category { get; set; }
 
         public Product()
         {
@@ -78,9 +80,12 @@ namespace SREX.BLL
             List<Product> prodList = prod.ValidateExisitingProduct(productName, imageName);
             return prodList;
         }
+
+        public List<Product> getLowStock()
+        {
+            ProductDAO dao = new ProductDAO();
+            List<Product> lowStockList = dao.getLowStockProducts();
+            return lowStockList;
+        }
     }
-
-
-
-    
 }

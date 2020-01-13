@@ -109,11 +109,27 @@
             </div>
         </div>
     </div>
-    <br />
-    <br />
-    <div class="row body-container-own">
+    <div class="row body-container-own" style="margin-top: 5%;">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+            <asp:DataList ID="DataListStock" runat="server" RepeatLayout="Table" CssClass="table table-striped body-container-own">
+                <HeaderTemplate>
+                    <th class="text-center" style="height: 38px">Category:</th>
+                    <th class="text-center" style="height: 38px">Item:</th>
+                    <th class="text-center" style="height: 38px">Quantity:</th>
+                    <th class="text-center" style="height: 38px">Status:</th>
+                    <th class="text-center" style="height: 38px">Options:</th>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <td class="text-center"><%#Eval("Category") %></td>
+                    <td class="text-center"><%#Eval("Name") %></td>
+                    <td class="text-center"><%#Eval("InStock") %></td>
+                    <td class="text-center">Low On Stock!</td>
+                    <td class="text-center">
+                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" OnClick="ButtonToPage_Click" Value='<%#Eval("Id") %>'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" class="btn btn-primary" />
+                    </td>
+                </ItemTemplate>
+            </asp:DataList>
+            <%--<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
                 <thead>
                     <tr>
                         <th>Item:
@@ -148,7 +164,7 @@
                         <asp:Button ID="Button1" runat="server" Text="Go To Page" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="Restock" class="btn btn-primary" />
                     </td>
                 </tr>
-            </table>
+            </table>--%>
         </div>
     </div>
 </asp:Content>
