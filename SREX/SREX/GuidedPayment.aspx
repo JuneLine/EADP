@@ -8,96 +8,145 @@
             <h1>Payment</h1>
         </div>
         <br />
-        <div class="row body-container-own">
-            <div class="col-sm-6">
-                <div class="leftdivbox ">
-                    <h3>Personal Particulars</h3>
+        <div class="row">
+            <div class="col-sm-4">
+                <div>
+                    <h2>Personal Particulars</h2>
                     <br />
                     <div class="form-group">
                         <label class="input-lg">Name</label>
-                        <input type="text" class="form-control input-lg" placeholder="Name">
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <label class="input-lg">Passport Number</label>
-                        <input type="text" class="form-control input-lg" placeholder="Passport Number">
-                    </div>
+                        <asp:Textbox runat="server" class="form-control input-lg" ID="tbUserName"></asp:Textbox>
+                    </div>                   
                     <br />
                     <div class="form-group">
                         <label class="input-lg">E-mail</label>
-                        <input type="email" class="form-control input-lg" placeholder="Email Address">
+                        <asp:Textbox runat="server" class="form-control input-lg" ID="tbUserEmail"></asp:Textbox>
                     </div>
                     <br />
                     <div class="form-group">
                         <label class="input-lg">Contact</label>
-                        <input type="number" class="form-control input-lg" placeholder="Contact Number">
+                        <asp:Textbox runat="server" class="form-control input-lg" ID="tbUserContact"></asp:Textbox>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6" style="font-size: 1.2em;">
-                <div class="toprightbox ">
-                    <h3>Tour Details</h3>
-                    <br />
-                    <h4>Tour Package: <b>Day Your At Singapore ZOO</b></h4>
-                    <p style="font-size: 1.05em;">
-                        MeetUp Time: <b>1000</b>
-                        <br />
-                        MeetUp Location: <b>Khatib MRT Station</b>
-                    </p>
+            <div class="col-sm-8" style="font-size: 1.2em; padding-left: 5%;">
+                <h2>Tour Details</h2>
+                <br />
+                <div class="row">
+                    <asp:DataList ID="DataListTourInfo" runat="server" RepeatLayout="Flow">
+                        <HeaderTemplate>
+                            <h3>Information</h3>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h4>Tour Package:</h4>
+                                    &nbsp&nbsp&nbsp&nbsp<b><%#Eval("tourName") %></b>
+                                </div>
+                                <div class="col-sm-7">
+                                    <h4>Date Of Tour:</h4>
+                                    &nbsp&nbsp&nbsp&nbsp<b><%#Eval("Date") %></b>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h4>Meet at:</h4>
+                                    &nbsp&nbsp&nbsp&nbsp<b><%#Eval("meetUpTime") %></b> at <b><%#Eval("meetUpLocation") %></b>
+                                </div>
+                                <div class="col-sm-7">
+                                    <h4>Ticket Price:</h4>
+                                    <div class="col-sm-3">
+                                        <h4>Adult:
+                                    <asp:Label runat="server" ID="lblAdultCost">SGD<%#Eval("AdultCost") %></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h4>Child:
+                                    <asp:Label runat="server" ID="lblChildCost">SGD<%#Eval("ChildCost") %></asp:Label>
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h4>Senior:
+                                    <asp:Label runat="server" ID="lblSeniorCost">SGD<%#Eval("SeniorCost") %> </asp:Label>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>
                 </div>
                 <hr />
-                <div class="btmrightbox" style="font-size: 1.05em;">
+                <div class="row" style="font-size: 1.05em;">
                     <h3>Purchase</h3>
-                    <div>
-                        <div class="dropdown">
-                            Quantity:
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                Ticket Quantities
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" style="right: auto; left: 75px;">
-                                <li>
-                                    <input type="button" value="+" class="btn" />&nbsp&nbsp&nbsp&nbsp&nbsp
-                                    <span>0</span> Child
-                                    <input type="button" value="-" class="btn" style="float: right;" />
-                                </li>
-                                <li>
-                                    <input type="button" value="+" class="btn" />&nbsp&nbsp&nbsp&nbsp&nbsp
-                                    <span>0</span> Adult
-                                    <input type="button" value="-" class="btn" style="float: right;" />
-                                </li>
-                                <li>
-                                    <input type="button" value="+" class="btn" />&nbsp&nbsp&nbsp&nbsp&nbsp
-                                    <span>0</span> Senior
-                                    <input type="button" value="-" class="btn" style="float: right;" />
-                                </li>
-                            </ul>
-                        </div>
-                        <br />
+                    <div class="col-sm-6">
+                        <table class="table text-center">
+                            <tr>
+                                <th></th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                            <tr>
+                                <td>Adult</td>
+                                <td>SGD<asp:Label runat="server" ID="AdultPerTicket"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="tbAdultQuantity" Text="0" CssClass="form-control"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" ID="lblAdultTotal" Text="0"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Child</td>
+                                <td>SGD<asp:Label runat="server" ID="ChildPerTicket"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="tbChildQuantity" Text="0" CssClass="form-control"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" ID="lblChildTotal" Text="0"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Senior</td>
+                                <td>SGD<asp:Label runat="server" ID="SeniorPerTicket"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="tbSeniorQuantity" Text="0" CssClass="form-control"></asp:TextBox>
+                                </td>
+                                <td>    
+                                    <asp:Label runat="server" ID="lblSeniorTotal" Text="0"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-5">
                         <table class="table">
                             <tr>
                                 <td>Cost:</td>
-                                <td>$150.00</td>
+                                <td><asp:Label runat="server" ID="lblTotalAmount" Text="0"></asp:Label></td>
                             </tr>
                             <tr>
                                 <td>GST(7%):</td>
-                                <td>$10.50</td>
+                                <td><asp:Label runat="server" ID="lblGST" Text="0"></asp:Label></td>
                             </tr>
                             <tr style="border-bottom: solid black;">
                                 <td>Service Charge(10%):</td>
-                                <td>$15.00</td>
+                                <td><asp:Label runat="server" ID="lblService" Text="0"></asp:Label></td>
                             </tr>
                             <tr>
                                 <td>Total Cost:</td>
-                                <td>$175.50</td>
+                                <td><asp:Label runat="server" ID="lblFinalAmount" Text="0"></asp:Label></td>
                             </tr>
                         </table>
-                        <asp:Button runat="server" Text="Purchase" class="btn btn-primary buttonRight" Style="margin-top: 2%" ID="btnBuyTicket" OnClick="btnBuyTicket_Click" />
                     </div>
+                    <asp:Button runat="server" CssClass="btn btn-success buttonRight" Text="Calculate" ID="btnCalculateTotal" OnClick="btnCalculateTotal_Click" UseSubmitBehavior="False" />
                 </div>
             </div>
         </div>
+        <div class="text-center">
+            <asp:Button runat="server" Text="Purchase" class="btn btn-primary" Style="margin-top: 2%" ID="btnBuyTicket" OnClick="btnBuyTicket_Click" />
+        </div>
     </div>
-    <br />
-    <br />
 </asp:Content>

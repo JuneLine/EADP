@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SREX.BLL;
 
 namespace SREX
 {
@@ -11,12 +12,32 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<GuideTour> AllTours;
+            if (!IsPostBack)
+            {
+                if (Session["UserId"] != null)
+                {
+                    if (Session["role"].ToString() == "Admin")
+                    {
+                        BtnAddTours.Style["display"] = "inline-block";
+                    }
+                }
 
+                GuideTour tour = new GuideTour();
+                AllTours = tour.GetAll();
+                DataListTours.DataSource = AllTours;
+                DataListTours.DataBind();
+            }
         }
 
         protected void btnToGuideHist_Click(object sender, EventArgs e)
         {
             Response.Redirect("GuidedPurchaseHist.aspx");
+        }
+
+        protected void BtnAddTours_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddTour.aspx");
         }
     }
 }

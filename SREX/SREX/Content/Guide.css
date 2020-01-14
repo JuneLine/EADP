@@ -1,7 +1,8 @@
-﻿.addEvents{
-    padding-left:3%;
-    padding-right:3%;
-    font-size:1.3em;
+﻿.addEvents {
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 1.3em;
+    /*display: none;*/
 }
 
 .body-container-own {
@@ -9,17 +10,17 @@
 }
 
 .panelHeader {
-    font-size:1.2em;
-    font-weight:bold;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
-th{
-    text-align:center;
+th {
+    text-align: center;
 }
 
-.centraliseItem{
-    position:relative;
-    margin-left:50%;
+.centraliseItem {
+    position: relative;
+    margin-left: 40%;
 }
 
 .buttonRight {
@@ -27,3 +28,24 @@ th{
     position: relative;
     right: 3%;
 }
+
+.EditAttraction {
+    border: none;
+    float: right;
+    background-color: white;
+    height: auto;
+    outline: none;
+}
+
+    .EditAttraction:hover {
+        color: blue;
+    }
+
+.zeroOutline {
+    outline: none;
+    border: none;
+}
+
+    .zeroOutline:focus {
+        outline: none !important
+    }

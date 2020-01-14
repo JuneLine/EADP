@@ -13,111 +13,66 @@ namespace SREX {
     public partial class PlanningMain {
         
         /// <summary>
-        /// SGZoo control.
+        /// DataListAttractions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image SGZoo;
+        protected global::System.Web.UI.WebControls.DataList DataListAttractions;
         
         /// <summary>
-        /// BtnZoo control.
+        /// btnAddPlace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnZoo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAddPlace;
         
         /// <summary>
-        /// JBP control.
+        /// AttractionName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image JBP;
+        protected global::System.Web.UI.WebControls.TextBox AttractionName;
         
         /// <summary>
-        /// BtnJBP control.
+        /// AttractionPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnJBP;
+        protected global::System.Web.UI.WebControls.FileUpload AttractionPicture;
         
         /// <summary>
-        /// Image1 control.
+        /// AttractionsURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.TextBox AttractionsURL;
         
         /// <summary>
-        /// Button1 control.
+        /// AttractionDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox AttractionDescription;
         
         /// <summary>
-        /// NightSafari control.
+        /// AddNewAttraction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image NightSafari;
-        
-        /// <summary>
-        /// BtnNightSafari control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnNightSafari;
-        
-        /// <summary>
-        /// GBTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image GBTB;
-        
-        /// <summary>
-        /// BtnGBTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnGBTB;
-        
-        /// <summary>
-        /// Image2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button AddNewAttraction;
     }
 }

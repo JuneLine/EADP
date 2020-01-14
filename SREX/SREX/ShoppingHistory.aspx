@@ -29,7 +29,7 @@
             </td>
         </ItemTemplate>
     </asp:DataList>
-    <asp:Panel ID="Panel1" runat="server" CssClass="modal">
+    <asp:Panel ID="Panel1" runat="server" CssClass="modalPanel">
         <div class="modal-content">
             <button class="close" onclick='document.getElementById("MainContent_Panel1").style.display = "none"; return false;'><span>&times</span></button>
             <p>

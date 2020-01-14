@@ -7,77 +7,31 @@
             <h1>Our Plans</h1>
         </div>
         <div style="margin-bottom: 3%">
-            <asp:Button runat="server" class="btn btn-primary buttonRight" ID="btnToGuideHist" Text="History" OnClick="btnToGuideHist_Click" />
+            <asp:Button runat="server" CssClass="btn btn-primary buttonRight" ID="btnToGuideHist" Text="History" OnClick="btnToGuideHist_Click" />
         </div>
         <br />
         <br />
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-
-                    <div class="panel panel-success">
-                        <div class="panel-heading panelHeader">Day Tour At Singapore ZOO</div>
-                        <a href="GuidedTourDetails">
-                            <div class="panel-body">
-                                <asp:Image runat="server" ImageUrl="~/Pictures/SingaporeZoo.jpg" Height="300px" Width="550px" />
+                <asp:DataList ID="DataListTours" runat="server" RepeatColumns="2" RepeatDirection="Horizontal" CellSpacing="1">
+                    <ItemTemplate>
+                        <div class="panel panel-success" style="margin: 10px;">
+                            <div class="panel-heading panelHeader"><%#Eval("tourName") %></div>
+                            <a href="GuidedTourDetails?tourId=<%#Eval("tourId") %>">
+                                <div class="panel-body">
+                                    <asp:Image runat="server" ImageUrl='<%# String.Format("Pictures/{0}", Eval("tourPic") ) %>' Height="300px" Width="550px" />
+                                </div>
+                            </a>
+                            <div class="panel-footer">
+                                <%#Eval("tourCaption") %>
                             </div>
-                        </a>
-                        <div class="panel-footer">
-                            Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption 
-                                Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption
                         </div>
-                    </div>
-
-
-                    <div class="panel panel-success">
-                        <div class="panel-heading panelHeader">Garden By The Bay Walk Around</div>
-                        <a href="#">
-                            <div class="panel-body">
-                                <asp:Image runat="server" ImageUrl="~/Pictures/GBTB.jpg" Height="300px" Width="550px" />
-                            </div>
-                        </a>
-                        <div class="panel-footer">
-                            Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption 
-                                Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-sm-6">
-
-                    <div class="panel panel-success">
-                        <div class="panel-heading panelHeader">Bird Park at Jurong</div>
-                        <a href="#">
-                            <div class="panel-body">
-                                <asp:Image runat="server" ImageUrl="~/Pictures/JurongBirdPark.jpg" Height="300px" Width="550px" />
-                            </div>
-                        </a>
-                        <div class="panel-footer">
-                            Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption 
-                                Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption
-                        </div>
-                    </div>
-
-
-                    <div class="panel panel-success">
-                        <div class="panel-heading panelHeader">USS Tour</div>
-                        <a href="#">
-                            <div class="panel-body">
-                                <asp:Image runat="server" ImageUrl="~/Pictures/USS.jpg" Height="300px" Width="550px" />
-                            </div>
-                        </a>
-                        <div class="panel-footer">
-                            Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption 
-                                Caption Caption Caption Caption Caption Caption Caption Caption Caption Caption
-                        </div>
-                    </div>
-
-                </div>
+                    </ItemTemplate>
+                </asp:DataList>
             </div>
         </div>
         <div>
-            <%--<asp:Button ID="BtnAddTours" runat="server" Text="Add" class="btn btn-primary addEvents" />--%>
+            <asp:Button runat="server" ID="BtnAddTours" CssClass="btn btn-primary addEvents" OnClick="BtnAddTours_Click" Text="Add Tour" style="display:none;"/>
         </div>
     </div>
     <br />

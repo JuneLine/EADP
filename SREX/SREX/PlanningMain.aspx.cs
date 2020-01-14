@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SREX.BLL;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,37 +13,58 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                List<TouristAttractions> AttractionList;
 
+                if (Session["UserId"] == null)
+                {
+                    btnAddPlace.Style["display"] = "none";
+                }
+                else
+                {
+                    if (Session["role"].ToString() == "Admin")
+                    {
+                        btnAddPlace.Style["display"] = "inline-block";
+                    }
+                }
+                TouristAttractions Attactions = new TouristAttractions();
+                AttractionList = Attactions.GetAll();
+                DataListAttractions.DataSource = AttractionList;
+                DataListAttractions.DataBind();
+            }
         }
 
-        protected void BtnZoo_Click(object sender, EventArgs e)
+        protected void AddNewAttraction_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://www.wrs.com.sg/en/singapore-zoo.html");
+            string Picture;
+            string Name = AttractionName.Text;
+            string URL = AttractionsURL.Text;
+            string Description = AttractionDescription.Text;
+            if (AttractionPicture.HasFile)
+            {
+                Picture = Path.GetFileName(AttractionPicture.FileName);
+                string ext = System.IO.Path.GetExtension(AttractionPicture.FileName);
+                if (ext == ".jpg" || ext == ".png" || ext == ".jfif")
+                {
+                    string path = Server.MapPath("~/Pictures/");
+                    AttractionPicture.SaveAs(path + AttractionPicture.FileName);
+
+                    TouristAttractions Place = new TouristAttractions(Guid.NewGuid().ToString(), Name, Picture, URL, Description);
+                    int result = Place.CreateAttractions();
+
+                    if (result == 1)
+                    {
+                        Response.Redirect("PlanningMain.aspx");
+                    }
+                }
+            }
         }
 
-        protected void BtnNightSafari_Click(object sender, EventArgs e)
+        protected void EditAttraction_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://www.wrs.com.sg/en/night-safari.html");
-        }
-
-        protected void BtnRiverSafari_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("https://www.wrs.com.sg/en/river-safari.html");
-        }
-
-        protected void BtnGBTB_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("https://www.gardensbythebay.com.sg/en.html");
-        }
-
-        protected void BtnJBP_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("https://www.wrs.com.sg/en/jurong-bird-park.html");
-        }
-
-        protected void BtnUSS_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("https://www.rwsentosa.com/en");
+            string id = Request.QueryString["AttractionId"];
+            Response.Redirect("EditAttraction?AttractionId =" + id);
         }
     }
 }

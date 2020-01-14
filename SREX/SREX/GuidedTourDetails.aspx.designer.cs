@@ -13,6 +13,24 @@ namespace SREX {
     public partial class GuidedTourDetails {
         
         /// <summary>
+        /// DataListNameOnly control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListNameOnly;
+        
+        /// <summary>
+        /// DataListInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListInfo;
+        
+        /// <summary>
         /// BtnPurchaseTicks control.
         /// </summary>
         /// <remarks>

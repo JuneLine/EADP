@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddProduct.aspx" />
+    <Content Include="AddTour.aspx" />
     <Content Include="AdminDestination.aspx" />
     <Content Include="App_Data\Srex.mdf" />
     <Content Include="App_Data\Srex_log.ldf">
@@ -134,6 +135,7 @@
     <Content Include="Default.aspx" />
     <Content Include="default.png" />
     <Content Include="DestinationUpdateForm.aspx" />
+    <Content Include="EditAttraction.aspx" />
     <Content Include="EditProductInfo.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ProductList.aspx" />
@@ -185,6 +187,7 @@
     </Content>
     <Content Include="PlanningHistory.aspx" />
     <Content Include="PlanningMain.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="Scripts\Login.js" />
     <Content Include="SelfplanConfirmation.aspx" />
     <Content Include="ShoppingCart.aspx" />
@@ -235,6 +238,13 @@
     <Compile Include="AddProduct.aspx.designer.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddTour.aspx.cs">
+      <DependentUpon>AddTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTour.aspx.designer.cs">
+      <DependentUpon>AddTour.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminDestination.aspx.cs">
       <DependentUpon>AdminDestination.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,9 +264,11 @@
     <Compile Include="BLL\CartItem.cs" />
     <Compile Include="BLL\Customer.cs" />
     <Compile Include="BLL\Destination.cs" />
+    <Compile Include="BLL\GuideTour.cs" />
     <Compile Include="BLL\Product.cs" />
     <Compile Include="BLL\Purchase.cs" />
     <Compile Include="BLL\SelfPlan.cs" />
+    <Compile Include="BLL\TouristAttractions.cs" />
     <Compile Include="Clothes.aspx.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -288,9 +300,11 @@
     <Compile Include="DAL\CartItemDAO.cs" />
     <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\DestinationDAO.cs" />
+    <Compile Include="DAL\GuideTourDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="DAL\PurchaseDAO.cs" />
     <Compile Include="DAL\SelfPlanDAO.cs" />
+    <Compile Include="DAL\TouristAttrationsDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +318,13 @@
     </Compile>
     <Compile Include="DestinationUpdateForm.aspx.designer.cs">
       <DependentUpon>DestinationUpdateForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAttraction.aspx.cs">
+      <DependentUpon>EditAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAttraction.aspx.designer.cs">
+      <DependentUpon>EditAttraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProductInfo.aspx.cs">
       <DependentUpon>EditProductInfo.aspx</DependentUpon>
@@ -384,6 +405,13 @@
     </Compile>
     <Compile Include="PlanningMain.aspx.designer.cs">
       <DependentUpon>PlanningMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="SelfplanConfirmation.aspx.cs">
       <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>
