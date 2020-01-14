@@ -30,19 +30,6 @@ namespace SREX
             }
         }
 
-        public static string MD5Hash(string input)
-        {
-            StringBuilder hash = new StringBuilder();
-            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
-            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
-
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                hash.Append(bytes[i].ToString("x2"));
-            }
-            return hash.ToString();
-        }
-
         protected void registerSubmit_Click(object sender, EventArgs e)
         {
             if (registerPassword.Text.Equals(confirmPassowrd.Text) && registerPassword.Text.Length != 0)
@@ -50,9 +37,7 @@ namespace SREX
                 List<Customer> PeopleStuff = Cust.ValidateUser(passportId.Text, emailAddress.Text);
                 if (!PeopleStuff.Any())
                 {
-                    string HashedPassW = MD5Hash(registerPassword.Text);
-
-                    Cust = new Customer(registerUsername.Text, HashedPassW, ddlGender.Text, passportId.Text, dob.Text, emailAddress.Text.ToLower());
+                    Cust = new Customer(registerUsername.Text, registerPassword.Text, ddlGender.Text, passportId.Text, dob.Text, emailAddress.Text.ToLower());
                     int result = Cust.CreateUser();
                     if (result == 1)
                     {
@@ -82,7 +67,7 @@ namespace SREX
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string email = Email.Text.ToLower();
-            string password = MD5Hash(loginPassword.Text);
+            string password = loginPassword.Text;
 
             Customer CustomerData = Cust.LoginGetRole(email, password);
 

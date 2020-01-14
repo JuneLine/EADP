@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="SREX.Profile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Label ID="LabelStatus" runat="server" Text=""></asp:Label>
     <div class="jumbotron">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-6">
@@ -15,25 +16,25 @@
                     <tr>
                         <td style="font-weight: bold;">Name:
                         </td>
-                        <td>&nbsp Marcus Chua
+                        <td>&nbsp <asp:Label ID="LabelName" runat="server" Text="%name%"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Email:
                         </td>
-                        <td>&nbsp HackerGod123@gmail.com
+                        <td>&nbsp <asp:Label ID="LabelEmail" runat="server" Text="%Email%"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Date Of Birth:
                         </td>
-                        <td>&nbsp 06/08/2001
+                        <td>&nbsp <asp:Label ID="LabelDOB" runat="server" Text="%Birth%"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Passport Number:
                         </td>
-                        <td>&nbsp K0123456E
+                        <td>&nbsp <asp:Label ID="LabelPassN" runat="server" Text="%PassN%"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -91,20 +92,23 @@
                 <div class="modal-body" style="width: 80%; margin: auto;">
                     <div class="form-group">
                         <label for="tbOldPW">Old Password: </label>
-                        <asp:TextBox runat="server" ID="tbOldPW" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tbOldPW" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorOldPW" runat="server" ErrorMessage="Required" ControlToValidate="tbOldPW" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label for="tbNewPW">New Password: </label>
-                        <asp:TextBox runat="server" ID="tbNewPW" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tbNewPW" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorNewPW" runat="server" ErrorMessage="Required" ControlToValidate="tbNewPW" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label for="tbConfirmNewPW">Confirm New Password: </label>
-                        <asp:TextBox runat="server" ID="tbConfirmNewPW" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tbConfirmNewPW" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidatorMatchPW" runat="server" ErrorMessage="Passwords do not match!" ControlToCompare="tbConfirmNewPW" ControlToValidate="tbNewPW" ForeColor="Red"></asp:CompareValidator>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:Button runat="server" ID="Button1" Text="Confirm" CssClass="btn btn-primary" />
+                    <asp:Button runat="server" ID="ButtonSavePW" Text="Confirm" CssClass="btn btn-primary" OnClick="ButtonSavePW_Click"/>
                 </div>
             </div>
         </div>

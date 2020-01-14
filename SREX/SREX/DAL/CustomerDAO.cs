@@ -121,5 +121,54 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
 
             return Stuff;
         }
+
+        public Customer getLoggedInDetails(string id)
+        {
+            Customer Cust = null;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT * FROM Users WHERE Id = @paraId";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraId", id);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                Cust = Read(dr);
+            }
+            Connection.Close();
+
+            return Cust;
+        }
+
+        public int changeLoggedInPW(string userId, string oldPw, string newPw)
+        {
+            int result = 0;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE Users SET Password = @paranewPw WHERE Id = @paraId AND Password = @paraoldPw";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraId", userId);
+            SQLCmd.Parameters.AddWithValue("@paraoldPw", oldPw);
+            SQLCmd.Parameters.AddWithValue("@paranewPw", newPw);
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+
+            Connection.Close();
+
+            return result;
+        }
     }
 }
