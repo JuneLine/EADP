@@ -20,6 +20,10 @@ namespace SREX.BLL
         public string Role { get; set; }
         public string Id { get; set; }
 
+        public string Code { get; set; }
+        public DateTime Time { get; set; }
+        public string Status { get; set; }
+
         public Customer()
         {
 
@@ -47,6 +51,14 @@ namespace SREX.BLL
                 hash.Append(bytes[i].ToString("x2"));
             }
             return hash.ToString();
+        }
+
+        public static string RandomString(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         public int CreateUser()
@@ -112,6 +124,76 @@ namespace SREX.BLL
                 Status.Add("red");
             }
             return Status;
+        }
+
+        public string getUserIdFromEmailReset(string email)
+        {
+            CustomerDAO Cust = new CustomerDAO();
+            string custId = Cust.checkEmailExist(email);
+            return custId;
+        }
+
+        public int createOTP(string userId, string email)
+        {
+            Random r = new Random();
+            string num = (r.Next(000000, 1000000)).ToString("D6");
+
+            CustomerDAO Cust = new CustomerDAO();
+            int result = Cust.createOTPCode(userId, num);
+
+            if (result == 1)
+            {
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.EnableSsl = true;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+
+                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", email, "Password Change", "The Code To Change Your Password Is"+Environment.NewLine+num);
+
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+            }
+            return result;
+        }
+
+        public int redeemOTP(string userId, string code, string email)
+        {
+            CustomerDAO Cust = new CustomerDAO();
+            string Id = Cust.checkOTPCode(userId, code);
+            if (Id != "")
+            {
+                string newPw = RandomString(6);
+                Cust.changeForgotPassword(userId, MD5Hash(newPw));
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.EnableSsl = true;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+
+                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", email, "Password Reset Successful", "Your new password is"+Environment.NewLine+newPw);
+
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+            }
+            return 0;
         }
     }
 }
