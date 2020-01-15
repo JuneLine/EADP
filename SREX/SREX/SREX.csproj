@@ -47,6 +47,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -262,6 +263,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\CartItem.cs" />
+    <Compile Include="BLL\Category.cs" />
     <Compile Include="BLL\Customer.cs" />
     <Compile Include="BLL\Destination.cs" />
     <Compile Include="BLL\GuideTour.cs" />
@@ -298,6 +300,7 @@
       <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\CartItemDAO.cs" />
+    <Compile Include="DAL\CategoryDAO.cs" />
     <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\DestinationDAO.cs" />
     <Compile Include="DAL\GuideTourDAO.cs" />

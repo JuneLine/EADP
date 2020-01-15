@@ -4,7 +4,7 @@
     <div class="container-fluid">
 
         <div class="row content">
-            <div class="col-sm-2 sidenav hidden-xs" style="margin-top:10%;">
+            <div class="col-sm-2 sidenav hidden-xs" style="margin-top: 10%;">
                 <h3>Categories</h3>
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="ProductList?category=cloth">Clothing</a></li>
@@ -28,9 +28,9 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
+                            <asp:TextBox CssClass="form-control" runat="server" ID="targetItem" Placeholder="Search for..."></asp:TextBox>
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
+                                <asp:Button ID="SearchButton" runat="server" CssClass="btn btn-default" Text="Go" OnClick="SearchButton_Click" />
                             </span>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                     <asp:DataList ID="DataList1" runat="server" RepeatColumns="3">
                         <ItemTemplate>
                             <a href="ProductInfo?productId=<%#Eval("Id") %>">
-                                <div style="width: 100%;padding-right:2%;padding-left:2%;">
+                                <div style="width: 100%; padding-right: 2%; padding-left: 2%;">
                                     <div class="panel panel-primary">
                                         <div class="panel-heading"><%#Eval("Name") %></div>
                                         <div class="panel-body">

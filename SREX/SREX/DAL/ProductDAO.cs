@@ -130,7 +130,7 @@ namespace SREX.DAL
 
             string mainconn = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection con = new SqlConnection(mainconn);
-            SqlDataAdapter sda = new SqlDataAdapter("Select * from Products where Name like @paraKeyword", con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from Products where lower(Name) like @paraKeyword", con);
             sda.SelectCommand.Parameters.AddWithValue("@paraKeyword", "%" + keyword + "%");
             DataSet ds = new DataSet();
             sda.Fill(ds);

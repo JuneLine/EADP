@@ -42,15 +42,6 @@
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-th-list bigicon"></i></span>
                                 <div class="col-md-8">
                                     <asp:DropDownList CssClass="form-control" runat="server" ID="ddlCategory">
-                                        <asp:ListItem Text="cloth" Selected="true" />
-                                        <asp:ListItem Text="shoes" />
-                                        <asp:ListItem Text="accessories" />
-                                        <asp:ListItem Text="bag" />
-                                        <asp:ListItem Text="watch" />
-                                        <asp:ListItem Text="sportGroup" />
-                                        <asp:ListItem Text="native-product" />
-                                        <asp:ListItem Text="electronic-device" />
-                                        <asp:ListItem Text="cosmetics-perfume" />
                                     </asp:DropDownList>
                                 </div>
                             </div>

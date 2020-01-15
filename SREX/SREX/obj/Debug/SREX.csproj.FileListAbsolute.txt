@@ -425,3 +425,4 @@ C:\Users\seowz\Documents\GitHub\EADP\SREX\SREX\obj\Debug\SREX.pdb
 C:\Users\Alex\Documents\GitHub\EADP\SREX\SREX\bin\QRCoder.dll
 C:\Users\Alex\Documents\GitHub\EADP\SREX\SREX\bin\System.Drawing.Common.dll
 C:\Users\marcu\OneDrive\Documents\GitHub\EADP\SREX\SREX\bin\QRCoder.dll
+C:\EADP\Github\EADP\SREX\SREX\bin\QRCoder.dll

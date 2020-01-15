@@ -33,5 +33,10 @@ namespace SREX
 
         }
 
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ProductList?keyword=" + targetItem.Text.ToLower().ToString());
+        }
+
     }
 }

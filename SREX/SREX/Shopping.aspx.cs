@@ -51,7 +51,7 @@ namespace SREX
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ProductList?keyword=" + targetItem.Text.ToString());
+            Response.Redirect("ProductList?keyword=" + targetItem.Text.ToLower().ToString());
         }
 
         protected void btAddProduct_Click(object sender, EventArgs e)

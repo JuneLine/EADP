@@ -11,11 +11,18 @@ namespace SREX
     public partial class AddProduct : System.Web.UI.Page
     {
         Product product = new Product();
+        Category category = new Category();
+        List<Category> categoriesList;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                categoriesList = category.GetAllCategories();
+                for (int i = 0; i < categoriesList.Count; i++)
+                {
+                    ListItem item = new ListItem(categoriesList[i].Name.ToString());
+                    ddlCategory.Items.Add(item);
+                }
             }
         }
 
