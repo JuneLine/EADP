@@ -42,6 +42,7 @@
                 <div id="emailbox" runat="server">
                     <label for="tbEmail" style="margin-left: 5%;" class="control-label">Enter Email:</label>
                     <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control tbadjustment"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid Email!" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                 </div>
                 <br />
                 <div id="codebox" style="display: none" runat="server">

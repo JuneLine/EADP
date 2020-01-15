@@ -16,8 +16,14 @@ namespace SREX
 
         protected void btnCfmEmail_Click(object sender, EventArgs e)
         {
-            emailbox.Style["display"] = "none";
-            codebox.Style["display"] = "block";            
+            if (tbEmail.Text != "" && codebox.Style["display"] == "null")
+            {
+                emailbox.Style["display"] = "none";
+                codebox.Style["display"] = "block";
+            }
+            Random r = new Random();
+            string num = (r.Next(000000, 1000000)).ToString("D6");
+            System.Diagnostics.Debug.WriteLine(num);
         }
     }
 }

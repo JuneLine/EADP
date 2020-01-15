@@ -129,42 +129,6 @@
                     </td>
                 </ItemTemplate>
             </asp:DataList>
-            <%--<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
-                <thead>
-                    <tr>
-                        <th>Item:
-                        </th>
-                        <th>Quantity:
-                        </th>
-                        <th>Status
-                        </th>
-                        <th>Options:
-                        </th>
-                    </tr>
-                </thead>
-                <tr>
-                    <td>TCL 55" OLED TV
-                    </td>
-                    <td>5
-                    </td>
-                    <td>WARNING LOW ON STOCK
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" class="btn btn-primary" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nike Random Shoe
-                    </td>
-                    <td>2
-                    </td>
-                    <td>WARNING EXTREMELY LOW ON STOCK
-                    </td>
-                    <td>
-                        <asp:Button ID="Button1" runat="server" Text="Go To Page" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="Restock" class="btn btn-primary" />
-                    </td>
-                </tr>
-            </table>--%>
         </div>
     </div>
 </asp:Content>
