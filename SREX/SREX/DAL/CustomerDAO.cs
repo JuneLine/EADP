@@ -221,6 +221,32 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             return result;
         }
 
+        public string returnOTPCodeIfFound(string UserId)
+        {
+            string result = null;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT Code FROM PasswordReset WHERE UserId = @paraUserId AND Time > DATEADD(minute, -2, @paraTime)";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraUserId", UserId);
+            SQLCmd.Parameters.AddWithValue("@paraTime", DateTime.Now);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                result = dr["Code"].ToString();
+            }
+
+            Connection.Close();
+
+            return result;
+        }
+
         public string checkOTPCode(string userId, string code)
         {
             string custId = null;
@@ -231,7 +257,7 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT UserId FROM PasswordReset WHERE UserId = @paraId AND Code = @paraCode AND Status = @paraStatus AND Time < DATEADD(minute, 2, @paraTime)";
+            string sqlStmt = @"SELECT UserId FROM PasswordReset WHERE UserId = @paraId AND Code = @paraCode AND Status = @paraStatus AND Time > DATEADD(minute, -2, @paraTime)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraId", userId);
@@ -255,12 +281,12 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             }
             Connection.Close();
 
-            Connection.Open();
             if (custId != null)
             {
+                Connection.Open();
                 result = SQLCmd1.ExecuteNonQuery();
+                Connection.Close();
             }
-            Connection.Close();
 
             if (result == 1)
             {
