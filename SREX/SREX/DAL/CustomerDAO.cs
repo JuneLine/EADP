@@ -170,5 +170,154 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
 
             return result;
         }
+
+        public string checkEmailExist(string email)
+        {
+            string Id = null;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT Id FROM Users WHERE EmailAddr = @paraEmail ";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraEmail", email);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                Id = dr["Id"].ToString();
+            }
+
+            Connection.Close();
+
+            return Id;
+        }
+
+        public int createOTPCode(string UserId, string code)
+        {
+            int result = 0;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"INSERT INTO PasswordReset (Id, UserId, Code, Time, Status) VALUES (@paraId, @paraUserId, @paraCode, @paraTime, @paraStatus)";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraId", Guid.NewGuid().ToString());
+            SQLCmd.Parameters.AddWithValue("@paraUserId", UserId);
+            SQLCmd.Parameters.AddWithValue("@paraCode", code);
+            SQLCmd.Parameters.AddWithValue("@paraTime", DateTime.Now);
+            SQLCmd.Parameters.AddWithValue("@paraStatus", "Active");
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+
+            Connection.Close();
+
+            return result;
+        }
+
+        public string returnOTPCodeIfFound(string UserId)
+        {
+            string result = null;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT Code FROM PasswordReset WHERE UserId = @paraUserId AND Time > DATEADD(minute, -2, @paraTime)";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraUserId", UserId);
+            SQLCmd.Parameters.AddWithValue("@paraTime", DateTime.Now);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                result = dr["Code"].ToString();
+            }
+
+            Connection.Close();
+
+            return result;
+        }
+
+        public string checkOTPCode(string userId, string code)
+        {
+            string custId = null;
+            int result = 0;
+            SqlCommand SQLCmd = new SqlCommand();
+            SqlCommand SQLCmd1 = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT UserId FROM PasswordReset WHERE UserId = @paraId AND Code = @paraCode AND Status = @paraStatus AND Time > DATEADD(minute, -2, @paraTime)";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraId", userId);
+            SQLCmd.Parameters.AddWithValue("@paraCode", code);
+            SQLCmd.Parameters.AddWithValue("@paraStatus", "Active");
+            SQLCmd.Parameters.AddWithValue("@paraTime", DateTime.Now);
+
+            string sqlStmt2 = @"UPDATE PasswordReset SET Status = @paraStatus WHERE UserId = @paraId AND Code = @paraCode AND Status = @paraStatus1";
+
+            SQLCmd1 = new SqlCommand(sqlStmt2, Connection);
+            SQLCmd1.Parameters.AddWithValue("@paraId", userId);
+            SQLCmd1.Parameters.AddWithValue("@paraCode", code);
+            SQLCmd1.Parameters.AddWithValue("@paraStatus", "Used");
+            SQLCmd1.Parameters.AddWithValue("@paraStatus1", "Active");
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            if (dr.Read())
+            {
+                custId = dr["UserId"].ToString();
+            }
+            Connection.Close();
+
+            if (custId != null)
+            {
+                Connection.Open();
+                result = SQLCmd1.ExecuteNonQuery();
+                Connection.Close();
+            }
+
+            if (result == 1)
+            {
+                return custId;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public int changeForgotPassword(string userId, string newPw)
+        {
+            int result = 0;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE Users SET Password = @paranewPw WHERE Id = @paraId";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraId", userId);
+            SQLCmd.Parameters.AddWithValue("@paranewPw", newPw);
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+
+            Connection.Close();
+
+            return result;
+        }
     }
 }

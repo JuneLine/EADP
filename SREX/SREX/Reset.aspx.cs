@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SREX.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,14 +17,42 @@ namespace SREX
 
         protected void btnCfmEmail_Click(object sender, EventArgs e)
         {
-            if (tbEmail.Text != "" && codebox.Style["display"] == "null")
+            if (tbEmail.Text != "" && codebox.Style["display"] == "none")
             {
-                emailbox.Style["display"] = "none";
-                codebox.Style["display"] = "block";
+                Customer Cust = new Customer();
+                string UserId = Cust.getUserIdFromEmailReset(tbEmail.Text);
+                if (UserId != null)
+                {
+                    RequiredFieldValidatorCode.Enabled = true;
+
+                    Cust.createOTP(UserId, tbEmail.Text);
+
+                    emailbox.Style["display"] = "none";
+                    codebox.Style["display"] = "block";
+
+                    Status.Text = "";
+                }
+                else
+                {
+                    Status.Text = "Invalid Email!";
+                    Status.ForeColor = System.Drawing.Color.Red;
+                }
             }
-            Random r = new Random();
-            string num = (r.Next(000000, 1000000)).ToString("D6");
-            System.Diagnostics.Debug.WriteLine(num);
+            else if (tbEmail.Text != null && tbCode.Text != null && emailbox.Style["display"] == "none")
+            {
+                Customer Cust = new Customer();
+                string UserId = Cust.getUserIdFromEmailReset(tbEmail.Text);
+                int result = Cust.redeemOTP(UserId, tbCode.Text, tbEmail.Text);
+                if (result == 1)
+                {
+                    Response.Redirect("/Login");
+                }
+                else
+                {
+                    Status.Text = "Invalid Code";
+                    Status.ForeColor = System.Drawing.Color.Red;
+                }
+            }
         }
     }
 }
