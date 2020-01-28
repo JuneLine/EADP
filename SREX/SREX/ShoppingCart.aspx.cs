@@ -102,11 +102,24 @@ namespace SREX
             if (Session["UserId"] != null && productId != "")
             {
                 CartItem cart = new CartItem();
-                int result = cart.PlusProductQuantity(productId, Session["UserId"].ToString());
-                if (result == 1)
+                Product prod = new Product();
+                prod = prod.GetProductDetail(productId);
+                int needs = cart.CheckQuantity(productId);
+                if (prod.InStock > needs)
                 {
-                    Response.Redirect("ShoppingCart.aspx");
+                    int result = cart.PlusProductQuantity(productId, Session["UserId"].ToString());
+                    if (result == 1)
+                    {
+                        Response.Redirect("ShoppingCart.aspx");
+                    }
                 }
+                else
+                {
+                    CartMessage.Text = "Sorry. We don't have sufficient items.";
+                    CartMessage.ForeColor = System.Drawing.Color.Red;
+                    alertMessage.Attributes.Add("class", "alert text-center alert-warning");
+                }
+                
             }
         }
 

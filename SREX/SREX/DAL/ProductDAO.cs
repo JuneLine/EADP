@@ -48,8 +48,6 @@ namespace SREX.DAL
             SqlConnection con = new SqlConnection(mainconn);
             SqlDataAdapter sda = new SqlDataAdapter("Select * from Products where CategoryId = @paraCategory order by " + sortBy +" "+ order, con);
             sda.SelectCommand.Parameters.AddWithValue("@paraCategory", categoryId);
-            //sda.SelectCommand.Parameters.AddWithValue("@paraSortBy",sortBy);
-            //sda.SelectCommand.Parameters.AddWithValue("@paraOrder",order);
             DataSet ds = new DataSet();
             sda.Fill(ds);
 
@@ -128,6 +126,7 @@ namespace SREX.DAL
             return result;
 
         }
+
 
         public List<Product> SelectTopFourItems()
         {

@@ -20,7 +20,6 @@ namespace SREX
                 {
                     Product prod = new Product();
                     prod = prod.GetProductDetail(productId);
-                    product = prod.GetProductDetail(productId);
                     lbName.Text = prod.Name;
                     lbPrice.Text = prod.Price.ToString();
                     lbDescription.Text = prod.Description;
@@ -62,22 +61,34 @@ namespace SREX
             {
                 CartItem cartI = new CartItem();
                 List<CartItem> items = cartI.ValidateItem(Session["productId"].ToString(), Session["UserId"].ToString());
+                Product prod = new Product();                
+                prod = prod.GetProductDetail(Session["productId"].ToString());
                 if (!items.Any())
                 {
-                    CartItem cart = new CartItem(Session["productId"].ToString(), Convert.ToInt16(quantityTb.Text), Session["UserId"].ToString());
-                    int result = cart.AddProductToShoppingCart();
-                    if (result == 1)
+                    if (prod.InStock < Convert.ToInt16(quantityTb.Text))
                     {
-                        AddMessage.Text = "This new item have been added to your cart";
-                        AddMessage.ForeColor = System.Drawing.Color.Green;
-                        showMessage.Attributes.Add("class", "alert text-center alert-success");
-                    }
-                    else
-                    {
-                        AddMessage.Text = "ERROR. Adding fail.";
+                        AddMessage.Text = "ERROR. Adding fail. Do not have enough instock.";
                         AddMessage.ForeColor = System.Drawing.Color.Red;
                         showMessage.Attributes.Add("class", "alert text-center alert-warning");
                     }
+                    else
+                    {
+                        CartItem cart = new CartItem(Session["productId"].ToString(), Convert.ToInt16(quantityTb.Text), Session["UserId"].ToString());
+                        int result = cart.AddProductToShoppingCart();
+                        if (result == 1)
+                        {
+                            AddMessage.Text = "This new item have been added to your cart";
+                            AddMessage.ForeColor = System.Drawing.Color.Green;
+                            showMessage.Attributes.Add("class", "alert text-center alert-success");
+                        }
+                        else
+                        {
+                            AddMessage.Text = "ERROR. Adding fail.";
+                            AddMessage.ForeColor = System.Drawing.Color.Red;
+                            showMessage.Attributes.Add("class", "alert text-center alert-warning");
+                        }
+                    }
+                    
                 }
                 else
                 {

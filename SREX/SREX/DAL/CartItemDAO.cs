@@ -135,6 +135,24 @@ namespace SREX.DAL
             return result;
         }
 
+        public int CheckQuantity(string productID)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlStmt = "Select Quantity from CartItem where productId = @paraProductId";
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+            sqlCmd.Parameters.AddWithValue("@paraProductId", productID);
+            myConn.Open();
+            int target = int.Parse(sqlCmd.ExecuteScalar().ToString());
+            
+            // Step 5 :Close connection
+            myConn.Close();
+            return target;
+
+        }
+
         public List<CartItem> SelectAllByUserId(string userID)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;

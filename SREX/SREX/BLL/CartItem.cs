@@ -53,6 +53,13 @@ namespace SREX.BLL
             return result;
         }
 
+        public int CheckQuantity(string productId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            int result = dao.CheckQuantity(productId);
+            return result;
+        }
+
         public int MinusProductQuantity(string productId, string userId)
         {
             CartItemDAO itemDAO = new CartItemDAO();
