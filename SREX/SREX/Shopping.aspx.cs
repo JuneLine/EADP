@@ -15,6 +15,7 @@ namespace SREX
             List<Product> topFourProductsList;
             if (!IsPostBack)
             {
+                Session["alertMessage"] = null;
                 Session["deleteMsg"] = null;
                 Product prod = new Product();
                 topFourProductsList = prod.GetTopFourPopularProduct();
@@ -22,26 +23,29 @@ namespace SREX
                 DataList1.DataBind();
                 if (Session["role"] != null)
                 {
+
                     if (Session["role"].Equals("Admin"))
                     {
+                        
                         catTitle.Attributes["Class"] = "section-heading text-right";
                         ButtonAddProd.Style["display"] = "block";
                         catDesign.Attributes["Class"] = "col-sm-7";
                         cat.Style["margin-top"] = "0px";
                         addProduct.Style["float"] = "right";
-                        ButtonEditCrs.Style["float"] = "right";
+                        
+
                     }
                     else if(Session["Role"].Equals("User"))
                     {
+                        
                         catTitle.Attributes["Class"] = "section-heading text-center";
-                        forAdmin1.Visible = false;
                         forAdmin2.Visible = false;
+                        
                     }
                 }
                 else
                 {
                     catTitle.Attributes["Class"] = "section-heading text-center";
-                    forAdmin1.Visible = false;
                     forAdmin2.Visible = false;
                 }
 
@@ -51,7 +55,7 @@ namespace SREX
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ProductList?keyword=" + targetItem.Text.ToLower().ToString());
+            Response.Redirect("ProductList?keyword=" + targetItem.Text.ToLower().ToString()+ "&sortby=Sold&order=Asc");
         }
 
         protected void btAddProduct_Click(object sender, EventArgs e)
