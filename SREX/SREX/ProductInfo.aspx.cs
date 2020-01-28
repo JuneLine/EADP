@@ -24,12 +24,12 @@ namespace SREX
                     lbName.Text = prod.Name;
                     lbPrice.Text = prod.Price.ToString();
                     lbDescription.Text = prod.Description;
-                    productImage.ImageUrl = "Pictures/"+prod.PictureName;
+                    productImage.ImageUrl = "Pictures/" + prod.PictureName;
                     if (prod.InStock == 0)
                     {
                         lbStock.Text = "Sold out";
                         lbStock.ForeColor = System.Drawing.Color.Red;
-                        ButtonBuyNow.Visible= false;
+                        ButtonBuyNow.Visible = false;
                     }
                     else if (prod.InStock > 0)
                     {
@@ -37,7 +37,7 @@ namespace SREX
                         lbStock.ForeColor = System.Drawing.Color.Green;
                     }
 
-                    if (Session["role"]!=null)
+                    if (Session["role"] != null)
                     {
                         if (Session["role"].Equals("Admin"))
                         {
@@ -48,6 +48,10 @@ namespace SREX
                             ButtonInfo.Visible = false;
                         }
                     }
+                }
+                else
+                {
+                    Response.Redirect("Shopping");
                 }
             }
         }
