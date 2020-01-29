@@ -65,12 +65,7 @@
                     <h2 id="cat" runat="server">Categories</h2>
                 </div>
             </div>
-            <div id="forAdmin1" runat="server" class="col-sm-3">
-                <div id="editCarousell" runat="server" class="section-heading">
-                    <asp:Button ID="ButtonEditCrs" runat="server" CssClass="btn btn-info" Text="Edit Carousell" OnClick="btEditCRS_Click" />
-                </div>
-            </div>
-            <div id="forAdmin2" runat="server" class="col-sm-2">
+            <div id="forAdmin2" runat="server" class="col-sm-4">
                 <div id="addProduct" runat="server" class="section-heading">
                     <asp:Button ID="ButtonAddProd" runat="server" CssClass="btn btn-primary" Text="Add Product" OnClick="btAddProduct_Click" />
                 </div>
@@ -84,7 +79,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Sweater.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=cloth">Clothing</a>
+                            <a href="ProductList?category=cloth&sortby=Sold&order=Asc">Clothing</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +87,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Shoes.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=shoes">Shoes</a>
+                            <a href="ProductList?category=shoes&sortby=Sold&order=Asc">Shoes</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +95,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Accessories.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=accessories">Accessories</a>
+                            <a href="ProductList?category=accessories&sortby=Sold&order=Asc">Accessories</a>
                         </div>
                     </div>
                 </div>
@@ -114,7 +109,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Bag.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=bag">Bag</a>
+                            <a href="ProductList?category=bag&sortby=Sold&order=Asc">Bag</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +117,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Electronic.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=electronic-devices">Electronic devices</a>
+                            <a href="ProductList?category=electronic-devices&sortby=Sold&order=Asc">Electronic devices</a>
                         </div>
                     </div>
                 </div>
@@ -130,7 +125,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Watch.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=watch">Watch</a>
+                            <a href="ProductList?category=watch&sortby=Sold&order=Asc">Watch</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +139,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Sports.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=sportGroup">Sports</a>
+                            <a href="ProductList?category=sportGroup&sortby=Sold&order=Asc">Sports</a>
                         </div>
                     </div>
                 </div>
@@ -152,7 +147,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Makeup.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=cosmetics-perfume">Cosmetics & Perfume</a>
+                            <a href="ProductList?category=cosmetics-perfume&sortby=Sold&order=Asc">Cosmetics & Perfume</a>
                         </div>
                     </div>
                 </div>
@@ -160,7 +155,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/LocalFood.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=native-product">Native Product</a>
+                            <a href="ProductList?category=native-product&sortby=Sold&order=Asc">Native Product</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +166,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading text-center">
-                    <h2>Recommended Products</h2>
+                    <h2>Popular Products</h2>
                 </div>
             </div>
         </div>

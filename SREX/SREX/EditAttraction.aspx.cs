@@ -32,6 +32,8 @@ namespace SREX
                             AttractionDescription.Text = OneList.Description;
                             AttractionsURL.Text = OneList.URL;
                             AttractionImage.ImageUrl = "~/Pictures/" + OneList.Picture;
+                            AttractionTags.Text = OneList.Tags;
+                            AttractionPrice.Text = OneList.Price;
                             Session["imageInfo"] = OneList.Picture;
                         }
                     }
@@ -55,8 +57,9 @@ namespace SREX
             string AttractName = AttractionName.Text;
             string AttractURL = AttractionsURL.Text;
             string AttractDes = AttractionDescription.Text;
-
-            int result = Information.UpdateAttractionInfo(Attractid, AttractName, Session["imageInfo"].ToString(), AttractURL, AttractDes);
+            string AttractTag = AttractionTags.Text;
+            string AttractPrice = AttractionPrice.Text;
+            int result = Information.UpdateAttractionInfo(Attractid, AttractName, Session["imageInfo"].ToString(), AttractURL, AttractDes, AttractTag, AttractPrice);
             if (result == 1)
             {
                 Response.Redirect("PlanningMain.aspx");

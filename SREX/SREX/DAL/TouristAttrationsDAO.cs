@@ -73,7 +73,9 @@ namespace SREX.DAL
                 string Picture = row["Picture"].ToString();
                 string URL = row["URL"].ToString();
                 string Description = row["Description"].ToString();
-                Listing = new TouristAttractions(id, Name, Picture, URL, Description);
+                string Tags = row["Tag"].ToString();
+                string Price = row["Price"].ToString();
+                Listing = new TouristAttractions(id, Name, Picture, URL, Description, Tags, Price);
             }
 
             return Listing;
@@ -88,8 +90,8 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO TouristAttractions(AttractionId, Name, Picture, URL, Description) " +
-            "VALUES(@paraId,@paraName, @paraPicture, @paraURL, @paraDescription)";
+            string sqlStmt = @"INSERT INTO TouristAttractions(AttractionId, Name, Picture, URL, Description, Tag, Price) " +
+            "VALUES(@paraId,@paraName, @paraPicture, @paraURL, @paraDescription, @paraTag, @paraPrice)";
 
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
@@ -98,6 +100,8 @@ namespace SREX.DAL
             SQLCmd.Parameters.AddWithValue("@paraPicture", List.Picture);
             SQLCmd.Parameters.AddWithValue("@paraURL", List.URL);
             SQLCmd.Parameters.AddWithValue("@paraDescription", List.Description);
+            SQLCmd.Parameters.AddWithValue("@paraTag", List.Tags);
+            SQLCmd.Parameters.AddWithValue("@paraPrice", List.Price);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
@@ -107,7 +111,7 @@ namespace SREX.DAL
             return result;
         }
 
-        public int UpdateAttraction(string id, string name, string picture, string url, string description)
+        public int UpdateAttraction(string id, string name, string picture, string url, string description, string tags, string price)
         {
             int result = 0;
 
@@ -116,7 +120,7 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"UPDATE touristAttractions SET Name = @paraName, Picture = @paraPicture, URL = @paraURL, Description = @paraDescription WHERE AttractionId = @paraId";
+            string sqlStmt = @"UPDATE touristAttractions SET Name = @paraName, Picture = @paraPicture, URL = @paraURL, Description = @paraDescription, Tag = @paraTag, Price = @paraPrice WHERE AttractionId = @paraId";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraId", id);
@@ -124,6 +128,8 @@ namespace SREX.DAL
             SQLCmd.Parameters.AddWithValue("@paraPicture", picture);
             SQLCmd.Parameters.AddWithValue("@paraURL", url);
             SQLCmd.Parameters.AddWithValue("@paraDescription", description);
+            SQLCmd.Parameters.AddWithValue("@paraTag", tags);
+            SQLCmd.Parameters.AddWithValue("@paraPrice", price);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
@@ -131,6 +137,89 @@ namespace SREX.DAL
             Connection.Close();
 
             return result;
+        }
+
+        public List<TouristAttractions> SelectDestination(string destinationName)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from TouristAttractions where Name = @paraName ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraName", destinationName);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            List<TouristAttractions> tdList = new List<TouristAttractions>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            if (rec_cnt > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    string id = row["AttractionId"].ToString();
+                    string Name = row["Name"].ToString();
+                    string Picture = row["Picture"].ToString();
+                    string URL = row["URL"].ToString();
+                    string Description = row["Description"].ToString();
+                    string Tags = row["Tag"].ToString();
+                    string Price = row["Price"].ToString();
+
+                    TouristAttractions dest = new TouristAttractions(id, Name, Picture, URL, Description, Tags, Price);
+
+                    tdList.Add(dest);
+                }
+
+
+            }
+
+            else
+            {
+                tdList = null;
+            }
+
+            return tdList;
+        }
+
+        public List<TouristAttractions> SelectAll()
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from TouristAttractions";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            List<TouristAttractions> tdList = new List<TouristAttractions>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            if (rec_cnt > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    string id = row["AttractionId"].ToString();
+                    string Name = row["Name"].ToString();
+                    string Picture = row["Picture"].ToString();
+                    string URL = row["URL"].ToString();
+                    string Description = row["Description"].ToString();
+                    string Tags = row["Tag"].ToString();
+                    string Price = row["Price"].ToString();
+
+                    TouristAttractions dest = new TouristAttractions(id, Name, Picture, URL, Description, Tags, Price);
+
+                    tdList.Add(dest);
+                }
+
+
+            }
+
+            else
+            {
+                tdList = null;
+            }
+
+            return tdList;
         }
     }
 }

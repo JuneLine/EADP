@@ -2,20 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
-
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs" style="margin-top: 10%;">
                 <h3>Categories</h3>
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="ProductList?category=cloth">Clothing</a></li>
-                    <li><a href="ProductList?category=shoes">Shoes</a></li>
-                    <li><a href="ProductList?category=accessories">Accessories</a></li>
-                    <li><a href="ProductList?category=bag">Bag</a></li>
-                    <li><a href="ProductList?category=electronic-devices">Electronic Devices</a></li>
-                    <li><a href="ProductList?category=watch">Watch</a></li>
-                    <li><a href="ProductList?category=sportGroup">Sports</a></li>
-                    <li><a href="ProductList?category=cosmetics-perfume">Cosmetics & Perfume</a></li>
-                    <li><a href="ProductList?category=native-product">Native Product</a></li>
+                    <li><a href="ProductList?category=cloth&sortby=Sold&order=Asc">Clothing</a></li>
+                    <li><a href="ProductList?category=shoes&sortby=Sold&order=Asc">Shoes</a></li>
+                    <li><a href="ProductList?category=accessories&sortby=Sold&order=Asc">Accessories</a></li>
+                    <li><a href="ProductList?category=bag&sortby=Sold&order=Asc">Bag</a></li>
+                    <li><a href="ProductList?category=electronic-devices&sortby=Sold&order=Asc">Electronic Devices</a></li>
+                    <li><a href="ProductList?category=watch&sortby=Sold&order=Asc">Watch</a></li>
+                    <li><a href="ProductList?category=sportGroup&sortby=Sold&order=Asc">Sports</a></li>
+                    <li><a href="ProductList?category=cosmetics-perfume&sortby=Sold&order=Asc">Cosmetics & Perfume</a></li>
+                    <li><a href="ProductList?category=native-product&sortby=Sold&order=Asc">Native Product</a></li>
                 </ul>
                 <br>
             </div>
@@ -34,10 +33,25 @@
                             </span>
                         </div>
                     </div>
+                    <div class="col-sm-2 mx-auto text-center" style="margin-top: 2.5%;">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" style="width: 180px;" data-toggle="dropdown">
+                                <asp:Label runat="server" ID="sortBySth">Sort</asp:Label>
+                            <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" runat="server" id="SortByNameAsc">Sort by Name (A-Z)</a></li>
+                                <li><a href="#" runat="server" id="SortByNameDesc">Sort by Name (Z-A)</a></li>
+                                <li><a href="#" runat="server" id="SortByPriceAsc">Sort by Price (low-high)</a></li>
+                                <li><a href="#" runat="server" id="SortByPriceDesc">Sort by Price (high-low)</a></li>
+                                <li><a href="#" runat="server" id="SortByPopularityAsc">Sort by Popularity</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row body-container-own">
-                    <asp:DataList ID="DataList1" runat="server" RepeatColumns="3">
+                    <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
                         <ItemTemplate>
                             <a href="ProductInfo?productId=<%#Eval("Id") %>">
                                 <div style="width: 100%; padding-right: 2%; padding-left: 2%;">

@@ -31,6 +31,60 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Button SearchButton;
         
         /// <summary>
+        /// sortBySth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sortBySth;
+        
+        /// <summary>
+        /// SortByNameAsc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SortByNameAsc;
+        
+        /// <summary>
+        /// SortByNameDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SortByNameDesc;
+        
+        /// <summary>
+        /// SortByPriceAsc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SortByPriceAsc;
+        
+        /// <summary>
+        /// SortByPriceDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SortByPriceDesc;
+        
+        /// <summary>
+        /// SortByPopularityAsc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SortByPopularityAsc;
+        
+        /// <summary>
         /// DataList1 control.
         /// </summary>
         /// <remarks>

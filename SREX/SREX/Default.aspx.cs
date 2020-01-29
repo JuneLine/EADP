@@ -13,6 +13,8 @@ namespace SREX
         {
             if (!IsPostBack)
             {
+                Session["alertMessage"] = null;
+                Session["deleteMsg"] = null;
                 if (Session["role"] != null)
                 {
                     lbRole.Text = Session["role"].ToString();

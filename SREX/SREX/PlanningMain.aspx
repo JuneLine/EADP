@@ -2,6 +2,24 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
+    <br />
+    <div class="col-sm-12 text-center">
+         <asp:Label ID="LabelConfirm" runat="server" class="text-center fa-border rounded"  style="background-color:forestgreen;" Text=""></asp:Label>
+    </div>
+    <div class="text-center fa-border rounded" style="border-width:2px;border-radius:2px;background-color:skyblue">
+        <br />
+            <div class="card">
+                <div class="card">
+                    Join us!
+                </div>
+                <div class="card-body">
+                   <p class="card-text">Interested in joining us as a tour guide? Click here!</p>
+                    <asp:Button runat="server" ID="ApplyGuide" Text="Join us!" CssClass="btn btn-primary" OnClick="ApplyGuide_Click"/>
+                </div>
+            </div>
+        <br />
+
+    </div>
     <div class="container text-center body-container-own">
         <br />
         <br />
@@ -19,6 +37,22 @@
                 </a>
                 <h3>Self-Planning</h3>
                 <p>Plan Your Own Trip And Enjoy Your Free Roam</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center col-sm-6" id="forTourGuide" runat="server">
+                <a href="TourGuide">
+                    <i class="fa fa-user planIcons"></i>
+                </a>
+                <h3>Tour guides</h3>
+                <p>Come here to view plans you can guide!</p>
+            </div>
+            <div class="text-center col-sm-6" id="forAdminApply" runat="server">
+                <a href="AdminApplication">
+                    <i class="fa fa-bell planIcons"></i>
+                </a>
+                <h3>Applications</h3>
+                <p>Click here to review applications</p>
             </div>
         </div>
         <hr />
@@ -73,13 +107,20 @@
                         <label for="AttractionDescription">Description: </label>
                         <asp:TextBox runat="server" ID="AttractionDescription" CssClass="form-control"></asp:TextBox>
                     </div>
+                    <div class="form-group">
+                        <label for="AttractionTags">Tag: </label>
+                        <asp:TextBox runat="server" ID="AttractionTags" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="AttractionPrice">Price: </label>
+                        <asp:TextBox runat="server" ID="AttractionPrice" CssClass="form-control"></asp:TextBox>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:Button runat="server" ID="AddNewAttraction" Text="Add Confirm" CssClass="btn btn-primary" OnClick="AddNewAttraction_Click" style="display:none;"/>
+                    <asp:Button runat="server" ID="AddNewAttraction" Text="Add Confirm" CssClass="btn btn-primary" OnClick="AddNewAttraction_Click"/>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Content>

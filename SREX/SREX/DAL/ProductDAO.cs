@@ -40,6 +40,37 @@ namespace SREX.DAL
             return empList;
         }
 
+        public List<Product> SelectAllByCategoryWithSort(string categoryId,string sortBy, string order)
+        {
+ 
+
+            string mainconn = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection con = new SqlConnection(mainconn);
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from Products where CategoryId = @paraCategory order by " + sortBy +" "+ order, con);
+            sda.SelectCommand.Parameters.AddWithValue("@paraCategory", categoryId);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+
+            List<Product> empList = new List<Product>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                string id = row["Id"].ToString();
+                string name = row["Name"].ToString();
+                decimal price = Convert.ToDecimal(row["Price"].ToString());
+                string categoryID = row["CategoryId"].ToString();
+                string describtion = row["Description"].ToString();
+                string pictureName = row["PictureName"].ToString();
+                int inStock = Convert.ToInt16(row["InStock"].ToString());
+                int sold = Convert.ToInt16(row["Sold"].ToString());
+                Product obj = new Product(id, name, price, categoryID, describtion, pictureName, inStock, sold);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
+
         public Product SelectByProductId(string productID)
         {
             string mainconn = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
@@ -96,6 +127,7 @@ namespace SREX.DAL
 
         }
 
+
         public List<Product> SelectTopFourItems()
         {
 
@@ -125,12 +157,65 @@ namespace SREX.DAL
             return empList;
         }
 
-        public List<Product> SelectByKeyword(string keyword)
+        public List<Product> SelectTopFourRecommandedItems(string category)
         {
 
             string mainconn = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection con = new SqlConnection(mainconn);
-            SqlDataAdapter sda = new SqlDataAdapter("Select * from Products where lower(Name) like @paraKeyword", con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select top 4 * from Products where categoryid = @paraCategory", con);
+            sda.SelectCommand.Parameters.AddWithValue("@paraCategory", category);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+
+            List<Product> empList = new List<Product>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                string id = row["Id"].ToString();
+                string name = row["Name"].ToString();
+                decimal price = Convert.ToDecimal(row["Price"].ToString());
+                string categoryID = row["CategoryId"].ToString();
+                string describtion = row["Description"].ToString();
+                string pictureName = row["PictureName"].ToString();
+                int inStock = Convert.ToInt16(row["InStock"].ToString());
+                int sold = Convert.ToInt16(row["Sold"].ToString());
+                Product obj = new Product(id, name, price, categoryID, describtion, pictureName, inStock, sold);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
+
+        public string GetPreferCategory(string userID)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            try
+            {
+                string sqlStmt = "Select top 1 pd.CategoryId from CartItem ci inner join Products pd on ci.ProductId = pd.id where ci.userId= @paraUserId and Status='Active'";
+                SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+                da.SelectCommand.Parameters.AddWithValue("@paraUserId", userID);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                DataRow row = ds.Tables[0].Rows[0];
+                string preCategory = row["CategoryId"].ToString();
+                return preCategory;
+            }
+            catch {
+                string preCategory = "Empty";
+                return preCategory;
+            }
+            
+            
+        }
+
+        public List<Product> SelectByKeyword(string keyword, string sortBy, string order)
+        {
+
+            string mainconn = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection con = new SqlConnection(mainconn);
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from Products where lower(Name) like @paraKeyword order by " + sortBy + " " + order, con);
             sda.SelectCommand.Parameters.AddWithValue("@paraKeyword", "%" + keyword + "%");
             DataSet ds = new DataSet();
             sda.Fill(ds);

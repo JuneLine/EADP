@@ -16,6 +16,7 @@ namespace SREX
             {
                 string productId = Request.QueryString["productId"];
                 Session["productId"] = productId;
+
                 if (!string.IsNullOrEmpty(productId))
                 {
                     Product prod = new Product();
@@ -25,6 +26,7 @@ namespace SREX
                     ProductDescTB.Text = prod.Description;
                     inStockTB.Text = prod.InStock.ToString();
                     ddlCategory.SelectedItem.Text = prod.CategoryId;
+                    Session["imageInfo"] = prod.PictureName;
                     imageShow.ImageUrl = "Pictures/" + prod.PictureName;
 
                 }
@@ -33,10 +35,11 @@ namespace SREX
 
         protected void UpdateProductButton_Click(object sender, EventArgs e)
         {
+            Product prod = new Product();
             string productId = Request.QueryString["productId"];
+            prod = prod.GetProductDetail(productId);
             if (!string.IsNullOrEmpty(productId))
             {
-                Product prod = new Product();
                 int result = prod.UpdateProductInfo(Session["productId"].ToString(), productNameTB.Text.ToString(),Convert.ToDecimal(productPriceTB.Text), ddlCategory.SelectedItem.Text.ToString(), ProductDescTB.Text.ToString(), Session["imageInfo"].ToString(), Convert.ToInt16(inStockTB.Text));
                 if (result == 1)
                 {
