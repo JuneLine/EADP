@@ -8,24 +8,32 @@ using System.Web.UI.WebControls;
 
 namespace SREX
 {
-    public partial class PlanningHistory : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
-
+        string yes = "Pending";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Session["userId"] != null)
+                if (Session["role"] != null)
                 {
-                    LoadHistory();
+
+                    if (Session["role"].Equals("Admin"))
+                    {
+                        LoadHistory();
+                    }
+
+                    else
+                    {
+                        Response.Redirect("PlanningMain.aspx");
+                    }
                 }
 
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("PlanningMain.aspx");
                 }
             }
-
         }
 
         private void RefreshGridView(List<SelfPlan> list)
@@ -38,15 +46,16 @@ namespace SREX
         protected void LoadHistory()
         {
             SelfPlan td = new SelfPlan();
-            List<SelfPlan> list = td.getDestinationByTitle(Session["userId"].ToString());
+            List<SelfPlan> list = td.getTourGuided(yes);
             RefreshGridView(list);
         }
+
         protected void GvTD_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GvTD.SelectedRow;
             Session["UniqueId"] = row.Cells[0].Text;
             Session["Hire"] = row.Cells[3].Text;
-            Response.Redirect("selfPlanView.aspx");
+            Response.Redirect("TourGuideConfirmation.aspx");
         }
     }
 }

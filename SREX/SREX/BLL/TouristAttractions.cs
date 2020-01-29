@@ -13,14 +13,18 @@ namespace SREX.BLL
         public string Picture { get; set; }
         public string URL { get; set; }
         public string Description { get; set; }
+        public string Tags { get; set; }
+        public string Price { get; set; }
 
-        public TouristAttractions(string Id, string AttractionName, string Picture, string URL, string Description)
+        public TouristAttractions(string Id, string AttractionName, string Picture, string URL, string Description, string Tags, string Price)
         {
             this.Id = Id;
             this.AttractionName = AttractionName;
             this.Picture = Picture;
             this.URL = URL;
             this.Description = Description;
+            this.Tags = Tags;
+            this.Price = Price;
         }
 
         public TouristAttractions()
@@ -47,10 +51,22 @@ namespace SREX.BLL
             return result;
         }
 
-        public int UpdateAttractionInfo(string id, string Name, string Picture, string URL, string Description)
+        public int UpdateAttractionInfo(string id, string Name, string Picture, string URL, string Description, string Tags, string Price)
         {
             TouristAttractionsDAO info = new TouristAttractionsDAO();
-            return info.UpdateAttraction(id, Name, Picture, URL, Description);
+            return info.UpdateAttraction(id, Name, Picture, URL, Description, Tags, Price);
+        }
+
+        public List<TouristAttractions> searchDestination(string destinationName)
+        {
+            TouristAttractionsDAO dao = new TouristAttractionsDAO();
+            return dao.SelectDestination(destinationName);
+        }
+
+        public List<TouristAttractions> GetAllDestination()
+        {
+            TouristAttractionsDAO dao = new TouristAttractionsDAO();
+            return dao.SelectAll();
         }
     }
 }

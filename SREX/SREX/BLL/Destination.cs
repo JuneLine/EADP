@@ -46,6 +46,7 @@ namespace SREX.BLL
             return dao.SelectAll();
         }
 
+
         public List<Destination> searchDestination(string destinationName)
         {
             DestinationDAO dao = new DestinationDAO();

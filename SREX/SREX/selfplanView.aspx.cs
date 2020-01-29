@@ -35,6 +35,11 @@ namespace SREX
                     LabelTiming10.Text = td.Timing10.ToString();
 
                 }
+
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 

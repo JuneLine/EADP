@@ -19,15 +19,37 @@ namespace SREX
 
                 if (Session["UserId"] == null)
                 {
+                    LabelConfirm.Visible = false;
+                    forAdminApply.Visible = false;
+                    forTourGuide.Visible = false;
+                    AddNewAttraction.Visible = false;
                     btnAddPlace.Style["display"] = "none";
+                }
+                else if (Session["role"].ToString() == "Guide")
+                {
+                    LabelConfirm.Visible = false;
+                    forAdminApply.Visible = false;
+                    AddNewAttraction.Visible = false;
+                    forTourGuide.Visible = true;
+                }
+
+                else if (Session["role"].ToString() == "Admin")
+                {
+                    LabelConfirm.Visible = false;
+                    forAdminApply.Visible = true;
+                    AddNewAttraction.Visible = true;
+                    forTourGuide.Visible = true;
+                    btnAddPlace.Style["display"] = "inline-block";
                 }
                 else
                 {
-                    if (Session["role"].ToString() == "Admin")
-                    {
-                        btnAddPlace.Style["display"] = "inline-block";
-                    }
+                    AddNewAttraction.Visible = false;
+                    LabelConfirm.Visible = false;
+                    forAdminApply.Visible = false;
+                    forTourGuide.Visible = false;
+                    btnAddPlace.Style["display"] = "none";
                 }
+
                 TouristAttractions Attactions = new TouristAttractions();
                 AttractionList = Attactions.GetAll();
                 DataListAttractions.DataSource = AttractionList;
@@ -41,6 +63,9 @@ namespace SREX
             string Name = AttractionName.Text;
             string URL = AttractionsURL.Text;
             string Description = AttractionDescription.Text;
+            string Tag = AttractionTags.Text;
+            string Price = AttractionPrice.Text;
+
             if (AttractionPicture.HasFile)
             {
                 Picture = Path.GetFileName(AttractionPicture.FileName);
@@ -50,7 +75,7 @@ namespace SREX
                     string path = Server.MapPath("~/Pictures/");
                     AttractionPicture.SaveAs(path + AttractionPicture.FileName);
 
-                    TouristAttractions Place = new TouristAttractions(Guid.NewGuid().ToString(), Name, Picture, URL, Description);
+                    TouristAttractions Place = new TouristAttractions(Guid.NewGuid().ToString(), Name, Picture, URL, Description, Tag, Price);
                     int result = Place.CreateAttractions();
 
                     if (result == 1)
@@ -65,6 +90,33 @@ namespace SREX
         {
             string id = Request.QueryString["AttractionId"];
             Response.Redirect("EditAttraction?AttractionId =" + id);
+        }
+
+        protected void ApplyGuide_Click(object sender, EventArgs e)
+        {
+            if (Session["UserId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                int updCnt;
+                string newStatus = "Applying";
+                string currStatus = (string)ViewState["CurrStatus"];
+
+                SelfPlan td = new SelfPlan();
+                updCnt = td.UpdTDbyUserId(newStatus, Session["UserId"].ToString());
+                if (updCnt == 1)
+                {
+                    LabelConfirm.Visible = true;
+                    LabelConfirm.Text = "Your application is now under review !";
+                }
+                else
+                {
+                    LabelConfirm.Visible = true;
+                    LabelConfirm.Text = "Failed to apply for tour guide";
+                }
+            }
         }
     }
 }

@@ -13,10 +13,10 @@ namespace SREX
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Destination> allDestinations;
-            Destination dest = new Destination();
-            allDestinations = dest.GetAllDestination();
-            DataList1.DataSource = allDestinations;
+            List<TouristAttractions> AttractionLists;
+            TouristAttractions dest = new TouristAttractions();
+            AttractionLists = dest.GetAll();
+            DataList1.DataSource = AttractionLists;
             DataList1.DataBind();
 
             if (!IsPostBack)
@@ -26,36 +26,55 @@ namespace SREX
 
                     if (Session["role"].Equals("Admin"))
                     {
-                        forAdminOnly.Visible = true;
+
                     }
 
                     else
                     {
-                        forAdminOnly.Visible = false;
+
                     }
                 }
 
                 else
                 {
-                    forAdminOnly.Visible = false;
+
                 }
             }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            string Hiring = "Pending";
+            string No = "No";
             if (Session["userId"] != null)
             {
-                SelfPlan Hist = new SelfPlan(Session["userId"].ToString(), SelfPlanTitle.Text.ToString(), SelfPlanDate.Text.ToString(), RadioButtonHire.SelectedItem.ToString(),
+                if (RadioButtonHire.SelectedIndex == 0)
+                {
+                    SelfPlan Hist = new SelfPlan(Session["userId"].ToString(), SelfPlanTitle.Text.ToString(), SelfPlanDate.Text.ToString(), RadioButtonHire.SelectedItem.ToString(),
                  DropDownList1.SelectedValue.ToString(), DropDownList2.SelectedValue.ToString(), DropDownList3.SelectedValue.ToString(), DropDownList4.SelectedValue.ToString()
                  , DropDownList5.SelectedValue.ToString(), DropDownList6.SelectedValue.ToString(), DropDownList7.SelectedValue.ToString(), DropDownList8.SelectedValue.ToString()
-                 , DropDownList9.SelectedValue.ToString(), DropDownList10.SelectedValue.ToString());
+                 , DropDownList9.SelectedValue.ToString(), DropDownList10.SelectedValue.ToString(), Hiring, Session["UserName"].ToString());
 
-                int result = Hist.InsertHistory();
+                    int result = Hist.InsertHistory();
 
-                if (result == 1)
+                    if (result == 1)
+                    {
+                        Response.Redirect("PlanningHistory.aspx");
+                    }
+                } 
+                else
                 {
-                    Response.Redirect("PlanningHistory.aspx");
+                    SelfPlan Hist = new SelfPlan(Session["userId"].ToString(), SelfPlanTitle.Text.ToString(), SelfPlanDate.Text.ToString(), RadioButtonHire.SelectedItem.ToString(),
+                 DropDownList1.SelectedValue.ToString(), DropDownList2.SelectedValue.ToString(), DropDownList3.SelectedValue.ToString(), DropDownList4.SelectedValue.ToString()
+                 , DropDownList5.SelectedValue.ToString(), DropDownList6.SelectedValue.ToString(), DropDownList7.SelectedValue.ToString(), DropDownList8.SelectedValue.ToString()
+                 , DropDownList9.SelectedValue.ToString(), DropDownList10.SelectedValue.ToString(), No, Session["UserName"].ToString());
+
+                    int result = Hist.InsertHistory();
+
+                    if (result == 1)
+                    {
+                        Response.Redirect("PlanningHistory.aspx");
+                    }
                 }
             }
 
@@ -67,8 +86,8 @@ namespace SREX
 
         protected void ButtonSearchName_Click(object sender, EventArgs e)
         {
-            List<Destination> searchDestination;
-            Destination dest = new Destination();
+            List<TouristAttractions> searchDestination;
+            TouristAttractions dest = new TouristAttractions();
             searchDestination = dest.searchDestination(TbSearch.Text.ToString());
             DataList1.DataSource = searchDestination;
             DataList1.DataBind();
@@ -76,8 +95,8 @@ namespace SREX
 
         protected void ButtonAll_Click(object sender, EventArgs e)
         {
-            List<Destination> allDestinations;
-            Destination dest = new Destination();
+            List<TouristAttractions> allDestinations;
+            TouristAttractions dest = new TouristAttractions();
             allDestinations = dest.GetAllDestination();
             DataList1.DataSource = allDestinations;
             DataList1.DataBind();

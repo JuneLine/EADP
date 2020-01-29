@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="selfplanView.aspx.cs" Inherits="SREX.selfplanView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideConfirmation.aspx.cs" Inherits="SREX.TourGuideConfirmation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -98,15 +98,10 @@
                                 </p>
                             </td>
                         </tr>
-                            <tr>
-                                <td colspan="10">
-                                    <p>
-                                    <asp:Button ID="BtnBack" class="btn btn-primary" style="float:right" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
-                                        </p>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
+                <asp:Button ID="ConfirmButton" CssClass="btn btn-primary" style="float:right" runat="server" Text="Confirm" OnClick="ConfirmButton_Click" />&nbsp&nbsp
+                <asp:Button ID="BtnBack" class="btn btn-primary" style="float:left" runat="server" Text="Back" OnClick="BtnBack_Click1" />&nbsp&nbsp
                 </div>
                 <br />
                 <br />

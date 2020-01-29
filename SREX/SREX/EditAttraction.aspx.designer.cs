@@ -58,6 +58,24 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.TextBox AttractionDescription;
         
         /// <summary>
+        /// AttractionTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AttractionTags;
+        
+        /// <summary>
+        /// AttractionPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AttractionPrice;
+        
+        /// <summary>
         /// AttractionImage control.
         /// </summary>
         /// <remarks>

@@ -21,8 +21,8 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO SelfPlanHistory (Id,Title, Date, Hire, Timing1, Timing2, Timing3, Timing4, Timing5, Timing6, Timing7, Timing8, Timing9, Timing10) 
-VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @paraTiming3, @paraTiming4, @paraTiming5, @paraTiming6, @paraTiming7, @paraTiming8, @paraTiming9, @paraTiming10)";
+            string sqlStmt = @"INSERT INTO SelfPlanHistory (Id,Title, Date, Hire, Timing1, Timing2, Timing3, Timing4, Timing5, Timing6, Timing7, Timing8, Timing9, Timing10, Status, UserName) 
+VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @paraTiming3, @paraTiming4, @paraTiming5, @paraTiming6, @paraTiming7, @paraTiming8, @paraTiming9, @paraTiming10, @paraStatus, @paraUserName)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraId", Hist.Id);
@@ -39,6 +39,8 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             SQLCmd.Parameters.AddWithValue("@paraTiming8", Hist.Timing8);
             SQLCmd.Parameters.AddWithValue("@paraTiming9", Hist.Timing9);
             SQLCmd.Parameters.AddWithValue("@paraTiming10", Hist.Timing10);
+            SQLCmd.Parameters.AddWithValue("paraStatus", Hist.Status);
+            SQLCmd.Parameters.AddWithValue("paraUserName", Hist.UserName);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
@@ -122,6 +124,46 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
 
         }
 
+        public List<SelfPlan> getTourGuided(string hired)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from SelfPlanHistory where Status = @paraPending";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("paraPending", hired);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            List<SelfPlan> tdList = new List<SelfPlan>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            if (rec_cnt > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int uniqueId = int.Parse(row["UniqueId"].ToString());
+                    string userName = row["UserName"].ToString();
+                    string date = row["Date"].ToString();
+                    string title = row["Title"].ToString();
+                    string hire = row["Hire"].ToString();
+
+                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
+
+                    tdList.Add(hist);
+                }
+
+
+            }
+
+            else
+            {
+                tdList = null;
+            }
+
+            return tdList;
+        }
+
         public List<SelfPlan> SelectDestinationById(string Id)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
@@ -141,11 +183,12 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     int uniqueId = int.Parse(row["UniqueId"].ToString());
+                    string username = row["UserName"].ToString();
                     string title = row["Title"].ToString();
                     string date = row["Date"].ToString();
                     string hire = row["Hire"].ToString();
 
-                   SelfPlan dest = new SelfPlan(uniqueId, title, date, hire);
+                   SelfPlan dest = new SelfPlan(uniqueId, username, title, date, hire);
 
                     tdList.Add(dest);
                 }
@@ -199,6 +242,58 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
 
             }
             return td;
+        }
+
+        public int UpdateStatus(string status, int id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE SelfPlanHistory SET Status = @paraStatus where UniqueId =  @paraUniqueId";
+
+            int result = 0;    // Execute NonQuery return an integer value
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraStatus", status);
+            sqlCmd.Parameters.AddWithValue("paraUniqueId", id);
+
+
+
+            myConn.Open();
+            result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
+        public int UpdateApplication(string status, string id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Users SET Status = @paraStatus where Id =  @paraUniqueId";
+
+            int result = 0;    // Execute NonQuery return an integer value
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraStatus", status);
+            sqlCmd.Parameters.AddWithValue("paraUniqueId", id);
+
+
+
+            myConn.Open();
+            result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
         }
     }
 }
