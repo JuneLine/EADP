@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddTour.aspx.cs" Inherits="SREX.AddTour" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditTour.aspx.cs" Inherits="SREX.EditTour" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
     <br />
     <div class="body-container-own">
         <div class="well text-center">
-            <h2><b>Add Tour</b></h2>
+            <h2><b>EditTour</b></h2>
         </div>
         <div class="container" style="padding: 5%;">
             <fieldset>
@@ -17,11 +17,12 @@
                     <div class="form-group">
                         <div>
                             <label for="tbDateOfTour">Date Of Tour: </label>
-                            <asp:TextBox runat="server" ID="tbDateOfTour" CssClass="form-control" placeholder="DD/MM/YYYY"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="tbDateOfTour" CssClass="form-control" placeholder="DD/MM/YYYY" TextMode="Date"></asp:TextBox>
                         </div>
                         <div>
                             <label for="TourPicture">Picture: </label>
                             <asp:FileUpload runat="server" ID="FileTourPicture" CssClass="form-control" />
+                            <asp:Label runat="server" ID="HiddenPictureName" Visible="false"></asp:Label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -77,7 +78,7 @@
                         </asp:TableHeaderRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime1" runat="server">                                    
+                                <asp:DropDownList ID="DropDownListTime1" runat="server">
                                     <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
@@ -220,7 +221,7 @@
             </fieldset>
         </div>
         <div style="text-align: center">
-            <asp:Button runat="server" Text="Confirm" CssClass="btn btn-primary" ID="AddTourConfirmation" OnClick="AddTourConfirmation_Click" />
+            <asp:Button runat="server" ID="EditConfirm" CssClass="btn btn-primary" OnClick="EditConfirm_Click" Text="Confirm" />
         </div>
     </div>
 </asp:Content>

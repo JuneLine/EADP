@@ -10,186 +10,231 @@
 namespace SREX {
     
     
-    public partial class GuidedPayment {
+    public partial class EditTour {
         
         /// <summary>
-        /// tbUserName control.
+        /// tbTourName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUserName;
+        protected global::System.Web.UI.WebControls.TextBox tbTourName;
         
         /// <summary>
-        /// tbUserEmail control.
+        /// tbDateOfTour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUserEmail;
+        protected global::System.Web.UI.WebControls.TextBox tbDateOfTour;
         
         /// <summary>
-        /// tbUserContact control.
+        /// FileTourPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUserContact;
+        protected global::System.Web.UI.WebControls.FileUpload FileTourPicture;
         
         /// <summary>
-        /// DataListTourInfo control.
+        /// HiddenPictureName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListTourInfo;
+        protected global::System.Web.UI.WebControls.Label HiddenPictureName;
         
         /// <summary>
-        /// AdultPerTicket control.
+        /// tbTourCaption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AdultPerTicket;
+        protected global::System.Web.UI.WebControls.TextBox tbTourCaption;
         
         /// <summary>
-        /// tbAdultQuantity control.
+        /// DropDownListmeetTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAdultQuantity;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListmeetTime;
         
         /// <summary>
-        /// lblAdultTotal control.
+        /// tbLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdultTotal;
+        protected global::System.Web.UI.WebControls.TextBox tbLocation;
         
         /// <summary>
-        /// ChildPerTicket control.
+        /// tbAdultCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ChildPerTicket;
+        protected global::System.Web.UI.WebControls.TextBox tbAdultCost;
         
         /// <summary>
-        /// tbChildQuantity control.
+        /// tbChildCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbChildQuantity;
+        protected global::System.Web.UI.WebControls.TextBox tbChildCost;
         
         /// <summary>
-        /// lblChildTotal control.
+        /// tbSeniorCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChildTotal;
+        protected global::System.Web.UI.WebControls.TextBox tbSeniorCost;
         
         /// <summary>
-        /// SeniorPerTicket control.
+        /// DropDownListTime1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SeniorPerTicket;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime1;
         
         /// <summary>
-        /// tbSeniorQuantity control.
+        /// tbActivity1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSeniorQuantity;
+        protected global::System.Web.UI.WebControls.TextBox tbActivity1;
         
         /// <summary>
-        /// lblSeniorTotal control.
+        /// DropDownListTime2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSeniorTotal;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime2;
         
         /// <summary>
-        /// lblTotalAmount control.
+        /// tbActivity2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalAmount;
+        protected global::System.Web.UI.WebControls.TextBox tbActivity2;
         
         /// <summary>
-        /// lblGST control.
+        /// DropDownListTime3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGST;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime3;
         
         /// <summary>
-        /// lblService control.
+        /// tbActivity3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblService;
+        protected global::System.Web.UI.WebControls.TextBox tbActivity3;
         
         /// <summary>
-        /// lblFinalAmount control.
+        /// DropDownListTime4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFinalAmount;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime4;
         
         /// <summary>
-        /// btnClear control.
+        /// tbActivity4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.TextBox tbActivity4;
         
         /// <summary>
-        /// btnCalculateTotal control.
+        /// DropDownListTime5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCalculateTotal;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime5;
         
         /// <summary>
-        /// btnBuyTicket control.
+        /// tbActivity5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuyTicket;
+        protected global::System.Web.UI.WebControls.TextBox tbActivity5;
+        
+        /// <summary>
+        /// DropDownListTime6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime6;
+        
+        /// <summary>
+        /// tbActivity6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbActivity6;
+        
+        /// <summary>
+        /// DropDownListTime7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTime7;
+        
+        /// <summary>
+        /// tbActivity7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbActivity7;
+        
+        /// <summary>
+        /// EditConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EditConfirm;
     }
 }

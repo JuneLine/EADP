@@ -27,12 +27,30 @@ namespace SREX
             OneTourInfo = tourInfo.GetOneInfo(id);
             DataListInfo.DataSource = OneTourInfo;
             DataListInfo.DataBind();
+
+            if(Session["UserId"] != null)
+            {
+                if(Session["role"].ToString() == "Admin")
+                {
+                    EditTour.Visible = true;
+                }
+                else if(Session["role"].ToString() != "Admin")
+                {
+                    EditTour.Visible = false;
+                }
+            }
         }
 
         protected void BtnPurchaseTicks_Click(object sender, EventArgs e)
         {
             string id = Request.QueryString["tourId"];
             Response.Redirect("GuidedPayment?tourId=" + id);
+        }
+
+        protected void EditTour_Click(object sender, EventArgs e)
+        {
+            string id = Request.QueryString["tourId"];
+            Response.Redirect("EditTour?tourId=" + id);
         }
     }
 }
