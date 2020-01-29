@@ -23,6 +23,10 @@ namespace SREX
                         LoadHistory();
                     }
 
+                    else if (Session["role"].Equals("Guide"))
+                    {
+                        LoadHistory();
+                    }
                     else
                     {
                         Response.Redirect("PlanningMain.aspx");
