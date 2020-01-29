@@ -135,13 +135,25 @@ namespace SREX.BLL
 
         public int createOTP(string userId, string email)
         {
+            int resultCode = 200;
+            int SixPinNum = 0;
+
             Random r = new Random();
             string num = (r.Next(000000, 1000000)).ToString("D6");
 
             CustomerDAO Cust = new CustomerDAO();
-            int result = Cust.createOTPCode(userId, num);
+            string foundCode = Cust.returnOTPCodeIfFound(userId);
+            if (foundCode != null)
+            {
+                SixPinNum = Convert.ToInt32(foundCode);
+            }
+            else
+            {
+                resultCode = 1;
+                SixPinNum = Convert.ToInt32(num);
+            }
 
-            if (result == 1)
+            if (resultCode != 200)
             {
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -151,18 +163,20 @@ namespace SREX.BLL
                 smtpClient.Port = 587;
                 smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
 
-                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", email, "Password Change", "The Code To Change Your Password Is"+Environment.NewLine+num);
+                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", email, "Password Change", "The Code To Change Your Password Is"+Environment.NewLine+SixPinNum);
 
                 try
                 {
                     smtpClient.Send(mailMessage);
+                    resultCode = Cust.createOTPCode(userId, num);
+
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex);
                 }
             }
-            return result;
+            return resultCode;
         }
 
         public int redeemOTP(string userId, string code, string email)
@@ -171,7 +185,7 @@ namespace SREX.BLL
             string Id = Cust.checkOTPCode(userId, code);
             if (Id != "")
             {
-                string newPw = RandomString(6);
+                string newPw = RandomString(20);
                 Cust.changeForgotPassword(userId, MD5Hash(newPw));
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;

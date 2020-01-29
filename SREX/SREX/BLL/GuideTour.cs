@@ -24,8 +24,21 @@ namespace SREX.BLL
 
         //ForSecondDB [TourInfo]
         public string tourInfoId { get; set; }
-        public string Time { get; set; }
-        public string Activity { get; set; }
+        public string Time1 { get; set; }
+        public string Activity1 { get; set; }
+        public string Time2 { get; set; }
+        public string Activity2 { get; set; }
+        public string Time3 { get; set; }
+        public string Activity3 { get; set; }
+        public string Time4 { get; set; }
+        public string Activity4 { get; set; }
+        public string Time5 { get; set; }
+        public string Activity5 { get; set; }
+        public string Time6 { get; set; }
+        public string Activity6 { get; set; }
+        public string Time7 { get; set; }
+        public string Activity7 { get; set; }
+
 
         //ForThirdDB [GuidePurchases]
         public string PurchaseId { get; set; }
@@ -56,7 +69,7 @@ namespace SREX.BLL
             this.SeniorCost = SeniorCost;
         }
 
-        public GuideTour(string tourId, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost, string Time, string Activty)
+        public GuideTour(string tourId, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
         {
             this.tourId = tourId;
             this.Date = Date;
@@ -65,17 +78,28 @@ namespace SREX.BLL
             this.AdultCost = AdultCost;
             this.ChildCost = ChildCost;
             this.SeniorCost = SeniorCost;
-            this.Time = Time;
-            this.Activity = Activity;
         }
 
-        public GuideTour(string tourInfoId, string Time, string Activty, string tourId)
+        public GuideTour(string tourInfoId, string Time1, string Activty1, string Time2, string Activty2, string Time3, string Activty3, string Time4, string Activty4, string Time5, string Activty5, string Time6, string Activty6, string Time7, string Activty7, string tourId)
         {
             this.tourInfoId = tourInfoId;
-            this.Time = Time;
-            this.Activity = Activity;
+            this.Time1 = Time1;
+            this.Time2 = Time2;
+            this.Time3 = Time3;
+            this.Time4 = Time4;
+            this.Time5 = Time5;
+            this.Time6 = Time6;
+            this.Time7 = Time7;
+            this.Activity1 = Activity1;
+            this.Activity2 = Activity2;
+            this.Activity3 = Activity3;
+            this.Activity4 = Activity4;
+            this.Activity5 = Activity5;
+            this.Activity6 = Activity6;
+            this.Activity7 = Activity7;
             this.tourId = tourId;
         }
+
 
         public GuideTour(string PurchaseId, string Date, string Name, string Email, string Contact, int AdultQuantity, int ChildQuantity, int SeniorQuantity, decimal Payment, string userId, string tourId)
         {
@@ -111,6 +135,12 @@ namespace SREX.BLL
             return TourOne.RetrieveSpecificEventInfo(tourId);
         }
 
+        public List<GuideTour> GetOneID(string name, string picture, string caption)
+        {
+            GuideTourDAO TourOne = new GuideTourDAO();
+            return TourOne.RetrieveSpecificID(name, picture, caption);
+        }
+
         public int CreateTour()
         {
             GuideTourDAO List = new GuideTourDAO();
@@ -130,6 +160,12 @@ namespace SREX.BLL
         {
             GuideTourDAO History = new GuideTourDAO();
             return History.RetrievePurchasesHist(userId);
+        }
+
+        public List<GuideTour> GetOneHist(string id, string userId)
+        {
+            GuideTourDAO History = new GuideTourDAO();
+            return History.RetrieveSpecificPurchase(id, userId);
         }
 
         public int CreatePurchases()

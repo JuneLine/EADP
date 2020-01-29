@@ -20,8 +20,8 @@
         }
 
         .lblRight{
-            float:right;
-            right:5%;
+            float:left;
+            left:5%;
         }
 
         .tbadjustment {
@@ -51,7 +51,7 @@
                     <asp:TextBox ID="tbCode" runat="server" CssClass="form-control tbadjustment"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorCode" runat="server" ErrorMessage="Required" ForeColor="Red" ControlToValidate="tbCode" Enabled="false"></asp:RequiredFieldValidator>
                 </div>
-                <asp:Label runat="server" CssClass="input-group lblRight"></asp:Label>
+                <asp:Label ID="Status" runat="server" CssClass="input-group lblRight"></asp:Label>
             </div>
             <div class="row">
                 <asp:Button runat="server" ID="btnCfmEmail" CssClass="btn btn-success btnRight" Text="Confirm" OnClick="btnCfmEmail_Click" />

@@ -12,6 +12,7 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["deleteMsg"] = null;
             if (Session["UserId"] != null)
             {
                 if (Session["role"].ToString() != "Admin")
@@ -21,19 +22,28 @@ namespace SREX
             }
         }
 
+        
+
         protected void AddTourConfirmation_Click(object sender, EventArgs e)
         {
             string id = "";
+            List<GuideTour> lookForID;
             GuideTour Listing = new GuideTour(id, tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text, tbDateOfTour.Text, DropDownListmeetTime.SelectedValue, tbLocation.Text, Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
             int result1 = Listing.CreateTour();
             if (result1 == 1)
             {
-                string tourInfoId = "";
-                GuideTour TimeActivity1 = new GuideTour(tourInfoId, DropDownListTime1.SelectedValue, tbActivity1.Text, id);
-                int result2 = TimeActivity1.CreateTourInfo();
-                if (result2 == 1)
+                GuideTour row = new GuideTour();
+                lookForID = row.GetOneID(tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text);
+                foreach (GuideTour item in lookForID)
                 {
-                    Response.Redirect("GuidedTour.aspx");
+                    string tourId = item.tourId.ToString();
+                    string tourInfoId = "";
+                    GuideTour TimeActivity = new GuideTour(tourInfoId, DropDownListTime1.SelectedValue, tbActivity1.Text, DropDownListTime2.SelectedValue, tbActivity2.Text, DropDownListTime3.SelectedValue, tbActivity3.Text, DropDownListTime4.SelectedValue, tbActivity4.Text, DropDownListTime5.SelectedValue, tbActivity5.Text, DropDownListTime6.SelectedValue, tbActivity6.Text, DropDownListTime7.SelectedValue, tbActivity7.Text, tourId);
+                    int result2 = TimeActivity.CreateTourInfo();
+                    if (result2 == 1)
+                    {
+                        Response.Redirect("GuidedTour.aspx");
+                    }
                 }
             }
         }

@@ -2,6 +2,26 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
+    <style>
+        .styleQR {
+            position: fixed;
+            top: 25%;
+            left: 37.5%;
+        }
+
+        .myPanelDetails {
+            width: 40%;
+            height: auto;
+            padding: 3%;
+            border: 1px dotted black;
+            border-radius: 10px;
+            position: fixed;
+            left: 30%;
+            top: 20%;
+            background-color:lightblue;
+            opacity:1;
+        }
+    </style>
     <div class="body-container-own">
         <div class="well" style="margin-top: 20px;">
             <h3 class="text-center">Guided Tour Purchases</h3>
@@ -19,77 +39,73 @@
                 <td class="text-center"><%#Eval("Date") %></td>
                 <td class="text-center">SGD<%#Eval("PaymentAmount") %></td>
                 <td class="text-center">
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#GuideDetails">View</button>
+                    <button type="button" class="btn btn-info btn-sm" id="showData" onserverclick="showData_ServerClick" runat="server" value='<%#Eval("tourId") %>'>View</button>
                 </td>
                 <td>
                     <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
-                        <button class="btn btn-info btn-xs"><a class="glyphicon glyphicon-qrcode" href="GuidedQRpage?PurchaseId=<%#Eval("PurchaseId") %>"></a></button>
+                        <button value='<%#Eval("PurchaseId") %>' runat="server" onserverclick="openModalQR" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
                     </p>
                 </td>
             </ItemTemplate>
         </asp:DataList>
         <div class="text-center">
-            <asp:Button ID="BtnBackToMain" runat="server" Text="Back" class="btn btn-primary" OnClick="BtnBackToMain_Click"/>
+            <asp:Button ID="BtnBackToMain" runat="server" Text="Back" class="btn btn-primary" OnClick="BtnBackToMain_Click" />
         </div>
     </div>
-    <div class="modal fade" id="GuideDetails" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title" style="font-weight: bold;">Tour Details</h3>
-                </div>
-                <div class="modal-body">
-                    Payment Made: $ 150
-                                <br />
-                    MeetUp Time: 1000
-                                <br />
-                    MeetUp Location: Khatib MRT Station
-                </div>
-                <div class="modal-footer">
-                    <table class="table table-hover table-bordered col-sm-12 text-center" style="font-size: 16px;">
-                        <tr>
-                            <th class="col-sm-3">Time</th>
-                            <th class="col-sm-9">Activity</th>
-                        </tr>
-                        <tr>
-                            <td>1000-1100</td>
-                            <td>Meet At Khatib MRT Station<br />
-                                Traveling time
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1100-1200</td>
-                            <td rowspan="2">Wild Discoverer Tour
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1200-1300</td>
-                        </tr>
-                        <tr>
-                            <td>1300-1400</td>
-                            <td>Lunch Time</td>
-                        </tr>
-                        <tr>
-                            <td>1400-1500</td>
-                            <td rowspan="2">Free Roam</td>
-                        </tr>
-                        <tr>
-                            <td>1500-1600</td>
-                        </tr>
-                        <tr>
-                            <td>1600-1700</td>
-                            <td>Gentle Giants Wildlife Tour</td>
-                        </tr>
-                        <tr>
-                            <td style="height: 38px">1700</td>
-                            <td style="height: 38px">End Of Tour</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+    <asp:Panel runat="server" CssClass="myPanelDetails" ID="GuideDetails" Visible="false">
+        <button type="button" class="close" id="closeDetailPanel" runat="server" style="color:brown" onserverclick="closeDetailPanel_ServerClick">&times;</button>
+        <div>                        
+            <h3 class="modal-title text-center" style="font-weight: bold;">Tour Details</h3>
+        </div>        
+        <div class="row">
+            <asp:Label runat="server" ID="lbltourname"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lbltourDate"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lblMeetUp"></asp:Label>
         </div>
+        <div class="row">
+             <asp:DataList ID="DataListInfo" runat="server" RepeatLayout="Table" CssClass="table table-bordered">
+                <ItemTemplate>
+                    <tr>
+                        <th class="col-sm-3 text-center">Time</th>
+                        <th class="col-sm-9 text-center">Activity</th>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time1") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity1") %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time2") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity2") %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time3") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity3") %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time4") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity4") %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time5") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity5") %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time6") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity6") %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-3 text-center"><%# Eval("Time7") %></td>
+                        <td class="col-sm-9 text-center"><%# Eval("Activity7") %></td>
+                    </tr>
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
+    </asp:Panel>
+    <div id="QRDiv" runat="server" class="styleQR" visible="false">
+        <button type="button" class="close" runat="server" id="closePanel" onserverclick="closePanel_ServerClick">&times;</button>
+        <asp:Panel runat="server" ID="QRPanel" Width="410" Height="410"></asp:Panel>
     </div>
 </asp:Content>
 

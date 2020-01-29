@@ -43,10 +43,22 @@ namespace SREX.BLL
             return dao.SelectAllByCategory(categoryID);
         }
 
+        public List<Product> GetAllProductsByCategoryWithSort(string categoryID,string sortBy, string order)
+        {
+            ProductDAO dao = new ProductDAO();
+            return dao.SelectAllByCategoryWithSort(categoryID,sortBy,order);
+        }
+
         public List<Product> GetTopFourPopularProduct()
         {
             ProductDAO dao = new ProductDAO();
             return dao.SelectTopFourItems();
+        }
+
+        public List<Product> GetTopFourRecommandedProduct(string category)
+        {
+            ProductDAO dao = new ProductDAO();
+            return dao.SelectTopFourRecommandedItems(category);
         }
 
         public Product GetProductDetail(string productID)
@@ -61,16 +73,23 @@ namespace SREX.BLL
             return dao.UpdateByProductId(productID,productName,prodPrice,categoryId,description,pictureName,inStock);
         }
 
-        public List<Product> GetProductByKeyword(string keyword)
+        public List<Product> GetProductByKeyword(string keyword, string sortby, string order)
         {
             ProductDAO dao = new ProductDAO();
-            return dao.SelectByKeyword(keyword);
+            return dao.SelectByKeyword(keyword,sortby,order);
         }
 
         public int InsertProduct()
         {
             ProductDAO dao = new ProductDAO();
             int result = dao.InsertProduct(this);
+            return result;
+        }
+
+        public string GetPreferCategory(string userId)
+        {
+            ProductDAO dao = new ProductDAO();
+            string result = dao.GetPreferCategory(userId);
             return result;
         }
 

@@ -46,6 +46,27 @@ namespace SREX.BLL
             return result;
         }
 
+        public int PlusProductQuantity(string productId, string userId)
+        {
+            CartItemDAO itemDAO = new CartItemDAO();
+            int result = itemDAO.PlusItemQuantity(productId, userId);
+            return result;
+        }
+
+        public int CheckQuantity(string productId)
+        {
+            CartItemDAO dao = new CartItemDAO();
+            int result = dao.CheckQuantity(productId);
+            return result;
+        }
+
+        public int MinusProductQuantity(string productId, string userId)
+        {
+            CartItemDAO itemDAO = new CartItemDAO();
+            int result = itemDAO.MinusItemQuantity(productId, userId);
+            return result;
+        }
+
         public List<CartItem> GetCartItems(string userId)
         {
             CartItemDAO dao = new CartItemDAO();
@@ -86,5 +107,7 @@ namespace SREX.BLL
             CartItemDAO dao = new CartItemDAO();
             return dao.getMostPopularItem();
         }
+
+        
     }
 }
