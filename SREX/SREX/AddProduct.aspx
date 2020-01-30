@@ -10,20 +10,20 @@
                         <fieldset>
                             <legend class="text-center header">ADD A NEW PRODUCT</legend>
                             <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-thumbs-up bigicon"></i></span>
+                                <span class="col-md-1 col-md-offset-2 text-center">Name:</span>
                                 <div class="col-md-8">
                                     <asp:TextBox runat="server" CssClass="form-control" ID="productNameTB" type="text" Placeholder="Name"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-dollar bigicon"></i></span>
+                                <span class="col-md-1 col-md-offset-2 text-center">Price:</span>
                                 <div class="col-md-8">
                                     <asp:TextBox runat="server" CssClass="form-control" ID="productPriceTB" type="text" Placeholder="Price in SGD"></asp:TextBox>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-gear bigicon"></i></span>
+                                <span class="col-md-1 col-md-offset-2 text-center">Image:</span>
                                 <div class="col-md-8">
                                     <div class="custom-file">
                                         <asp:FileUpload runat="server" CssClass="custom-file-input" ID="FileLocation" />
@@ -32,14 +32,14 @@
                             </div>
 
                             <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-bank bigicon"></i></span>
+                                <span class="col-md-1 col-md-offset-2 text-center">Instock</span>
                                 <div class="col-md-8">
                                     <asp:TextBox runat="server" CssClass="form-control" ID="inStockTB" Placeholder="Product instock"></asp:TextBox>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-th-list bigicon"></i></span>
+                                <span class="col-md-1 col-md-offset-2 text-center">Category</span>
                                 <div class="col-md-8">
                                     <asp:DropDownList CssClass="form-control" runat="server" ID="ddlCategory">
                                     </asp:DropDownList>
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-file-text bigicon"></i></span>
+                                <span class="col-md-1 col-md-offset-2 text-center">Description:</span>
                                 <div class="col-md-8">
                                     <asp:TextBox CssClass="form-control" TextMode="multiline" Columns="50" Rows="5" runat="server" ID="ProductDescTB" Placeholder="Product Description"></asp:TextBox>
                                 </div>
