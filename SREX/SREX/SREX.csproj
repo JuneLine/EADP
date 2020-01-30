@@ -139,6 +139,7 @@
     <Content Include="DestinationUpdateForm.aspx" />
     <Content Include="EditAttraction.aspx" />
     <Content Include="EditProductInfo.aspx" />
+    <Content Include="EditTour.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Pictures\TourGuide.jpg" />
     <Content Include="ProductList.aspx" />
@@ -153,6 +154,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Review.aspx" />
     <Content Include="TourGuide.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="GuidedPayment.aspx" />
@@ -281,6 +283,7 @@
     <Compile Include="BLL\GuideTour.cs" />
     <Compile Include="BLL\Product.cs" />
     <Compile Include="BLL\Purchase.cs" />
+    <Compile Include="BLL\Reviews.cs" />
     <Compile Include="BLL\SelfPlan.cs" />
     <Compile Include="BLL\TourGuides.cs" />
     <Compile Include="BLL\TouristAttractions.cs" />
@@ -319,6 +322,7 @@
     <Compile Include="DAL\GuideTourDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="DAL\PurchaseDAO.cs" />
+    <Compile Include="DAL\ReviewsDAO.cs" />
     <Compile Include="DAL\SelfPlanDAO.cs" />
     <Compile Include="DAL\TourGuidesDAO.cs" />
     <Compile Include="DAL\TouristAttrationsDAO.cs" />
@@ -349,6 +353,13 @@
     </Compile>
     <Compile Include="EditProductInfo.aspx.designer.cs">
       <DependentUpon>EditProductInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTour.aspx.cs">
+      <DependentUpon>EditTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTour.aspx.designer.cs">
+      <DependentUpon>EditTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -436,6 +447,13 @@
     </Compile>
     <Compile Include="Reset.aspx.designer.cs">
       <DependentUpon>Reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Review.aspx.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Review.aspx.designer.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
     </Compile>
     <Compile Include="SelfplanConfirmation.aspx.cs">
       <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>

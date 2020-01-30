@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditTour.aspx.cs" Inherits="SREX.EditTour" %>
+﻿<%@ Page Title="Edit" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditTour.aspx.cs" Inherits="SREX.EditTour" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
@@ -225,3 +225,4 @@
         </div>
     </div>
 </asp:Content>
+

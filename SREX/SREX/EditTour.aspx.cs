@@ -13,11 +13,12 @@ namespace SREX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["deleteMsg"] = null;
             if (!IsPostBack)
             {
-                if(Session["UserId"] != null)
+                if (Session["UserId"] != null)
                 {
-                    if(Session["role"].ToString() == "Admin")
+                    if (Session["role"].ToString() == "Admin")
                     {
                         List<GuideTour> Info;
                         List<GuideTour> Details;
@@ -65,7 +66,8 @@ namespace SREX
                 else
                 {
                     Response.Redirect("Login.aspx");
-                }             
+                    Response.Write("<script>alert('Please Login')</script>");
+                }
             }
         }
 
@@ -73,10 +75,15 @@ namespace SREX
         {
             bool valid = true;
 
-            if (tbTourName.Text == "" || tbDateOfTour.Text == "" || FileTourPicture.HasFile == false || tbLocation.Text == "" || tbSeniorCost.Text == "" || tbAdultCost.Text == "" || tbChildCost.Text == "")
+            if (tbTourName.Text == "" || tbDateOfTour.Text == "" || tbLocation.Text == "" || tbSeniorCost.Text == "" || tbAdultCost.Text == "" || tbChildCost.Text == "")
             {
                 valid = false;
             }
+            if (tbActivity1.Text == null && tbActivity2.Text == null && tbActivity3.Text == null && tbActivity4.Text == null && tbActivity5.Text == null && tbActivity6.Text == null && tbActivity7.Text == null)
+            {
+                valid = false;
+            }
+
             return valid;
         }
 
@@ -107,31 +114,31 @@ namespace SREX
 
                 int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), tbDateOfTour.Text.ToString(), DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
 
-                if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == null)
+                if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == "")
                 {
                     tbActivity1.Text = "NIL";
                 }
-                if (DropDownListTime2.SelectedValue == "-Select-" || tbActivity2.Text == null)
+                if (DropDownListTime2.SelectedValue == "-Select-" || tbActivity2.Text == "")
                 {
                     tbActivity2.Text = "NIL";
                 }
-                if (DropDownListTime3.SelectedValue == "-Select-" || tbActivity3.Text == null)
+                if (DropDownListTime3.SelectedValue == "-Select-" || tbActivity3.Text == "")
                 {
                     tbActivity3.Text = "NIL";
                 }
-                if (DropDownListTime4.SelectedValue == "-Select-" || tbActivity4.Text == null)
+                if (DropDownListTime4.SelectedValue == "-Select-" || tbActivity4.Text == "")
                 {
                     tbActivity4.Text = "NIL";
                 }
-                if (DropDownListTime5.SelectedValue == "-Select-" || tbActivity5.Text == null)
+                if (DropDownListTime5.SelectedValue == "-Select-" || tbActivity5.Text == "")
                 {
                     tbActivity5.Text = "NIL";
                 }
-                if (DropDownListTime6.SelectedValue == "-Select-" || tbActivity6.Text == null)
+                if (DropDownListTime6.SelectedValue == "-Select-" || tbActivity6.Text == "")
                 {
                     tbActivity6.Text = "NIL";
                 }
-                if (DropDownListTime7.SelectedValue == "-Select-" || tbActivity7.Text == null)
+                if (DropDownListTime7.SelectedValue == "-Select-" || tbActivity7.Text == "")
                 {
                     tbActivity7.Text = "NIL";
                 }

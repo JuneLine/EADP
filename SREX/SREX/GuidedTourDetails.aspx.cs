@@ -18,27 +18,34 @@ namespace SREX
 
             string id = Request.QueryString["tourId"];
 
-            GuideTour tour = new GuideTour();
-            OneTour = tour.GetOne(id);
-            DataListNameOnly.DataSource = OneTour;
-            DataListNameOnly.DataBind();
-
-            GuideTour tourInfo = new GuideTour();
-            OneTourInfo = tourInfo.GetOneInfo(id);
-            DataListInfo.DataSource = OneTourInfo;
-            DataListInfo.DataBind();
-
-            if(Session["UserId"] != null)
+            if (id != null)
             {
-                if(Session["role"].ToString() == "Admin")
+                GuideTour tour = new GuideTour();
+                OneTour = tour.GetOne(id);
+                DataListNameOnly.DataSource = OneTour;
+                DataListNameOnly.DataBind();
+
+                GuideTour tourInfo = new GuideTour();
+                OneTourInfo = tourInfo.GetOneInfo(id);
+                DataListInfo.DataSource = OneTourInfo;
+                DataListInfo.DataBind();
+
+                if (Session["UserId"] != null)
                 {
-                    EditTour.Visible = true;
-                }
-                else if(Session["role"].ToString() != "Admin")
-                {
-                    EditTour.Visible = false;
+                    if (Session["role"].ToString() == "Admin")
+                    {
+                        EditTour.Visible = true;
+                    }
+                    else if (Session["role"].ToString() != "Admin")
+                    {
+                        EditTour.Visible = false;
+                    }
                 }
             }
+            else
+            {
+                Response.Redirect("GuideTour.aspx");
+            }      
         }
 
         protected void BtnPurchaseTicks_Click(object sender, EventArgs e)
