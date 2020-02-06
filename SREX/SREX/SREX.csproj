@@ -235,6 +235,7 @@
     <Content Include="Site.Master" />
     <Content Include="SportsGroup.aspx" />
     <Content Include="TourGuideConfirmation.aspx" />
+    <Content Include="Verify.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -532,6 +533,13 @@
     </Compile>
     <Compile Include="TourGuideConfirmation.aspx.designer.cs">
       <DependentUpon>TourGuideConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
