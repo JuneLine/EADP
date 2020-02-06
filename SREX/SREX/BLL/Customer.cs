@@ -20,6 +20,7 @@ namespace SREX.BLL
         public string Role { get; set; }
         public string Id { get; set; }
         public string VerifyCode { get; set; }
+        public string Account { get; set; }
 
         public string Code { get; set; }
         public DateTime Time { get; set; }
@@ -77,7 +78,7 @@ namespace SREX.BLL
                 smtpClient.Port = 587;
                 smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
 
-                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", this.Email, "Registration", "Thanks for registering on SreX Offical Website." + Environment.NewLine + Environment.NewLine + "Click here to activiate your account!" + Environment.NewLine + "http://localhost:50743/Verify?id=" + this.Code);
+                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", this.Email, "Registration", "Thanks for registering on SreX Offical Website." + Environment.NewLine + Environment.NewLine + "Click here to activiate your account!" + Environment.NewLine + "http://localhost:50743/Verify?id=" + this.VerifyCode);
 
                 try
                 {
@@ -96,6 +97,13 @@ namespace SREX.BLL
             CustomerDAO Cust = new CustomerDAO();
             List<Customer> Custer = Cust.ValidateExisitingUser(NRIC, Email);
             return Custer;
+        }
+
+        public int verifyRegisterCode(string code)
+        {
+            CustomerDAO Cust = new CustomerDAO();
+            int result = Cust.verifyRegisterCode(code);
+            return result;
         }
 
         public Customer LoginGetRole(string Email, string Password)
