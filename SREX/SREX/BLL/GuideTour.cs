@@ -195,11 +195,11 @@ namespace SREX.BLL
             return TourOne.RetrieveListOfTour();
         }
 
-        //public List<GuideTour> GetSearchList(string Name)
-        //{
-        //    GuideTourDAO Search = new GuideTourDAO();
-        //    return Search.RetrieveSpecificListOfTour(Name);
-        //}
+        public List<GuideTour> GetSearchList(string Name)
+        {
+            GuideTourDAO Search = new GuideTourDAO();
+            return Search.RetrieveSpecificListOfTour(Name);
+        }
 
 
         // Calculation

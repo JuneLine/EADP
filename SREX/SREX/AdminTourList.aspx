@@ -7,13 +7,13 @@
             <h2>List Of Tour</h2>
         </div>
         <div class="container">
-<%--            <div class="input-group col-sm-12 col-lg-12">
+            <div class="input-group col-sm-12 col-lg-12">
                 <asp:TextBox ID="SearchTour" class="form-control" placeholder="Search For Tour Name" runat="server"></asp:TextBox>
                 <span class="input-group-btn">
                     <asp:Button ID="ButtonSearchName" runat="server" class="btn btn-default" Text="Search" OnClick="ButtonSearchName_Click"/>
                 </span>
             </div>
-            <br />--%>
+            <br />
             <asp:DataList runat="server" ID="dlListofTour" RepeatLayout="Table" CssClass="table table-hover">
                 <HeaderTemplate>
                     <th>Name</th>

@@ -18,12 +18,17 @@ namespace SREX
                     liLogin.Visible = false;
                     //liLogout.Style["display"] = "block";
                     dropdownMore.Style["display"] = "block";
+                    if (Session["Role"].ToString() == "Admin")
+                    {
+                        AdminCP.Visible = true;
+                        AdminList.Visible = true;
+                    }
                 }
                 else
                 {
                     liLogin.Style["display"] = "block";
                     //liLogout.Visible = false;
-                    dropdownMore.Visible = false;
+                    dropdownMore.Visible = false;                   
                 }
             }
         }

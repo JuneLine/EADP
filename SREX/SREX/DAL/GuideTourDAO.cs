@@ -471,27 +471,27 @@ namespace SREX.DAL
             return rows;
         }
 
-        //public List<GuideTour> RetrieveSpecificListOfTour(string Name)
-        //{
-        //    List<GuideTour> rows = new List<GuideTour>();
+        public List<GuideTour> RetrieveSpecificListOfTour(string Name)
+        {
+            List<GuideTour> rows = new List<GuideTour>();
 
-        //    string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-        //    SqlConnection Connection = new SqlConnection(ConnectDB);
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
 
 
-        //    SqlCommand SQLCmd = new SqlCommand("Select * from GuidePurchases where tourName Like '% @paraName %' ", Connection);
-        //    SQLCmd.Parameters.AddWithValue("@paraName", Name);
+            SqlCommand SQLCmd = new SqlCommand("Select * from GuidePurchases where tourName Like @paraName", Connection);
+            SQLCmd.Parameters.AddWithValue("@paraName", "%" + Name + "%");
 
-        //    Connection.Open();
-        //    SqlDataReader dr = SQLCmd.ExecuteReader();
-        //    while (dr.Read())
-        //    {
-        //        GuideTour td = ReadDB3(dr);
-        //        rows.Add(td);
-        //    }
-        //    Connection.Close();
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                GuideTour td = ReadDB3(dr);
+                rows.Add(td);
+            }
+            Connection.Close();
 
-        //    return rows;
-        //}
+            return rows;
+        }
     }
 }

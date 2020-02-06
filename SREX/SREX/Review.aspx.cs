@@ -43,10 +43,5 @@ namespace SREX
             int result = Comment.CreateComment();
 
         }
-
-        protected void BtnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

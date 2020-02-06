@@ -37,14 +37,14 @@ namespace SREX
             }
         }
 
-        //protected void ButtonSearchName_Click(object sender, EventArgs e)
-        //{
-        //    List<GuideTour> List;
+        protected void ButtonSearchName_Click(object sender, EventArgs e)
+        {
+            List<GuideTour> List;
 
-        //    GuideTour Search = new GuideTour();
-        //    List = Search.GetSearchList(SearchTour.Text);
-        //    dlListofTour.DataSource = List;
-        //    dlListofTour.DataBind();
-        //}
+            GuideTour Search = new GuideTour();
+            List = Search.GetSearchList(SearchTour.Text);
+            dlListofTour.DataSource = List;
+            dlListofTour.DataBind();
+        }
     }
 }
