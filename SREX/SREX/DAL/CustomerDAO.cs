@@ -104,7 +104,7 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT * FROM Users WHERE Password = @paraPassWord AND EmailAddr = @paraEmail";
+            string sqlStmt = @"SELECT * FROM Users WHERE Password = @paraPassWord AND EmailAddr = @paraEmail AND Account IS NOT NULL";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
@@ -131,7 +131,7 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT * FROM Users WHERE Id = @paraId";
+            string sqlStmt = @"SELECT * FROM Users WHERE Id = @paraId AND Account IS NOT NULL";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
@@ -179,7 +179,7 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT Id FROM Users WHERE EmailAddr = @paraEmail ";
+            string sqlStmt = @"SELECT Id FROM Users WHERE EmailAddr = @paraEmail";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraEmail", email);

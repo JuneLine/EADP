@@ -41,7 +41,7 @@ namespace SREX
                     int result = Cust.CreateUser();
                     if (result == 1)
                     {
-                        showInfo.Text = "Register Success! Please Login";
+                        showInfo.Text = "Register Success! Please check your email!";
                         showInfo.ForeColor = System.Drawing.Color.Green;
                         registerUsername.Text = "";
                         emailAddress.Text = "";
