@@ -47,11 +47,13 @@ namespace SREX
                 else
                 {
                     Response.Redirect("GuidedPurchaseHist.aspx");
+                    Response.Write("<script>alert('You Have No Access to This')</script>");
                 }
             }
             else
             {
                 Response.Redirect("Login.aspx");
+                Response.Write("<script>alert('Please Login')</script>");
             }
         }
     }

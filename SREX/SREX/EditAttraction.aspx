@@ -33,6 +33,15 @@
                         <label for="AttractionDescription">Description: </label>
                         <asp:TextBox runat="server" ID="AttractionDescription" CssClass="form-control"></asp:TextBox>
                     </div>
+                    <div class="form-group">
+                        <label for="AttractionTags">Tag: </label>
+                        <asp:TextBox runat="server" ID="AttractionTags" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="AttractionPrice">Price: </label>
+                        <asp:TextBox runat="server" ID="AttractionPrice" CssClass="form-control"></asp:TextBox>
+                    </div>
+
                 </div>
                 <div class="col-sm-7">
                     <asp:Image runat="server" ID="AttractionImage" Height="300px" Width="550px"/>

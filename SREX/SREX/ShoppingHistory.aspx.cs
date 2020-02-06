@@ -1,4 +1,5 @@
-﻿using QRCoder;
+﻿//using QRCoder;
+using QRCoder;
 using SREX.BLL;
 using System;
 using System.Collections.Generic;
@@ -52,8 +53,8 @@ namespace SREX
             QRCodeData qrCodeData = qrGenerator.CreateQrCode("http://localhost:50743/Collection?OrderId=" + btn.Attributes["Value"], QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
-            imgBarCode.Height = 150;
-            imgBarCode.Width = 150;
+            imgBarCode.Height = 400;
+            imgBarCode.Width = 400;
             using (Bitmap bitMap = qrCode.GetGraphic(20))
             {
                 using (MemoryStream ms = new MemoryStream())
@@ -62,8 +63,10 @@ namespace SREX
                     byte[] byteImage = ms.ToArray();
                     imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
                 }
-                PlaceHolder1.Controls.Add(imgBarCode);
+                QR.Controls.Add(imgBarCode);
             }
+
+            QRDiv.Visible = true;
         }
 
         protected void closeModalQR(object sender, EventArgs e)

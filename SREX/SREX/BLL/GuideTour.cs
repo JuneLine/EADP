@@ -69,18 +69,18 @@ namespace SREX.BLL
             this.SeniorCost = SeniorCost;
         }
 
-        public GuideTour(string tourId, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
-        {
-            this.tourId = tourId;
-            this.Date = Date;
-            this.meetUpTime = meetUpTime;
-            this.meetUpLocation = meetUpLocation;
-            this.AdultCost = AdultCost;
-            this.ChildCost = ChildCost;
-            this.SeniorCost = SeniorCost;
-        }
+        //public GuideTour(string tourId, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
+        //{
+        //    this.tourId = tourId;
+        //    this.Date = Date;
+        //    this.meetUpTime = meetUpTime;
+        //    this.meetUpLocation = meetUpLocation;
+        //    this.AdultCost = AdultCost;
+        //    this.ChildCost = ChildCost;
+        //    this.SeniorCost = SeniorCost;
+        //}
 
-        public GuideTour(string tourInfoId, string Time1, string Activty1, string Time2, string Activty2, string Time3, string Activty3, string Time4, string Activty4, string Time5, string Activty5, string Time6, string Activty6, string Time7, string Activty7, string tourId)
+        public GuideTour(string tourInfoId, string Time1, string Activity1, string Time2, string Activity2, string Time3, string Activity3, string Time4, string Activity4, string Time5, string Activity5, string Time6, string Activity6, string Time7, string Activity7, string tourId)
         {
             this.tourInfoId = tourInfoId;
             this.Time1 = Time1;
@@ -153,6 +153,18 @@ namespace SREX.BLL
             GuideTourDAO List = new GuideTourDAO();
             int result = List.InsertTourActivity(this);
             return result;
+        }
+
+        public int UpdateGuideTour(string tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
+        {
+            GuideTourDAO info = new GuideTourDAO();
+            return info.UpdateTour(tourId,tourName,tourPic,tourCaption,Date,meetUpTime,meetUpLocation,AdultCost,ChildCost,SeniorCost);
+        }
+
+        public int UpdateGuideTourInfo(string Time1, string Activity1, string Time2, string Activity2, string Time3, string Activity3, string Time4, string Activity4, string Time5, string Activity5, string Time6, string Activity6, string Time7, string Activity7, string tourId)
+        {
+            GuideTourDAO details = new GuideTourDAO();
+            return details.UpdateTourInfo(Time1, Activity1, Time2, Activity2, Time3, Activity3, Time4, Activity4, Time5, Activity5, Time6, Activity6, Time7, Activity7, tourId);
         }
 
         //For Histories

@@ -115,6 +115,7 @@
     <Content Include="About.aspx" />
     <Content Include="AddProduct.aspx" />
     <Content Include="AddTour.aspx" />
+    <Content Include="AdminApplication.aspx" />
     <Content Include="AdminDestination.aspx" />
     <Content Include="App_Data\Srex.mdf" />
     <Content Include="App_Data\Srex_log.ldf">
@@ -138,7 +139,9 @@
     <Content Include="DestinationUpdateForm.aspx" />
     <Content Include="EditAttraction.aspx" />
     <Content Include="EditProductInfo.aspx" />
+    <Content Include="EditTour.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Pictures\TourGuide.jpg" />
     <Content Include="ProductList.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -151,6 +154,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Review.aspx" />
+    <Content Include="TourGuide.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="GuidedPayment.aspx" />
     <Content Include="GuidedPurchaseHist.aspx" />
@@ -229,6 +234,7 @@
     <Content Include="ShoppingHistory.aspx" />
     <Content Include="Site.Master" />
     <Content Include="SportsGroup.aspx" />
+    <Content Include="TourGuideConfirmation.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -246,6 +252,13 @@
     </Compile>
     <Compile Include="AddTour.aspx.designer.cs">
       <DependentUpon>AddTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminApplication.aspx.cs">
+      <DependentUpon>AdminApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminApplication.aspx.designer.cs">
+      <DependentUpon>AdminApplication.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminDestination.aspx.cs">
       <DependentUpon>AdminDestination.aspx</DependentUpon>
@@ -270,7 +283,9 @@
     <Compile Include="BLL\GuideTour.cs" />
     <Compile Include="BLL\Product.cs" />
     <Compile Include="BLL\Purchase.cs" />
+    <Compile Include="BLL\Reviews.cs" />
     <Compile Include="BLL\SelfPlan.cs" />
+    <Compile Include="BLL\TourGuides.cs" />
     <Compile Include="BLL\TouristAttractions.cs" />
     <Compile Include="Clothes.aspx.cs">
       <DependentUpon>Clothes.aspx</DependentUpon>
@@ -307,7 +322,9 @@
     <Compile Include="DAL\GuideTourDAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="DAL\PurchaseDAO.cs" />
+    <Compile Include="DAL\ReviewsDAO.cs" />
     <Compile Include="DAL\SelfPlanDAO.cs" />
+    <Compile Include="DAL\TourGuidesDAO.cs" />
     <Compile Include="DAL\TouristAttrationsDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -336,6 +353,13 @@
     </Compile>
     <Compile Include="EditProductInfo.aspx.designer.cs">
       <DependentUpon>EditProductInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTour.aspx.cs">
+      <DependentUpon>EditTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTour.aspx.designer.cs">
+      <DependentUpon>EditTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -424,6 +448,13 @@
     <Compile Include="Reset.aspx.designer.cs">
       <DependentUpon>Reset.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Review.aspx.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Review.aspx.designer.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SelfplanConfirmation.aspx.cs">
       <DependentUpon>SelfplanConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,6 +518,20 @@
     </Compile>
     <Compile Include="SportsGroup.aspx.designer.cs">
       <DependentUpon>SportsGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuide.aspx.cs">
+      <DependentUpon>TourGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuide.aspx.designer.cs">
+      <DependentUpon>TourGuide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideConfirmation.aspx.cs">
+      <DependentUpon>TourGuideConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideConfirmation.aspx.designer.cs">
+      <DependentUpon>TourGuideConfirmation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

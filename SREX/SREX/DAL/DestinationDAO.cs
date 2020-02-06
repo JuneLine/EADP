@@ -38,7 +38,7 @@ VALUES (@paraName, @paraPictureName, @paraDescription, @paraPrice, @paraTag)";
 
             return result;
         }
-
+        
         public List<Destination> SelectAll()
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;

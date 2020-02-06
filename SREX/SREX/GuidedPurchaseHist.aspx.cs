@@ -30,6 +30,7 @@ namespace SREX
             else
             {
                 Response.Redirect("Login.aspx");
+                Response.Write("<script>alert('Please Login')</script>");
             }
         }
 
