@@ -101,7 +101,7 @@ namespace SREX.BLL
         }
 
 
-        public GuideTour(string PurchaseId, string Date, string Name, string Email, string Contact, int AdultQuantity, int ChildQuantity, int SeniorQuantity, decimal Payment, string userId, string tourId)
+        public GuideTour(string PurchaseId, string Date, string Name, string Email, string Contact, int AdultQuantity, int ChildQuantity, int SeniorQuantity, decimal Payment, string userId, string tourName,string tourId)
         {
             this.PurchaseId = PurchaseId;
             this.Date = Date;
@@ -113,6 +113,7 @@ namespace SREX.BLL
             this.SeniorQuantity = SeniorQuantity;
             this.PaymentAmount = Payment;
             this.userId = userId;
+            this.tourName = tourName;
             this.tourId = tourId;
         }
 
@@ -186,6 +187,20 @@ namespace SREX.BLL
             int result = List.InsertPurchases(this);
             return result;
         }
+
+        //For Admin
+        public List<GuideTour> GetListTour()
+        {
+            GuideTourDAO TourOne = new GuideTourDAO();
+            return TourOne.RetrieveListOfTour();
+        }
+
+        //public List<GuideTour> GetSearchList(string Name)
+        //{
+        //    GuideTourDAO Search = new GuideTourDAO();
+        //    return Search.RetrieveSpecificListOfTour(Name);
+        //}
+
 
         // Calculation
         public decimal CalculateCost(decimal Price, int Quantity)

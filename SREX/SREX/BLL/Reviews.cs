@@ -10,6 +10,7 @@ namespace SREX.BLL
     {
         public string Id { get; set; }
         public string userId { get; set; }
+        public string username { get; set; }
         public string Comments { get; set; }
         public string date { get; set; }
         public decimal rating { get; set; }
@@ -19,10 +20,11 @@ namespace SREX.BLL
 
         }
 
-        public Reviews(string id, string userId, string Comments, string date, decimal rating)
+        public Reviews(string id, string userId, string username, string Comments, string date, decimal rating)
         {
             this.Id = id;
             this.userId = userId;
+            this.username = username;
             this.Comments = Comments;
             this.date = date;
             this.rating = rating;
@@ -35,5 +37,10 @@ namespace SREX.BLL
             return result;
         }
 
+        public List<Reviews> GetAllComments()
+        {
+            ReviewsDAO rows = new ReviewsDAO();
+            return rows.RetrieveAllComment();
+        }            
     }
 }

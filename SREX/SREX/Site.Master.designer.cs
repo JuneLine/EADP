@@ -22,13 +22,13 @@ namespace SREX {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liLogin;
         
         /// <summary>
-        /// liLogout control.
+        /// dropdownMore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liLogout;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dropdownMore;
         
         /// <summary>
         /// MainContent control.

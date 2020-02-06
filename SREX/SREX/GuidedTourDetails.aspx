@@ -5,28 +5,41 @@
     <div class="container-fluid">
         <div class="row body-container-own">
             <br />
-            <div>
+            <div class="row">
                 <asp:DataList runat="server" ID="DataListNameOnly" RepeatLayout="Flow">
                     <ItemTemplate>
                         <div class="well text-center">
                             <h2><b><%#Eval("tourName")%></b></h2>
                         </div>
                         <div style="font-size: large;">
-                            <div class="col-sm-4" style="margin-bottom: 1%;">
-                                MeetUp: <b><%#Eval("meetUpTime") %></b> at <b><%#Eval("meetUpLocation")%></b><br />
-                            </div>
-                            <div class="col-sm-8">
-                                Date Of Tour: <%#Eval("Date") %>
-                            </div>
-                            <div class="col-sm-12" style="margin-bottom: 1%;">
-                                Estimated Cost: Adult: SGD<b><%#Eval("AdultCost") %></b>, Children: SGD<b><%#Eval("ChildCost") %></b>, Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b>(Per Pax) 
+                            <div class="col-sm-5 well">
+                                <asp:Image runat="server" ImageUrl='<%# String.Format("Pictures/{0}", Eval("tourPic") ) %>' Height="250px" Width="800px" />
+                            </div>                            
+                            <div class="col-sm-7">
+                                <br />
+                                <br />
+                                <table>
+                                    <tr>
+                                        <td class="col-sm-4">MeetUp: </td>
+                                        <td><h3><b><%#Eval("meetUpTime") %></b> at <b><%#Eval("meetUpLocation")%></b></h3></td>                                        
+                                    </tr>                                    
+                                    <tr>
+                                        <td class="col-sm-4">Date Of Tour:</td>
+                                        <td><h3> <b><%#Eval("Date") %></b></h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4">Estimated Cost:</td>
+                                        <td><h3> Adult: SGD<b><%#Eval("AdultCost") %></b>, Children: SGD<b><%#Eval("ChildCost") %></b>, Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b>(Per Pax)</h3></td>
+                                    </tr>
+                                </table>                                                                                              
                             </div>
                         </div>
                     </ItemTemplate>
                 </asp:DataList>
             </div>
-            <div>
-                <p><span class="input-lg"><b>Day Schedule</b></span><asp:Button runat="server" ID="EditTour" OnClick="EditTour_Click" CssClass="btn btn-secondary" Style="float: right;" Text="Edit" Visible="false"/></p>
+            <br />
+            <div class="row">
+                <h3><span class="input-lg"><b>Day Schedule</b></span><asp:Button runat="server" ID="EditTour" OnClick="EditTour_Click" CssClass="btn btn-secondary" Style="float: right;" Text="Edit" Visible="false" /></h3>
                 <asp:DataList ID="DataListInfo" runat="server" RepeatLayout="Table" CssClass="table">
                     <ItemTemplate>
                         <tr>

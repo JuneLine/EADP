@@ -44,7 +44,7 @@ namespace SREX
             }
             else
             {
-                Response.Redirect("GuideTour.aspx");
+                Response.Redirect("GuidedTour.aspx");
             }      
         }
 

@@ -13,22 +13,31 @@ namespace SREX {
     public partial class Review {
         
         /// <summary>
-        /// LblCommentBy control.
+        /// btnAddComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCommentBy;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAddComment;
         
         /// <summary>
-        /// tbCommentMade control.
+        /// promptlogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbCommentMade;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl promptlogin;
+        
+        /// <summary>
+        /// dlComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlComments;
         
         /// <summary>
         /// tbName control.
@@ -56,5 +65,14 @@ namespace SREX {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbComment;
+        
+        /// <summary>
+        /// btnComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnComment;
     }
 }

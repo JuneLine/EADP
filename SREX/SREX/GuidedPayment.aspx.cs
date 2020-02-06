@@ -31,6 +31,7 @@ namespace SREX
 
                     foreach (GuideTour item in Listing)
                     {
+                        lbltourname.Text = item.tourName.ToString();
                         AdultPerTicket.Text = item.AdultCost.ToString();
                         ChildPerTicket.Text = item.ChildCost.ToString();
                         SeniorPerTicket.Text = item.SeniorCost.ToString();
@@ -55,7 +56,7 @@ namespace SREX
                 string userId = Session["userId"].ToString();
                 string tourId = Request.QueryString["tourId"].ToString();
                 string Date = DateTime.Now.ToShortDateString();
-                GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, tourId);
+                GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString() ,tourId);
                 int result = insertRecord.CreatePurchases();
                 if (result == 1)
                 {

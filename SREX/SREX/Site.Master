@@ -52,7 +52,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img src="profile.png" style="width:45px;float:left;" />
+                    <img src="profile.png" style="width: 45px; float: left;" />
                     <a class="navbar-brand active" runat="server" href="~/">SreX</a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -66,7 +66,7 @@
                                 <a href="ShoppingHistory">Purchase History</a>
                                 <a href="ShoppingCart">Shopping Cart</a>
                             </div>
-                            
+
                         </li>
                         <li class="nav-item hideItems">
                             <a class="nav-link" runat="server" href="~/PlanningMain">
@@ -77,10 +77,18 @@
                                 <a href="SelfPlanMain">Plan by Yourself</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Review">Reviews</a></li>
                         <li id="liLogin" class="nav-item" runat="server"><a class="nav-link" runat="server" href="~/Login">Login/Sign Up</a></li>
-                        <li id="liLogout" class="nav-item" runat="server"><a class="nav-link" runat="server" href="~/Logout">Logout</a></li>
+                        <%--<li id="liLogout" class="nav-item" runat="server"><a class="nav-link" runat="server" href="~/Logout">Logout</a></li>--%>
+                        <li class="nav-item hideItems" runat="server" id="dropdownMore">
+                            <a class="nav-link" runat="server">
+                                <div class="dropdown"><i class="fa fa-caret-down"></i></div>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="Profile" runat="server">Profile</a>
+                                <a href="~/Logout" runat="server">Logout</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -88,7 +96,7 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            
+
             <!-- Footer -->
             <footer class="page-footer font-small special-color-dark pt-4 navbar-bottom">
                 <hr />

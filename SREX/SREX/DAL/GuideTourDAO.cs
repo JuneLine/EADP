@@ -92,6 +92,7 @@ namespace SREX.DAL
             int SeniorQuantity = int.Parse(dr["SeniorQuantity"].ToString());
             decimal Payment = Convert.ToDecimal(dr["PaymentAmount"].ToString());
             string userId = dr["userId"].ToString();
+            string tourName = dr["tourName"].ToString();
             string tourId = dr["tourId"].ToString();
 
             GuideTour Reader3 = new GuideTour
@@ -106,11 +107,33 @@ namespace SREX.DAL
                 SeniorQuantity = SeniorQuantity,
                 PaymentAmount = Payment,
                 userId = userId,
+                tourName = tourName,
                 tourId = tourId
             };
 
             return Reader3;
         }
+
+        //private static GuideTour ReadDB4(SqlDataReader dr)
+        //{
+        //    string Id = dr["tourId"].ToString();
+        //    string tourName = dr["tourName"].ToString();
+        //    string Name = dr["Name"].ToString();
+        //    string Email = dr["Email"].ToString();
+        //    string Contact = dr["Contact"].ToString();
+
+
+        //    GuideTour Reader4 = new GuideTour
+        //    {
+        //        tourId = Id,
+        //        tourName = tourName,
+        //        UserName = Name,
+        //        UserEmail = Email,
+        //        UserContact = Contact,
+        //    };
+
+        //    return Reader4;
+        //}
 
         public List<GuideTour> RetrieveAllGuide()
         {
@@ -399,8 +422,8 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO GuidePurchases(PurchaseId, Date ,Name, Email, Contact, AdultQuantity, ChildQuantity, SeniorQuantity, PaymentAmount, userId, tourId) " +
-            "VALUES(@paraPurchaseId, @paraDate, @paraName, @paraEmail, @paraContact, @paraAQuant, @paraCQuant, @paraSQuant, @paraPayAmt, @parauserId, @paratourId)";
+            string sqlStmt = @"INSERT INTO GuidePurchases(PurchaseId, Date ,Name, Email, Contact, AdultQuantity, ChildQuantity, SeniorQuantity, PaymentAmount, userId, tourName ,tourId) " +
+            "VALUES(@paraPurchaseId, @paraDate, @paraName, @paraEmail, @paraContact, @paraAQuant, @paraCQuant, @paraSQuant, @paraPayAmt, @parauserId, @paratourName,@paratourId)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraPurchaseId", Guid.NewGuid().ToString());
@@ -413,6 +436,7 @@ namespace SREX.DAL
             SQLCmd.Parameters.AddWithValue("@paraSQuant", Listing.SeniorQuantity);
             SQLCmd.Parameters.AddWithValue("@paraPayAmt", Listing.PaymentAmount);
             SQLCmd.Parameters.AddWithValue("@parauserId", Listing.userId);
+            SQLCmd.Parameters.AddWithValue("@paratourName", Listing.tourName);
             SQLCmd.Parameters.AddWithValue("@paratourId", Listing.tourId);
 
             Connection.Open();
@@ -422,5 +446,52 @@ namespace SREX.DAL
 
             return result;
         }
+
+
+        // For Admin
+        public List<GuideTour> RetrieveListOfTour()
+        {
+            List<GuideTour> rows = new List<GuideTour>();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+
+            SqlCommand SQLCmd = new SqlCommand("Select * from GuidePurchases Order by tourName ASC", Connection);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                GuideTour td = ReadDB3(dr);
+                rows.Add(td);
+            }
+            Connection.Close();
+
+            return rows;
+        }
+
+        //public List<GuideTour> RetrieveSpecificListOfTour(string Name)
+        //{
+        //    List<GuideTour> rows = new List<GuideTour>();
+
+        //    string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        //    SqlConnection Connection = new SqlConnection(ConnectDB);
+
+
+        //    SqlCommand SQLCmd = new SqlCommand("Select * from GuidePurchases where tourName Like '% @paraName %' ", Connection);
+        //    SQLCmd.Parameters.AddWithValue("@paraName", Name);
+
+        //    Connection.Open();
+        //    SqlDataReader dr = SQLCmd.ExecuteReader();
+        //    while (dr.Read())
+        //    {
+        //        GuideTour td = ReadDB3(dr);
+        //        rows.Add(td);
+        //    }
+        //    Connection.Close();
+
+        //    return rows;
+        //}
     }
 }

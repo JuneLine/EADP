@@ -27,9 +27,10 @@
                         <div class="form-group">
                             <label>Contact</label>
                             <asp:TextBox runat="server" class="form-control" ID="tbUserContact"></asp:TextBox>
+                            <asp:Label runat="server" ID="lbltourname" Visible="false"></asp:Label>
                         </div>
                     </div>
-                </div>
+                </div>                
                 <div class="col-sm-8" style="font-size: 1.2em; padding-left: 5%;">
                     <h2>Tour Details</h2>
                     <div class="row">
