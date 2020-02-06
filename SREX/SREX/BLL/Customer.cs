@@ -19,6 +19,7 @@ namespace SREX.BLL
         public string Email { get; set; }
         public string Role { get; set; }
         public string Id { get; set; }
+        public string VerifyCode { get; set; }
 
         public string Code { get; set; }
         public DateTime Time { get; set; }
@@ -38,6 +39,7 @@ namespace SREX.BLL
             this.Dob = DOB;
             this.Email = Email;
             this.Id = Guid.NewGuid().ToString();
+            this.VerifyCode = RandomString(50);
         }
 
         public static string MD5Hash(string input)
@@ -65,6 +67,27 @@ namespace SREX.BLL
         {
             CustomerDAO Cust = new CustomerDAO();
             int result = Cust.InsertUser(this);
+            if (result == 1)
+            {
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.EnableSsl = true;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+
+                MailMessage mailMessage = new MailMessage("OOADPProject1@gmail.com", this.Email, "Registration", "Thanks for registering on SreX Offical Website." + Environment.NewLine + Environment.NewLine + "Click here to activiate your account!" + Environment.NewLine + "http://localhost:50743/Verify?id=" + this.Code);
+
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+            }
             return result;
         }
 

@@ -45,8 +45,8 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO Users (Id,Username, Password, Gender, PassportID, DOB, EmailAddr, Role) 
-VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, @paraUser)";
+            string sqlStmt = @"INSERT INTO Users (Id,Username, Password, Gender, PassportID, DOB, EmailAddr, Role, Code) 
+VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, @paraUser, @paraCode)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraId", Cust.Id);
@@ -57,7 +57,8 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             SQLCmd.Parameters.AddWithValue("@paraDOB", Cust.Dob);
             SQLCmd.Parameters.AddWithValue("@paraEmail", Cust.Email);
             SQLCmd.Parameters.AddWithValue("@paraUser", "User");
-  
+            SQLCmd.Parameters.AddWithValue("@paraCode", Cust.VerifyCode);
+
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
 
