@@ -156,7 +156,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Review.aspx" />
     <Content Include="TourGuide.aspx" />
-    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="GuidedPayment.aspx" />
     <Content Include="GuidedPurchaseHist.aspx" />
