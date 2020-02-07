@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="Shopping History" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ShoppingHistory.aspx.cs" Inherits="SREX.ShoppingHistory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .styleQR {
+            position: fixed;
+            top: 25%;
+            left: 37.5%;
+        }
+    </style>
 
     <div class="well" style="margin-top: 20px;">
         <h3 class="text-center">Purchase History Review</h3>
@@ -52,5 +59,7 @@
             </p>
         </div>
     </asp:Panel>
-    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+    <div id="QRDiv" runat="server" class="styleQR" visible="false">       
+        <asp:Panel ID="QR" runat="server" Width="410" Height="410"></asp:Panel>
+    </div>
 </asp:Content>

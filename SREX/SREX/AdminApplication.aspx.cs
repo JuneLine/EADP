@@ -57,7 +57,7 @@ namespace SREX
 
             if (updCnt == 1)
             {
-                Response.Redirect("existingTourGuides.aspx");  
+                Response.Redirect("AdminApplication.aspx");  
             }
             else
             {

@@ -77,44 +77,5 @@ namespace SREX.DAL
 
             return result;
         }
-
-        public List<TourGuides> getTourGuide(string role)
-        {
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-            SqlConnection myConn = new SqlConnection(DBConnect);
-
-            string sqlstmt = "Select * from Users where Role = @paraRole";
-            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("paraRole", role);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            List<TourGuides> tdList = new List<TourGuides>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-
-            if (rec_cnt > 0)
-            {
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    string uniqueId = row["Id"].ToString();
-                    string userName = row["Username"].ToString();
-                    string gender = row["Gender"].ToString();
-                    string emailAddr = row["EmailAddr"].ToString();
-
-                    TourGuides hist = new TourGuides(uniqueId, userName, gender, emailAddr);
-
-                    tdList.Add(hist);
-                }
-
-
-            }
-
-            else
-            {
-                tdList = null;
-            }
-
-            return tdList;
-        }
     }
 }

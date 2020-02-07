@@ -19,8 +19,7 @@ namespace SREX
 
                 if (Session["UserId"] == null)
                 {
-
-                    joinUsBox.Visible = false;
+                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = false;
                     forTourGuide.Visible = false;
                     AddNewAttraction.Visible = false;
@@ -28,7 +27,7 @@ namespace SREX
                 }
                 else if (Session["role"].ToString() == "Guide")
                 {
-                    joinUsBox.Visible = false;
+                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = false;
                     AddNewAttraction.Visible = false;
                     forTourGuide.Visible = true;
@@ -36,7 +35,7 @@ namespace SREX
 
                 else if (Session["role"].ToString() == "Admin")
                 {
-                    joinUsBox.Visible = false;
+                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = true;
                     AddNewAttraction.Visible = true;
                     forTourGuide.Visible = true;
@@ -44,8 +43,8 @@ namespace SREX
                 }
                 else
                 {
-                    joinUsBox.Visible = true;
                     AddNewAttraction.Visible = false;
+                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = false;
                     forTourGuide.Visible = false;
                     btnAddPlace.Style["display"] = "none";
@@ -109,9 +108,13 @@ namespace SREX
                 updCnt = td.UpdTDbyUserId(newStatus, Session["UserId"].ToString());
                 if (updCnt == 1)
                 {
+                    LabelConfirm.Visible = true;
+                    LabelConfirm.Text = "Your application is now under review !";
                 }
                 else
                 {
+                    LabelConfirm.Visible = true;
+                    LabelConfirm.Text = "Failed to apply for tour guide";
                 }
             }
         }

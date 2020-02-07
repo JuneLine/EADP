@@ -21,6 +21,7 @@ namespace SREX.DAL
             string Email = dr["EmailAddr"].ToString();
             string Role = dr["Role"].ToString();
             string Id = dr["Id"].ToString();
+            string Account = dr["Account"].ToString();
 
             Customer Value = new Customer
             {
@@ -32,6 +33,7 @@ namespace SREX.DAL
                 Email = Email,
                 Role = Role,
                 Id = Id,
+                Account = Account
             };
 
             return Value;
@@ -45,8 +47,8 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO Users (Id,Username, Password, Gender, PassportID, DOB, EmailAddr, Role) 
-VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, @paraUser)";
+            string sqlStmt = @"INSERT INTO Users (Id,Username, Password, Gender, PassportID, DOB, EmailAddr, Role, Code) 
+VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @paraEmail, @paraUser, @paraCode)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraId", Cust.Id);
@@ -57,7 +59,8 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             SQLCmd.Parameters.AddWithValue("@paraDOB", Cust.Dob);
             SQLCmd.Parameters.AddWithValue("@paraEmail", Cust.Email);
             SQLCmd.Parameters.AddWithValue("@paraUser", "User");
-  
+            SQLCmd.Parameters.AddWithValue("@paraCode", Cust.VerifyCode);
+
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
 
@@ -131,7 +134,7 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT * FROM Users WHERE Id = @paraId";
+            string sqlStmt = @"SELECT * FROM Users WHERE Id = @paraId AND Account IS NOT NULL";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 
@@ -179,7 +182,7 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT Id FROM Users WHERE EmailAddr = @paraEmail ";
+            string sqlStmt = @"SELECT Id FROM Users WHERE EmailAddr = @paraEmail";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraEmail", email);
@@ -311,6 +314,28 @@ VALUES (@paraId, @paraName, @paraPass, @paraGender, @paraPassPort, @paraDOB, @pa
             SQLCmd = new SqlCommand(sqlStmt, Connection);
             SQLCmd.Parameters.AddWithValue("@paraId", userId);
             SQLCmd.Parameters.AddWithValue("@paranewPw", newPw);
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+
+            Connection.Close();
+
+            return result;
+        }
+
+        public int verifyRegisterCode(string code)
+        {
+            int result = 0;
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE Users SET Account = @paraStatus WHERE Code = @paraCode AND Account IS NULL";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraStatus", "Active");
+            SQLCmd.Parameters.AddWithValue("@paraCode", code);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
