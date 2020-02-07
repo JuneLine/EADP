@@ -59,7 +59,7 @@
                                             Price/Item
                                             <h6><strong>S$  <%#Eval("Prod.Price") %></strong></h6>
                                         </div>
-                                        <div class="col-xs-6 text-left">
+                                        <div class="col-xs-5 text-left">
                                             Quantity:
                                             <div>
                                                 <div style="float: left;">
@@ -74,7 +74,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-xs-2 text-left">
+                                        <div class="col-xs-3 text-left">
                                             <br />
                                             <asp:LinkButton ID="DeleteCartItem" CommandArgument='<%#Eval("Prod.Id") %>' OnClick="prodDelBtn_Click" runat="server" CssClass="btn btn-danger btn-sm">Delete</asp:LinkButton>
                                         </div>

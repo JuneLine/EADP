@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
     <style>
+        .styleQR {
+            position: fixed;
+            top: 25%;
+            left: 37.5%;
+        }
+
         .myPanelDetails {
             width: 40%;
             height: auto;
@@ -13,8 +19,7 @@
             left: 30%;
             top: 20%;
             background-color:lightblue;
-            opacity:1.1;
-            z-index:5;
+            opacity:1;
         }
     </style>
     <div class="body-container-own">
@@ -23,16 +28,24 @@
         </div>
         <asp:DataList runat="server" ID="DataListHist" RepeatLayout="Table" CssClass="table">
             <HeaderTemplate>
+                <th class="text-center">PurchaseId</th>
                 <th class="text-center">Date Purchased</th>
                 <th class="text-center">Total Cost</th>
                 <th class="text-center">Tour Detail</th>
+                <th class="text-center">QR Code</th>
             </HeaderTemplate>
             <ItemTemplate>
+                <td class="text-center"><%#Eval("PurchaseId") %></td>
                 <td class="text-center"><%#Eval("Date") %></td>
                 <td class="text-center">SGD<%#Eval("PaymentAmount") %></td>
                 <td class="text-center">
                     <button type="button" class="btn btn-info btn-sm" id="showData" onserverclick="showData_ServerClick" runat="server" value='<%#Eval("tourId") %>'>View</button>
-                </td>                
+                </td>
+                <td>
+                    <p data-placement="top" class="text-center" data-toggle="tooltip" title="Proof">
+                        <button value='<%#Eval("PurchaseId") %>' runat="server" onserverclick="openModalQR" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-qrcode"></span></button>
+                    </p>
+                </td>
             </ItemTemplate>
         </asp:DataList>
         <div class="text-center">
@@ -90,5 +103,9 @@
             </asp:DataList>
         </div>
     </asp:Panel>
+    <div id="QRDiv" runat="server" class="styleQR" visible="false">
+        <button type="button" class="close" runat="server" id="closePanel" onserverclick="closePanel_ServerClick">&times;</button>
+        <asp:Panel runat="server" ID="QRPanel" Width="410" Height="410"></asp:Panel>
+    </div>
 </asp:Content>
 

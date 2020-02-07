@@ -143,6 +143,7 @@ namespace SREX
         {
             decimal paymentAmount = Convert.ToDecimal(Amount);
             Purchase Purchases = new Purchase();
+            System.Diagnostics.Debug.WriteLine("===============");
             return Purchases.checkOut(HttpContext.Current.Session["UserId"].ToString(), Info, paymentAmount);
         }
 

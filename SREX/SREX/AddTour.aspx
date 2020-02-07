@@ -77,8 +77,7 @@
                         </asp:TableHeaderRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime1" runat="server">                                    
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime1" runat="server">
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -98,7 +97,6 @@
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
                                 <asp:DropDownList ID="DropDownListTime2" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -118,7 +116,6 @@
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
                                 <asp:DropDownList ID="DropDownListTime3" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -138,7 +135,6 @@
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
                                 <asp:DropDownList ID="DropDownListTime4" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -158,7 +154,6 @@
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
                                 <asp:DropDownList ID="DropDownListTime5" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -178,7 +173,6 @@
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
                                 <asp:DropDownList ID="DropDownListTime6" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -198,7 +192,6 @@
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
                                 <asp:DropDownList ID="DropDownListTime7" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -220,7 +213,29 @@
             </fieldset>
         </div>
         <div style="text-align: center">
+<%--          <input type="button" class="btn btn-primary" value="Add Places" data-toggle="modal" data-target="#ConfirmAdd" />--%>
             <asp:Button runat="server" Text="Confirm" CssClass="btn btn-primary" ID="AddTourConfirmation" OnClick="AddTourConfirmation_Click" />
         </div>
     </div>
+    <%--<div class="modal fade" id="ConfirmAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" runat="server">
+        <div class="modal-dialog" style="margin-top: 10%;" role="document">
+            <div class="modal-content form">
+                <div class="modal-header">
+                    <h2>Confirmation</h2>
+                </div>
+                <div class="modal-body">
+                    Tour Name: <asp:Label runat="server" ID="lblTourName"></asp:Label>
+                    Tour Caption: <asp:Label runat="server" ID="lblTourCaption"></asp:Label>
+                    Tour Picture: 
+                    <asp:Label runat="server"></asp:Label>
+                    <asp:Label runat="server"></asp:Label>
+                    <asp:Label runat="server"></asp:Label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <asp:Button runat="server" ID="AddNewTour" Text="Confirm" CssClass="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>--%>
 </asp:Content>

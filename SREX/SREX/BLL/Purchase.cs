@@ -29,14 +29,7 @@ namespace SREX.BLL
         public int checkOut(string userId, string OrderId, decimal Amount)
         {
             PurchaseDAO purchaseDAO = new PurchaseDAO();
-            int result = 0;
-            foreach (string id in purchaseDAO.getProductIdInCart(userId))
-            {
-                purchaseDAO.increaseItemSold(userId, id);
-                result += purchaseDAO.decreaseItemStock(userId, id);
-            }
-            int result2 = purchaseDAO.checkoutSetToPaid(userId, OrderId);
-            int result3 = purchaseDAO.checkoutAddHistory(userId, Amount, OrderId);
+            int result = purchaseDAO.checkoutAllCurrentItems(userId, Amount, OrderId);
             return result;
         }
 
