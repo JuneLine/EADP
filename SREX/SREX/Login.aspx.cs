@@ -41,7 +41,7 @@ namespace SREX
                     int result = Cust.CreateUser();
                     if (result == 1)
                     {
-                        showInfo.Text = "Register Success! Please Login";
+                        showInfo.Text = "Register Success! Please check your email!";
                         showInfo.ForeColor = System.Drawing.Color.Green;
                         registerUsername.Text = "";
                         emailAddress.Text = "";
@@ -73,11 +73,19 @@ namespace SREX
 
             if (CustomerData != null)
             {
-                Session["Role"] = CustomerData.Role;
-                Session["Email"] = CustomerData.Email;
-                Session["Username"] = CustomerData.User;
-                Session["UserId"] = CustomerData.Id;
-                Response.Redirect("Default.aspx");
+                if (CustomerData.Account != "")
+                {
+                    Session["Role"] = CustomerData.Role;
+                    Session["Email"] = CustomerData.Email;
+                    Session["Username"] = CustomerData.User;
+                    Session["UserId"] = CustomerData.Id;
+                    Response.Redirect("Default.aspx");
+                }
+                else
+                {
+                    showInfo.Text = "Please activate your account.";
+                    showInfo.ForeColor = System.Drawing.Color.Red;
+                }
             }
             else
             {

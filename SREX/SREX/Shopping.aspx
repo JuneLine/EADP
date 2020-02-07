@@ -117,7 +117,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Pictures/Electronic.jpg);">
                         <div class="catagory-content">
-                            <a href="ProductList?category=electronic-devices&sortby=Sold&order=Asc">Electronic devices</a>
+                            <a href="ProductList?category=electronic-device&sortby=Sold&order=Asc">Electronic devices</a>
                         </div>
                     </div>
                 </div>
