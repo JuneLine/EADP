@@ -20,32 +20,32 @@ namespace SREX
 
                 if (Session["UserId"] == null)
                 {
-                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = false;
                     forTourGuide.Visible = false;
                     AddNewAttraction.Visible = false;
+                    joinUsBox.Visible = false;
                     btnAddPlace.Style["display"] = "none";
                 }
                 else if (Session["role"].ToString() == "Guide")
                 {
-                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = false;
                     AddNewAttraction.Visible = false;
+                    joinUsBox.Visible = false;
                     forTourGuide.Visible = true;
                 }
 
                 else if (Session["role"].ToString() == "Admin")
                 {
-                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = true;
                     AddNewAttraction.Visible = true;
                     forTourGuide.Visible = true;
+                    joinUsBox.Visible = false;
                     btnAddPlace.Style["display"] = "inline-block";
                 }
                 else
                 {
+                    joinUsBox.Visible = true;
                     AddNewAttraction.Visible = false;
-                    LabelConfirm.Visible = false;
                     forAdminApply.Visible = false;
                     forTourGuide.Visible = false;
                     btnAddPlace.Style["display"] = "none";
@@ -117,11 +117,10 @@ namespace SREX
 
                         updCnt = td.UpdTDbyUserId(newStatus, Session["UserId"].ToString(), filename);
                         
-                        if (updCnt == 1)
-                        {
                             LabelError.Text = "Your application is now under review";
                             LabelError.ForeColor = Color.Green;
-                        }
+                        LabelError2.Text = "Your application is now under review";
+                        LabelError2.ForeColor = Color.Green;
                     }
                     else
                     {

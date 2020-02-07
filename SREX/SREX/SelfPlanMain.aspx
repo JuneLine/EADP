@@ -1,11 +1,16 @@
 ﻿<%@ Page Title="SelfPlanner" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SelfPlanMain.aspx.cs" Inherits="SREX.SelfPlanMain" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/selfPlan.css" rel="stylesheet" />
-    <div class="container">
-            <div class="page-header well">
-                <h1 class="text-center">Self plan</h1>
-            </div>
+    <br />
+    <nav class="navbar navbar-inverse bg-light" style="margin-bottom:0px;">
+        <a class="navbar-brand active" href="SelfPlanMain">Plan your tours here!</a>
+        <a class="navbar-brand" href="planningHistory">View your created plans</a>
+    </nav>
+    <div class="jumbotron" style="margin: 0px;">
+                <h1 class="text-center">SelfPlan</h1>
+        <p class="lead text-center">Create your very own itinery here!</p>
     </div>
+    <br />
     <div class="container plans">
             <div class="col-sm-4 col-lg-4 destinationyourmother">
                     <div class="input-group col-sm-12 col-lg-12">

@@ -28,7 +28,7 @@ namespace SREX {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelConfirm;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl joinUsBox;
         
         /// <summary>
         /// FileUpload1 control.
@@ -49,7 +49,7 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Label LabelError;
         
         /// <summary>
-        /// ApplyingGuide control.
+        /// ApplyGuide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

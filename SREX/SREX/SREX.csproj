@@ -140,6 +140,7 @@
     <Content Include="EditAttraction.aspx" />
     <Content Include="EditProductInfo.aspx" />
     <Content Include="EditTour.aspx" />
+    <Content Include="exisitingTourGuides.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Pictures\TourGuide.jpg" />
     <Content Include="ProductList.aspx" />
@@ -236,6 +237,7 @@
     <Content Include="SportsGroup.aspx" />
     <Content Include="TourGuideConfirmation.aspx" />
     <Content Include="Verify.aspx" />
+    <Content Include="viewAllGuidingTour.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -368,6 +370,13 @@
     </Compile>
     <Compile Include="EditTour.aspx.designer.cs">
       <DependentUpon>EditTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="exisitingTourGuides.aspx.cs">
+      <DependentUpon>exisitingTourGuides.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exisitingTourGuides.aspx.designer.cs">
+      <DependentUpon>exisitingTourGuides.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -540,6 +549,13 @@
     </Compile>
     <Compile Include="Verify.aspx.designer.cs">
       <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewAllGuidingTour.aspx.cs">
+      <DependentUpon>viewAllGuidingTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewAllGuidingTour.aspx.designer.cs">
+      <DependentUpon>viewAllGuidingTour.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

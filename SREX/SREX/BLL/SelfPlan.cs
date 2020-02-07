@@ -35,8 +35,8 @@ namespace SREX.BLL
 
         }
 
-        public SelfPlan ( string Id, string Title, string Date, string Hire, string Timing1, string Timing2, string Timing3, string Timing4, string Timing5, string Timing6
-            , string Timing7, string Timing8, string Timing9, string Timing10 ,string Status, string UserName)
+        public SelfPlan(string Id, string Title, string Date, string Hire, string Timing1, string Timing2, string Timing3, string Timing4, string Timing5, string Timing6
+            , string Timing7, string Timing8, string Timing9, string Timing10, string Status, string UserName)
         {
             this.Id = Id;
             this.Title = Title;
@@ -120,6 +120,26 @@ namespace SREX.BLL
             this.Timing10 = Timing10;
         }
 
+        public SelfPlan(string Id, string Title, string Date, string Hire, string Timing1, string Timing2, string Timing3, string Timing4, string Timing5, string Timing6
+            , string Timing7, string Timing8, string Timing9, string Timing10, string Status)
+        {
+            this.Id = Id;
+            this.Title = Title;
+            this.Date = Date;
+            this.Hire = Hire;
+            this.Timing1 = Timing1;
+            this.Timing2 = Timing2;
+            this.Timing3 = Timing3;
+            this.Timing4 = Timing4;
+            this.Timing5 = Timing5;
+            this.Timing6 = Timing6;
+            this.Timing7 = Timing7;
+            this.Timing8 = Timing8;
+            this.Timing9 = Timing9;
+            this.Timing10 = Timing10;
+            this.Status = Status;
+        }
+
         public SelfPlan(int UniqueId, string userName, string Title, string Date, string Hire)
         {
             this.UniqueId = UniqueId;
@@ -129,10 +149,10 @@ namespace SREX.BLL
             this.Hire = Hire;
         }
 
-        public int UpdTDbyID(string status, int id)
+        public int UpdTDbyID(string status, int id, string tourguideId, string tourguidename)
         {
             SelfPlanDAO dao = new SelfPlanDAO();
-            return dao.UpdateStatus(status, id);
+            return dao.UpdateStatus(status, id, tourguideId, tourguidename);
         }
 
         public int UpdTDbyUserId(string status, string id, string uploadFile)
@@ -170,6 +190,24 @@ namespace SREX.BLL
         {
             SelfPlanDAO dao = new SelfPlanDAO();
             return dao.getTourGuided(hire);
+        }
+
+        public List<SelfPlan> searchByTitle(string title)
+        {
+            SelfPlanDAO dao = new SelfPlanDAO();
+            return dao.selectByTitle(title);
+        }
+
+        public List<SelfPlan> searchAll()
+        {
+            SelfPlanDAO dao = new SelfPlanDAO();
+            return dao.selectAll();
+        }
+
+        public List<SelfPlan> getAllPlansByGuideId(string id)
+        {
+            SelfPlanDAO dao = new SelfPlanDAO();
+            return dao.selectAllByGuideId(id);
         }
     }
 }

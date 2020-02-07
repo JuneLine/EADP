@@ -38,6 +38,7 @@
         <br />
 
     </div>
+        </div>
     <div class="container text-center body-container-own">
         <br />
         <br />

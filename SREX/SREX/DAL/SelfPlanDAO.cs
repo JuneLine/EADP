@@ -49,43 +49,43 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
 
             return result;
 
-//            int result = 0;
+            //            int result = 0;
 
-//            SqlCommand SQLCmd = new SqlCommand();
+            //            SqlCommand SQLCmd = new SqlCommand();
 
-//            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-//            SqlConnection Connection = new SqlConnection(ConnectDB);
+            //            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            //            SqlConnection Connection = new SqlConnection(ConnectDB);
 
-//            string sqlStmt = @"INSERT INTO SelfPlanHist (Id,Title, Date, Hire, Timing, Activity) 
-//VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1,@paraTiming1),(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming2,@paraTiming2), (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming3,@paraTiming3), 
-//(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming4,@paraTiming4), (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming5,@paraTiming5), (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming6,@paraTiming6),
-//(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming7,@paraTiming7),(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming8,@paraTiming8),(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming9,@paraTiming9)
-//,(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming10,@paraTiming10)";
+            //            string sqlStmt = @"INSERT INTO SelfPlanHist (Id,Title, Date, Hire, Timing, Activity) 
+            //VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1,@paraTiming1),(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming2,@paraTiming2), (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming3,@paraTiming3), 
+            //(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming4,@paraTiming4), (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming5,@paraTiming5), (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming6,@paraTiming6),
+            //(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming7,@paraTiming7),(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming8,@paraTiming8),(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming9,@paraTiming9)
+            //,(@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming10,@paraTiming10)";
 
 
-//            SQLCmd = new SqlCommand(sqlStmt, Connection);
-//            SQLCmd.Parameters.AddWithValue("@paraId", Hist.Id);
-//            SQLCmd.Parameters.AddWithValue("@paraTitle", Hist.Title);
-//            SQLCmd.Parameters.AddWithValue("@paraDate", Hist.Date);
-//            SQLCmd.Parameters.AddWithValue("@paraHire", Hist.Hire);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming1", Hist.Timing1);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming2", Hist.Timing2);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming3", Hist.Timing3);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming4", Hist.Timing4);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming5", Hist.Timing5);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming6", Hist.Timing6);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming7", Hist.Timing7);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming8", Hist.Timing8);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming9", Hist.Timing9);
-//            SQLCmd.Parameters.AddWithValue("@paraTiming10", Hist.Timing10);
-//            SQLCmd.
+            //            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            //            SQLCmd.Parameters.AddWithValue("@paraId", Hist.Id);
+            //            SQLCmd.Parameters.AddWithValue("@paraTitle", Hist.Title);
+            //            SQLCmd.Parameters.AddWithValue("@paraDate", Hist.Date);
+            //            SQLCmd.Parameters.AddWithValue("@paraHire", Hist.Hire);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming1", Hist.Timing1);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming2", Hist.Timing2);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming3", Hist.Timing3);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming4", Hist.Timing4);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming5", Hist.Timing5);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming6", Hist.Timing6);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming7", Hist.Timing7);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming8", Hist.Timing8);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming9", Hist.Timing9);
+            //            SQLCmd.Parameters.AddWithValue("@paraTiming10", Hist.Timing10);
+            //            SQLCmd.
 
-//            Connection.Open();
-//            result = SQLCmd.ExecuteNonQuery();
+            //            Connection.Open();
+            //            result = SQLCmd.ExecuteNonQuery();
 
-//            Connection.Close();
+            //            Connection.Close();
 
-//            return result;
+            //            return result;
         }
 
         public List<SelfPlan> SelectAllById(string Id)
@@ -188,7 +188,7 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                     string date = row["Date"].ToString();
                     string hire = row["Hire"].ToString();
 
-                   SelfPlan dest = new SelfPlan(uniqueId, username, title, date, hire);
+                    SelfPlan dest = new SelfPlan(uniqueId, username, title, date, hire);
 
                     tdList.Add(dest);
                 }
@@ -226,6 +226,7 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                 string titleName = row["Title"].ToString();
                 string date = row["Date"].ToString();
                 string hire = row["Hire"].ToString();
+                string status = row["Status"].ToString();
                 string timing1 = row["Timing1"].ToString();
                 string timing2 = row["Timing2"].ToString();
                 string timing3 = row["Timing3"].ToString();
@@ -236,20 +237,22 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                 string timing8 = row["Timing8"].ToString();
                 string timing9 = row["Timing9"].ToString();
                 string timing10 = row["Timing10"].ToString();
+                string username = row["UserName"].ToString();
+                string tourguidename = row["TourGuideName"].ToString();
 
 
-                td = new SelfPlan(id, titleName, date, hire, timing1, timing2, timing3, timing4, timing5, timing6, timing7, timing8, timing9, timing10);
+                td = new SelfPlan(id, titleName, date, hire, timing1, timing2, timing3, timing4, timing5, timing6, timing7, timing8, timing9, timing10, status, username, tourguidename);
 
             }
             return td;
         }
 
-        public int UpdateStatus(string status, int id)
+        public int UpdateStatus(string status, int id, string tourguideId, string tourguidename)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE SelfPlanHistory SET Status = @paraStatus where UniqueId =  @paraUniqueId";
+            string sqlStmt = "UPDATE SelfPlanHistory SET Status = @paraStatus, TourGuideId = @paraTourGuideId, TourGuideName = @paraTourGuideName where UniqueId =  @paraUniqueId";
 
             int result = 0;    // Execute NonQuery return an integer value
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -257,8 +260,10 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
 
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
+            sqlCmd.Parameters.AddWithValue("paraTourGuideId", tourguideId);
             sqlCmd.Parameters.AddWithValue("@paraStatus", status);
             sqlCmd.Parameters.AddWithValue("paraUniqueId", id);
+            sqlCmd.Parameters.AddWithValue("paraTourGuideName", tourguidename);
 
 
 
@@ -295,6 +300,129 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             myConn.Close();
 
             return result;
+        }
+
+        public List<SelfPlan> selectByTitle(string titleChosen)
+        {
+            string status = "Pending";
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from SelfPlanHistory where Title = @paraTitle AND Status = @paraStatus";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraTitle", titleChosen);
+            da.SelectCommand.Parameters.AddWithValue("@paraStatus", status);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            List<SelfPlan> tdList = new List<SelfPlan>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            if (rec_cnt > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int uniqueId = int.Parse(row["UniqueId"].ToString());
+                    string userName = row["UserName"].ToString();
+                    string date = row["Date"].ToString();
+                    string title = row["Title"].ToString();
+                    string hire = row["Hire"].ToString();
+
+                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
+
+                    tdList.Add(hist);
+                }
+
+
+            }
+
+            else
+            {
+                tdList = null;
+            }
+
+            return tdList;
+        }
+
+        public List<SelfPlan> selectAll()
+        {
+            string status = "Pending";
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from SelfPlanHistory where Status = @paraStatus";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraStatus", status);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            List<SelfPlan> tdList = new List<SelfPlan>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            if (rec_cnt > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int uniqueId = int.Parse(row["UniqueId"].ToString());
+                    string userName = row["UserName"].ToString();
+                    string date = row["Date"].ToString();
+                    string title = row["Title"].ToString();
+                    string hire = row["Hire"].ToString();
+
+                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
+
+                    tdList.Add(hist);
+                }
+
+
+            }
+
+            else
+            {
+                tdList = null;
+            }
+
+            return tdList;
+        }
+
+        public List<SelfPlan> selectAllByGuideId(string id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from SelfPlanHistory where TourGuideId = @paraTourGuideId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraTourGuideId", id);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            List<SelfPlan> tdList = new List<SelfPlan>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            if (rec_cnt > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int uniqueId = int.Parse(row["UniqueId"].ToString());
+                    string userName = row["UserName"].ToString();
+                    string date = row["Date"].ToString();
+                    string title = row["Title"].ToString();
+                    string hire = row["Hire"].ToString();
+
+                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
+
+                    tdList.Add(hist);
+                }
+
+
+            }
+
+            else
+            {
+                tdList = null;
+            }
+
+            return tdList;
         }
     }
 }
