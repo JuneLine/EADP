@@ -24,7 +24,8 @@
                     <br />
                     <asp:Label for="LabelEmailAddr" runat="server" Text="Email: "></asp:Label> <asp:Label ID="LabelEmailAddr" runat="server"></asp:Label>
                     <br />
-                    <asp:Label ID="LabelResumePath" runat="server"></asp:Label>
+                    <asp:Label ID="LabelResumePath" runat="server" Visible="false"></asp:Label>
+                    <br />
                     <label>Resume: </label>
                     <br />
                     <asp:Button runat="server" ID="downloadResume" CssClass="btn btn-primary" Text="Download" OnClick="downloadResume_Click"/>
@@ -44,7 +45,7 @@
                         <asp:BoundField DataField="UserName" HeaderText="Username"/>
                         <asp:BoundField DataField="Gender" HeaderText="Gender" />
                         <asp:BoundField DataField="EmailAddr" HeaderText="EmailAddr"/>
-                        <asp:BoundField DataField="UploadFile" visible="true"/>
+                        <asp:BoundField DataField="UploadFile" visible="false"/>
                         <asp:CommandField ShowSelectButton="True" SelectText="View" />
                     </Columns>
                 </asp:GridView>
