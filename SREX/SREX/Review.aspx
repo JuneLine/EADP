@@ -22,6 +22,7 @@
                     <div class="col-sm-8">
                         <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="3" Width="100%" Enabled="false" style="padding:1%;" ReadOnly="True" />
                         Comment Made on : <%#Eval("date") %>
+                        <p style="float:right;" runat="server" Visible='<%#Eval("IsMe")%>'><asp:Button runat="server" ID="btnOpenEditPanel" CssClass=""/></p>
                     </div>
                     <div class="col-sm-2">
                         Ratings:
