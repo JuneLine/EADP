@@ -43,6 +43,19 @@ namespace SREX.BLL
             this.VerifyCode = RandomString(50);
         }
 
+        public Customer(string User, string Pass, string Gender, string Passnum, string DOB, string Email, string Status)
+        {
+            this.User = User;
+            this.Pass = MD5Hash(Pass);
+            this.Gender = Gender;
+            this.Passnum = Passnum;
+            this.Dob = DOB;
+            this.Email = Email;
+            this.Id = Guid.NewGuid().ToString();
+            this.VerifyCode = RandomString(50);
+            this.Status = Status;
+        }
+
         public static string MD5Hash(string input)
         {
             StringBuilder hash = new StringBuilder();

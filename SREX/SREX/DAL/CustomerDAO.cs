@@ -22,6 +22,7 @@ namespace SREX.DAL
             string Role = dr["Role"].ToString();
             string Id = dr["Id"].ToString();
             string Account = dr["Account"].ToString();
+            string Status = dr["Status"].ToString();
 
             Customer Value = new Customer
             {
@@ -33,7 +34,8 @@ namespace SREX.DAL
                 Email = Email,
                 Role = Role,
                 Id = Id,
-                Account = Account
+                Account = Account,
+                Status = Status
             };
 
             return Value;

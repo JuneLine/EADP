@@ -20,6 +20,9 @@ namespace SREX
 
                 if (Session["UserId"] == null)
                 {
+                   
+                    
+                    reviewBox.Visible = false;
                     forAdminApply.Visible = false;
                     forTourGuide.Visible = false;
                     AddNewAttraction.Visible = false;
@@ -28,6 +31,7 @@ namespace SREX
                 }
                 else if (Session["role"].ToString() == "Guide")
                 {
+                    reviewBox.Visible = false;
                     forAdminApply.Visible = false;
                     AddNewAttraction.Visible = false;
                     joinUsBox.Visible = false;
@@ -36,25 +40,58 @@ namespace SREX
 
                 else if (Session["role"].ToString() == "Admin")
                 {
+                    reviewBox.Visible = false;
                     forAdminApply.Visible = true;
                     AddNewAttraction.Visible = true;
                     forTourGuide.Visible = true;
                     joinUsBox.Visible = false;
+                    LabelError.Text = Session["Status"].ToString();
                     btnAddPlace.Style["display"] = "inline-block";
+                    DataListAttractionsAdmin.Visible = true;
+                    DataListAttractions.Visible = false;
                 }
                 else
                 {
-                    joinUsBox.Visible = true;
-                    AddNewAttraction.Visible = false;
-                    forAdminApply.Visible = false;
-                    forTourGuide.Visible = false;
-                    btnAddPlace.Style["display"] = "none";
+                    if (Session["Status"] != null)
+                    {
+                        if (Session["Status"].ToString() == "Applying")
+                        {
+                            joinUsBox.Visible = false;
+                            reviewBox.Visible = true;
+                            AddNewAttraction.Visible = false;
+                            forAdminApply.Visible = false;
+                            forTourGuide.Visible = false;
+                            btnAddPlace.Style["display"] = "none";
+                        }
+
+                        else
+                        {
+                            reviewBox.Visible = false;
+                            joinUsBox.Visible = true;
+                            AddNewAttraction.Visible = false;
+                            forAdminApply.Visible = false;
+                            forTourGuide.Visible = false;
+                            btnAddPlace.Style["display"] = "none";
+                        }
+                    }
+
+                    else
+                    {
+                        reviewBox.Visible = false;
+                        joinUsBox.Visible = true;
+                        AddNewAttraction.Visible = false;
+                        forAdminApply.Visible = false;
+                        forTourGuide.Visible = false;
+                        btnAddPlace.Style["display"] = "none";
+                    }
                 }
 
                 TouristAttractions Attactions = new TouristAttractions();
                 AttractionList = Attactions.GetAll();
                 DataListAttractions.DataSource = AttractionList;
                 DataListAttractions.DataBind();
+                DataListAttractionsAdmin.DataSource = AttractionList;
+                DataListAttractionsAdmin.DataBind();
             }
         }
 
@@ -101,14 +138,14 @@ namespace SREX
             }
             else
             {
-                if (FileUpload1.HasFile)
+               if (FileUpload1.HasFile)
                 {
-                    string filename = Path.GetFileName(FileUpload1.FileName);
+                    string filename = Session["UserId"].ToString() + "_" + Path.GetFileName(FileUpload1.FileName);
                     string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
                     if (ext == ".docx")
                     {
                         string path = Server.MapPath("~/Uploads/");
-                        FileUpload1.SaveAs(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
+                        FileUpload1.SaveAs(Server.MapPath("~/Uploads/" + filename));
                         int updCnt;
                         string newStatus = "Applying";
                         string currStatus = (string)ViewState["CurrStatus"];
@@ -116,11 +153,9 @@ namespace SREX
                         SelfPlan td = new SelfPlan();
 
                         updCnt = td.UpdTDbyUserId(newStatus, Session["UserId"].ToString(), filename);
-                        
-                            LabelError.Text = "Your application is now under review";
-                            LabelError.ForeColor = Color.Green;
-                        LabelError2.Text = "Your application is now under review";
-                        LabelError2.ForeColor = Color.Green;
+
+                        Session["Status"] = "Applying";
+                        Response.Redirect(Request.RawUrl);
                     }
                     else
                     {

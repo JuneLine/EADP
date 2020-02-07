@@ -22,6 +22,15 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Label LabelError2;
         
         /// <summary>
+        /// reviewBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reviewBox;
+        
+        /// <summary>
         /// joinUsBox control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace SREX {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataListAttractions;
+        
+        /// <summary>
+        /// DataListAttractionsAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListAttractionsAdmin;
         
         /// <summary>
         /// btnAddPlace control.
