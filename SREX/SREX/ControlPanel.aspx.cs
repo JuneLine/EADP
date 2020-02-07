@@ -24,8 +24,6 @@ namespace SREX
                         lowStockList = Prod.getLowStock();
                         DataListStock.DataSource = lowStockList;
                         DataListStock.DataBind();
-
-                        Panel1.Visible = false;
                     }
                     else
                     {
