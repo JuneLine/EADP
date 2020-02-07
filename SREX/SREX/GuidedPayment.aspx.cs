@@ -18,56 +18,41 @@ namespace SREX
             Session["deleteMsg"] = null;
             if (!IsPostBack)
             {
-                if (Session["UserId"] != null)
+                List<GuideTour> Listing;
+
+                string id = Request.QueryString["tourId"];
+
+                GuideTour Tour = new GuideTour();
+                Listing = Tour.GetOne(id);
+                DataListTourInfo.DataSource = Listing;
+                DataListTourInfo.DataBind();
+
+                foreach (GuideTour item in Listing)
                 {
-                    List<GuideTour> Listing;
-
-                    string id = Request.QueryString["tourId"];
-
-                    GuideTour Tour = new GuideTour();
-                    Listing = Tour.GetOne(id);
-                    DataListTourInfo.DataSource = Listing;
-                    DataListTourInfo.DataBind();
-
-                    foreach (GuideTour item in Listing)
-                    {
-                        lbltourname.Text = item.tourName.ToString();
-                        AdultPerTicket.Text = item.AdultCost.ToString();
-                        ChildPerTicket.Text = item.ChildCost.ToString();
-                        SeniorPerTicket.Text = item.SeniorCost.ToString();
-                    }
-
-                    tbUserName.Text = Session["Username"].ToString();
-                    tbUserEmail.Text = Session["Email"].ToString();
+                    AdultPerTicket.Text = item.AdultCost.ToString();
+                    ChildPerTicket.Text = item.ChildCost.ToString();
+                    SeniorPerTicket.Text = item.SeniorCost.ToString();
                 }
-                else
-                {
-                    Response.Redirect("Login.aspx");
-                    Response.Write("<script>alert('Please Login')</script>");
-                }
+
+                tbUserName.Text = Session["Username"].ToString();
+                tbUserEmail.Text = Session["Email"].ToString();
+                
             }
         }
 
         protected void btnBuyTicket_Click(object sender, EventArgs e)
         {
-            if (lblFinalAmount.Text != "0")
+            string purchId = "";
+            string userId = Session["userId"].ToString();
+            string tourId = Request.QueryString["tourId"].ToString();
+            string Date = DateTime.Now.ToShortDateString();
+            GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, tourId);
+            int result = insertRecord.CreatePurchases();
+            // add Marcus's PayPal Sandbox
+            if (result == 1)
             {
-                string purchId = "";
-                string userId = Session["userId"].ToString();
-                string tourId = Request.QueryString["tourId"].ToString();
-                string Date = DateTime.Now.ToShortDateString();
-                GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString() ,tourId);
-                int result = insertRecord.CreatePurchases();
-                if (result == 1)
-                {
-                    Response.Redirect("GuidedTour.aspx");
-                }
+                Response.Redirect("GuidedTour.aspx");
             }
-            else
-            {
-                Response.Write("<script>alert('Please Fill In your Quantity')</script>");
-            }
-
         }
 
         protected void btnCalculateTotal_Click(object sender, EventArgs e)
@@ -100,22 +85,6 @@ namespace SREX
             lblService.Text = resultService.ToString();
 
             lblFinalAmount.Text = Math.Round((Convert.ToDecimal(lblTotalAmount.Text) + Convert.ToDecimal(lblGST.Text) + Convert.ToDecimal(lblService.Text)), 2).ToString();
-        }
-
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            tbAdultQuantity.Text = "0";
-            tbChildQuantity.Text = "0";
-            tbSeniorQuantity.Text = "0";
-
-            lblAdultTotal.Text = "0";
-            lblChildTotal.Text = "0";
-            lblSeniorTotal.Text = "0";
-
-            lblTotalAmount.Text = "0";
-            lblService.Text = "0";
-            lblGST.Text = "0";
-            lblFinalAmount.Text = "0";
         }
     }
 }

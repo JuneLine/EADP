@@ -16,29 +16,22 @@ namespace SREX
             {
                 if (Session["Role"] != null)
                 {
-                    if (Session["Role"].ToString() == "Admin")
-                    {
-                        CartItem cart = new CartItem();
-                        cart = cart.getUserDetailsFromOrderId(Request.QueryString["OrderId"]);
-                        LabelName.Text = cart.Cust.User;
-                        LabelPassport.Text = cart.Cust.Passnum;
-                        LabelDOB.Text = cart.Cust.Dob;
+                    CartItem cart = new CartItem();
+                    cart = cart.getUserDetailsFromOrderId(Request.QueryString["OrderId"]);
+                    LabelName.Text = cart.Cust.User;
+                    LabelPassport.Text = cart.Cust.Passnum;
+                    LabelDOB.Text = cart.Cust.Dob;
 
 
-                        List<CartItem> cartItemList;
-                        cartItemList = cart.getSoldItemFromOrderId(Request.QueryString["OrderId"]);
-                        for (int i = 0; i < cartItemList.Count; i++)
-                        {
-                            cartItemList[i].Prod.Price = cartItemList[i].Quantity * cartItemList[i].Prod.Price;
-                        }
-                        DataListPurchaseHistory.DataSource = cartItemList;
-                        DataListPurchaseHistory.DataBind();
-                        LabelOrderNum.Text = "#" + Request.QueryString["OrderId"].ToString();
-                    }
-                    else
+                    List<CartItem> cartItemList;
+                    cartItemList = cart.getSoldItemFromOrderId(Request.QueryString["OrderId"]);
+                    for (int i = 0; i < cartItemList.Count; i++)
                     {
-                        Response.Redirect("/");
+                        cartItemList[i].Prod.Price = cartItemList[i].Quantity * cartItemList[i].Prod.Price;
                     }
+                    DataListPurchaseHistory.DataSource = cartItemList;
+                    DataListPurchaseHistory.DataBind();
+                    LabelOrderNum.Text = "#" + Request.QueryString["OrderId"].ToString();
                 }
                 else
                 {
