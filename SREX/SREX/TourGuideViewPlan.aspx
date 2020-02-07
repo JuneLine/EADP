@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="selfplanView.aspx.cs" Inherits="SREX.selfplanView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideViewPlan.aspx.cs" Inherits="SREX.TourGuideViewPlan" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <div class="col-sm-4 col-lg-4">
@@ -13,7 +13,7 @@
             </div>
     </div>
 
-    <div class=" col-sm-8 col-lg-8 list-group-item list-group-item-action flex-column align-items-start" style="margin-bottom:100px;">
+    <div class=" col-sm-8 col-lg-8 list-group-item list-group-item-action flex-column align-items-start">
             <div class="row rounded">
                     <table class="table" style="padding: 5px">
                         <thead class="thead-dark">
@@ -103,15 +103,19 @@
                                 </p>
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="12">
-                                <asp:Button ID="BtnBack" class="btn btn-primary" style="float:right" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="10">
+                                    <p>
+                                    <asp:Button ID="BtnBack" class="btn btn-primary" style="float:right" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
+                                        </p>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                </div>  
                 </div>
-
-
+                <br />
+                <br />
+                <br />
+                <br />
+                </div>
 </asp:Content>

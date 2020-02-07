@@ -8,14 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace SREX
 {
-    public partial class AdminApplication : System.Web.UI.Page
+    public partial class existingTourGuides : System.Web.UI.Page
     {
-        string yes = "Applying";
+        string roleGuide = "Guide";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if(Session["role"] != null)
+                if (Session["role"] != null)
                 {
                     if (Session["role"].ToString() == "Admin")
                     {
@@ -29,6 +29,8 @@ namespace SREX
                     }
                 }
             }
+
+
         }
 
         private void RefreshGridView(List<TourGuides> list)
@@ -41,7 +43,7 @@ namespace SREX
         protected void LoadApplications()
         {
             TourGuides td = new TourGuides();
-            List<TourGuides> list = td.getApplications(yes);
+            List<TourGuides> list = td.getTourGuide(roleGuide);
             RefreshGridView(list);
         }
 
@@ -49,7 +51,7 @@ namespace SREX
         {
             GridViewRow row = GvTD.SelectedRow;
             int updCnt;
-            string newRole = "Guide";
+            string newRole = "User";
             string currRole = (string)ViewState["CurrRole"];
 
             TourGuides td = new TourGuides();
@@ -57,7 +59,7 @@ namespace SREX
 
             if (updCnt == 1)
             {
-                Response.Redirect("existingTourGuides.aspx");  
+                Response.Redirect("existingTourGuides.aspx");
             }
             else
             {

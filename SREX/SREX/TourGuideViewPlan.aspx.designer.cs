@@ -10,123 +10,150 @@
 namespace SREX {
     
     
-    public partial class PlanningMain {
+    public partial class TourGuideViewPlan {
         
         /// <summary>
-        /// joinUsBox control.
+        /// LabelUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl joinUsBox;
+        protected global::System.Web.UI.WebControls.Label LabelUserName;
         
         /// <summary>
-        /// ApplyingGuide control.
+        /// LabelTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ApplyingGuide;
+        protected global::System.Web.UI.WebControls.Label LabelTitle;
         
         /// <summary>
-        /// forTourGuide control.
+        /// LabelHire control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl forTourGuide;
+        protected global::System.Web.UI.WebControls.Label LabelHire;
         
         /// <summary>
-        /// forAdminApply control.
+        /// LabelGuidedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl forAdminApply;
+        protected global::System.Web.UI.WebControls.Label LabelGuidedBy;
         
         /// <summary>
-        /// DataListAttractions control.
+        /// LabelDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListAttractions;
+        protected global::System.Web.UI.WebControls.Label LabelDate;
         
         /// <summary>
-        /// btnAddPlace control.
+        /// LabelTiming1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAddPlace;
+        protected global::System.Web.UI.WebControls.Label LabelTiming1;
         
         /// <summary>
-        /// AttractionName control.
+        /// LabelTiming2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AttractionName;
+        protected global::System.Web.UI.WebControls.Label LabelTiming2;
         
         /// <summary>
-        /// AttractionPicture control.
+        /// LabelTiming3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload AttractionPicture;
+        protected global::System.Web.UI.WebControls.Label LabelTiming3;
         
         /// <summary>
-        /// AttractionsURL control.
+        /// LabelTiming4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AttractionsURL;
+        protected global::System.Web.UI.WebControls.Label LabelTiming4;
         
         /// <summary>
-        /// AttractionDescription control.
+        /// LabelTiming5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AttractionDescription;
+        protected global::System.Web.UI.WebControls.Label LabelTiming5;
         
         /// <summary>
-        /// AttractionTags control.
+        /// LabelTiming6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AttractionTags;
+        protected global::System.Web.UI.WebControls.Label LabelTiming6;
         
         /// <summary>
-        /// AttractionPrice control.
+        /// LabelTiming7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AttractionPrice;
+        protected global::System.Web.UI.WebControls.Label LabelTiming7;
         
         /// <summary>
-        /// AddNewAttraction control.
+        /// LabelTiming8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddNewAttraction;
+        protected global::System.Web.UI.WebControls.Label LabelTiming8;
+        
+        /// <summary>
+        /// LabelTiming9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTiming9;
+        
+        /// <summary>
+        /// LabelTiming10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTiming10;
+        
+        /// <summary>
+        /// BtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBack;
     }
 }

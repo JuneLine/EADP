@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using QRCoder;
+//using QRCoder;
 using SREX.BLL;
 
 namespace SREX
@@ -42,23 +42,23 @@ namespace SREX
         protected void openModalQR(object sender, EventArgs e)
         {
             HtmlButton btn = (HtmlButton)sender;
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("http://localhost:50743/GuidedQRPage?PurchaseId=" + btn.Attributes["Value"], QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
+            //QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            //QRCodeData qrCodeData = qrGenerator.CreateQrCode("http://localhost:50743/GuidedQRPage?PurchaseId=" + btn.Attributes["Value"], QRCodeGenerator.ECCLevel.Q);
+            //QRCode qrCode = new QRCode(qrCodeData);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
             imgBarCode.Height = 400;
             imgBarCode.Width = 400;
-            using (Bitmap bitMap = qrCode.GetGraphic(20))
-            {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    byte[] byteImage = ms.ToArray();
-                    imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
-                }
-                QRPanel.Controls.Add(imgBarCode);
-                QRDiv.Visible = true;
-            }
+            //using (Bitmap bitMap = qrCode.GetGraphic(20))
+            //{
+            //    using (MemoryStream ms = new MemoryStream())
+            //    {
+            //        bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            //        byte[] byteImage = ms.ToArray();
+            //        imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
+            //    }
+            //    QRPanel.Controls.Add(imgBarCode);
+            //    QRDiv.Visible = true;
+            //}
         }
 
         protected void closePanel_ServerClick(object sender, EventArgs e)

@@ -139,6 +139,7 @@
     <Content Include="DestinationUpdateForm.aspx" />
     <Content Include="EditAttraction.aspx" />
     <Content Include="EditProductInfo.aspx" />
+    <Content Include="existingTourGuides.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Pictures\TourGuide.jpg" />
     <Content Include="ProductList.aspx" />
@@ -233,6 +234,8 @@
     <Content Include="Site.Master" />
     <Content Include="SportsGroup.aspx" />
     <Content Include="TourGuideConfirmation.aspx" />
+    <Content Include="TourGuideViewPlan.aspx" />
+    <Content Include="viewAllGuidingTours.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -349,6 +352,13 @@
     </Compile>
     <Compile Include="EditProductInfo.aspx.designer.cs">
       <DependentUpon>EditProductInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="existingTourGuides.aspx.cs">
+      <DependentUpon>existingTourGuides.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="existingTourGuides.aspx.designer.cs">
+      <DependentUpon>existingTourGuides.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -514,6 +524,20 @@
     </Compile>
     <Compile Include="TourGuideConfirmation.aspx.designer.cs">
       <DependentUpon>TourGuideConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideViewPlan.aspx.cs">
+      <DependentUpon>TourGuideViewPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideViewPlan.aspx.designer.cs">
+      <DependentUpon>TourGuideViewPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewAllGuidingTours.aspx.cs">
+      <DependentUpon>viewAllGuidingTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewAllGuidingTours.aspx.designer.cs">
+      <DependentUpon>viewAllGuidingTours.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

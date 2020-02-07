@@ -75,6 +75,7 @@
                             <div class="dropdown-content">
                                 <a href="GuidedTour">Recommanded Plans</a>
                                 <a href="SelfPlanMain">Plan by Yourself</a>
+                                <a href="PlanningHistory">View self plan history</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
