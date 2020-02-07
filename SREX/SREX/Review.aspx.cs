@@ -13,25 +13,34 @@ namespace SREX
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["deleteMsg"] = null;
-            List<Reviews> AllComments;
-            if(Session["UserId"] == null)
-            {
-                promptlogin.Style["display"] = "block";
-                btnAddComment.Visible = false;
-            }
-            else
-            {
-                promptlogin.Style["display"] = "none";
-                btnAddComment.Visible = true;
-                tbName.Text = Session["Username"].ToString();
-            }
-
             if (!IsPostBack)
             {
-                Reviews get = new Reviews();
-                AllComments = get.GetAllComments();
-                dlComments.DataSource = AllComments;
-                dlComments.DataBind();
+                List<Reviews> AllComments;
+                string user;
+                if (Session["UserId"] == null)
+                {
+                    user = "";
+                    promptlogin.Style["display"] = "block";
+                    btnAddComment.Visible = false;
+
+                    Reviews get = new Reviews();
+                    AllComments = get.GetAllComments(user);
+                    dlComments.DataSource = AllComments;
+                    dlComments.DataBind();
+                }
+                else
+                {
+                    promptlogin.Style["display"] = "none";
+                    btnAddComment.Visible = true;
+                    tbName.Text = Session["Username"].ToString();
+
+                    user = Session["UserId"].ToString();
+                    Reviews get = new Reviews();
+                    AllComments = get.GetAllComments(user);
+                    dlComments.DataSource = AllComments;
+                    dlComments.DataBind();
+
+                }
             }
         }
 
@@ -41,7 +50,7 @@ namespace SREX
             string now = DateTime.Now.ToString("d");
             Reviews Comment = new Reviews(id, Session["UserId"].ToString(), tbName.Text.ToString(), tbComment.Text.ToString(), now, Convert.ToDecimal(rating.Value.ToString()));
             int result = Comment.CreateComment();
-            if(result == 1)
+            if (result == 1)
             {
                 Response.Redirect("Review.aspx");
             }
