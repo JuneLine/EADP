@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
     <br />
+    <div class="row col-sm-12 col-lg-12 text-center">
+        <asp:Label CssClass="text-center" ID="LabelError2" runat="server" Text=""></asp:Label>
+    </div>
+    <br />
     <div class="thumbnail text-center" id="joinUsBox" style="margin: 1.5%" runat="server">
         <div class="caption">
             <h4>Interested in joining us as a tourguide?</h4>
@@ -15,12 +19,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel2">Confirmation</h5>
+                       
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     Interested to join us an a tour guide? Click below!
+                    <br />
+                    <label for="FileUpload1">Resume: </label> <asp:FileUpload runat="server" ID="FileUpload1" CssClass="form-control"/>
+                    <asp:Label ID="LabelError" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

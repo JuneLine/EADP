@@ -29,7 +29,7 @@ namespace SREX.BLL
         public string UserName { get; set; }
         public string TourGuideId { get; set; }
         public string TourGuideName { get; set; }
-
+        public string UploadFile { get; set; }
         public SelfPlan()
         {
 
@@ -76,6 +76,29 @@ namespace SREX.BLL
             this.Status = Status;
             this.UserName = UserName;
             this.TourGuideName = TourGuideName;
+        }
+
+        public SelfPlan(string Id, string Title, string Date, string Hire, string Timing1, string Timing2, string Timing3, string Timing4, string Timing5, string Timing6
+            , string Timing7, string Timing8, string Timing9, string Timing10, string Status, string UserName, string TourGuideName, string UploadFile)
+        {
+            this.Id = Id;
+            this.Title = Title;
+            this.Date = Date;
+            this.Hire = Hire;
+            this.Timing1 = Timing1;
+            this.Timing2 = Timing2;
+            this.Timing3 = Timing3;
+            this.Timing4 = Timing4;
+            this.Timing5 = Timing5;
+            this.Timing6 = Timing6;
+            this.Timing7 = Timing7;
+            this.Timing8 = Timing8;
+            this.Timing9 = Timing9;
+            this.Timing10 = Timing10;
+            this.Status = Status;
+            this.UserName = UserName;
+            this.TourGuideName = TourGuideName;
+            this.UploadFile = UploadFile;
         }
 
         public SelfPlan(string Id, string Title, string Date, string Hire, string Timing1, string Timing2, string Timing3, string Timing4, string Timing5, string Timing6
@@ -132,10 +155,10 @@ namespace SREX.BLL
             return dao.UpdateStatus(status, id, tourguideId, tourguidename);
         }
 
-        public int UpdTDbyUserId(string status, string id)
+        public int UpdTDbyUserId(string status, string id, string uploadFile)
         {
             SelfPlanDAO dao = new SelfPlanDAO();
-            return dao.UpdateApplication(status, id);
+            return dao.UpdateApplication(status, id, uploadFile);
         }
         public int InsertHistory()
         {

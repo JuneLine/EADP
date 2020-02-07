@@ -1,6 +1,7 @@
 ﻿using SREX.BLL;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -101,17 +102,45 @@ namespace SREX
             }
             else
             {
-                int updCnt;
-                string newStatus = "Applying";
-                string currStatus = (string)ViewState["CurrStatus"];
-
-                SelfPlan td = new SelfPlan();
-                updCnt = td.UpdTDbyUserId(newStatus, Session["UserId"].ToString());
-                if (updCnt == 1)
+                if (FileUpload1.HasFile)
                 {
+                    string filename = Path.GetFileName(FileUpload1.FileName);
+                    string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
+                    if (ext == ".docx")
+                    {
+                        string path = Server.MapPath("~/Uploads/");
+                        FileUpload1.SaveAs(Server.MapPath("~/Uploads/" + FileUpload1.FileName));
+                        int updCnt;
+                        string newStatus = "Applying";
+                        string currStatus = (string)ViewState["CurrStatus"];
+
+                        SelfPlan td = new SelfPlan();
+
+                        updCnt = td.UpdTDbyUserId(newStatus, Session["UserId"].ToString(), filename);
+                        
+                        if (updCnt == 1)
+                        {
+                            LabelError.Text = "Your application is now under review";
+                            LabelError.ForeColor = Color.Green;
+                        }
+                    }
+                    else
+                    {
+                        LabelError.Text = "Please ensure that your resume is a .docx file";
+                        LabelError.ForeColor = Color.Red;
+                        LabelError2.Text = "Please ensure that your resume is a .docx file";
+                        LabelError2.ForeColor = Color.Red;
+
+                    }
                 }
+
                 else
                 {
+
+                    LabelError.Text = "Please upload your resume";
+                    LabelError.ForeColor = Color.Red;
+                    LabelError2.Text = "Please upload your resume";
+                    LabelError2.ForeColor = Color.Red;
                 }
             }
         }

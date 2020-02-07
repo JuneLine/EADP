@@ -33,13 +33,12 @@ namespace SREX.DAL
                     string userName = row["Username"].ToString();
                     string gender = row["Gender"].ToString();
                     string emailAddr = row["EmailAddr"].ToString();
+                    string uploadFile = row["Upload"].ToString();
 
-                    TourGuides hist = new TourGuides(uniqueId, userName, gender, emailAddr);
+                    TourGuides hist = new TourGuides(uniqueId, userName, gender, emailAddr, uploadFile);
 
                     tdList.Add(hist);
                 }
-
-
             }
 
             else
@@ -100,12 +99,12 @@ namespace SREX.DAL
                     string userName = row["Username"].ToString();
                     string gender = row["Gender"].ToString();
                     string emailAddr = row["EmailAddr"].ToString();
+                    string uploadFile = row["Upload"].ToString();
 
-                    TourGuides hist = new TourGuides(uniqueId, userName, gender, emailAddr);
+                    TourGuides hist = new TourGuides(uniqueId, userName, gender, emailAddr, uploadFile);
 
                     tdList.Add(hist);
                 }
-
 
             }
 

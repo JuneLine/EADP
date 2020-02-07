@@ -63,7 +63,7 @@ namespace SREX
 
         protected void closePanel_ServerClick(object sender, EventArgs e)
         {
-            QRDiv.Visible = false;
+            ////QRDiv.Visible = false;
         }
 
         protected void showData_ServerClick(object sender, EventArgs e)

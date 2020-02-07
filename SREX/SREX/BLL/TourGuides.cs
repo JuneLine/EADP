@@ -12,9 +12,18 @@ namespace SREX.BLL
         public string UserName { get; set; }
         public string Gender { get; set; }
         public string EmailAddr { get; set; }
-
+        public string UploadFile { get; set; }
         public TourGuides()
         {
+        }
+
+        public TourGuides(string UniqueId, string UserName, string Gender, string Email, string UploadFile)
+        {
+            this.UniqueId = UniqueId;
+            this.UserName = UserName;
+            this.Gender = Gender;
+            this.EmailAddr = Email;
+            this.UploadFile = UploadFile;
         }
 
         public TourGuides(string UniqueId, string UserName, string Gender, string Email)

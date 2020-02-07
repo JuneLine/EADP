@@ -275,12 +275,12 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             return result;
         }
 
-        public int UpdateApplication(string status, string id)
+        public int UpdateApplication(string status, string id, string uploadFile)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE Users SET Status = @paraStatus where Id =  @paraUniqueId";
+            string sqlStmt = "UPDATE Users SET Status = @paraStatus, Upload = @paraUpload where Id =  @paraUniqueId";
 
             int result = 0;    // Execute NonQuery return an integer value
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -289,6 +289,7 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
             sqlCmd.Parameters.AddWithValue("@paraStatus", status);
+            sqlCmd.Parameters.AddWithValue("@paraUpload", uploadFile);
             sqlCmd.Parameters.AddWithValue("paraUniqueId", id);
 
 
