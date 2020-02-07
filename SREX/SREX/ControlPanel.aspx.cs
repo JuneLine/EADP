@@ -17,11 +17,18 @@ namespace SREX
             {
                 if (Session["Role"] != null)
                 {
-                    Product Prod = new Product();
-                    List<Product> lowStockList;
-                    lowStockList = Prod.getLowStock();
-                    DataListStock.DataSource = lowStockList;
-                    DataListStock.DataBind();
+                    if (Session["Role"].ToString() == "Admin")
+                    {
+                        Product Prod = new Product();
+                        List<Product> lowStockList;
+                        lowStockList = Prod.getLowStock();
+                        DataListStock.DataSource = lowStockList;
+                        DataListStock.DataBind();
+                    }
+                    else
+                    {
+                        Response.Redirect("/Default");
+                    }
                 }
                 else
                 {
@@ -75,6 +82,11 @@ namespace SREX
             Button btn = (Button)sender;
             string s = btn.Attributes["Value"];
             Response.Redirect("ProductInfo?productId=" + s);
+        }
+
+        protected void ButtonToRestock_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
         }
     }
 }

@@ -10,12 +10,17 @@
         </div>
         <br />
         <br />
-        <div class="text-center">
+        <div class="text-center" runat="server" id="success">
             <p>
                 You have successfully activiated your account
             </p>
             <p>Your will be automatically redirected in 5 Seconds</p>
             <p>Click here to manually redirect <a href="Login">here</a></p>
+        </div>
+        <div class="text-center" runat="server" id="failure">
+            <p>
+                Error activiting account
+            </p>
         </div>
     </div>
 </asp:Content>
