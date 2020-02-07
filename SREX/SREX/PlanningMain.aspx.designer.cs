@@ -13,22 +13,22 @@ namespace SREX {
     public partial class PlanningMain {
         
         /// <summary>
-        /// LabelConfirm control.
+        /// joinUsBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelConfirm;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl joinUsBox;
         
         /// <summary>
-        /// ApplyGuide control.
+        /// ApplyingGuide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ApplyGuide;
+        protected global::System.Web.UI.WebControls.Button ApplyingGuide;
         
         /// <summary>
         /// forTourGuide control.

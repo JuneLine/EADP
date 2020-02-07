@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminApplication.aspx.cs" Inherits="SREX.AdminApplication" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
-            <div class="page-header well">
-                <h1 class="text-center">Tour Guide applications</h1>
-            </div>
+    <br />
+    <nav class="navbar navbar-inverse bg-light" style="margin-bottom:0px;">
+        <a class="navbar-brand active" href="AdminApplication">View current tour guide applications</a>
+        <a class="navbar-brand" href="existingTourGuides">View existing tour guides</a>
+    </nav>
+    <div class="jumbotron" style="margin: 0px;">
+                <h1 class="text-center">Tour guide applications</h1>
+        <p class="lead text-center">Here are the tour guides that are currently under review</p>
     </div>
     <div class="col-sm-12 col-lg-12 text-center" style="padding:2%;" runat="server">
         <asp:GridView ID="GvTD" runat="server" AutoGenerateColumns="False" Height="120px" Width="100%" CssClass="table table-striped" OnSelectedIndexChanged="GvTD_SelectedIndexChanged">

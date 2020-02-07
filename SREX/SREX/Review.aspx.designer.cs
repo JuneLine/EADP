@@ -49,13 +49,13 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.TextBox tbName;
         
         /// <summary>
-        /// tbRating control.
+        /// rating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRating;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl rating;
         
         /// <summary>
         /// tbComment control.

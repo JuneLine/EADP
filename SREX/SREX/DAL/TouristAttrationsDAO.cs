@@ -144,7 +144,7 @@ namespace SREX.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlstmt = "Select * from TouristAttractions where Name = @paraName ";
+            string sqlstmt = "Select * from TouristAttractions where Name = @paraName";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
 
             da.SelectCommand.Parameters.AddWithValue("@paraName", destinationName);
