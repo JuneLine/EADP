@@ -97,7 +97,12 @@
             </asp:DataList>
         </div>
     </div>
-    <div runat="server" id="modal" class="modal" style="display: block">
-        Testing123
-    </div>
+    <asp:Panel ID="Panel1" runat="server" CssClass="modalPanel">
+        <div class="modal-content">
+            <button class="close" onclick='document.getElementById("MainContent_Panel1").style.display = "none"; return false;'><span>&times</span></button>
+            <p>
+                TESTING 123
+            </p>
+        </div>
+    </asp:Panel>
 </asp:Content>

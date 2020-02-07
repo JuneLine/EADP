@@ -25,7 +25,7 @@ namespace SREX
                         DataListStock.DataSource = lowStockList;
                         DataListStock.DataBind();
 
-                        modal.Visible = false;
+                        Panel1.Visible = false;
                     }
                     else
                     {
@@ -88,7 +88,7 @@ namespace SREX
 
         protected void ButtonToRestock_Click(object sender, EventArgs e)
         {
-            modal.Visible = true;
+            Panel1.Visible = true;
         }
     }
 }
