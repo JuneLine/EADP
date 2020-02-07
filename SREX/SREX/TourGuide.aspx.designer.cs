@@ -13,12 +13,39 @@ namespace SREX {
     public partial class WebForm1 {
         
         /// <summary>
-        /// GvTD control.
+        /// TbSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvTD;
+        protected global::System.Web.UI.WebControls.TextBox TbSearch;
+        
+        /// <summary>
+        /// ButtonSearchName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonSearchName;
+        
+        /// <summary>
+        /// ButtonAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAll;
+        
+        /// <summary>
+        /// DataListPlans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListPlans;
     }
 }
