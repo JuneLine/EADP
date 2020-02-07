@@ -14,6 +14,7 @@ namespace SREX.BLL
         public string Comments { get; set; }
         public string date { get; set; }
         public decimal rating { get; set; }
+        public bool IsMe { get; set; }
 
         public Reviews()
         {
@@ -37,10 +38,22 @@ namespace SREX.BLL
             return result;
         }
 
-        public List<Reviews> GetAllComments()
+        public List<Reviews> GetAllComments(string user)
         {
             ReviewsDAO rows = new ReviewsDAO();
-            return rows.RetrieveAllComment();
+            List<Reviews> List = rows.RetrieveAllComment();
+            for(int i = 0;i < List.Count; i++)
+            {
+                if(List[i].userId == user)
+                {
+                    List[i].IsMe = true;
+                }
+                else
+                {
+                    List[i].IsMe = false;
+                }
+            }
+            return List;            
         }            
     }
 }
