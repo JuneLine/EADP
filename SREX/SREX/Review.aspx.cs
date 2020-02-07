@@ -39,9 +39,12 @@ namespace SREX
         {
             string id = "";
             string now = DateTime.Now.ToString("d");
-            Reviews Comment = new Reviews(id, Session["UserId"].ToString(), tbName.Text.ToString(), tbComment.Text.ToString(), now, Convert.ToDecimal(tbRating.Text.ToString()));
+            Reviews Comment = new Reviews(id, Session["UserId"].ToString(), tbName.Text.ToString(), tbComment.Text.ToString(), now, Convert.ToDecimal(rating.Value.ToString()));
             int result = Comment.CreateComment();
-
+            if(result == 1)
+            {
+                Response.Redirect("Review.aspx");
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="PageReview" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Review.aspx.cs" Inherits="SREX.Review" %>
+﻿    <%@ Page Title="PageReview" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Review.aspx.cs" Inherits="SREX.Review" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
@@ -12,15 +12,16 @@
             <p runat="server" id="promptlogin"><a href="Login">Login Here To Enter Comments</a></p>
         </div>
         <br />
-        <asp:DataList runat="server" ID="dlComments" RepeatLayout="Table" CssClass="table">
+        <asp:DataList runat="server" ID="dlComments" RepeatLayout="Flow">
             <ItemTemplate>
                 <div class="row well">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-1">
-                        <asp:Label runat="server" Text='<%# Eval("userName") %>'></asp:Label><br />
+                        <asp:Label runat="server" Text='<%# Eval("userName") %>'></asp:Label>                       
                     </div>
                     <div class="col-sm-8">
-                        <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="3" Width="100%" Enabled="false" />
+                        <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="3" Width="100%" Enabled="false" style="padding:1%;" ReadOnly="True" />
+                        Comment Made on : <%#Eval("date") %>
                     </div>
                     <div class="col-sm-2">
                         Ratings:
@@ -51,7 +52,7 @@
                                 <label for="tbRating">Ratings </label>
                                 <div class="row">
                                     <div class="col-sm-7">
-                                        <asp:TextBox runat="server" ID="tbRating" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                        <input type="number" id="rating" max="10" min="0" runat="server" class="form-control"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <span style="font-size: 1.3em">/10</span>
