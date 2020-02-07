@@ -20,7 +20,7 @@ namespace SREX
                 categoriesList = category.GetAllCategories();
                 for (int i = 0; i < categoriesList.Count; i++)
                 {
-                    ListItem item = new ListItem(categoriesList[i].Id.ToString());
+                    ListItem item = new ListItem(categoriesList[i].Name.ToString());
                     ddlCategory.Items.Add(item);
                 }
             }

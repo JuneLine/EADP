@@ -10,69 +10,87 @@
 namespace SREX {
     
     
-    public partial class Review {
+    public partial class GuidedQRpage {
         
         /// <summary>
-        /// btnAddComment control.
+        /// lblUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAddComment;
+        protected global::System.Web.UI.WebControls.Label lblUserName;
         
         /// <summary>
-        /// promptlogin control.
+        /// lblContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl promptlogin;
+        protected global::System.Web.UI.WebControls.Label lblContact;
         
         /// <summary>
-        /// dlComments control.
+        /// lblPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlComments;
+        protected global::System.Web.UI.WebControls.Label lblPayment;
         
         /// <summary>
-        /// tbName control.
+        /// lblDatePurch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbName;
+        protected global::System.Web.UI.WebControls.Label lblDatePurch;
         
         /// <summary>
-        /// rating control.
+        /// DataListInfo1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl rating;
+        protected global::System.Web.UI.WebControls.DataList DataListInfo1;
         
         /// <summary>
-        /// tbComment control.
+        /// lblAQuant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbComment;
+        protected global::System.Web.UI.WebControls.Label lblAQuant;
         
         /// <summary>
-        /// btnComment control.
+        /// lblCQuant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComment;
+        protected global::System.Web.UI.WebControls.Label lblCQuant;
+        
+        /// <summary>
+        /// lblSQuant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSQuant;
+        
+        /// <summary>
+        /// DataListInfo2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListInfo2;
     }
 }

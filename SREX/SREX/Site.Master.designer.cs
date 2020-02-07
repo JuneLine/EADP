@@ -13,24 +13,6 @@ namespace SREX {
     public partial class SiteMaster {
         
         /// <summary>
-        /// AdminCP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminCP;
-        
-        /// <summary>
-        /// AdminList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminList;
-        
-        /// <summary>
         /// liLogin control.
         /// </summary>
         /// <remarks>
@@ -40,13 +22,13 @@ namespace SREX {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liLogin;
         
         /// <summary>
-        /// dropdownMore control.
+        /// liLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dropdownMore;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liLogout;
         
         /// <summary>
         /// MainContent control.

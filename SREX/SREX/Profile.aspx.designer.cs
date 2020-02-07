@@ -58,6 +58,42 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Label LabelPassN;
         
         /// <summary>
+        /// tbOldEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbOldEmail;
+        
+        /// <summary>
+        /// tbNewEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNewEmail;
+        
+        /// <summary>
+        /// tbConfirmNewEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbConfirmNewEmail;
+        
+        /// <summary>
+        /// ConfirmChangeEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ConfirmChangeEmail;
+        
+        /// <summary>
         /// tbOldPW control.
         /// </summary>
         /// <remarks>
