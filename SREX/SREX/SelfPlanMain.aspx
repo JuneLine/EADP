@@ -58,9 +58,7 @@
                         <asp:TextBox ID="SelfPlanTitle" class="form-control" aria-describedby="SelfPlanTitle" placeholder="Enter title" runat="server"></asp:TextBox>
                         <small id="titleHelp" class="form-text text-muted">If left blank, title will be named as untitled</small>
                     </div>
-                    <div class="col-sm-2 col-lg-2" style="padding:2%;">
-                        <button type="button" class="btn btn-primary" style="float:right;margin: 1%" onclick="window.location.href='PlanningHistory.aspx'">History</button>
-                    </div>
+                   
                   </div>
                 <div class="row">
                     <div class="col-sm-3 col-lg-3" style="padding:2%;">
@@ -70,8 +68,8 @@
                     <div class="col-sm-5 col-lg-5" style="padding:2%;">
                         Would you like to hire a tour guide?
                     <asp:RadioButtonList ID="RadioButtonHire" runat="server" CellSpacing="5" RepeatDirection="Horizontal">
-                        <asp:ListItem>Yes</asp:ListItem>
-                        <asp:ListItem Selected="True">No</asp:ListItem>
+                        <asp:ListItem class="radio-inline" style="margin:10px;">Yes</asp:ListItem>
+                        <asp:ListItem class="radio-inline" selected="True">No</asp:ListItem>
                     </asp:RadioButtonList>
                     </div>
                  </div>
@@ -89,7 +87,7 @@
                             <th scope="row">10am - 11am</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Name">
+                                    <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -104,7 +102,7 @@
                             <th scope="row">11am - 12am</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList2" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -117,7 +115,7 @@
                             <th scope="row">12am - 1pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList3" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -130,7 +128,7 @@
                             <th scope="row">1pm - 2pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList4" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -143,7 +141,7 @@
                             <th scope="row">2pm - 3pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList5" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -156,7 +154,7 @@
                             <th scope="row">3pm - 4pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList6" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -169,7 +167,7 @@
                             <th scope="row">4pm - 5pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList7" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -182,7 +180,7 @@
                             <th scope="row">5pm - 6pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList8" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -195,7 +193,7 @@
                             <th scope="row">6pm - 7pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList9" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
@@ -208,7 +206,7 @@
                             <th scope="row">7pm - 8pm</th>
                             <td colspan="4">
                                 <p>
-                                    <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+                                    <asp:DropDownList ID="DropDownList10" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                                         <asp:ListItem>Botanic Gardens</asp:ListItem>
                                         <asp:ListItem>Singapore Zoological Garden</asp:ListItem>
                                         <asp:ListItem>Resort Worlds Sentosa</asp:ListItem>
