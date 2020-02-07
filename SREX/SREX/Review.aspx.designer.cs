@@ -10,78 +10,69 @@
 namespace SREX {
     
     
-    public partial class GuidedPurchaseHist {
+    public partial class Review {
         
         /// <summary>
-        /// DataListHist control.
+        /// btnAddComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListHist;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAddComment;
         
         /// <summary>
-        /// BtnBackToMain control.
+        /// promptlogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBackToMain;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl promptlogin;
         
         /// <summary>
-        /// GuideDetails control.
+        /// dlComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel GuideDetails;
+        protected global::System.Web.UI.WebControls.DataList dlComments;
         
         /// <summary>
-        /// closeDetailPanel control.
+        /// tbName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton closeDetailPanel;
+        protected global::System.Web.UI.WebControls.TextBox tbName;
         
         /// <summary>
-        /// lbltourname control.
+        /// rating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltourname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl rating;
         
         /// <summary>
-        /// lbltourDate control.
+        /// tbComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltourDate;
+        protected global::System.Web.UI.WebControls.TextBox tbComment;
         
         /// <summary>
-        /// lblMeetUp control.
+        /// btnComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMeetUp;
-        
-        /// <summary>
-        /// DataListInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListInfo;
+        protected global::System.Web.UI.WebControls.Button btnComment;
     }
 }

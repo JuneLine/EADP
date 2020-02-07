@@ -14,57 +14,46 @@ namespace SREX
         {
             if (!IsPostBack)
             {
-                if (Session["UserId"] != null)
+                if (Session["UniqueId"] != null)
                 {
-                    if (Session["role"].ToString() == null)
+                    if (Session["UserId"] == null)
                     {
                         Response.Redirect("Login.aspx");
                     }
                     else if (Session["role"].ToString() == "Guide")
                     {
-                        int newId = int.Parse(Request.QueryString["PlanId"].ToString());
 
-                        SelfPlan td = new SelfPlan();
-                        td = td.getTDByUniqueId(newId);
-                        LabelTitle.Text = td.Title.ToString();
-                        LabelDate.Text = td.Date.ToString();
-                        LabelHire.Text = td.Status.ToString();
-                        LabelTiming1.Text = td.Timing1.ToString();
-                        LabelTiming2.Text = td.Timing2.ToString();
-                        LabelTiming3.Text = td.Timing3.ToString();
-                        LabelTiming4.Text = td.Timing4.ToString();
-                        LabelTiming5.Text = td.Timing5.ToString();
-                        LabelTiming6.Text = td.Timing6.ToString();
-                        LabelTiming7.Text = td.Timing7.ToString();
-                        LabelTiming8.Text = td.Timing8.ToString();
-                        LabelTiming9.Text = td.Timing9.ToString();
-                        LabelTiming10.Text = td.Timing10.ToString();
                     }
-                    else if (Session["role"].ToString() == "Admin")
+                    else
                     {
-                        int newId = int.Parse(Request.QueryString["PlanId"].ToString());
+                        if (Session["role"].ToString() == "Admin")
+                        {
 
-                        SelfPlan td = new SelfPlan();
-                        td = td.getTDByUniqueId(newId);
-                        LabelTitle.Text = td.Title.ToString();
-                        LabelDate.Text = td.Date.ToString();
-                        LabelHire.Text = td.Status.ToString();
-                        LabelTiming1.Text = td.Timing1.ToString();
-                        LabelTiming2.Text = td.Timing2.ToString();
-                        LabelTiming3.Text = td.Timing3.ToString();
-                        LabelTiming4.Text = td.Timing4.ToString();
-                        LabelTiming5.Text = td.Timing5.ToString();
-                        LabelTiming6.Text = td.Timing6.ToString();
-                        LabelTiming7.Text = td.Timing7.ToString();
-                        LabelTiming8.Text = td.Timing8.ToString();
-                        LabelTiming9.Text = td.Timing9.ToString();
-                        LabelTiming10.Text = td.Timing10.ToString();
+                        }
                     }
+                    int newId = int.Parse(Session["UniqueId"].ToString());
+
+                    SelfPlan td = new SelfPlan();
+                    td = td.getTDByUniqueId(newId);
+                    LabelTitle.Text = td.Title.ToString();
+                    LabelDate.Text = td.Date.ToString();
+                    LabelHire.Text = td.Hire.ToString();
+                    LabelTiming1.Text = td.Timing1.ToString();
+                    LabelTiming2.Text = td.Timing2.ToString();
+                    LabelTiming3.Text = td.Timing3.ToString();
+                    LabelTiming4.Text = td.Timing4.ToString();
+                    LabelTiming5.Text = td.Timing5.ToString();
+                    LabelTiming6.Text = td.Timing6.ToString();
+                    LabelTiming7.Text = td.Timing7.ToString();
+                    LabelTiming8.Text = td.Timing8.ToString();
+                    LabelTiming9.Text = td.Timing9.ToString();
+                    LabelTiming10.Text = td.Timing10.ToString();
+
                 }
 
                 else
                 {
-
+                    Response.Redirect("Login.aspx");
                 }
             }
         }
@@ -81,16 +70,15 @@ namespace SREX
                 if (Session["role"].Equals("Guide"))
                 {
                     int updCnt;
-                    string userId = Session["UserId"].ToString();
                     string newStatus = "Confirmed";
                     string currStatus = (string)ViewState["CurrStatus"];
-                    string tourguidename = Session["username"].ToString();
+
                     SelfPlan td = new SelfPlan();
-                    updCnt = td.UpdTDbyID(newStatus, int.Parse(Request.QueryString["PlanId"].ToString()), userId, tourguidename);
+                    updCnt = td.UpdTDbyID(newStatus, int.Parse(Session["UniqueId"].ToString()));
 
                     if (updCnt == 1)
                     {
-                        Response.Redirect("viewAllGuidingTours.aspx");
+                        Response.Redirect("TourGuide.aspx");
                     }
                 }
 
@@ -99,15 +87,13 @@ namespace SREX
                     int updCnt;
                     string newStatus = "Confirmed";
                     string currStatus = (string)ViewState["CurrStatus"];
-                    string userId = Session["UserId"].ToString();
-                    string tourguidename = Session["username"].ToString();
 
                     SelfPlan td = new SelfPlan();
-                    updCnt = td.UpdTDbyID(newStatus, int.Parse(Request.QueryString["PlanId"].ToString()), userId, tourguidename);
+                    updCnt = td.UpdTDbyID(newStatus, int.Parse(Session["UniqueId"].ToString()));
 
                     if (updCnt == 1)
                     {
-                        Response.Redirect("viewAllGuidingTours.aspx");
+                        Response.Redirect("TourGuide.aspx");
                     }
                 }
             }

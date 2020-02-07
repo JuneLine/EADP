@@ -4,7 +4,7 @@
     <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><asp:Label ID="LabelTitle" runat="server"></asp:Label></h5>
-                <small style="color: red;">Plan status: <asp:Label ID="LabelHire" runat="server"></asp:Label></small>
+                <small style="color: red;">Guided: <asp:Label ID="LabelHire" runat="server"></asp:Label></small>
                 <br />
                 <small>Date: <asp:Label ID="LabelDate" runat="server"></asp:Label></small>
             </div>
@@ -100,9 +100,8 @@
                         </tr>
                         </tbody>
                     </table>
-                <asp:Button ID="BtnBack" style="margin:5px;" class="btn btn-secondary" runat="server" Text="Back" OnClick="BtnBack_Click1" />
-                <asp:Button ID="ConfirmButton" CssClass="btn btn-primary" runat="server" Text="Confirm" OnClick="ConfirmButton_Click" />
-                
+                <asp:Button ID="ConfirmButton" CssClass="btn btn-primary" style="float:right" runat="server" Text="Confirm" OnClick="ConfirmButton_Click" />&nbsp&nbsp
+                <asp:Button ID="BtnBack" class="btn btn-primary" style="float:left" runat="server" Text="Back" OnClick="BtnBack_Click1" />&nbsp&nbsp
                 </div>
                 <br />
                 <br />

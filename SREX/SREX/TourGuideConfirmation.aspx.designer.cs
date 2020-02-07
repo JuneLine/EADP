@@ -130,15 +130,6 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.Label LabelTiming10;
         
         /// <summary>
-        /// BtnBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBack;
-        
-        /// <summary>
         /// ConfirmButton control.
         /// </summary>
         /// <remarks>
@@ -146,5 +137,14 @@ namespace SREX {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ConfirmButton;
+        
+        /// <summary>
+        /// BtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBack;
     }
 }

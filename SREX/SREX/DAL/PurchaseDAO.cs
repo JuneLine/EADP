@@ -28,13 +28,79 @@ namespace SREX.DAL
             return History;
         }
 
-        public int checkoutAllCurrentItems(string userId, decimal amount, string orderID)
+        public List<string> getProductIdInCart(string userID)
         {
-            int result = 0;
-            int result2 = 0;
+            List<string> CartStuff = new List<string>();
 
             SqlCommand SQLCmd = new SqlCommand();
-            SqlCommand SQLCmd2 = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"SELECT ProductId FROM CartItem Where UserId = @paraUserId AND Status = 'Active'";
+
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+
+            SQLCmd.Parameters.AddWithValue("@paraUserID", userID);
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                string Td = dr["ProductId"].ToString();
+                CartStuff.Add(Td);
+            }
+
+            return CartStuff;
+        }
+
+        public int decreaseItemStock(string userId, string productId)
+        {
+            int result = 0;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE Products SET InStock = InStock - (SELECT Quantity FROM CartItem WHERE UserId = @parauserId AND Status = 'Active' AND ProductId = @paraproductId) WHERE Id = @paraproductId";
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraproductId", productId);
+            SQLCmd.Parameters.AddWithValue("@parauserId", userId);
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+            Connection.Close();
+
+            return result;
+        }
+
+        public int increaseItemSold(string userId, string productId)
+        {
+            int result = 0;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE Products SET Sold = Sold + (SELECT Quantity FROM CartItem WHERE UserId = @parauserId AND Status = 'Active' AND ProductId = @paraproductId) WHERE Id = @paraproductId";
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraproductId", productId);
+            SQLCmd.Parameters.AddWithValue("@parauserId", userId);
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+            Connection.Close();
+
+            return result;
+        }
+
+        public int checkoutSetToPaid(string userId, string orderID)
+        {
+            int result = 0;
+
+            SqlCommand SQLCmd = new SqlCommand();
 
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
@@ -44,15 +110,30 @@ namespace SREX.DAL
             SQLCmd.Parameters.AddWithValue("@paraorderID", orderID);
             SQLCmd.Parameters.AddWithValue("@parauserId", userId);
 
-            string sqlStmt2 = @"INSERT INTO PurchaseHistoryFull (OrderId, Price, UserID) VALUES (@paraOrderID, @paraPrice, @paraUserID)";
-            SQLCmd2 = new SqlCommand(sqlStmt2, Connection);
-            SQLCmd2.Parameters.AddWithValue("@paraOrderID", orderID);
-            SQLCmd2.Parameters.AddWithValue("@paraPrice", amount);
-            SQLCmd2.Parameters.AddWithValue("@paraUserID", userId);
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+            Connection.Close();
+
+            return result;
+        }
+
+        public int checkoutAddHistory(string userId, decimal amount, string orderID)
+        {
+            int result = 0;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"INSERT INTO PurchaseHistoryFull (OrderId, Price, UserID) VALUES (@paraOrderID, @paraPrice, @paraUserID)";
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraOrderID", orderID);
+            SQLCmd.Parameters.AddWithValue("@paraPrice", amount);
+            SQLCmd.Parameters.AddWithValue("@paraUserID", userId);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
-            result2 = SQLCmd2.ExecuteNonQuery();
             Connection.Close();
 
             return result;

@@ -226,7 +226,6 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                 string titleName = row["Title"].ToString();
                 string date = row["Date"].ToString();
                 string hire = row["Hire"].ToString();
-                string status = row["Status"].ToString();
                 string timing1 = row["Timing1"].ToString();
                 string timing2 = row["Timing2"].ToString();
                 string timing3 = row["Timing3"].ToString();
@@ -237,22 +236,20 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                 string timing8 = row["Timing8"].ToString();
                 string timing9 = row["Timing9"].ToString();
                 string timing10 = row["Timing10"].ToString();
-                string username = row["UserName"].ToString();
-                string tourguidename = row["TourGuideName"].ToString();
 
 
-                td = new SelfPlan(id, titleName, date, hire, timing1, timing2, timing3, timing4, timing5, timing6, timing7, timing8, timing9, timing10, status, username, tourguidename);
+                td = new SelfPlan(id, titleName, date, hire, timing1, timing2, timing3, timing4, timing5, timing6, timing7, timing8, timing9, timing10);
 
             }
             return td;
         }
 
-        public int UpdateStatus(string status, int id, string tourguideId, string tourguidename)
+        public int UpdateStatus(string status, int id)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE SelfPlanHistory SET Status = @paraStatus, TourGuideId = @paraTourGuideId, TourGuideName = @paraTourGuideName where UniqueId =  @paraUniqueId";
+            string sqlStmt = "UPDATE SelfPlanHistory SET Status = @paraStatus where UniqueId =  @paraUniqueId";
 
             int result = 0;    // Execute NonQuery return an integer value
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -260,10 +257,8 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
 
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
-            sqlCmd.Parameters.AddWithValue("paraTourGuideId", tourguideId);
             sqlCmd.Parameters.AddWithValue("@paraStatus", status);
             sqlCmd.Parameters.AddWithValue("paraUniqueId", id);
-            sqlCmd.Parameters.AddWithValue("paraTourGuideName", tourguidename);
 
 
 
@@ -299,129 +294,6 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             myConn.Close();
 
             return result;
-        }
-
-        public List<SelfPlan> selectByTitle(string titleChosen)
-        {
-            string status = "Pending";
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-            SqlConnection myConn = new SqlConnection(DBConnect);
-
-            string sqlstmt = "Select * from SelfPlanHistory where Title = @paraTitle AND Status = @paraStatus";
-            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
-
-            da.SelectCommand.Parameters.AddWithValue("@paraTitle", titleChosen);
-            da.SelectCommand.Parameters.AddWithValue("@paraStatus", status);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            List<SelfPlan> tdList = new List<SelfPlan>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-
-            if (rec_cnt > 0)
-            {
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    int uniqueId = int.Parse(row["UniqueId"].ToString());
-                    string userName = row["UserName"].ToString();
-                    string date = row["Date"].ToString();
-                    string title = row["Title"].ToString();
-                    string hire = row["Hire"].ToString();
-
-                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
-
-                    tdList.Add(hist);
-                }
-
-
-            }
-
-            else
-            {
-                tdList = null;
-            }
-
-            return tdList;
-        }
-
-        public List<SelfPlan> selectAll()
-        {
-            string status = "Pending";
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-            SqlConnection myConn = new SqlConnection(DBConnect);
-
-            string sqlstmt = "Select * from SelfPlanHistory where Status = @paraStatus";
-            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
-
-            da.SelectCommand.Parameters.AddWithValue("@paraStatus", status);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            List<SelfPlan> tdList = new List<SelfPlan>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-
-            if (rec_cnt > 0)
-            {
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    int uniqueId = int.Parse(row["UniqueId"].ToString());
-                    string userName = row["UserName"].ToString();
-                    string date = row["Date"].ToString();
-                    string title = row["Title"].ToString();
-                    string hire = row["Hire"].ToString();
-
-                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
-
-                    tdList.Add(hist);
-                }
-
-
-            }
-
-            else
-            {
-                tdList = null;
-            }
-
-            return tdList;
-        }
-
-        public List<SelfPlan> selectAllByGuideId(string id)
-        {
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-            SqlConnection myConn = new SqlConnection(DBConnect);
-
-            string sqlstmt = "Select * from SelfPlanHistory where TourGuideId = @paraTourGuideId";
-            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
-
-            da.SelectCommand.Parameters.AddWithValue("@paraTourGuideId", id);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            List<SelfPlan> tdList = new List<SelfPlan>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-
-            if (rec_cnt > 0)
-            {
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    int uniqueId = int.Parse(row["UniqueId"].ToString());
-                    string userName = row["UserName"].ToString();
-                    string date = row["Date"].ToString();
-                    string title = row["Title"].ToString();
-                    string hire = row["Hire"].ToString();
-
-                    SelfPlan hist = new SelfPlan(uniqueId, userName, title, date, hire);
-
-                    tdList.Add(hist);
-                }
-
-
-            }
-
-            else
-            {
-                tdList = null;
-            }
-
-            return tdList;
         }
     }
 }
