@@ -236,6 +236,7 @@
     <Content Include="Site.Master" />
     <Content Include="SportsGroup.aspx" />
     <Content Include="TourGuideConfirmation.aspx" />
+    <Content Include="TourGuideViewPlans.aspx" />
     <Content Include="Verify.aspx" />
     <Content Include="viewAllGuidingTour.aspx" />
     <Content Include="Web.config" />
@@ -542,6 +543,13 @@
     </Compile>
     <Compile Include="TourGuideConfirmation.aspx.designer.cs">
       <DependentUpon>TourGuideConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideViewPlans.aspx.cs">
+      <DependentUpon>TourGuideViewPlans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideViewPlans.aspx.designer.cs">
+      <DependentUpon>TourGuideViewPlans.aspx</DependentUpon>
     </Compile>
     <Compile Include="Verify.aspx.cs">
       <DependentUpon>Verify.aspx</DependentUpon>
