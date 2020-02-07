@@ -6,32 +6,11 @@
     <link href="Content/Product.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        // Load the Visualization API and the corechart package.
         google.charts.load('current', { 'packages': ['corechart'] });
 
-        // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
 
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
         function drawChart() {
-
-            //// Create the data table.
-            //var data = new google.visualization.arrayToDataTable([
-            //    ["Items", "Quantity"],
-            //    ["Samsung S10+", 30],
-            //    ['LG 55" TV', 20],
-            //    ["Nvidia 2080ti", 17],
-            //    ["Sony WF1000 XM3", 5],
-            //    ["Cup", 2],
-            //    ["Bottle", 2],
-            //    ["Laser", 2],
-            //    ["Water", 2],
-            //    ["Pills", 1],
-            //]);
-
-            // Set chart options
             var options = {
                 'title': "Recent Sales",
                 'sliceVisibilityThreshold': .05,
@@ -56,17 +35,6 @@
                 }
             });
 
-            //var BarData = new google.visualization.arrayToDataTable([
-            //    ["Date", "Amount"],
-            //    ["6 Days Ago", 200],
-            //    ["5 Days Ago", 300],
-            //    ["4 Days Ago", 280],
-            //    ["3 Days Ago", 600],
-            //    ["2 Days Ago", 350],
-            //    ["1 Days Ago", 280],
-            //    ["Today", 600],
-            //]);
-
             var BarOptions = {
                 'title': "Total Sales Revenue",
                 'subtitle': "Not Including Taxes",
@@ -88,7 +56,7 @@
                 success: function (r) {
                     var data = google.visualization.arrayToDataTable(r.d);
                     var chart = new google.visualization.BarChart($("#Bar_Chart")[0]);
-                    chart.draw(data, options);
+                    chart.draw(data, BarOptions);
                 },
                 failure: function (r) {
                     alert(r.d);
@@ -116,19 +84,20 @@
                     <th class="text-center" style="height: 38px">Category:</th>
                     <th class="text-center" style="height: 38px">Item:</th>
                     <th class="text-center" style="height: 38px">Quantity:</th>
-                    <th class="text-center" style="height: 38px">Status:</th>
                     <th class="text-center" style="height: 38px">Options:</th>
                 </HeaderTemplate>
                 <ItemTemplate>
                     <td class="text-center"><%#Eval("Category") %></td>
                     <td class="text-center"><%#Eval("Name") %></td>
                     <td class="text-center"><%#Eval("InStock") %></td>
-                    <td class="text-center">Low On Stock!</td>
                     <td class="text-center">
-                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" OnClick="ButtonToPage_Click" Value='<%#Eval("Id") %>'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" class="btn btn-primary" />
+                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" OnClick="ButtonToPage_Click" Value='<%#Eval("Id") %>'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" class="btn btn-primary" OnClick="ButtonToRestock_Click" />
                     </td>
                 </ItemTemplate>
             </asp:DataList>
         </div>
+    </div>
+    <div runat="server" id="modal" class="modal" style="display: block">
+        Testing123
     </div>
 </asp:Content>
