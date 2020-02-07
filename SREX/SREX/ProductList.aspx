@@ -10,7 +10,7 @@
                     <li><a href="ProductList?category=shoes&sortby=Sold&order=Asc">Shoes</a></li>
                     <li><a href="ProductList?category=accessories&sortby=Sold&order=Asc">Accessories</a></li>
                     <li><a href="ProductList?category=bag&sortby=Sold&order=Asc">Bag</a></li>
-                    <li><a href="ProductList?category=electronic-device&sortby=Sold&order=Asc">Electronic Devices</a></li>
+                    <li><a href="ProductList?category=electronic-devices&sortby=Sold&order=Asc">Electronic Devices</a></li>
                     <li><a href="ProductList?category=watch&sortby=Sold&order=Asc">Watch</a></li>
                     <li><a href="ProductList?category=sportGroup&sortby=Sold&order=Asc">Sports</a></li>
                     <li><a href="ProductList?category=cosmetics-perfume&sortby=Sold&order=Asc">Cosmetics & Perfume</a></li>

@@ -15,24 +15,17 @@ namespace SREX
         {
             if (!IsPostBack)
             {
-                List<SelfPlan> List;
                 if (Session["role"] != null)
                 {
 
                     if (Session["role"].Equals("Admin"))
                     {
-                        SelfPlan plan = new SelfPlan();
-                        List = plan.getTourGuided(yes);
-                        DataListPlans.DataSource = List;
-                        DataListPlans.DataBind();
+                        LoadHistory();
                     }
 
                     else if (Session["role"].Equals("Guide"))
                     {
-                        SelfPlan plan = new SelfPlan();
-                        List = plan.getTourGuided(yes);
-                        DataListPlans.DataSource = List;
-                        DataListPlans.DataBind();
+                        LoadHistory();
                     }
                     else
                     {
@@ -47,30 +40,26 @@ namespace SREX
             }
         }
 
-        protected void ButtonSearchName_Click(object sender, EventArgs e)
+        private void RefreshGridView(List<SelfPlan> list)
         {
-            List<SelfPlan> List;
-            SelfPlan plan = new SelfPlan();
-            List = plan.searchByTitle(TbSearch.Text.ToString());
-            DataListPlans.DataSource = List;
-            DataListPlans.DataBind();
+            // using gridview to bind to the list of employee objects
+            GvTD.DataSource = list;
+            GvTD.DataBind();
         }
 
-        protected void ButtonAll_Click(object sender, EventArgs e)
+        protected void LoadHistory()
         {
-            List<SelfPlan> List;
-            SelfPlan plan = new SelfPlan();
-            List = plan.searchAll();
-            DataListPlans.DataSource = List;
-            DataListPlans.DataBind();
+            SelfPlan td = new SelfPlan();
+            List<SelfPlan> list = td.getTourGuided(yes);
+            RefreshGridView(list);
         }
 
-        //protected void GvTD_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    GridViewRow row = GvTD.SelectedRow;
-        //    Session["UniqueId"] = row.Cells[0].Text;
-        //    Session["Hire"] = row.Cells[3].Text;
-        //    Response.Redirect("TourGuideConfirmation.aspx");
-        //}
+        protected void GvTD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GvTD.SelectedRow;
+            Session["UniqueId"] = row.Cells[0].Text;
+            Session["Hire"] = row.Cells[3].Text;
+            Response.Redirect("TourGuideConfirmation.aspx");
+        }
     }
 }

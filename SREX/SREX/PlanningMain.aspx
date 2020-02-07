@@ -30,12 +30,13 @@
                     <label for="FileUpload1">Resume: </label> <asp:FileUpload runat="server" ID="FileUpload1" CssClass="form-control"/>
                     <asp:Label ID="LabelError" runat="server" Text=""></asp:Label>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:Button runat="server" ID="ApplyingGuide" CssClass="btn btn-primary" Text="Confirm" OnClick="ApplyGuide_Click"/>
+                <div class="card-body">
+                   <p class="card-text">Interested in joining us as a tour guide? Click here!</p>
+                    <asp:Button runat="server" ID="ApplyGuide" Text="Join us!" CssClass="btn btn-primary" OnClick="ApplyGuide_Click"/>
                 </div>
             </div>
-        </div>
+        <br />
+
     </div>
     <div class="container text-center body-container-own">
         <br />
@@ -68,7 +69,7 @@
                 <a href="AdminApplication">
                     <i class="fa fa-bell planIcons"></i>
                 </a>
-                <h3>Administrator</h3>
+                <h3>Applications</h3>
                 <p>Click here to review applications</p>
             </div>
         </div>

@@ -45,11 +45,5 @@ namespace SREX.BLL
             TourGuidesDAO dao = new TourGuidesDAO();
             return dao.UpdateRole(status, id);
         }
-
-        public List<TourGuides> getTourGuide(string role)
-        {
-            TourGuidesDAO dao = new TourGuidesDAO();
-            return dao.getTourGuide(role);
-        }
     }
 }
