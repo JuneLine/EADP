@@ -3,22 +3,31 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Guide.css" rel="stylesheet" />
     <br />
-    <div class="col-sm-12 text-center">
-         <asp:Label ID="LabelConfirm" runat="server" class="text-center fa-border rounded"  style="background-color:forestgreen;" Text=""></asp:Label>
+    <div class="thumbnail text-center" id="joinUsBox" style="margin: 1.5%" runat="server">
+        <div class="caption">
+            <h4>Interested in joining us as a tourguide?</h4>
+            <p>Click below!</p>
+            <input type="button" runat="server" value="Join us!" class="btn btn-primary" data-toggle="modal" data-target="#confirmModal" OnClick="ApplyGuide_Click" />
+        </div>
     </div>
-    <div class="text-center fa-border rounded" style="border-width:2px;border-radius:2px;background-color:skyblue">
-        <br />
-            <div class="card">
-                <div class="card">
-                    Join us!
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="card-body">
-                   <p class="card-text">Interested in joining us as a tour guide? Click here!</p>
-                    <asp:Button runat="server" ID="ApplyGuide" Text="Join us!" CssClass="btn btn-primary" OnClick="ApplyGuide_Click"/>
+                <div class="modal-body">
+                    Interested to join us an a tour guide? Click below!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <asp:Button runat="server" ID="ApplyingGuide" CssClass="btn btn-primary" Text="Confirm" OnClick="ApplyGuide_Click"/>
                 </div>
             </div>
-        <br />
-
+        </div>
     </div>
     <div class="container text-center body-container-own">
         <br />
@@ -51,7 +60,7 @@
                 <a href="AdminApplication">
                     <i class="fa fa-bell planIcons"></i>
                 </a>
-                <h3>Applications</h3>
+                <h3>Administrator</h3>
                 <p>Click here to review applications</p>
             </div>
         </div>

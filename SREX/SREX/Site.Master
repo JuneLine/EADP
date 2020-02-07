@@ -77,6 +77,7 @@
                                 <a href="GuidedTour">Recommanded Plans</a>
                                 <a href="AdminTourList" runat="server" id="AdminList" visible="false">Tour Listing</a>
                                 <a href="SelfPlanMain">Plan by Yourself</a>
+                                <a href="PlanningHistory">View self plan history</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Review">Reviews</a></li>
