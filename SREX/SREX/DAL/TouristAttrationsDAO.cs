@@ -144,10 +144,11 @@ namespace SREX.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlstmt = "Select * from TouristAttractions where Name = @paraName ";
+            string sqlstmt = "Select * from TouristAttractions where lower(Name) like lower(@paraName) or lower(Name) = lower(@paraFullName)";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
 
-            da.SelectCommand.Parameters.AddWithValue("@paraName", destinationName);
+            da.SelectCommand.Parameters.AddWithValue("@paraName", "%" + destinationName + "%");
+            da.SelectCommand.Parameters.AddWithValue("@paraFullName", destinationName);
             DataSet ds = new DataSet();
             da.Fill(ds);
             List<TouristAttractions> tdList = new List<TouristAttractions>();

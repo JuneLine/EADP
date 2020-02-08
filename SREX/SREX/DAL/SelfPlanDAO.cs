@@ -247,6 +247,34 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             return td;
         }
 
+        public SelfPlan SelectByUserId(string id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "SELECT * From Users where Id = @paraId ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraId", id);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            SelfPlan td = null;
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                string UID = row["Id"].ToString();
+                string Email = row["EmailAddr"].ToString();
+
+
+                td = new SelfPlan(UID, Email);
+
+            }
+            return td;
+        }
+
         public int UpdateStatus(string status, int id, string tourguideId, string tourguidename)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
@@ -308,10 +336,10 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlstmt = "Select * from SelfPlanHistory where Title = @paraTitle AND Status = @paraStatus";
+            string sqlstmt = "Select * from SelfPlanHistory where lower(Title) like lower(@paraTitle) AND Status = @paraStatus";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
 
-            da.SelectCommand.Parameters.AddWithValue("@paraTitle", titleChosen);
+            da.SelectCommand.Parameters.AddWithValue("@paraTitle",  "%" + titleChosen + "%");
             da.SelectCommand.Parameters.AddWithValue("@paraStatus", status);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -424,5 +452,6 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
 
             return tdList;
         }
+
     }
 }

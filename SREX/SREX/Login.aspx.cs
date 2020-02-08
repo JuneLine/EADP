@@ -79,6 +79,7 @@ namespace SREX
                     Session["Email"] = CustomerData.Email;
                     Session["Username"] = CustomerData.User;
                     Session["UserId"] = CustomerData.Id;
+                    Session["Status"] = CustomerData.Status;
                     Response.Redirect("Default.aspx");
                 }
                 else

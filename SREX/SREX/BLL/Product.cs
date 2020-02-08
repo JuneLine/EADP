@@ -106,5 +106,12 @@ namespace SREX.BLL
             List<Product> lowStockList = dao.getLowStockProducts();
             return lowStockList;
         }
+
+        public int increaseProductStock(string id, int amount)
+        {
+            ProductDAO dao = new ProductDAO();
+            int result = dao.addStocksToProduct(id, amount);
+            return result;
+        }
     }
 }

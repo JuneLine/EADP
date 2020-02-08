@@ -4,6 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/Product.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         google.charts.load('current', { 'packages': ['corechart'] });
@@ -66,6 +67,15 @@
                 }
             });
         }
+
+        function alert() {
+            Swal.fire({
+                title: 'Restocked!',
+                text: 'Successfully Added Stocks',
+                icon: 'success',
+                confirmButtonText: 'Confirm'
+            })
+        }
     </script>
     <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12" style="height: 300px">
@@ -91,7 +101,7 @@
                     <td class="text-center"><%#Eval("Name") %></td>
                     <td class="text-center"><%#Eval("InStock") %></td>
                     <td class="text-center">
-                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" OnClick="ButtonToPage_Click" Value='<%#Eval("Id") %>'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" runat="server" Text="Restock" class="btn btn-primary" OnClick="ButtonToRestock_Click" />
+                        <asp:Button ID="ButtonToPage" runat="server" Text="Go To Page" class="btn btn-primary" OnClick="ButtonToPage_Click" Value='<%#Eval("Id") %>' />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="ButtonToRestock" Stuff='<%#Eval("Id") %>' runat="server" Text="Restock" class="btn btn-primary" OnClick="ButtonToRestock_Click" />
                     </td>
                 </ItemTemplate>
             </asp:DataList>
@@ -100,9 +110,39 @@
     <asp:Panel ID="Panel1" runat="server" CssClass="modalPanel2" Visible="false">
         <div class="modal-content">
             <button class="close" onclick='document.getElementById("MainContent_Panel1").style.display = "none"; return false;'><span>&times</span></button>
-            <p>
-                TESTING 123<br />
-            </p>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-lg-3" style="margin: 2%">
+                    <asp:Image ID="Image" runat="server" Style="max-height: 300px; max-width: 600px; margin: auto" />
+                </div>
+                <div class="col-lg-8">
+                    <p>
+                        <asp:Label ID="LabelTitle" runat="server" Text="Default Title" Font-Size="Medium"></asp:Label>
+                    </p>
+                    <p style="margin-top: 5%">
+                        <asp:Label ID="LabelOverview" runat="server" Text="Default Description"></asp:Label>
+                    </p>
+                    <hr />
+                    <div class="row" style="margin-top: 2%">
+                        <div class="col-lg-3">
+                            Sold:<br />
+                            <asp:Label ID="LabelSold" runat="server" Text="Sold Amount"></asp:Label>
+                        </div>
+                        <div class="col-lg-3">
+                            In Stock:<br />
+                            <asp:Label ID="LabelStock" runat="server" Text="Stock Amount"></asp:Label>
+                        </div>
+                        <div class="col-lg-3">
+                            Amount To Restock:
+                            <asp:TextBox ID="RestockAmount" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-lg-3">
+                            <asp:Button ID="ButtonSubmit" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="ButtonSubmit_Click" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorRestock" runat="server" ControlToValidate="RestockAmount"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidatorRestock" runat="server" ControlToValidate="RestockAmount" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </asp:Panel>
 </asp:Content>

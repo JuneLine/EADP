@@ -18,7 +18,7 @@
                    <h4> <%#Eval("Title") %> </h4>
                     <p><%#Eval("Username") %></p>
                     <p><%#Eval("Date") %></p>
-                    <a href="TourGuideViewPlan?PlanId=<%#Eval("UniqueId") %>" class="btn btn-primary" id="ViewPlan">View</a>
+                    <a href="TourGuideViewPlans?PlanId=<%#Eval("UniqueId") %>" class="btn btn-primary" id="ViewPlan">View</a>
                     </div>
                 </div>
             </div>

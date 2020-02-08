@@ -7,6 +7,17 @@
         <asp:Label CssClass="text-center" ID="LabelError2" runat="server" Text=""></asp:Label>
     </div>
     <br />
+    <div class="thumbnail text-center" id="deniedBox" style="margin: 1.5%" runat="server">
+        <div class="caption">
+            <h4>Your application has been revoked/denied.</h4>
+            <h5>Please check your email for further information.</h5>
+        </div>
+    </div>
+    <div class="thumbnail text-center" id="reviewBox" style="margin: 1.5%" runat="server">
+        <div class="caption">
+            <h4>Your application is currently under review</h4>
+        </div>
+    </div>
     <div class="thumbnail text-center" id="joinUsBox" style="margin: 1.5%" runat="server">
         <div class="caption">
             <h4>Interested in joining us as a tourguide?</h4>
@@ -90,7 +101,22 @@
                             <button class="btn btn-info">
                                 <a href="<%#Eval("URL") %>">Find out more</a>
                             </button>
-                            <a href="EditAttraction?AttractionId=<%#Eval("Id")%>" id="EditAttractionbtn" class="EditAttraction glyphicon glyphicon-option-vertical"></a>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
+
+            <asp:DataList runat="server" ID="DataListAttractionsAdmin" RepeatColumns="2" Visible="false">
+                <ItemTemplate>
+                    <div class="thumbnail" style="margin: 1.5%">
+                        <asp:Image runat="server" ImageUrl='<%# String.Format("Pictures/{0}", Eval("Picture") ) %>' Height="300px" Width="550px"/>
+                        <div class="caption">
+                            <h4><%#Eval("AttractionName") %></h4>
+                            <p><%#Eval("Description") %></p>
+                            <button class="btn btn-info">
+                                <a href="<%#Eval("URL") %>">Find out more</a>
+                            </button>
+                                <a href="EditAttraction?AttractionId=<%#Eval("Id")%>" id="EditAttractionbtn" class="EditAttraction glyphicon glyphicon-option-vertical"></a>
                         </div>
                     </div>
                 </ItemTemplate>

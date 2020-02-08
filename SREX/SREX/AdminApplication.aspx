@@ -24,7 +24,8 @@
                     <br />
                     <asp:Label for="LabelEmailAddr" runat="server" Text="Email: "></asp:Label> <asp:Label ID="LabelEmailAddr" runat="server"></asp:Label>
                     <br />
-                    <asp:Label ID="LabelResumePath" runat="server" Visible="false"></asp:Label>
+                    <asp:Label for="LabelResumePath" runat="server" Text="FileName: "></asp:Label>
+                    <asp:Label ID="LabelResumePath" runat="server" Visible="true"></asp:Label>
                     <br />
                     <label>Resume: </label>
                     <br />
@@ -32,6 +33,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button runat="server"  ID="Close" CssClass="btn btn-seconday" Text="Close" OnClick="Close_Click" />
+                    <asp:Button runat="server"  ID="Deny" CssClass="btn btn-danger" Text="Decline" OnClick="Deny_Click"/>
                     <asp:Button runat="server" ID="ConfirmApplication" CssClass="btn btn-primary" Text="Confirm" OnClick="ConfirmApplication_Click"/>
                 </div>
             </div>
@@ -45,7 +47,7 @@
                         <asp:BoundField DataField="UserName" HeaderText="Username"/>
                         <asp:BoundField DataField="Gender" HeaderText="Gender" />
                         <asp:BoundField DataField="EmailAddr" HeaderText="EmailAddr"/>
-                        <asp:BoundField DataField="UploadFile" visible="false"/>
+                        <asp:BoundField DataField="UploadFile" visible="true" HeaderText="File Name"/>
                         <asp:CommandField ShowSelectButton="True" SelectText="View" />
                     </Columns>
                 </asp:GridView>

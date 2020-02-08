@@ -1,14 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="selfplanView.aspx.cs" Inherits="SREX.selfplanView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
+    <div class="col-sm-4 col-lg-4 border border-secondary rounded">
+        <div class="d-flex w-100 justify-content-between">
+            <h1> <asp:Label ID="LabelUserName" runat="server"></asp:Label></h1>
                 <h5 class="mb-1"><asp:Label ID="LabelTitle" runat="server"></asp:Label></h5>
-                <small style="color: red;">Guided: <asp:Label ID="LabelHire" runat="server"></asp:Label></small>
+                <small style="color: red;"><asp:Label ID="LabelHire" runat="server"></asp:Label></small>
+            <br />
+            <small style="color:red;"><asp:Label ID="LabelGuidedBy" runat="server"></asp:Label></small>
                 <br />
-                <small>Date: <asp:Label ID="LabelDate" runat="server"></asp:Label></small>
+            <small>Date: <asp:Label ID="LabelDate" runat="server"></asp:Label></small>
             </div>
-                    <hr />
+    </div>
+
+        <div class="col-sm-8 col-lg-8 list-group-item list-group-item-action flex-column align-items-start" style="margin-bottom:100px;">
+
             <div class="row rounded">
                     <table class="table" style="padding: 5px">
                         <thead class="thead-dark">
@@ -99,18 +105,12 @@
                             </td>
                         </tr>
                             <tr>
-                                <td colspan="10">
-                                    <p>
-                                    <asp:Button ID="BtnBack" class="btn btn-primary" style="float:right" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
-                                        </p>
+                                <td colspan="12">
+                                    <asp:Button ID="BtnBack" class="btn btn-primary" style="float:left" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                </div>
+            </div>
 </asp:Content>
