@@ -112,13 +112,14 @@ namespace SREX
                     Picture = HiddenPictureName.Text.ToString();
                 }
 
-                if(tbDateOfTour.Text != null){
+                string dateOfTour;
+                if (tbDateOfTour.Text != null){
                     DateTime DDay = DateTime.ParseExact(tbDateOfTour.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-                    string dateOfTour = DDay.ToString("dd/MM/yyyy");
+                    dateOfTour = DDay.ToString("dd/MM/yyyy");
                 }
                 else
                 {
-                    string dateOfTour = originalDate.Text;
+                    dateOfTour = originalDate.Text;
                 }
 
                 int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));

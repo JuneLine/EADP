@@ -123,20 +123,19 @@
                     </p>
                     <hr />
                     <div class="row" style="margin-top: 2%">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             Sold:<br />
                             <asp:Label ID="LabelSold" runat="server" Text="Sold Amount"></asp:Label>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             In Stock:<br />
                             <asp:Label ID="LabelStock" runat="server" Text="Stock Amount"></asp:Label>
                         </div>
-                        <div class="col-lg-3">
-                            Amount To Restock:
-                            <asp:TextBox ID="RestockAmount" runat="server" CssClass="form-control"></asp:TextBox>
+                        <div class="col-lg-5">                            
+                            Amount To Restock:<asp:TextBox ID="RestockAmount" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-lg-3">
-                            <asp:Button ID="ButtonSubmit" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="ButtonSubmit_Click" />
+                            <asp:Button ID="ButtonSubmit" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="ButtonSubmit_Click" style="float:right;"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorRestock" runat="server" ControlToValidate="RestockAmount"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorRestock" runat="server" ControlToValidate="RestockAmount" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                         </div>
