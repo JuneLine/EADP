@@ -49,6 +49,32 @@ namespace SREX.DAL
             return tdList;
         }
 
+        public int UpdateStatus(string Status, string id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Users SET Status = @paraStatus, Status where Id =  @paraId";
+
+            int result = 0;    // Execute NonQuery return an integer value
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraStatus", Status);
+            sqlCmd.Parameters.AddWithValue("paraId", id);
+
+
+
+            myConn.Open();
+            result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
         public int UpdateRole(string role, string id)
         {
             string confirmed = "Confirmed";

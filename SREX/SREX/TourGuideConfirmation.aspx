@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideConfirmation.aspx.cs" Inherits="SREX.TourGuideConfirmation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
+    <div class="col-sm-4 col-lg-4 border border-secondary rounded">
+        <div class="d-flex w-100 justify-content-between">
+            <h1> <asp:Label ID="LabelUserName" runat="server"></asp:Label></h1>
                 <h5 class="mb-1"><asp:Label ID="LabelTitle" runat="server"></asp:Label></h5>
-                <small style="color: red;">Guided: <asp:Label ID="LabelHire" runat="server"></asp:Label></small>
-                <br />
-                <small>Date: <asp:Label ID="LabelDate" runat="server"></asp:Label></small>
+            <small>Date: <asp:Label ID="LabelDate" runat="server"></asp:Label></small>
             </div>
-                    <hr />
+    </div>
+    <div class="col-sm-8 col-lg-8 list-group-item list-group-item-action flex-column align-items-start" style="margin-bottom:100px;">
             <div class="row rounded">
                     <table class="table" style="padding: 5px">
                         <thead class="thead-dark">
@@ -100,12 +100,8 @@
                         </tr>
                         </tbody>
                     </table>
-                <asp:Button ID="ConfirmButton" CssClass="btn btn-primary" style="float:right" runat="server" Text="Confirm" OnClick="ConfirmButton_Click" />&nbsp&nbsp
-                <asp:Button ID="BtnBack" class="btn btn-primary" style="float:left" runat="server" Text="Back" OnClick="BtnBack_Click1" />&nbsp&nbsp
+                <asp:Button ID="ConfirmButton" CssClass="btn btn-primary" style="float:right; margin-right:10px;" runat="server" Text="Confirm" OnClick="ConfirmButton_Click"/>&nbsp&nbsp
+                <asp:Button ID="BtnBack" class="btn btn-primary" style="float:left;margin-left:10px;" runat="server" Text="Back" OnClick="BtnBack_Click1" />&nbsp&nbsp
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                </div>
+        </div>
 </asp:Content>

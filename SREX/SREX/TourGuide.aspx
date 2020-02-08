@@ -12,14 +12,18 @@
 
     <div class="row">
         <div class="input-group col-sm-12 col-lg-12">
+            <span class="input-group-btn">
+                <asp:Button ID="ButtonAll" class="btn btn-primary" runat="server" Text="View all" OnClick="ButtonAll_Click"/>  
+        </span>
         <asp:TextBox ID="TbSearch" class="form-control" placeholder="Search for..." runat="server"></asp:TextBox>
         <span class="input-group-btn">
+            
             <asp:Button ID="ButtonSearchName" runat="server" Text="Go!" class="btn btn-default" OnClick="ButtonSearchName_Click"/>
         </span>
     </div>
 
         <div class="col-sm-4 col-lg-4">
-            <asp:Button ID="ButtonAll" style="padding:5px; margin:5px;" class="btn btn-primary" runat="server" Text="View all" OnClick="ButtonAll_Click"/>
+            
         </div>
     </div>
 <%--    <div class="col-sm-12 col-lg-12 text-center" style="padding:2%;" runat="server">

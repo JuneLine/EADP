@@ -30,11 +30,19 @@ namespace SREX.BLL
         public string TourGuideId { get; set; }
         public string TourGuideName { get; set; }
         public string UploadFile { get; set; }
+        public string Email { get; set; }
+        public string UID { get; set; }
+
         public SelfPlan()
         {
 
         }
 
+        public SelfPlan(string UID, string Email)
+        {
+            this.UID = UID;
+            this.Email = Email;
+        }
         public SelfPlan(string Id, string Title, string Date, string Hire, string Timing1, string Timing2, string Timing3, string Timing4, string Timing5, string Timing6
             , string Timing7, string Timing8, string Timing9, string Timing10, string Status, string UserName)
         {
@@ -184,6 +192,12 @@ namespace SREX.BLL
         {
             SelfPlanDAO dao = new SelfPlanDAO();
             return dao.SelectByUniqueId(UniqueId);
+        }
+
+        public SelfPlan getUserByUniqueId(string id)
+        {
+            SelfPlanDAO dao = new SelfPlanDAO();
+            return dao.SelectByUserId(id);
         }
 
         public List<SelfPlan> getTourGuided(string hire)

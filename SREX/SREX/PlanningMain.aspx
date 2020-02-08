@@ -7,6 +7,12 @@
         <asp:Label CssClass="text-center" ID="LabelError2" runat="server" Text=""></asp:Label>
     </div>
     <br />
+    <div class="thumbnail text-center" id="deniedBox" style="margin: 1.5%" runat="server">
+        <div class="caption">
+            <h4>Your application has been revoked/denied.</h4>
+            <h5>Please check your email for further information.</h5>
+        </div>
+    </div>
     <div class="thumbnail text-center" id="reviewBox" style="margin: 1.5%" runat="server">
         <div class="caption">
             <h4>Your application is currently under review</h4>

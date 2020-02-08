@@ -13,6 +13,15 @@ namespace SREX {
     public partial class selfplanView {
         
         /// <summary>
+        /// LabelUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUserName;
+        
+        /// <summary>
         /// LabelTitle control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace SREX {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelHire;
+        
+        /// <summary>
+        /// LabelGuidedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelGuidedBy;
         
         /// <summary>
         /// LabelDate control.

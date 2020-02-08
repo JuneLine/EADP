@@ -22,7 +22,7 @@ namespace SREX
                     td = td.getTDByUniqueId(newId);
                     LabelTitle.Text = td.Title.ToString();
                     LabelDate.Text = td.Date.ToString();
-                    LabelHire.Text = td.Hire.ToString();
+                    LabelHire.Text = td.Status.ToString();
                     LabelTiming1.Text = td.Timing1.ToString();
                     LabelTiming2.Text = td.Timing2.ToString();
                     LabelTiming3.Text = td.Timing3.ToString();
@@ -34,6 +34,25 @@ namespace SREX
                     LabelTiming9.Text = td.Timing9.ToString();
                     LabelTiming10.Text = td.Timing10.ToString();
 
+                    if (td.Hire.ToString() == "Yes")
+                    {
+                        if (td.Status.ToString() == "Confirmed")
+                        {
+                            LabelGuidedBy.Text = "Guided by: " + td.TourGuideName.ToString();
+                            LabelHire.Text = "Status: " + td.Status.ToString();
+                        }
+
+                        else if (td.Status.ToString() == "Pending")
+                        {
+                            LabelGuidedBy.Text = "Your request is currently pending, please check your email for updates";
+                            LabelHire.Text = "Status: " + td.Status.ToString();
+                        }
+                    }
+
+                    else if (td.Hire.ToString() == "No")
+                    {
+                        LabelGuidedBy.Text = "You have not requested for a tourguide";
+                    } 
                 }
 
                 else
