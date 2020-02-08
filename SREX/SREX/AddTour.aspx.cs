@@ -51,7 +51,7 @@ namespace SREX
             bool valid = CheckValid();
             if (valid)
             {
-                string id = "";
+                int id = 0;
                 string Picture;
                 List<GuideTour> lookForID;
                 if (Session["UserId"] != null)
@@ -71,7 +71,10 @@ namespace SREX
                                 string path = Server.MapPath("~/Pictures/");
                                 FileTourPicture.SaveAs(path + FileTourPicture.FileName);
 
-                                GuideTour Listing = new GuideTour(id, tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text, tbDateOfTour.Text, DropDownListmeetTime.SelectedValue, tbLocation.Text, Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
+                                DateTime DDay = DateTime.ParseExact(tbDateOfTour.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                                string dateOfTour = DDay.ToString("dd/MM/yyyy");
+
+                                GuideTour Listing = new GuideTour(id, tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text, dateOfTour, DropDownListmeetTime.SelectedValue, tbLocation.Text, Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
                                 int result1 = Listing.CreateTour();
                                 if (result1 == 1)
                                 {
@@ -79,7 +82,7 @@ namespace SREX
                                     lookForID = row.GetOneID(tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text);
                                     foreach (GuideTour item in lookForID)
                                     {
-                                        string tourId = item.tourId.ToString();
+                                        int tourId = item.tourId;
                                         string tourInfoId = "";
 
                                         if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == "")
@@ -112,7 +115,7 @@ namespace SREX
                                         }
 
 
-                                        GuideTour TimeActivity = new GuideTour(tourInfoId, DropDownListTime1.Text.ToString(), tbActivity1.Text.ToString(), DropDownListTime2.SelectedValue.ToString(), tbActivity2.Text.ToString(), DropDownListTime3.SelectedValue.ToString(), tbActivity3.Text.ToString(), DropDownListTime4.SelectedValue.ToString(), tbActivity4.Text.ToString(), DropDownListTime5.SelectedValue.ToString(), tbActivity5.Text.ToString(), DropDownListTime6.SelectedValue.ToString(), tbActivity6.Text.ToString(), DropDownListTime7.SelectedValue.ToString(), tbActivity7.Text.ToString(), tourId);
+                                        GuideTour TimeActivity = new GuideTour(tourInfoId, DropDownListTime1.SelectedValue.ToString(), tbActivity1.Text.ToString(), DropDownListTime2.SelectedValue.ToString(), tbActivity2.Text.ToString(), DropDownListTime3.SelectedValue.ToString(), tbActivity3.Text.ToString(), DropDownListTime4.SelectedValue.ToString(), tbActivity4.Text.ToString(), DropDownListTime5.SelectedValue.ToString(), tbActivity5.Text.ToString(), DropDownListTime6.SelectedValue.ToString(), tbActivity6.Text.ToString(), DropDownListTime7.SelectedValue.ToString(), tbActivity7.Text.ToString(), tourId);
                                         int result2 = TimeActivity.CreateTourInfo();
                                         if (result2 == 1)
                                         {

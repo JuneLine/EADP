@@ -4,43 +4,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace SREX
 {
-    public partial class Review : System.Web.UI.Page
+    public partial class CommentEdit : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["deleteMsg"] = null;
+            string id = Request.QueryString["id"];
             if (!IsPostBack)
             {
-                List<Reviews> AllComments;
-                string user;
-                if (Session["UserId"] == null)
+                if(Session["UserId"] == null)
                 {
-                    user = "";
-                    promptlogin.Style["display"] = "block";
-                    btnAddComment.Visible = false;
-
-                    Reviews get = new Reviews();
-                    AllComments = get.GetAllComments(user);
-                    dlComments.DataSource = AllComments;
-                    dlComments.DataBind();
+                    Response.Redirect("Review.aspx");
                 }
                 else
                 {
-                    promptlogin.Style["display"] = "none";
-                    btnAddComment.Visible = true;
-                    tbName.Text = Session["Username"].ToString();
-
-                    user = Session["UserId"].ToString();
+                    List<Reviews> one;
                     Reviews get = new Reviews();
-                    AllComments = get.GetAllComments(user);
-                    dlComments.DataSource = AllComments;
-                    dlComments.DataBind();
-
+                    one = get.GetOneComment(id);
+                    foreach (Reviews item in one)
+                    {
+                        EditName.Text = item.username.ToString();
+                        EditRating.Value = item.rating.ToString();
+                        EditComment.Text = item.Comments.ToString();
+                    }
                 }
             }
         }
@@ -48,7 +38,7 @@ namespace SREX
         public bool ValidateName()
         {
             bool valid = true;
-            if(tbName.Text == "")
+            if (EditName.Text == "")
             {
                 valid = false;
             }
@@ -58,7 +48,7 @@ namespace SREX
         public bool ValidateComment()
         {
             bool valid = true;
-            if (tbComment.Text == "")
+            if (EditComment.Text == "")
             {
                 valid = false;
             }
@@ -68,25 +58,29 @@ namespace SREX
         public bool ValidateRating()
         {
             bool valid = true;
-            if (rating.Value == "")
+            if (EditRating.Value == "")
             {
                 valid = false;
             }
             return valid;
         }
 
-        protected void btnComment_Click(object sender, EventArgs e)
-        {                                    
+        protected void BackToReviews_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Review.aspx");
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
             if (ValidateName())
             {
                 if (ValidateComment())
                 {
                     if (ValidateRating())
                     {
-                        string id = "";
-                        string now = DateTime.Now.ToString("d");
-                        Reviews Comment = new Reviews(id, Session["UserId"].ToString(), tbName.Text.ToString(), tbComment.Text.ToString(), now, Convert.ToDecimal(rating.Value.ToString()));
-                        int result = Comment.CreateComment();
+                        string id = Request.QueryString["Id"];
+                        Reviews Upd = new Reviews();
+                        int result = Upd.EditComment(id, EditName.Text.ToString(), EditComment.Text.ToString(), Convert.ToDecimal(EditRating.Value.ToString()));
                         if (result == 1)
                         {
                             Response.Redirect("Review.aspx");
@@ -106,13 +100,6 @@ namespace SREX
             {
                 Response.Write("<script>alert('Please Fill In Your Name :)')</script>");
             }
-        }
-
-        protected void btnOpenEditPanel_Click(object sender, EventArgs e)
-        {
-            HtmlButton btn = (HtmlButton)sender;
-            string id = btn.Attributes["value"];
-            Response.Redirect("CommentEdit?Id=" + id);
         }
     }
 }

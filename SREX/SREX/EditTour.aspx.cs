@@ -22,7 +22,7 @@ namespace SREX
                     {
                         List<GuideTour> Info;
                         List<GuideTour> Details;
-                        string id = Request.QueryString["tourId"];
+                        int id = Int16.Parse(Request.QueryString["tourId"]);
                         GuideTour row = new GuideTour();
                         Info = row.GetOne(id);
                         Details = row.GetOneInfo(id);
@@ -30,7 +30,7 @@ namespace SREX
                         foreach (GuideTour item in Info)
                         {
                             tbTourName.Text = item.tourName.ToString();
-                            tbDateOfTour.Text = item.Date.ToString();
+                            originalDate.Text = item.Date.ToString();
                             tbTourCaption.Text = item.tourCaption.ToString();
                             DropDownListmeetTime.SelectedValue = item.meetUpTime.ToString();
                             tbLocation.Text = item.meetUpLocation.ToString();
@@ -75,7 +75,7 @@ namespace SREX
         {
             bool valid = true;
 
-            if (tbTourName.Text == "" || tbDateOfTour.Text == "" || tbLocation.Text == "" || tbSeniorCost.Text == "" || tbAdultCost.Text == "" || tbChildCost.Text == "")
+            if (tbTourName.Text == "" || tbLocation.Text == "" || tbSeniorCost.Text == "" || tbAdultCost.Text == "" || tbChildCost.Text == "")
             {
                 valid = false;
             }
@@ -94,7 +94,7 @@ namespace SREX
             {
                 GuideTour Info1 = new GuideTour();
                 GuideTour Info2 = new GuideTour();
-                string id = Request.QueryString["tourId"];
+                int id = Int16.Parse(Request.QueryString["tourId"]);
 
                 string Picture;
                 if (FileTourPicture.HasFile)
@@ -112,7 +112,16 @@ namespace SREX
                     Picture = HiddenPictureName.Text.ToString();
                 }
 
-                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), tbDateOfTour.Text.ToString(), DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
+                if(tbDateOfTour.Text != null){
+                    DateTime DDay = DateTime.ParseExact(tbDateOfTour.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    string dateOfTour = DDay.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    string dateOfTour = originalDate.Text;
+                }
+
+                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
 
                 if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == "")
                 {

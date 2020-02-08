@@ -16,9 +16,9 @@ namespace SREX
             List<GuideTour> OneTour;
             List<GuideTour> OneTourInfo;
 
-            string id = Request.QueryString["tourId"];
+            int id = Int16.Parse(Request.QueryString["tourId"]);
 
-            if (id != null)
+            if (id != 0)
             {
                 GuideTour tour = new GuideTour();
                 OneTour = tour.GetOne(id);

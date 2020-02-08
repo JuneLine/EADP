@@ -7,23 +7,28 @@
         <div class="well text-center">
             <h2><b>Add Tour</b></h2>
         </div>
-        <div class="container" style="padding: 5%;">
+        <div class="container">
             <fieldset>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="AttractionName">Tour Name: </label>
                         <asp:TextBox runat="server" ID="tbTourName" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <div class="form-group">
-                        <div>
+                    <div class="form-group<%-- row--%>">
+<%--                        <div class="col-sm-8">--%>
                             <label for="tbDateOfTour">Date Of Tour: </label>
-                            <asp:TextBox runat="server" ID="tbDateOfTour" CssClass="form-control" placeholder="DD/MM/YYYY"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="tbDateOfTour" CssClass="form-control" placeholder="DD/MM/YYYY" TextMode="Date"></asp:TextBox>
                         </div>
-                        <div>
-                            <label for="TourPicture">Picture: </label>
-                            <asp:FileUpload runat="server" ID="FileTourPicture" CssClass="form-control" />
+<%--                        <div class="col-sm-4">
+                            <label for="tbDateOfTour">Date Of Tour: </label>
+                            <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="DD/MM/YYYY" TextMode="Date"></asp:TextBox>
                         </div>
+                    </div>--%>
+                    <div class="form-group">
+                        <label for="TourPicture">Picture: </label>
+                        <asp:FileUpload runat="server" ID="FileTourPicture" CssClass="form-control" />
                     </div>
+
                     <div class="form-group">
                         <label for="TourCaption">Tour Caption: </label>
                         <asp:TextBox runat="server" ID="tbTourCaption" CssClass="form-control"></asp:TextBox>
@@ -32,6 +37,16 @@
                         <div class="col-sm-4">
                             <label for="DropDownListTime">Meet Up Time: </label>
                             <asp:DropDownList ID="DropDownListmeetTime" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                <asp:ListItem>0000</asp:ListItem>
+                                <asp:ListItem>0100</asp:ListItem>
+                                <asp:ListItem>0200</asp:ListItem>
+                                <asp:ListItem>0300</asp:ListItem>
+                                <asp:ListItem>0400</asp:ListItem>
+                                <asp:ListItem>0500</asp:ListItem>
+                                <asp:ListItem>0600</asp:ListItem>
+                                <asp:ListItem>0700</asp:ListItem>
+                                <asp:ListItem>0800</asp:ListItem>
                                 <asp:ListItem>0900</asp:ListItem>
                                 <asp:ListItem>1000</asp:ListItem>
                                 <asp:ListItem>1100</asp:ListItem>
@@ -42,6 +57,11 @@
                                 <asp:ListItem>1600</asp:ListItem>
                                 <asp:ListItem>1700</asp:ListItem>
                                 <asp:ListItem>1800</asp:ListItem>
+                                <asp:ListItem>1900</asp:ListItem>
+                                <asp:ListItem>2000</asp:ListItem>
+                                <asp:ListItem>2100</asp:ListItem>
+                                <asp:ListItem>2200</asp:ListItem>
+                                <asp:ListItem>2300</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="col-sm-8">
@@ -77,8 +97,17 @@
                         </asp:TableHeaderRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime1" runat="server">                                    
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime1" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -89,6 +118,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>
@@ -97,8 +131,17 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime2" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime2" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -109,6 +152,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>
@@ -117,8 +165,17 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime3" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime3" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -129,6 +186,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>
@@ -137,8 +199,17 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime4" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime4" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -149,6 +220,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>
@@ -157,8 +233,17 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime5" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime5" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -169,6 +254,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>
@@ -177,8 +267,17 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime6" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime6" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -189,6 +288,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>
@@ -197,8 +301,17 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell CssClass="col-sm-3">
-                                <asp:DropDownList ID="DropDownListTime7" runat="server">
-                                    <asp:ListItem Text="NIL">-Select-</asp:ListItem>
+                                <asp:DropDownList ID="DropDownListTime7" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
+                                    <asp:ListItem>0000</asp:ListItem>
+                                    <asp:ListItem>0100</asp:ListItem>
+                                    <asp:ListItem>0200</asp:ListItem>
+                                    <asp:ListItem>0300</asp:ListItem>
+                                    <asp:ListItem>0400</asp:ListItem>
+                                    <asp:ListItem>0500</asp:ListItem>
+                                    <asp:ListItem>0600</asp:ListItem>
+                                    <asp:ListItem>0700</asp:ListItem>
+                                    <asp:ListItem>0800</asp:ListItem>
                                     <asp:ListItem>0900</asp:ListItem>
                                     <asp:ListItem>1000</asp:ListItem>
                                     <asp:ListItem>1100</asp:ListItem>
@@ -209,6 +322,11 @@
                                     <asp:ListItem>1600</asp:ListItem>
                                     <asp:ListItem>1700</asp:ListItem>
                                     <asp:ListItem>1800</asp:ListItem>
+                                    <asp:ListItem>1900</asp:ListItem>
+                                    <asp:ListItem>2000</asp:ListItem>
+                                    <asp:ListItem>2100</asp:ListItem>
+                                    <asp:ListItem>2200</asp:ListItem>
+                                    <asp:ListItem>2300</asp:ListItem>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell>

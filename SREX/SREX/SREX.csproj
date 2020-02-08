@@ -123,6 +123,7 @@
     </Content>
     <Content Include="Clothes.aspx" />
     <Content Include="Collection.aspx" />
+    <Content Include="CommentEdit.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -310,6 +311,13 @@
     </Compile>
     <Compile Include="Collection.aspx.designer.cs">
       <DependentUpon>Collection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommentEdit.aspx.cs">
+      <DependentUpon>CommentEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommentEdit.aspx.designer.cs">
+      <DependentUpon>CommentEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

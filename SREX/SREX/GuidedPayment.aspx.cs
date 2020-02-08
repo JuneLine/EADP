@@ -22,7 +22,7 @@ namespace SREX
                 {
                     List<GuideTour> Listing;
 
-                    string id = Request.QueryString["tourId"];
+                    int id = Int16.Parse(Request.QueryString["tourId"]);
 
                     GuideTour Tour = new GuideTour();
                     Listing = Tour.GetOne(id);
@@ -52,9 +52,9 @@ namespace SREX
         {
             if (lblFinalAmount.Text != "0")
             {
-                string purchId = "";
+                int purchId = 0;
                 string userId = Session["userId"].ToString();
-                string tourId = Request.QueryString["tourId"].ToString();
+                int tourId = Int16.Parse(Request.QueryString["tourId"]);
                 string Date = DateTime.Now.ToShortDateString();
                 GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString() ,tourId);
                 int result = insertRecord.CreatePurchases();
