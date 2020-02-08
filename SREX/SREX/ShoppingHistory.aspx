@@ -60,6 +60,7 @@
         </div>
     </asp:Panel>
     <div id="QRDiv" runat="server" class="styleQR" visible="false">       
+        <button class="close" onclick='document.getElementById("MainContent_QRDiv").style.display = "none"; return false;'><span>&times</span></button>
         <asp:Panel ID="QR" runat="server" Width="410" Height="410"></asp:Panel>
     </div>
 </asp:Content>
