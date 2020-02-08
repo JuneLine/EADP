@@ -1,10 +1,9 @@
 ﻿using SREX.BLL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace SREX
@@ -61,6 +60,44 @@ namespace SREX
             confirmModal.Visible = false;
         }
 
+        protected void Deny_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = GvTD.SelectedRow;
+            int updCnt;
+            string newStatus = "Denied";
+            string currRole = (string)ViewState["CurrRole"];
+
+            TourGuides td = new TourGuides();
+            updCnt = td.UpdTDbyID(newStatus, row.Cells[0].Text);
+
+            if (updCnt == 1)
+            {
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.EnableSsl = true;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+                MailMessage mailMessage = new MailMessage("OOADPPROJECT1@gmail.com", row.Cells[3].Text, "Declination of your application to become one of us.", "Unfortunately, we are unable to accept your application to become one of us." + Environment.NewLine + Environment.NewLine + "If you have any further enquiries, please email us at OOADPProject1@gmail.com." + Environment.NewLine + Environment.NewLine + "With regards, The SreX team.");
+
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+
+                Response.Redirect("existingTourGuides.aspx");
+            }
+            else
+            {
+                LabelConfirm.Text = "Error has occured";
+            }
+        }
+
         protected void ConfirmApplication_Click(object sender, EventArgs e)
         {
             GridViewRow row = GvTD.SelectedRow;
@@ -73,6 +110,24 @@ namespace SREX
 
             if (updCnt == 1)
             {
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.EnableSsl = true;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+                MailMessage mailMessage = new MailMessage("OOADPPROJECT1@gmail.com", row.Cells[3].Text, "Confirmation for application to becoming a tour guide", "Congratulations! Your application has been accepted!" + Environment.NewLine + Environment.NewLine + "You can now view itineraries that users have posted and lead them." + Environment.NewLine + Environment.NewLine + "With regards, The SreX team.");
+
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+
                 Response.Redirect("existingTourGuides.aspx");
             }
             else

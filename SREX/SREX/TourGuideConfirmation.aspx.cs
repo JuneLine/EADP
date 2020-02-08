@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -28,7 +29,6 @@ namespace SREX
                         td = td.getTDByUniqueId(newId);
                         LabelTitle.Text = td.Title.ToString();
                         LabelDate.Text = td.Date.ToString();
-                        LabelHire.Text = td.Status.ToString();
                         LabelTiming1.Text = td.Timing1.ToString();
                         LabelTiming2.Text = td.Timing2.ToString();
                         LabelTiming3.Text = td.Timing3.ToString();
@@ -39,6 +39,7 @@ namespace SREX
                         LabelTiming8.Text = td.Timing8.ToString();
                         LabelTiming9.Text = td.Timing9.ToString();
                         LabelTiming10.Text = td.Timing10.ToString();
+                        LabelUserName.Text = td.UserName.ToString();
                     }
                     else if (Session["role"].ToString() == "Admin")
                     {
@@ -48,7 +49,6 @@ namespace SREX
                         td = td.getTDByUniqueId(newId);
                         LabelTitle.Text = td.Title.ToString();
                         LabelDate.Text = td.Date.ToString();
-                        LabelHire.Text = td.Status.ToString();
                         LabelTiming1.Text = td.Timing1.ToString();
                         LabelTiming2.Text = td.Timing2.ToString();
                         LabelTiming3.Text = td.Timing3.ToString();
@@ -59,6 +59,7 @@ namespace SREX
                         LabelTiming8.Text = td.Timing8.ToString();
                         LabelTiming9.Text = td.Timing9.ToString();
                         LabelTiming10.Text = td.Timing10.ToString();
+                        LabelUserName.Text = td.UserName.ToString();
                     }
                 }
 
@@ -86,10 +87,37 @@ namespace SREX
                     string currStatus = (string)ViewState["CurrStatus"];
                     string tourguidename = Session["username"].ToString();
                     SelfPlan td = new SelfPlan();
+                    SelfPlan tddd = new SelfPlan();
+                    int newId = int.Parse(Request.QueryString["PlanId"].ToString());
+                    SelfPlan tdd = new SelfPlan();
+                    tddd = tddd.getTDByUniqueId(newId);
+                    string clientId = tddd.Id.ToString();
+                    tdd = tdd.getUserByUniqueId(clientId);
+
                     updCnt = td.UpdTDbyID(newStatus, int.Parse(Request.QueryString["PlanId"].ToString()), userId, tourguidename);
 
+                   
                     if (updCnt == 1)
                     {
+                        SmtpClient smtpClient = new SmtpClient();
+                        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtpClient.UseDefaultCredentials = false;
+                        smtpClient.EnableSsl = true;
+                        smtpClient.Host = "smtp.gmail.com";
+                        smtpClient.Port = 587;
+                        smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+                        MailMessage mailMessage = new MailMessage("OOADPPROJECT1@gmail.com", tdd.Email.ToString(), "Confirmation for request for a tour guide", "Your request for a personal tour guide has been approved!" + Environment.NewLine + Environment.NewLine + "Your tour guide will be: " + Session["Username"].ToString() +
+                            Environment.NewLine + Environment.NewLine + "Date: " + tddd.Date.ToString() + Environment.NewLine + Environment.NewLine + "Location for meet up: " + tddd.Timing1.ToString() + " at 10am." + Environment.NewLine + Environment.NewLine + "If you have any enquiries, Please email your tour guide at: " + Environment.NewLine + Environment.NewLine + Session["Email"].ToString());
+
+                        try
+                        {
+                            smtpClient.Send(mailMessage);
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine(ex);
+                        }
+
                         Response.Redirect("viewAllGuidingTours.aspx");
                     }
                 }
@@ -97,16 +125,42 @@ namespace SREX
                 else if (Session["role"].Equals("Admin"))
                 {
                     int updCnt;
+                    string userId = Session["UserId"].ToString();
                     string newStatus = "Confirmed";
                     string currStatus = (string)ViewState["CurrStatus"];
-                    string userId = Session["UserId"].ToString();
                     string tourguidename = Session["username"].ToString();
-
                     SelfPlan td = new SelfPlan();
+                    SelfPlan tddd = new SelfPlan();
+                    int newId = int.Parse(Request.QueryString["PlanId"].ToString());
+                    SelfPlan tdd = new SelfPlan();
+                    tddd = tddd.getTDByUniqueId(newId);
+                    string clientId = tddd.Id.ToString();
+                    tdd = tdd.getUserByUniqueId(clientId);
+
                     updCnt = td.UpdTDbyID(newStatus, int.Parse(Request.QueryString["PlanId"].ToString()), userId, tourguidename);
+
 
                     if (updCnt == 1)
                     {
+                        SmtpClient smtpClient = new SmtpClient();
+                        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtpClient.UseDefaultCredentials = false;
+                        smtpClient.EnableSsl = true;
+                        smtpClient.Host = "smtp.gmail.com";
+                        smtpClient.Port = 587;
+                        smtpClient.Credentials = new System.Net.NetworkCredential("OOADPProject1@gmail.com", "ILoveChickenRice");
+                        MailMessage mailMessage = new MailMessage("OOADPPROJECT1@gmail.com", tdd.Email.ToString(), "Confirmation for request for a tour guide", "Your request for a personal tour guide has been approved!" + Environment.NewLine + Environment.NewLine + "Your tour guide will be: " + Session["Username"].ToString() +
+                            Environment.NewLine + Environment.NewLine + "Date: " + tddd.Date.ToString() + Environment.NewLine + Environment.NewLine + "Location for meet up: " + tddd.Timing1.ToString() + " at 10am." + Environment.NewLine + Environment.NewLine + "If you have any enquiries, Please email your tour guide at: " + Environment.NewLine + Environment.NewLine + Session["Email"].ToString());
+
+                        try
+                        {
+                            smtpClient.Send(mailMessage);
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine(ex);
+                        }
+
                         Response.Redirect("viewAllGuidingTours.aspx");
                     }
                 }

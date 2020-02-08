@@ -106,7 +106,7 @@
                             <tr>
                                 <td colspan="10">
                                     <p>
-                                    <asp:Button ID="BtnBack" class="btn btn-primary" style="float:right" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
+                                    <asp:Button ID="BtnBack" class="btn btn-primary" style="float:left" runat="server" OnClick="BtnBack_Click" Text="Back" />&nbsp&nbsp
                                         </p>
                                 </td>
                             </tr>

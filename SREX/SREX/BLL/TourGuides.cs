@@ -46,6 +46,12 @@ namespace SREX.BLL
             return dao.UpdateRole(status, id);
         }
 
+        public int UpdStatusbyID(string status, string id)
+        {
+            TourGuidesDAO dao = new TourGuidesDAO();
+            return dao.UpdateStatus(status, id);
+        }
+
         public List<TourGuides> getTourGuide(string role)
         {
             TourGuidesDAO dao = new TourGuidesDAO();

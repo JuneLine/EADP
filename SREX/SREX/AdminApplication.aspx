@@ -33,6 +33,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button runat="server"  ID="Close" CssClass="btn btn-seconday" Text="Close" OnClick="Close_Click" />
+                    <asp:Button runat="server"  ID="Deny" CssClass="btn btn-danger" Text="Decline" OnClick="Deny_Click"/>
                     <asp:Button runat="server" ID="ConfirmApplication" CssClass="btn btn-primary" Text="Confirm" OnClick="ConfirmApplication_Click"/>
                 </div>
             </div>
