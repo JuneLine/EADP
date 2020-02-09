@@ -15,22 +15,22 @@
                         <h2>Personal Particulars</h2>
                         <br />
                         <div class="form-group">
-                            <label>Name</label>
-                            <asp:TextBox runat="server" class="form-control" ID="tbUserName"></asp:TextBox>
+                            <label for="tbUserName">Name: <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Fill In Your Name" ForeColor="red" ControlToValidate="tbUserName">*</asp:RequiredFieldValidator></label>
+                            <asp:TextBox runat="server" class="form-control" ID="tbUserName"></asp:TextBox>                            
                         </div>
                         <br />
                         <div class="form-group">
-                            <label>E-mail</label>
+                            <label for="tbUserEmail">E-mail: <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Fill In Your Email" ForeColor="red" ControlToValidate="tbUserEmail">*</asp:RequiredFieldValidator></label>
                             <asp:TextBox runat="server" class="form-control" ID="tbUserEmail"></asp:TextBox>
                         </div>
                         <br />
                         <div class="form-group">
-                            <label>Contact</label>
+                            <label for="tbUserContact">Contact: <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please Fill In Your Contact" ForeColor="red" ControlToValidate="tbUserContact">*</asp:RequiredFieldValidator></label>
                             <asp:TextBox runat="server" class="form-control" ID="tbUserContact"></asp:TextBox>
                             <asp:Label runat="server" ID="lbltourname" Visible="false"></asp:Label>
                         </div>
                     </div>
-                </div>                
+                </div>
                 <div class="col-sm-8" style="font-size: 1.2em; padding-left: 5%;">
                     <h2>Tour Details</h2>
                     <div class="row">

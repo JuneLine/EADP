@@ -21,8 +21,8 @@
                             <asp:Label runat="server" ID="originalDate" Visible="false"></asp:Label>
                         </div>
                         <div class="col-sm-4">
-                            <label for="tbDateOfTour">Limit: <asp:RangeValidator ID="RangeValidator" runat="server" ErrorMessage="RangeValidator" ControlToValidate="tbLimit" MinimumValue="0" MaximumValue="1000">*</asp:RangeValidator></label>
-                            <asp:TextBox runat="server" ID="tbLimit" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                            <label for="tbDateOfTour">Limit: <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please Fill in the Limit" ControlToValidate="Limit">*</asp:RequiredFieldValidator> </label>
+                            <input type="number" runat="server" ID="Limit" class="form-control" min="0" max="1000"/>
                         </div>
                     </div>
                     <div class="form-group">
