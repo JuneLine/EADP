@@ -187,8 +187,9 @@ VALUES (@paraId, @paraTitle, @paraDate, @paraHire, @paraTiming1, @paraTiming2, @
                     string title = row["Title"].ToString();
                     string date = row["Date"].ToString();
                     string hire = row["Hire"].ToString();
+                    string status = row["Status"].ToString();
 
-                    SelfPlan dest = new SelfPlan(uniqueId, username, title, date, hire);
+                    SelfPlan dest = new SelfPlan(uniqueId, username, title, date, hire, status);
 
                     tdList.Add(dest);
                 }

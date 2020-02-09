@@ -40,7 +40,7 @@
     <div class="col-sm-12 col-lg-12 text-center" runat="server">
         <asp:DataList runat="server" ID="DataListPlans" RepeatColumns="2" Width="100%">
         <ItemTemplate>
-            <div class="thumbnail" style="margin: 1.5%;">
+            <div class="thumbnail" style="margin: 1.5%;width:500px;">
                 <div class="caption" style="width:500px;">
                     <h4><%#Eval("Username") %></h4>
                     <p><%#Eval("Title") %></p>
