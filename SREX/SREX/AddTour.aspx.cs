@@ -130,7 +130,7 @@ namespace SREX
             }
             else
             {
-                Response.Write("<script>alert('Please Fill In The Fill')</script>");
+                Response.Write("<script>alert('Please Fill In The Field')</script>");
             }                              
         }
     }
