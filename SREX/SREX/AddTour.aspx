@@ -16,13 +16,12 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-8">
-                            <label for="tbDateOfTour">Date Of Tour: <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Fill in the Date Of Tour" ControlToValidate="tbDateOfTour">*</asp:RequiredFieldValidator></label>
+                            <label for="tbDateOfTour">Date Of Tour: <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Fill in the Date Of Tour" ControlToValidate="tbDateOfTour" >*</asp:RequiredFieldValidator></label>
                             <asp:TextBox runat="server" ID="tbDateOfTour" CssClass="form-control" placeholder="DD/MM/YYYY" TextMode="Date"></asp:TextBox>                            
                         </div>
                         <div class="col-sm-4">
-                            <label for="tbDateOfTour">Limit: <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please Fill in the Limit" ControlToValidate="tbLimit">*</asp:RequiredFieldValidator> 
-                                <asp:RangeValidator ID="RangeValidator" runat="server" ErrorMessage="Ticket Quantity cannot be less than 0" ControlToValidate="tbLimit" MinimumValue="1" MaximumValue="1000">*</asp:RangeValidator></label>
-                            <asp:TextBox runat="server" ID="tbLimit" CssClass="form-control" TextMode="Number"></asp:TextBox>                            
+                            <label for="Limit">Limit: <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please Fill in the Limit" ControlToValidate="Limit">*</asp:RequiredFieldValidator> </label>
+                            <input type="number" runat="server" ID="Limit" class="form-control" min="1" max="1000"/>
                         </div>
                     </div>
                     <div class="form-group">

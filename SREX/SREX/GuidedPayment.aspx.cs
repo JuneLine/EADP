@@ -66,8 +66,8 @@ namespace SREX
                 GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString() ,tourId);
                 int result = insertRecord.CreatePurchases();
                 if (result == 1)
-                {
-                    Response.Redirect("GuidedTour.aspx");
+                {                    
+                    Response.Redirect("GuidedPurchaseHist.aspx");
                 }
             }
             else

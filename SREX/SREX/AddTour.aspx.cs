@@ -74,7 +74,7 @@ namespace SREX
                                 DateTime DDay = DateTime.ParseExact(tbDateOfTour.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                                 string dateOfTour = DDay.ToString("dd/MM/yyyy");
 
-                                GuideTour Listing = new GuideTour(id, tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text, dateOfTour, DropDownListmeetTime.SelectedValue, tbLocation.Text, Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(tbLimit.Text));
+                                GuideTour Listing = new GuideTour(id, tbTourName.Text, FileTourPicture.FileName.ToString(), tbTourCaption.Text, dateOfTour, DropDownListmeetTime.SelectedValue, tbLocation.Text, Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(Limit.Value));
                                 int result1 = Listing.CreateTour();
                                 if (result1 == 1)
                                 {
