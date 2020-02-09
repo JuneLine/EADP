@@ -73,8 +73,10 @@
                 title: 'Restocked!',
                 text: 'Successfully Added Stocks',
                 icon: 'success',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: 'Confirm',
+                showConfirmButton: false,
             })
+            setTimeout(function () { window.location.replace("/controlpanel") }, 1000)
         }
     </script>
     <div class="row">
@@ -132,7 +134,8 @@
                             <asp:Label ID="LabelStock" runat="server" Text="Stock Amount"></asp:Label>
                         </div>
                         <div class="col-lg-5">                            
-                            Amount To Restock:<asp:TextBox ID="RestockAmount" runat="server" CssClass="form-control"></asp:TextBox>
+                            Amount To Restock:
+                            <asp:TextBox ID="RestockAmount" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-lg-3">
                             <asp:Button ID="ButtonSubmit" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="ButtonSubmit_Click" style="float:right;"/>

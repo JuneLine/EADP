@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="https://www.paypal.com/sdk/js?client-id=AYsfqEHpi7QDbWDoXyglblNpv-sAfE5v7Hb9QOhEirQHzJpD31ecvAxmGGy8QJtXUZoWxEdxZdlAC9no&disable-funding=card&currency=SGD&locale=en_SG"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
         paypal.Buttons({
             createOrder: function (data, actions) {
@@ -15,12 +16,30 @@
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                    PageMethods.set_path('ShoppingCart.aspx');
-                    PageMethods.Result(data.orderID, details.purchase_units[0].amount.value);
-                    window.location.href = 'ShoppingHistory.aspx';
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Transaction completed by ' + details.payer.name.given_name,
+                        icon: 'success',
+                        confirmButtonText: 'Confirm',
+                        showConfirmButton: false,
+                    })
+                    setTimeout(function () {
+                        PageMethods.set_path('ShoppingCart.aspx');
+                        PageMethods.Result(data.orderID, details.purchase_units[0].amount.value);
+                        window.location.href = 'ShoppingHistory.aspx';
+                    }, 1000)
                 });
-
+            },
+            onCancel: function (data) {
+                setTimeout(function () {
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    showConfirmButton: false,
+                    timer: 1200,
+                })
+                }, 1000)
             }
         }).render('#paypalCheckout');
     </script>
@@ -86,7 +105,7 @@
                         <hr>
                         <div style="float: right; font-size: x-large; margin-right: 5%">
                             <asp:Label runat="server" ID="showPrice">Total:S$</asp:Label>
-                            
+
                             <asp:Label ID="LbTotal" runat="server" Style="float: right"></asp:Label>
                         </div>
                     </div>

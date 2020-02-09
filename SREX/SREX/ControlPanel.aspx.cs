@@ -107,19 +107,8 @@ namespace SREX
             Product prod = new Product();
             prod.increaseProductStock(s, Convert.ToInt32(RestockAmount.Text));
 
-            Product Stuff = prod.GetProductDetail(s);
-            Image.ImageUrl = "Pictures/" + Stuff.PictureName;
-            LabelTitle.Text = Stuff.Name;
-            LabelOverview.Text = Stuff.Description;
-            LabelSold.Text = Stuff.Sold.ToString();
-            LabelStock.Text = Stuff.InStock.ToString();
-            ButtonSubmit.Attributes["Info"] = s;
-
-            Product Prod = new Product();
-            List<Product> lowStockList;
-            lowStockList = Prod.getLowStock();
-            DataListStock.DataSource = lowStockList;
-            DataListStock.DataBind();
+            RestockAmount.Text = "";
+            Panel1.Visible = false;
 
             ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         }
