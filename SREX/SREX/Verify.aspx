@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verify.aspx.cs" Inherits="SREX.Verify" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script>
+        window.onload = setTimeout(function () {
+            window.location.replace("/login")
+        }, 5000)
+    </script>
     <div class="well" style="height: 64%; width: 36%; margin: 10% auto 0 auto">
         <div class="text-center">
             <asp:Image runat="server" ImageUrl="Profile.png" Height="20%" Width="20%" />

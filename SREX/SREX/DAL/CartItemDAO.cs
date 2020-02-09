@@ -382,6 +382,7 @@ namespace SREX.DAL
                     User = User,
                     Passnum = PassportID,
                     Dob = DOB,
+                    Gender = Gender,
                 };
                 CartItem cartItem = new CartItem
                 {

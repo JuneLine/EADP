@@ -17,7 +17,7 @@ namespace SREX
 
         protected void btnCfmEmail_Click(object sender, EventArgs e)
         {
-            if (tbEmail.Text != "" && codebox.Style["display"] == "none")
+            if (tbEmail.Text != "" && codebox.Visible == false)
             {
                 Customer Cust = new Customer();
                 string UserId = Cust.getUserIdFromEmailReset(tbEmail.Text);
@@ -27,18 +27,15 @@ namespace SREX
 
                     Cust.createOTP(UserId, tbEmail.Text);
 
-                    emailbox.Style["display"] = "none";
-                    codebox.Style["display"] = "block";
-
-                    Status.Text = "";
+                    emailbox.Visible = false;
+                    codebox.Visible = true;
                 }
                 else
                 {
-                    Status.Text = "Invalid Email!";
-                    Status.ForeColor = System.Drawing.Color.Red;
+                    RegularExpressionValidatorEmail.IsValid = false;
                 }
             }
-            else if (tbEmail.Text != null && tbCode.Text != null && emailbox.Style["display"] == "none")
+            else if (tbEmail.Text != null && tbCode.Text != null && emailbox.Visible == false)
             {
                 Customer Cust = new Customer();
                 string UserId = Cust.getUserIdFromEmailReset(tbEmail.Text);
@@ -49,8 +46,7 @@ namespace SREX
                 }
                 else
                 {
-                    Status.Text = "Invalid Code";
-                    Status.ForeColor = System.Drawing.Color.Red;
+                    RequiredFieldValidatorCode.IsValid = false;
                 }
             }
         }

@@ -20,6 +20,7 @@ namespace SREX
                     Customer CustDetails = null;
                     Customer Cust = new Customer();
                     CustDetails = Cust.getLoggedInData(Session["UserId"].ToString());
+                    Gender.Src = "/Pictures/" + CustDetails.Gender + ".png";
                     LabelName.Text = CustDetails.User;
                     LabelEmail.Text = CustDetails.Email;
                     LabelDOB.Text = CustDetails.Dob;

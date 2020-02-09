@@ -42,16 +42,16 @@
                 <div id="emailbox" runat="server">
                     <label for="tbEmail" style="margin-left: 5%;" class="control-label">Enter Email:</label>
                     <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control tbadjustment"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Required" ForeColor="Red" ControlToValidate="tbEmail"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid Email!" ForeColor="Red" ControlToValidate="tbEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Required" ForeColor="Red" ControlToValidate="tbEmail" Display="None"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid Email!" ForeColor="Red" ControlToValidate="tbEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator>
                 </div>
                 <br />
-                <div id="codebox" style="display: none" runat="server">
+                <div id="codebox" runat="server" visible="false">
                     <label for="tbCode" style="margin-left: 5%;">Enter Code:</label>
                     <asp:TextBox ID="tbCode" runat="server" CssClass="form-control tbadjustment"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCode" runat="server" ErrorMessage="Required" ForeColor="Red" ControlToValidate="tbCode" Enabled="false"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCode" runat="server" ErrorMessage="Invalid Code!" ForeColor="Red" ControlToValidate="tbCode" Enabled="false" Display="None"></asp:RequiredFieldValidator>
                 </div>
-                <asp:Label ID="Status" runat="server" CssClass="input-group lblRight"></asp:Label>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="BulletList" ForeColor="Red" CssClass="input-group lblRight"/>
             </div>
             <div class="row">
                 <asp:Button runat="server" ID="btnCfmEmail" CssClass="btn btn-success btnRight" Text="Confirm" OnClick="btnCfmEmail_Click" />

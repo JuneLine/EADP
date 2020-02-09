@@ -22,6 +22,7 @@ namespace SREX
                         cart = cart.getUserDetailsFromOrderId(Request.QueryString["OrderId"]);
                         if (cart != null)
                         {
+                            Gender.Src = "Pictures/" + cart.Cust.Gender + ".png";
                             LabelName.Text = cart.Cust.User;
                             LabelPassport.Text = cart.Cust.Passnum;
                             LabelDOB.Text = cart.Cust.Dob;
