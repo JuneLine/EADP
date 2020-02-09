@@ -28,8 +28,12 @@
                                         <td><h3> <b><%#Eval("Date") %></b></h3></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-sm-4">Estimated Cost:</td>
-                                        <td><h3> Adult: SGD<b><%#Eval("AdultCost") %></b>, Children: SGD<b><%#Eval("ChildCost") %></b>, Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b>(Per Pax)</h3></td>
+                                        <td class="col-sm-4">Tickets Left:</td>
+                                        <td><h3><b> <%#Eval("Limit") %> </b></h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4">Cost: <br /> (GST not included)</td>
+                                        <td><br /><h3> Adult: SGD<b><%#Eval("AdultCost") %></b>,<br /> Children: SGD<b><%#Eval("ChildCost") %></b>,<br /> Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b></h3></td>
                                     </tr>
                                 </table>                                                                                              
                             </div>
@@ -39,7 +43,7 @@
             </div>
             <br />
             <div class="row">
-                <h3><span class="input-lg"><b>Day Schedule</b></span><asp:Button runat="server" ID="EditTour" OnClick="EditTour_Click" CssClass="btn btn-secondary" Style="float: right;" Text="Edit" Visible="false" /></h3>
+                <h2><span class="input-lg"><b>Day Schedule</b></span><asp:Button runat="server" ID="EditTour" OnClick="EditTour_Click" CssClass="btn btn-secondary" Style="float: right;" Text="Edit" Visible="false" /></h2>
                 <asp:DataList ID="DataListInfo" runat="server" RepeatLayout="Table" CssClass="table">
                     <ItemTemplate>
                         <tr>
@@ -77,8 +81,9 @@
                     </ItemTemplate>
                 </asp:DataList>
             </div>
-            <div style="text-align: center">
+            <div class="text-center">
                 <asp:Button ID="BtnPurchaseTicks" runat="server" CssClass="btn btn-primary" OnClick="BtnPurchaseTicks_Click" Text="Buy" />
+                <asp:Label runat="server" ID="OutOfTickets" CssClass="input-lg" Visible="false">Tickets had been sold out</asp:Label>
             </div>
         </div>
     </div>

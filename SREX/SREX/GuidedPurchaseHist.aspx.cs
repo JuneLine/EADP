@@ -48,7 +48,7 @@ namespace SREX
             GuideDetails.Visible = true;
 
             HtmlButton btn = (HtmlButton)sender;
-            string tourId = btn.Attributes["value"].ToString();
+            int tourId = Int16.Parse(btn.Attributes["value"]);
 
             GuideTour row = new GuideTour();
             Listing1 = row.GetOne(tourId);
@@ -61,8 +61,7 @@ namespace SREX
                 lbltourname.Text = items.tourName.ToString();
                 lbltourDate.Text = items.Date.ToString();
                 lblMeetUp.Text = items.meetUpTime.ToString() + " @ " + items.meetUpLocation.ToString();
-            }
-
+            }      
         }
 
         protected void closeDetailPanel_ServerClick(object sender, EventArgs e)

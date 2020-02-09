@@ -407,7 +407,7 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"SELECT Products.Name, SUM(CartItem.Quantity) AS Quantity FROM CartItem INNER JOIN Products ON CartItem.ProductId = Products.Id GROUP BY Products.Name ORDER BY SUM(CartItem.Quantity) DESC";
+            string sqlStmt = @"SELECT Categories.Name, SUM(Products.Sold) as Quantity FROM Products INNER JOIN Categories ON Products.CategoryId = Categories.Id GROUP BY Categories.Name";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
 

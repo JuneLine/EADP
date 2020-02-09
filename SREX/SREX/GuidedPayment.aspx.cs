@@ -22,23 +22,30 @@ namespace SREX
                 {
                     List<GuideTour> Listing;
 
-                    string id = Request.QueryString["tourId"];
-
-                    GuideTour Tour = new GuideTour();
-                    Listing = Tour.GetOne(id);
-                    DataListTourInfo.DataSource = Listing;
-                    DataListTourInfo.DataBind();
-
-                    foreach (GuideTour item in Listing)
+                    if (Request.QueryString["tourId"] != null)
                     {
-                        lbltourname.Text = item.tourName.ToString();
-                        AdultPerTicket.Text = item.AdultCost.ToString();
-                        ChildPerTicket.Text = item.ChildCost.ToString();
-                        SeniorPerTicket.Text = item.SeniorCost.ToString();
-                    }
+                        int id = int.Parse(Request.QueryString["tourId"]);
 
-                    tbUserName.Text = Session["Username"].ToString();
-                    tbUserEmail.Text = Session["Email"].ToString();
+                        GuideTour Tour = new GuideTour();
+                        Listing = Tour.GetOne(id);
+                        DataListTourInfo.DataSource = Listing;
+                        DataListTourInfo.DataBind();
+
+                        foreach (GuideTour item in Listing)
+                        {
+                            lbltourname.Text = item.tourName.ToString();
+                            AdultPerTicket.Text = item.AdultCost.ToString();
+                            ChildPerTicket.Text = item.ChildCost.ToString();
+                            SeniorPerTicket.Text = item.SeniorCost.ToString();
+                        }
+
+                        tbUserName.Text = Session["Username"].ToString();
+                        tbUserEmail.Text = Session["Email"].ToString();
+                    }
+                    else
+                    {
+                        Response.Redirect("GuidedTour.aspx");
+                    }
                 }
                 else
                 {
@@ -52,9 +59,9 @@ namespace SREX
         {
             if (lblFinalAmount.Text != "0")
             {
-                string purchId = "";
+                int purchId = 0;
                 string userId = Session["userId"].ToString();
-                string tourId = Request.QueryString["tourId"].ToString();
+                int tourId = Int16.Parse(Request.QueryString["tourId"]);
                 string Date = DateTime.Now.ToShortDateString();
                 GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString() ,tourId);
                 int result = insertRecord.CreatePurchases();

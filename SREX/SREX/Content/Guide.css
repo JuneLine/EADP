@@ -49,3 +49,40 @@ th {
     .zeroOutline:focus {
         outline: none !important
     }
+
+.myPanelDetails {
+    width: 40%;
+    height: 88%;
+    padding: 3%;
+    border: 1px dotted black;
+    border-radius: 10px;
+    position: fixed;
+    left: 30%;
+    top: 6%;
+    background-color: aqua;
+    opacity: 1;
+    z-index: 1031;
+    box-shadow: 0px 0px 0px 500px rgba(0, 0, 0, 0.5);
+    animation-name: animatetop;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -100px;
+        opacity: 0
+    }
+
+    to {
+        top: 6%;
+        opacity: 1
+    }
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+}

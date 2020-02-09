@@ -1,4 +1,5 @@
 ﻿using SREX.BLL;
+using SREX.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,6 +88,29 @@ namespace SREX
         protected void ButtonToRestock_Click(object sender, EventArgs e)
         {
             Panel1.Visible = true;
+            Button btn = (Button)sender;
+            string s = btn.Attributes["Stuff"];
+            Product prod = new Product();
+            Product Stuff = prod.GetProductDetail(s);
+            Image.ImageUrl = "Pictures/" + Stuff.PictureName;
+            LabelTitle.Text = Stuff.Name;
+            LabelOverview.Text = Stuff.Description;
+            LabelSold.Text = Stuff.Sold.ToString();
+            LabelStock.Text = Stuff.InStock.ToString();
+            ButtonSubmit.Attributes["Info"] = s;
+        }
+
+        protected void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string s = btn.Attributes["Info"];
+            Product prod = new Product();
+            prod.increaseProductStock(s, Convert.ToInt32(RestockAmount.Text));
+
+            RestockAmount.Text = "";
+            Panel1.Visible = false;
+
+            ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         }
     }
 }

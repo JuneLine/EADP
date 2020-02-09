@@ -12,7 +12,7 @@ namespace SREX.DAL
     {
         private static GuideTour ReadDB1(SqlDataReader dr)
         {
-            string Id = dr["tourId"].ToString();
+            int Id = int.Parse(dr["tourId"].ToString());
             string tourName = dr["tourName"].ToString();
             string tourPic = dr["tourPic"].ToString();
             string tourCaption = dr["caption"].ToString();
@@ -22,6 +22,7 @@ namespace SREX.DAL
             decimal AdultCost = Convert.ToDecimal(dr["AdultCost"]);
             decimal ChildCost = Convert.ToDecimal(dr["ChildCost"]);
             decimal SeniorCost = Convert.ToDecimal(dr["SeniorCost"]);
+            int Limit = int.Parse(dr["Limit"].ToString());
 
             GuideTour Reader1 = new GuideTour
             {
@@ -35,6 +36,7 @@ namespace SREX.DAL
                 AdultCost = AdultCost,
                 ChildCost = ChildCost,
                 SeniorCost = SeniorCost,
+                Limit = Limit
             };
 
             return Reader1;
@@ -42,7 +44,7 @@ namespace SREX.DAL
 
         private static GuideTour ReadDB2(SqlDataReader dr)
         {
-            string tourId = dr["tourId"].ToString();
+            int tourId = int.Parse(dr["tourId"].ToString());
             string Time1 = dr["Time1"].ToString();
             string Activity1 = dr["Activity1"].ToString();
             string Time2 = dr["Time2"].ToString();
@@ -82,7 +84,7 @@ namespace SREX.DAL
 
         private static GuideTour ReadDB3(SqlDataReader dr)
         {
-            string id = dr["PurchaseId"].ToString();
+            int id = int.Parse(dr["PurchaseId"].ToString());
             string Date = dr["Date"].ToString();
             string Name = dr["Name"].ToString();
             string Email = dr["Email"].ToString();
@@ -93,7 +95,7 @@ namespace SREX.DAL
             decimal Payment = Convert.ToDecimal(dr["PaymentAmount"].ToString());
             string userId = dr["userId"].ToString();
             string tourName = dr["tourName"].ToString();
-            string tourId = dr["tourId"].ToString();
+            int tourId = int.Parse(dr["tourId"].ToString());
 
             GuideTour Reader3 = new GuideTour
             {
@@ -114,27 +116,6 @@ namespace SREX.DAL
             return Reader3;
         }
 
-        //private static GuideTour ReadDB4(SqlDataReader dr)
-        //{
-        //    string Id = dr["tourId"].ToString();
-        //    string tourName = dr["tourName"].ToString();
-        //    string Name = dr["Name"].ToString();
-        //    string Email = dr["Email"].ToString();
-        //    string Contact = dr["Contact"].ToString();
-
-
-        //    GuideTour Reader4 = new GuideTour
-        //    {
-        //        tourId = Id,
-        //        tourName = tourName,
-        //        UserName = Name,
-        //        UserEmail = Email,
-        //        UserContact = Contact,
-        //    };
-
-        //    return Reader4;
-        //}
-
         public List<GuideTour> RetrieveAllGuide()
         {
             List<GuideTour> rows = new List<GuideTour>();
@@ -142,7 +123,7 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = "Select * from GuideTour ORDER BY Date ASC";
+            string sqlStmt = "Select * from GuideTour";
 
             SqlCommand SQLCmd = new SqlCommand(sqlStmt, Connection);
 
@@ -158,7 +139,7 @@ namespace SREX.DAL
             return rows;
         }
 
-        public List<GuideTour> RetrieveSpecificEvent(string tourId)
+        public List<GuideTour> RetrieveSpecificEvent(int tourId)
         {
             List<GuideTour> rows = new List<GuideTour>();
 
@@ -182,7 +163,7 @@ namespace SREX.DAL
             return rows;
         }
 
-        public List<GuideTour> RetrieveSpecificEventInfo(string tourId)
+        public List<GuideTour> RetrieveSpecificEventInfo(int tourId)
         {
             List<GuideTour> rows = new List<GuideTour>();
 
@@ -237,11 +218,10 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO GuideTour(tourId, tourName, tourPic, caption, Date, meetUpTime, meetUpLocation, AdultCost, ChildCost, SeniorCost) " +
-            "VALUES(@paratourId,@paratourName, @paratourPic, @paraCaption, @paraDate, @paraMeetTime, @paraMeetLocation, @paraAdult, @paraChild, @paraSenior)";
+            string sqlStmt = @"INSERT INTO GuideTour(tourName, tourPic, caption, Date, meetUpTime, meetUpLocation, AdultCost, ChildCost, SeniorCost, Limit) " +
+            "VALUES(@paratourName, @paratourPic, @paraCaption, @paraDate, @paraMeetTime, @paraMeetLocation, @paraAdult, @paraChild, @paraSenior, @paraLimit)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
-            SQLCmd.Parameters.AddWithValue("@paratourId", Guid.NewGuid().ToString());
             SQLCmd.Parameters.AddWithValue("@paratourName", List.tourName);
             SQLCmd.Parameters.AddWithValue("@paratourPic", List.tourPic);
             SQLCmd.Parameters.AddWithValue("@paraCaption", List.tourCaption);
@@ -251,6 +231,7 @@ namespace SREX.DAL
             SQLCmd.Parameters.AddWithValue("@paraAdult", List.AdultCost);
             SQLCmd.Parameters.AddWithValue("@paraChild", List.ChildCost);
             SQLCmd.Parameters.AddWithValue("@paraSenior", List.SeniorCost);
+            SQLCmd.Parameters.AddWithValue("@paraLimit", List.Limit);
 
             Connection.Open();
             result = SQLCmd.ExecuteNonQuery();
@@ -269,11 +250,10 @@ namespace SREX.DAL
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO TourInfo(InfoId, Time1, Activity1, Time2, Activity2, Time3, Activity3, Time4, Activity4, Time5, Activity5, Time6, Activity6, Time7, Activity7, tourId) " +
-            "VALUES(@paraInfoId, @paraTime1, @paraActivity1, @paraTime2, @paraActivity2, @paraTime3, @paraActivity3, @paraTime4, @paraActivity4, @paraTime5, @paraActivity5, @paraTime6, @paraActivity6, @paraTime7, @paraActivity7, @paratourId)";
+            string sqlStmt = @"INSERT INTO TourInfo(Time1, Activity1, Time2, Activity2, Time3, Activity3, Time4, Activity4, Time5, Activity5, Time6, Activity6, Time7, Activity7, tourId) " +
+            "VALUES(@paraTime1, @paraActivity1, @paraTime2, @paraActivity2, @paraTime3, @paraActivity3, @paraTime4, @paraActivity4, @paraTime5, @paraActivity5, @paraTime6, @paraActivity6, @paraTime7, @paraActivity7, @paratourId)";
 
             SQLCmd = new SqlCommand(sqlStmt, Connection);
-            SQLCmd.Parameters.AddWithValue("@paraInfoId", Guid.NewGuid().ToString());
             SQLCmd.Parameters.AddWithValue("@paraTime1", List.Time1);
             SQLCmd.Parameters.AddWithValue("@paraActivity1", List.Activity1);
             SQLCmd.Parameters.AddWithValue("@paraTime2", List.Time2);
@@ -298,14 +278,14 @@ namespace SREX.DAL
             return result;
         }
 
-        public int UpdateTour(string tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
+        public int UpdateTour(int tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost, int Limit)
         {
             int result = 0;
 
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"UPDATE GuideTour SET tourName = @paraName, tourPic = @paraPicture, caption = @paraCaption, Date = @paraDate, meetUpTime = @paraMeetTime, meetUpLocation = @paraLocation, AdultCost = @paraACost, ChildCost = @paraCCost, SeniorCost = @paraSCost  WHERE tourId = @paraId";
+            string sqlStmt = @"UPDATE GuideTour SET tourName = @paraName, tourPic = @paraPicture, caption = @paraCaption, Date = @paraDate, meetUpTime = @paraMeetTime, meetUpLocation = @paraLocation, AdultCost = @paraACost, ChildCost = @paraCCost, SeniorCost = @paraSCost, Limit = @paraLimit  WHERE tourId = @paraId";
 
             SqlCommand SQlCmd = new SqlCommand(sqlStmt, Connection);
             SQlCmd.Parameters.AddWithValue("@paraName", tourName);
@@ -317,6 +297,7 @@ namespace SREX.DAL
             SQlCmd.Parameters.AddWithValue("@paraACost", AdultCost);
             SQlCmd.Parameters.AddWithValue("@paraCCost", ChildCost);
             SQlCmd.Parameters.AddWithValue("@paraSCost", SeniorCost);
+            SQlCmd.Parameters.AddWithValue("@paraLimit", Limit);
             SQlCmd.Parameters.AddWithValue("@paraId", tourId);
 
             Connection.Open();
@@ -327,7 +308,7 @@ namespace SREX.DAL
             return result;
         }
 
-        public int UpdateTourInfo(string Time1, string Activity1, string Time2, string Activity2, string Time3, string Activity3, string Time4, string Activity4, string Time5, string Activity5, string Time6, string Activity6, string Time7, string Activity7, string tourId)
+        public int UpdateTourInfo(string Time1, string Activity1, string Time2, string Activity2, string Time3, string Activity3, string Time4, string Activity4, string Time5, string Activity5, string Time6, string Activity6, string Time7, string Activity7, int tourId)
         {
             int result = 0;
 
@@ -387,7 +368,7 @@ namespace SREX.DAL
             return rows;
         }
 
-        public List<GuideTour> RetrieveSpecificPurchase(string id, string userId)
+        public List<GuideTour> RetrieveSpecificPurchase(int id, string userId)
         {
             List<GuideTour> rows = new List<GuideTour>();
 
@@ -417,30 +398,38 @@ namespace SREX.DAL
         {
             int result = 0;
 
-            SqlCommand SQLCmd = new SqlCommand();
+            SqlCommand SQLCmd1 = new SqlCommand();
+            SqlCommand SQLCmd2 = new SqlCommand();
 
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"INSERT INTO GuidePurchases(PurchaseId, Date ,Name, Email, Contact, AdultQuantity, ChildQuantity, SeniorQuantity, PaymentAmount, userId, tourName ,tourId) " +
-            "VALUES(@paraPurchaseId, @paraDate, @paraName, @paraEmail, @paraContact, @paraAQuant, @paraCQuant, @paraSQuant, @paraPayAmt, @parauserId, @paratourName,@paratourId)";
+            string sqlStmt1 = @"INSERT INTO GuidePurchases(Date ,Name, Email, Contact, AdultQuantity, ChildQuantity, SeniorQuantity, PaymentAmount, userId, tourName ,tourId) " +
+            "VALUES(@paraDate, @paraName, @paraEmail, @paraContact, @paraAQuant, @paraCQuant, @paraSQuant, @paraPayAmt, @parauserId, @paratourName,@paratourId)";
 
-            SQLCmd = new SqlCommand(sqlStmt, Connection);
-            SQLCmd.Parameters.AddWithValue("@paraPurchaseId", Guid.NewGuid().ToString());
-            SQLCmd.Parameters.AddWithValue("@paraDate", Listing.Date);
-            SQLCmd.Parameters.AddWithValue("@paraName", Listing.UserName);
-            SQLCmd.Parameters.AddWithValue("@paraEmail", Listing.UserEmail);
-            SQLCmd.Parameters.AddWithValue("@paraContact", Listing.UserContact);
-            SQLCmd.Parameters.AddWithValue("@paraAQuant", Listing.AdultQuantity);
-            SQLCmd.Parameters.AddWithValue("@paraCQuant", Listing.ChildQuantity);
-            SQLCmd.Parameters.AddWithValue("@paraSQuant", Listing.SeniorQuantity);
-            SQLCmd.Parameters.AddWithValue("@paraPayAmt", Listing.PaymentAmount);
-            SQLCmd.Parameters.AddWithValue("@parauserId", Listing.userId);
-            SQLCmd.Parameters.AddWithValue("@paratourName", Listing.tourName);
-            SQLCmd.Parameters.AddWithValue("@paratourId", Listing.tourId);
+            SQLCmd1 = new SqlCommand(sqlStmt1, Connection);
+            SQLCmd1.Parameters.AddWithValue("@paraDate", Listing.Date);
+            SQLCmd1.Parameters.AddWithValue("@paraName", Listing.UserName);
+            SQLCmd1.Parameters.AddWithValue("@paraEmail", Listing.UserEmail);
+            SQLCmd1.Parameters.AddWithValue("@paraContact", Listing.UserContact);
+            SQLCmd1.Parameters.AddWithValue("@paraAQuant", Listing.AdultQuantity);
+            SQLCmd1.Parameters.AddWithValue("@paraCQuant", Listing.ChildQuantity);
+            SQLCmd1.Parameters.AddWithValue("@paraSQuant", Listing.SeniorQuantity);
+            SQLCmd1.Parameters.AddWithValue("@paraPayAmt", Listing.PaymentAmount);
+            SQLCmd1.Parameters.AddWithValue("@parauserId", Listing.userId);
+            SQLCmd1.Parameters.AddWithValue("@paratourName", Listing.tourName);
+            SQLCmd1.Parameters.AddWithValue("@paratourId", Listing.tourId);
+
+            string sqlStmt2 = @"UPDATE GuideTour Set Limit = Limit - @paraAdult - @paraChild - @paraSenior where tourId = @paraId";
+            SQLCmd2 = new SqlCommand(sqlStmt2, Connection);
+            SQLCmd2.Parameters.AddWithValue("@paraAdult", Listing.AdultQuantity);
+            SQLCmd2.Parameters.AddWithValue("@paraChild", Listing.ChildQuantity);
+            SQLCmd2.Parameters.AddWithValue("@paraSenior", Listing.SeniorQuantity);
+            SQLCmd2.Parameters.AddWithValue("@paraId", Listing.tourId);
 
             Connection.Open();
-            result = SQLCmd.ExecuteNonQuery();
+            result = SQLCmd1.ExecuteNonQuery();
+            result = SQLCmd2.ExecuteNonQuery();
 
             Connection.Close();
 
@@ -457,7 +446,7 @@ namespace SREX.DAL
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
 
-            SqlCommand SQLCmd = new SqlCommand("Select * from GuidePurchases Order by tourName ASC", Connection);
+            SqlCommand SQLCmd = new SqlCommand("Select * from GuidePurchases", Connection);
 
             Connection.Open();
             SqlDataReader dr = SQLCmd.ExecuteReader();

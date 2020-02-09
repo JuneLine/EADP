@@ -123,6 +123,7 @@
     </Content>
     <Content Include="Clothes.aspx" />
     <Content Include="Collection.aspx" />
+    <Content Include="CommentEdit.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -140,6 +141,7 @@
     <Content Include="EditAttraction.aspx" />
     <Content Include="EditProductInfo.aspx" />
     <Content Include="EditTour.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="exisitingTourGuides.aspx" />
     <Content Include="existingTourGuidess.aspx" />
     <Content Include="Logout.aspx" />
@@ -313,6 +315,13 @@
     <Compile Include="Collection.aspx.designer.cs">
       <DependentUpon>Collection.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CommentEdit.aspx.cs">
+      <DependentUpon>CommentEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommentEdit.aspx.designer.cs">
+      <DependentUpon>CommentEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -372,6 +381,13 @@
     </Compile>
     <Compile Include="EditTour.aspx.designer.cs">
       <DependentUpon>EditTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="exisitingTourGuides.aspx.cs">
       <DependentUpon>exisitingTourGuides.aspx</DependentUpon>

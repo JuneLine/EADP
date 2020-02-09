@@ -13,7 +13,7 @@ namespace SREX.DAL
     {
         private static Reviews Read(SqlDataReader dr)
         {
-            string id = dr["id"].ToString();
+            string id = dr["Id"].ToString();
             string userId = dr["userId"].ToString();
             string username = dr["userName"].ToString();
             string comments = dr["comments"].ToString();
@@ -22,6 +22,7 @@ namespace SREX.DAL
 
             Reviews Read = new Reviews
             {
+                Id = id,
                 userId = userId,
                 username = username,
                 Comments = comments,
@@ -64,7 +65,7 @@ namespace SREX.DAL
 
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);            
-            SQLCmd = new SqlCommand("Select * from PageReviews", Connection);
+            SQLCmd = new SqlCommand("Select * from PageReviews ORDER BY Id DESC", Connection);
            
             List<Reviews> rows = new List<Reviews>();
 
@@ -75,25 +76,53 @@ namespace SREX.DAL
                 Reviews td = Read(dr);
                 rows.Add(td);
             }
+            Connection.Close();        
+            return rows;
+        }
+
+        public List<Reviews> RetrieveOneComment(string id)
+        {
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+            SQLCmd = new SqlCommand("Select * from PageReviews where Id = @paraId", Connection);
+            SQLCmd.Parameters.AddWithValue("@paraId", id);
+
+            List<Reviews> rows = new List<Reviews>();
+
+            Connection.Open();
+            SqlDataReader dr = SQLCmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Reviews td = Read(dr);
+                rows.Add(td);
+            }
+            Connection.Close();
+            return rows;
+        }
+
+        public int UpdateComment(string id, string name, string comment, decimal rating)
+        {
+            int result = 0;
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE PageReviews SET userName = @paraName, comments = @paraComment, ratings = @paraRating where Id = @paraId";
+
+            SqlCommand SQlCmd = new SqlCommand(sqlStmt, Connection);
+            SQlCmd.Parameters.AddWithValue("@paraName", name);
+            SQlCmd.Parameters.AddWithValue("@paraComment", comment);
+            SQlCmd.Parameters.AddWithValue("@paraRating", rating);
+            SQlCmd.Parameters.AddWithValue("@paraId", id);
+        
+            Connection.Open();
+            result = SQlCmd.ExecuteNonQuery();
+
             Connection.Close();
 
-            //SqlDataAdapter sda = new SqlDataAdapter("Select * from PageReviews", Connection);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-            //int rec_cnt = ds.Tables[0].Rows.Count;
-            //for (int i = 0; i < rec_cnt; i++)
-            //{
-            //    DataRow row = ds.Tables[0].Rows[i];
-            //    string userId = row["userId"].ToString();
-            //    string username = row["userName"].ToString();
-            //    string comments = row["comments"].ToString();
-            //    string date = row["date"].ToString();
-            //    decimal rating = Convert.ToDecimal(row["ratings"].ToString());
-            //    Reviews Data = new Reviews(userId, username, comments, date, rating);
-            //    rows.Add(Data);
-            //}
-
-            return rows;
+            return result;
         }
     }
 }

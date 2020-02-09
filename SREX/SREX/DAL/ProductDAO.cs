@@ -331,6 +331,26 @@ VALUES (@paraId, @paraName, @paraPrice, @paraCategoryId, @paraDescription, @para
             }
             return lowStockList;
         }
-    }
 
+        public int addStocksToProduct(string id, int amount)
+        {
+            int result = 0;
+
+            SqlCommand SQLCmd = new SqlCommand();
+
+            string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection Connection = new SqlConnection(ConnectDB);
+
+            string sqlStmt = @"UPDATE Products SET InStock = InStock + @paraAmount WHERE Id = @paraId";
+            SQLCmd = new SqlCommand(sqlStmt, Connection);
+            SQLCmd.Parameters.AddWithValue("@paraId", id);
+            SQLCmd.Parameters.AddWithValue("@paraAmount", amount);
+
+            Connection.Open();
+            result = SQLCmd.ExecuteNonQuery();
+            Connection.Close();
+
+            return result;
+        }
+    }
 }

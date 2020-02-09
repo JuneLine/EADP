@@ -1,6 +1,7 @@
-﻿    <%@ Page Title="PageReview" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Review.aspx.cs" Inherits="SREX.Review" %>
+﻿<%@ Page Title="PageReview" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Review.aspx.cs" Inherits="SREX.Review" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="Content/Guide.css" rel="stylesheet" />
     <br />
     <div class="well text-center">
         <h2>Page Review</h2>
@@ -17,12 +18,14 @@
                 <div class="row well">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-1">
-                        <asp:Label runat="server" Text='<%# Eval("userName") %>'></asp:Label>                       
+                        <asp:Label runat="server" Text='<%# Eval("userName") %>'></asp:Label>
                     </div>
                     <div class="col-sm-8">
-                        <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="3" Width="100%" Enabled="false" style="padding:1%;" ReadOnly="True" />
+                        <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="5" Width="100%" Enabled="false" Style="padding: 1%;" ReadOnly="True" />
                         Comment Made on : <%#Eval("date") %>
-                        <p style="float:right;" runat="server" Visible='<%#Eval("IsMe")%>'><asp:Button runat="server" ID="btnOpenEditPanel" CssClass=""/></p>
+                        <p style="float: right;" runat="server" visible='<%#Eval("IsMe")%>'>                           
+                            <button runat="server" value='<%#Eval("id") %>' ID="btnOpenEditPanel" class="btn btn-default" onserverclick="btnOpenEditPanel_Click">Edit</button>
+                        </p>
                     </div>
                     <div class="col-sm-2">
                         Ratings:
@@ -33,6 +36,7 @@
             </ItemTemplate>
         </asp:DataList>
     </div>
+
     <div class="modal fade" id="AddComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="margin-top: 10%;" role="document">
             <div class="modal-content form">
@@ -53,7 +57,7 @@
                                 <label for="tbRating">Ratings </label>
                                 <div class="row">
                                     <div class="col-sm-7">
-                                        <input type="number" id="rating" max="10" min="0" runat="server" class="form-control"/>
+                                        <input type="number" id="rating" max="10" min="0" runat="server" class="form-control" />
                                     </div>
                                     <div class="col-sm-2">
                                         <span style="font-size: 1.3em">/10</span>
@@ -70,7 +74,6 @@
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <asp:Button runat="server" ID="btnComment" class="btn btn-primary" Text="Comment" Style="float: right" OnClick="btnComment_Click" />
-
                 </div>
             </div>
         </div>

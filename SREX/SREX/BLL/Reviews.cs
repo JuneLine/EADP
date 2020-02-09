@@ -54,6 +54,20 @@ namespace SREX.BLL
                 }
             }
             return List;            
-        }            
+        }
+
+        public List<Reviews> GetOneComment(string id)
+        {
+            ReviewsDAO rows = new ReviewsDAO();
+            List<Reviews> List = rows.RetrieveOneComment(id);
+            return List;
+        }
+
+        public int EditComment(string id, string name, string comment, decimal rating)
+        {
+            ReviewsDAO List = new ReviewsDAO();
+            int result = List.UpdateComment(id, name, comment, rating);
+            return result;
+        }
     }
 }
