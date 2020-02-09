@@ -25,11 +25,27 @@ namespace SREX
                         DataListPlans.DataSource = List;
                         DataListPlans.DataBind();
 
+                        if (DataListPlans.Items.Count == 0)
+                        {
+                            LabelNothing.Text = "You have not applied to guide any plans yet!";
+                            LabelNothing.ForeColor = System.Drawing.Color.Red;
+                        }
+
                     }
 
                     else if (Session["role"].Equals("Guide"))
                     {
+                        string id = Session["UserId"].ToString();
+                        SelfPlan plan = new SelfPlan();
+                        List = plan.getAllPlansByGuideId(id);
+                        DataListPlans.DataSource = List;
+                        DataListPlans.DataBind();
 
+                        if (DataListPlans.Items.Count == 0)
+                        {
+                            LabelNothing.Text = "You have not applied to guide any plans yet!";
+                            LabelNothing.ForeColor = System.Drawing.Color.Red;
+                        }
                     }
 
                     else

@@ -3,7 +3,7 @@
     <br />
     <nav class="navbar navbar-inverse bg-light" style="margin-bottom:0px;">
         <a class="navbar-brand active" href="AdminApplication">View current tour guide applications</a>
-        <a class="navbar-brand" href="existingTourGuides">View existing tour guides</a>
+        <a class="navbar-brand" href="existingTourGuidess">View existing tour guides</a>
     </nav>
     <div class="jumbotron" style="margin: 0px;">
                 <h1 class="text-center">Tour guide applications</h1>
@@ -53,6 +53,10 @@
                 </asp:GridView>
      </div>
     <asp:Label class="text-centered" ID="LabelConfirm" runat="server" Text=""></asp:Label>
+
+    <div class="row text-center col-lg-12 col-sm-12">
+        <asp:Label ID="LabelNothing" runat="server" Text="" CssClass="text-center" style="text-align:center;"></asp:Label>
+    </div>
     <br />
     <br />
     <br />

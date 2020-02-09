@@ -31,4 +31,8 @@
     <br />
     </div>
 
+    <div class="row text-center col-lg-12 col-sm-12">
+        <asp:Label ID="LabelNothing" runat="server" Text="" CssClass="text-center" style="text-align:center;"></asp:Label>
+    </div>
+
 </asp:Content>

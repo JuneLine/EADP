@@ -18,13 +18,23 @@ namespace SREX
                 List<SelfPlan> List;
                 if (Session["role"] != null)
                 {
-
                     if (Session["role"].Equals("Admin"))
                     {
                         SelfPlan plan = new SelfPlan();
                         List = plan.getTourGuided(yes);
                         DataListPlans.DataSource = List;
                         DataListPlans.DataBind();
+
+                        if (DataListPlans.Items.Count == 0)
+                        {
+                            LabelNothing.Text = "There are currently no plans for you to guide, please check back in abit!";
+                            LabelNothing.ForeColor = System.Drawing.Color.Red;
+                        }
+
+                        else
+                        {
+                            LabelNothing.Visible = false;
+                        }
                     }
 
                     else if (Session["role"].Equals("Guide"))
@@ -33,6 +43,17 @@ namespace SREX
                         List = plan.getTourGuided(yes);
                         DataListPlans.DataSource = List;
                         DataListPlans.DataBind();
+
+                        if (DataListPlans.Items.Count == 0)
+                        {
+                            LabelNothing.Text = "There are currently no plans for you to guide, please check back in abit!";
+                            LabelNothing.ForeColor = System.Drawing.Color.Red;
+                        }
+
+                        else
+                        {
+                            LabelNothing.Visible = false;
+                        }
                     }
                     else
                     {
@@ -54,6 +75,18 @@ namespace SREX
             List = plan.searchByTitle(TbSearch.Text.ToString());
             DataListPlans.DataSource = List;
             DataListPlans.DataBind();
+
+            if (DataListPlans.Items.Count == 0)
+            {
+                LabelNothing.Visible = true;
+                LabelNothing.Text = "There are no matching searches for the title " + TbSearch.Text.ToString();
+                LabelNothing.ForeColor = System.Drawing.Color.Red;
+            }
+
+            else
+            {
+                LabelNothing.Visible = false;
+            }
         }
 
         protected void ButtonAll_Click(object sender, EventArgs e)
@@ -63,6 +96,7 @@ namespace SREX
             List = plan.searchAll();
             DataListPlans.DataSource = List;
             DataListPlans.DataBind();
+            LabelNothing.Text = "";
         }
 
         //protected void GvTD_SelectedIndexChanged(object sender, EventArgs e)

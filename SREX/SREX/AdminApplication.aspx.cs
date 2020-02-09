@@ -21,12 +21,27 @@ namespace SREX
                     {
                         LoadApplications();
 
+                        if (GvTD.Rows.Count == 0)
+                        {
+                            LabelNothing.Text = "There are currently no applications to becoming a tour guide";
+                            LabelNothing.ForeColor = System.Drawing.Color.Red;
+                        }
+
+                        else
+                        {
+                            LabelNothing.Visible = false;
+                        }
                     }
 
                     else
                     {
                         Response.Redirect("PlanningMain.aspx");
                     }
+                }
+
+                else
+                {
+                    Response.Redirect("Login.aspx");
                 }
             }
         }
@@ -68,7 +83,7 @@ namespace SREX
             string currRole = (string)ViewState["CurrRole"];
 
             TourGuides td = new TourGuides();
-            updCnt = td.UpdTDbyID(newStatus, row.Cells[0].Text);
+            updCnt = td.UpdStatusbyID(newStatus, row.Cells[0].Text);
 
             if (updCnt == 1)
             {
@@ -90,7 +105,7 @@ namespace SREX
                     System.Diagnostics.Debug.WriteLine(ex);
                 }
 
-                Response.Redirect("existingTourGuides.aspx");
+                Response.Redirect("AdminApplication.aspx");
             }
             else
             {
@@ -128,7 +143,7 @@ namespace SREX
                     System.Diagnostics.Debug.WriteLine(ex);
                 }
 
-                Response.Redirect("existingTourGuides.aspx");
+                Response.Redirect("existingTourGuidess.aspx");
             }
             else
             {
