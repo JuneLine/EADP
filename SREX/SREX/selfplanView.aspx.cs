@@ -40,6 +40,7 @@ namespace SREX
                         {
                             LabelGuidedBy.Text = "Guided by: " + td.TourGuideName.ToString();
                             LabelHire.Text = "Status: " + td.Status.ToString();
+                            LabelInfo.Text = "Please refer to your email for more information";
                         }
 
                         else if (td.Status.ToString() == "Pending")
@@ -52,6 +53,7 @@ namespace SREX
                     else if (td.Hire.ToString() == "No")
                     {
                         LabelGuidedBy.Text = "You have not requested for a tourguide";
+                        LabelHire.Visible = false;
                     } 
                 }
 

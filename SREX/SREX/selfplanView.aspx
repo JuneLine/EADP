@@ -9,6 +9,8 @@
             <br />
             <small style="color:red;"><asp:Label ID="LabelGuidedBy" runat="server"></asp:Label></small>
                 <br />
+             <small style="color:red;"><asp:Label ID="LabelInfo" runat="server"></asp:Label></small>
+                <br />
             <small>Date: <asp:Label ID="LabelDate" runat="server"></asp:Label></small>
             </div>
     </div>

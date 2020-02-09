@@ -157,6 +157,16 @@ namespace SREX.BLL
             this.Hire = Hire;
         }
 
+        public SelfPlan(int UniqueId, string userName, string Title, string Date, string Hire, string Status)
+        {
+            this.UniqueId = UniqueId;
+            this.UserName = userName;
+            this.Title = Title;
+            this.Date = Date;
+            this.Hire = Hire;
+            this.Status = Status;
+        }
+
         public int UpdTDbyID(string status, int id, string tourguideId, string tourguidename)
         {
             SelfPlanDAO dao = new SelfPlanDAO();

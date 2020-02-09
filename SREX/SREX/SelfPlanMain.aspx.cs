@@ -45,7 +45,7 @@ namespace SREX
         protected void Button2_Click(object sender, EventArgs e)
         {
             string Hiring = "Pending";
-            string No = "No";
+            string No = "N/A";
             if (Session["userId"] != null)
             {
                 if (RadioButtonHire.SelectedIndex == 0)
@@ -100,16 +100,50 @@ namespace SREX
                 } 
                 else
                 {
-                    SelfPlan Hist = new SelfPlan(Session["userId"].ToString(), SelfPlanTitle.Text.ToString(), SelfPlanDate.Text.ToString(), RadioButtonHire.SelectedItem.ToString(),
-                 DropDownList1.SelectedValue.ToString(), DropDownList2.SelectedValue.ToString(), DropDownList3.SelectedValue.ToString(), DropDownList4.SelectedValue.ToString()
-                 , DropDownList5.SelectedValue.ToString(), DropDownList6.SelectedValue.ToString(), DropDownList7.SelectedValue.ToString(), DropDownList8.SelectedValue.ToString()
-                 , DropDownList9.SelectedValue.ToString(), DropDownList10.SelectedValue.ToString(), No, Session["UserName"].ToString());
-
-                    int result = Hist.InsertHistory();
-
-                    if (result == 1)
+                    if (SelfPlanTitle.Text.ToString() == "")
                     {
-                        Response.Redirect("PlanningHistory.aspx");
+                        if (SelfPlanDate.Text.ToString() == "")
+                        {
+                            LabeError.Text = "* Please choose a date";
+                            LabeError.ForeColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            SelfPlan Hist = new SelfPlan(Session["userId"].ToString(), "Untitlted", SelfPlanDate.Text.ToString(), RadioButtonHire.SelectedItem.ToString(),
+                             DropDownList1.SelectedValue.ToString(), DropDownList2.SelectedValue.ToString(), DropDownList3.SelectedValue.ToString(), DropDownList4.SelectedValue.ToString()
+                             , DropDownList5.SelectedValue.ToString(), DropDownList6.SelectedValue.ToString(), DropDownList7.SelectedValue.ToString(), DropDownList8.SelectedValue.ToString()
+                             , DropDownList9.SelectedValue.ToString(), DropDownList10.SelectedValue.ToString(), No, Session["UserName"].ToString());
+
+                            int result = Hist.InsertHistory();
+
+                            if (result == 1)
+                            {
+                                Response.Redirect("PlanningHistory.aspx");
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        if (SelfPlanDate.Text.ToString() == "")
+                        {
+                            LabeError.Text = "* Please choose a date";
+                            LabeError.ForeColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            SelfPlan Hist = new SelfPlan(Session["userId"].ToString(), SelfPlanTitle.Text.ToString(), SelfPlanDate.Text.ToString(), RadioButtonHire.SelectedItem.ToString(),
+                             DropDownList1.SelectedValue.ToString(), DropDownList2.SelectedValue.ToString(), DropDownList3.SelectedValue.ToString(), DropDownList4.SelectedValue.ToString()
+                             , DropDownList5.SelectedValue.ToString(), DropDownList6.SelectedValue.ToString(), DropDownList7.SelectedValue.ToString(), DropDownList8.SelectedValue.ToString()
+                             , DropDownList9.SelectedValue.ToString(), DropDownList10.SelectedValue.ToString(), No, Session["UserName"].ToString());
+
+                            int result = Hist.InsertHistory();
+
+                            if (result == 1)
+                            {
+                                Response.Redirect("PlanningHistory.aspx");
+                            }
+                        }
                     }
                 }
             }

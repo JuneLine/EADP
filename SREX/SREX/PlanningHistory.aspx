@@ -24,6 +24,7 @@
                         <asp:BoundField DataField="Title" HeaderText="Title" />
                         <asp:BoundField DataField="Date" HeaderText="Date"/>
                         <asp:BoundField DataField="Hire" HeaderText="Hire"/>
+                        <asp:BoundField DataField="Status" HeaderText="Tour guide status" />
                         <asp:CommandField ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
