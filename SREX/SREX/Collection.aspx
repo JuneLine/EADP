@@ -5,7 +5,7 @@
     <div class="jumbotron" style="overflow: auto">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12">
-                <img src="profile.png" style="height: 50%; width: 50%; margin-left: 25%" />
+                <img id="Gender" runat="server" src="Pictures/Male.png" style="height: 50%; width: 50%; margin-left: 25%" />
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <table class="MyTableThing table" style="margin-top: .5%">

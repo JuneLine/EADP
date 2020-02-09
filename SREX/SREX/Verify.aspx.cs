@@ -29,7 +29,7 @@ namespace SREX
             }
             else
             {
-                Response.Redirect("/Login");
+                Response.Redirect("/login");
             }
         }
     }
