@@ -73,8 +73,10 @@
                 title: 'Restocked!',
                 text: 'Successfully Added Stocks',
                 icon: 'success',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: 'Confirm',
+                showConfirmButton: false,
             })
+            setTimeout(function () { window.location.replace("/controlpanel") }, 1000)
         }
     </script>
     <div class="row">
