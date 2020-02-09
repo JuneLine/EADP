@@ -54,7 +54,7 @@ namespace SREX.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE Users SET Status = @paraStatus, Status where Id =  @paraId";
+            string sqlStmt = "UPDATE Users SET Status = @paraStatus where Id =  @paraId";
 
             int result = 0;    // Execute NonQuery return an integer value
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -74,7 +74,35 @@ namespace SREX.DAL
 
             return result;
         }
+        
+        public int UpdateStatusDeny (string Status, string id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
 
+            string sqlStmt = "UPDATE Users SET Status = @paraStatus, Role = @paraRole where Id =  @paraId";
+
+            int result = 0;    // Execute NonQuery return an integer value
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraRole", Status);
+            sqlCmd.Parameters.AddWithValue("@paraStatus",  "Revoked");
+            sqlCmd.Parameters.AddWithValue("paraId", id);
+
+
+
+            myConn.Open();
+            result = sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+            return result;
+        }
+
+    
         public int UpdateRole(string role, string id)
         {
             string confirmed = "Confirmed";

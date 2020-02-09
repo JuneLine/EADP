@@ -143,6 +143,7 @@
     <Content Include="EditTour.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="exisitingTourGuides.aspx" />
+    <Content Include="existingTourGuidess.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Pictures\TourGuide.jpg" />
     <Content Include="ProductList.aspx" />
@@ -394,6 +395,13 @@
     </Compile>
     <Compile Include="exisitingTourGuides.aspx.designer.cs">
       <DependentUpon>exisitingTourGuides.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="existingTourGuidess.aspx.cs">
+      <DependentUpon>existingTourGuidess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="existingTourGuidess.aspx.designer.cs">
+      <DependentUpon>existingTourGuidess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

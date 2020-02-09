@@ -15,7 +15,7 @@
             <span class="input-group-btn">
                 <asp:Button ID="ButtonAll" class="btn btn-primary" runat="server" Text="View all" OnClick="ButtonAll_Click"/>  
         </span>
-        <asp:TextBox ID="TbSearch" class="form-control" placeholder="Search for..." runat="server"></asp:TextBox>
+        <asp:TextBox ID="TbSearch" class="form-control" placeholder="Search for title..." runat="server"></asp:TextBox>
         <span class="input-group-btn">
             
             <asp:Button ID="ButtonSearchName" runat="server" Text="Go!" class="btn btn-default" OnClick="ButtonSearchName_Click"/>
@@ -41,7 +41,7 @@
         <asp:DataList runat="server" ID="DataListPlans" RepeatColumns="2" Width="100%">
         <ItemTemplate>
             <div class="thumbnail" style="margin: 1.5%;">
-                <div class="caption" style="">
+                <div class="caption" style="width:500px;">
                     <h4><%#Eval("Username") %></h4>
                     <p><%#Eval("Title") %></p>
                     <p><%#Eval("Date") %></p>
@@ -58,6 +58,12 @@
     <br />
     <br />
     </div>
+
+    <div class="row text-center col-lg-12 col-sm-12">
+        <asp:Label ID="LabelNothing" runat="server" Text="" CssClass="text-center" style="text-align:center;"></asp:Label>
+    </div>
+
+
     <br />
     <br />
     <br />

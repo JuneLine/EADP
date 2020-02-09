@@ -18,6 +18,12 @@
             <h4>Your application is currently under review</h4>
         </div>
     </div>
+    <div class="thumbnail text-center" id="revokedBox" style="margin: 1.5%" runat="server">
+        <div class="caption">
+            <h4>Your role has been revoked!</h4>
+            <h5>Please view your email for more information</h5>
+        </div>
+    </div>
     <div class="thumbnail text-center" id="joinUsBox" style="margin: 1.5%" runat="server">
         <div class="caption">
             <h4>Interested in joining us as a tourguide?</h4>
@@ -36,9 +42,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Interested to join us an a tour guide? Click below!
                     <br />
-                    <label for="FileUpload1">Resume: </label> <asp:FileUpload runat="server" ID="FileUpload1" CssClass="form-control"/>
+                    <label for="FileUpload1">Resume: (Please submit resume only in .docx form)</label> <asp:FileUpload runat="server" ID="FileUpload1" CssClass="form-control"/>
                     <asp:Label ID="LabelError" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="card-body">
@@ -81,7 +86,7 @@
                 <a href="AdminApplication">
                     <i class="fa fa-bell planIcons"></i>
                 </a>
-                <h3>Applications</h3>
+                <h3>Admin</h3>
                 <p>Click here to review applications</p>
             </div>
         </div>

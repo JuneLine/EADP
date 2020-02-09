@@ -24,6 +24,7 @@
                     </div>
                 <br />
                 <div class="col-sm-12 col-lg-12" style="padding:2%;" runat="server">
+                    
                     <asp:DataList ID="DataList1" runat="server">
                     <ItemTemplate>
                         <div class="destinationOne">
@@ -48,6 +49,10 @@
                     </div>
                     </ItemTemplate>
                 </asp:DataList>
+
+                    <div class="text-center">
+                        <asp:Label ID="LabelNothing" runat="server" Text="" CssClass="text-center" style="text-align:center;"></asp:Label>
+                    </div>
                     </div>
             </div>
             <br />
@@ -63,7 +68,8 @@
                 <div class="row">
                     <div class="col-sm-3 col-lg-3" style="padding:2%;">
                         Plan for selected date:
-                        <asp:TextBox ID="SelfPlanDate" runat="server" placeholder="From" type="date"></asp:TextBox>
+                        <asp:TextBox ID="SelfPlanDate" runat="server" placeholder="From" type="date" CausesValidation="True"></asp:TextBox>
+                        <asp:Label ID="LabeError" runat="server" Text=""></asp:Label>
                     </div>
                     <div class="col-sm-5 col-lg-5" style="padding:2%;">
                         Would you like to hire a tour guide?

@@ -18,6 +18,17 @@ namespace SREX
                 if (Session["userId"] != null)
                 {
                     LoadHistory();
+
+                    if (GvTD.Rows.Count == 0)
+                    {
+                        LabelNothing.Text = "Oh no, you have no prior planning history!";
+                        LabelNothing.ForeColor = System.Drawing.Color.Red;
+                    }
+
+                    else
+                    {
+                        LabelNothing.Visible = false;
+                    }
                 }
 
                 else

@@ -23,6 +23,7 @@ namespace SREX
 
                     deniedBox.Visible = false;
                     reviewBox.Visible = false;
+                    revokedBox.Visible = false;
                     forAdminApply.Visible = false;
                     forTourGuide.Visible = false;
                     AddNewAttraction.Visible = false;
@@ -34,6 +35,7 @@ namespace SREX
                     deniedBox.Visible = false;
                     reviewBox.Visible = false;
                     forAdminApply.Visible = false;
+                    revokedBox.Visible = false;
                     AddNewAttraction.Visible = false;
                     joinUsBox.Visible = false;
                     forTourGuide.Visible = true;
@@ -43,6 +45,7 @@ namespace SREX
                 {
                     deniedBox.Visible = false;
                     reviewBox.Visible = false;
+                    revokedBox.Visible = false;
                     forAdminApply.Visible = true;
                     AddNewAttraction.Visible = true;
                     forTourGuide.Visible = true;
@@ -59,6 +62,7 @@ namespace SREX
                         if (Session["Status"].ToString() == "Applying")
                         {
                             deniedBox.Visible = false;
+                            revokedBox.Visible = false;
                             joinUsBox.Visible = false;
                             reviewBox.Visible = true;
                             AddNewAttraction.Visible = false;
@@ -72,6 +76,19 @@ namespace SREX
                             deniedBox.Visible = true;
                             joinUsBox.Visible = false;
                             reviewBox.Visible = false;
+                            revokedBox.Visible = false;
+                            AddNewAttraction.Visible = false;
+                            forAdminApply.Visible = false;
+                            forTourGuide.Visible = false;
+                            btnAddPlace.Style["display"] = "none";
+                        }
+
+                        else if (Session["Status"].ToString() == "Revoked")
+                        {
+                            revokedBox.Visible = true;
+                            joinUsBox.Visible = false;
+                            deniedBox.Visible = false;
+                            reviewBox.Visible = false;
                             AddNewAttraction.Visible = false;
                             forAdminApply.Visible = false;
                             forTourGuide.Visible = false;
@@ -80,6 +97,7 @@ namespace SREX
                         else
                         {
                             deniedBox.Visible = false;
+                            revokedBox.Visible = false;
                             reviewBox.Visible = false;
                             joinUsBox.Visible = true;
                             AddNewAttraction.Visible = false;
@@ -94,6 +112,7 @@ namespace SREX
                         reviewBox.Visible = false;
                         joinUsBox.Visible = true;
                         AddNewAttraction.Visible = false;
+                        revokedBox.Visible = false;
                         forAdminApply.Visible = false;
                         forTourGuide.Visible = false;
                         btnAddPlace.Style["display"] = "none";

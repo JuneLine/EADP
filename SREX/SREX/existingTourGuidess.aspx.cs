@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace SREX
 {
-    public partial class existingTourGuides : System.Web.UI.Page
+    public partial class existingTourGuidess : System.Web.UI.Page
     {
         string roleGuide = "Guide";
         protected void Page_Load(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace SREX
                     if (Session["role"].ToString() == "Admin")
                     {
                         LoadApplications();
-                        
+
 
 
                         if (GvTD.Rows.Count == 0)
@@ -70,7 +70,7 @@ namespace SREX
             string currRole = (string)ViewState["CurrRole"];
 
             TourGuides td = new TourGuides();
-            updCnt = td.UpdTDbyID(newRole, row.Cells[0].Text);
+            updCnt = td.UpdTdbyIDDenied(newRole, row.Cells[0].Text);
 
             if (updCnt == 1)
             {
@@ -92,7 +92,7 @@ namespace SREX
                 {
                     System.Diagnostics.Debug.WriteLine(ex);
                 }
-                Response.Redirect("existingTourGuides.aspx");
+                Response.Redirect("existingTourGuidess.aspx");
             }
             else
             {

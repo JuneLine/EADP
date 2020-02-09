@@ -58,6 +58,15 @@ namespace SREX {
         protected global::System.Web.UI.WebControls.DataList DataList1;
         
         /// <summary>
+        /// LabelNothing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelNothing;
+        
+        /// <summary>
         /// SelfPlanTitle control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace SREX {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox SelfPlanDate;
+        
+        /// <summary>
+        /// LabeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabeError;
         
         /// <summary>
         /// RadioButtonHire control.
