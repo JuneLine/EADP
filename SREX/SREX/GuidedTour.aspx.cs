@@ -23,6 +23,10 @@ namespace SREX
                         BtnAddTours.Style["display"] = "inline-block";
                     }
                 }
+                else
+                {
+                    btnToGuideHist.Visible = false;
+                }
 
                 GuideTour tour = new GuideTour();
                 AllTours = tour.GetAll();

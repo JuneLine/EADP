@@ -21,6 +21,7 @@ namespace SREX.BLL
         public decimal AdultCost { get; set; }
         public decimal ChildCost { get; set; }
         public decimal SeniorCost { get; set; }
+        public int Limit { get; set; }
 
         //ForSecondDB [TourInfo]
         public string tourInfoId { get; set; }
@@ -55,7 +56,7 @@ namespace SREX.BLL
 
         }
 
-        public GuideTour(int tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
+        public GuideTour(int tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost, int Limit)
         {
             this.tourId = tourId;
             this.tourName = tourName;
@@ -67,6 +68,7 @@ namespace SREX.BLL
             this.AdultCost = AdultCost;
             this.ChildCost = ChildCost;
             this.SeniorCost = SeniorCost;
+            this.Limit = Limit;
         }
 
         //public GuideTour(string tourId, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
@@ -156,10 +158,10 @@ namespace SREX.BLL
             return result;
         }
 
-        public int UpdateGuideTour(int tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost)
+        public int UpdateGuideTour(int tourId, string tourName, string tourPic, string tourCaption, string Date, string meetUpTime, string meetUpLocation, decimal AdultCost, decimal ChildCost, decimal SeniorCost, int limit)
         {
             GuideTourDAO info = new GuideTourDAO();
-            return info.UpdateTour(tourId,tourName,tourPic,tourCaption,Date,meetUpTime,meetUpLocation,AdultCost,ChildCost,SeniorCost);
+            return info.UpdateTour(tourId,tourName,tourPic,tourCaption,Date,meetUpTime,meetUpLocation,AdultCost,ChildCost,SeniorCost,limit);
         }
 
         public int UpdateGuideTourInfo(string Time1, string Activity1, string Time2, string Activity2, string Time3, string Activity3, string Time4, string Activity4, string Time5, string Activity5, string Time6, string Activity6, string Time7, string Activity7, int tourId)

@@ -28,7 +28,11 @@
                                         <td><h3> <b><%#Eval("Date") %></b></h3></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-sm-4">Estimated Cost:</td>
+                                        <td class="col-sm-4">Tickets Left:</td>
+                                        <td><h3><b> <%#Eval("Limit") %> </b></h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4">Cost: <br /> (GST not included)</td>
                                         <td><br /><h3> Adult: SGD<b><%#Eval("AdultCost") %></b>,<br /> Children: SGD<b><%#Eval("ChildCost") %></b>,<br /> Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b></h3></td>
                                     </tr>
                                 </table>                                                                                              
@@ -79,6 +83,7 @@
             </div>
             <div class="text-center">
                 <asp:Button ID="BtnPurchaseTicks" runat="server" CssClass="btn btn-primary" OnClick="BtnPurchaseTicks_Click" Text="Buy" />
+                <asp:Label runat="server" ID="OutOfTickets" CssClass="input-lg" Visible="false">Tickets had been sold out</asp:Label>
             </div>
         </div>
     </div>

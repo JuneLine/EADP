@@ -22,45 +22,54 @@ namespace SREX
                     {
                         List<GuideTour> Info;
                         List<GuideTour> Details;
-                        int id = Int16.Parse(Request.QueryString["tourId"]);
-                        GuideTour row = new GuideTour();
-                        Info = row.GetOne(id);
-                        Details = row.GetOneInfo(id);
-
-                        foreach (GuideTour item in Info)
+                        if(Request.QueryString["tourId"] != "")
                         {
-                            tbTourName.Text = item.tourName.ToString();
-                            originalDate.Text = item.Date.ToString();
-                            tbTourCaption.Text = item.tourCaption.ToString();
-                            DropDownListmeetTime.SelectedValue = item.meetUpTime.ToString();
-                            tbLocation.Text = item.meetUpLocation.ToString();
-                            tbAdultCost.Text = item.AdultCost.ToString();
-                            tbChildCost.Text = item.ChildCost.ToString();
-                            tbSeniorCost.Text = item.SeniorCost.ToString();
-                            HiddenPictureName.Text = item.tourPic.ToString();
+                            int id = int.Parse(Request.QueryString["tourId"]);
+                            GuideTour row = new GuideTour();
+                            Info = row.GetOne(id);
+                            Details = row.GetOneInfo(id);
+
+                            foreach (GuideTour item in Info)
+                            {
+                                tbTourName.Text = item.tourName.ToString();
+                                originalDate.Text = item.Date.ToString();
+                                tbTourCaption.Text = item.tourCaption.ToString();
+                                DropDownListmeetTime.SelectedValue = item.meetUpTime.ToString();
+                                tbLocation.Text = item.meetUpLocation.ToString();
+                                tbAdultCost.Text = item.AdultCost.ToString();
+                                tbChildCost.Text = item.ChildCost.ToString();
+                                tbSeniorCost.Text = item.SeniorCost.ToString();
+                                HiddenPictureName.Text = item.tourPic.ToString();
+                                tbLimit.Text = item.Limit.ToString();
+                            }
+
+                            foreach (GuideTour item in Details)
+                            {
+                                DropDownListTime1.SelectedValue = item.Time1.ToString();
+                                DropDownListTime2.SelectedValue = item.Time2.ToString();
+                                DropDownListTime3.SelectedValue = item.Time3.ToString();
+                                DropDownListTime4.SelectedValue = item.Time4.ToString();
+                                DropDownListTime5.SelectedValue = item.Time5.ToString();
+                                DropDownListTime6.SelectedValue = item.Time6.ToString();
+                                DropDownListTime7.SelectedValue = item.Time7.ToString();
+                                tbActivity1.Text = item.Activity1.ToString();
+                                tbActivity2.Text = item.Activity2.ToString();
+                                tbActivity3.Text = item.Activity3.ToString();
+                                tbActivity4.Text = item.Activity4.ToString();
+                                tbActivity5.Text = item.Activity5.ToString();
+                                tbActivity6.Text = item.Activity6.ToString();
+                                tbActivity7.Text = item.Activity7.ToString();
+                            }
                         }
-
-                        foreach (GuideTour item in Details)
+                        else
                         {
-                            DropDownListTime1.SelectedValue = item.Time1.ToString();
-                            DropDownListTime2.SelectedValue = item.Time2.ToString();
-                            DropDownListTime3.SelectedValue = item.Time3.ToString();
-                            DropDownListTime4.SelectedValue = item.Time4.ToString();
-                            DropDownListTime5.SelectedValue = item.Time5.ToString();
-                            DropDownListTime6.SelectedValue = item.Time6.ToString();
-                            DropDownListTime7.SelectedValue = item.Time7.ToString();
-                            tbActivity1.Text = item.Activity1.ToString();
-                            tbActivity2.Text = item.Activity2.ToString();
-                            tbActivity3.Text = item.Activity3.ToString();
-                            tbActivity4.Text = item.Activity4.ToString();
-                            tbActivity5.Text = item.Activity5.ToString();
-                            tbActivity6.Text = item.Activity6.ToString();
-                            tbActivity7.Text = item.Activity7.ToString();
+                            Response.Redirect("GuideTour.aspx");
                         }
                     }
                     else
                     {
                         Response.Redirect("GuideTour.aspx");
+                        Response.Write("<script>alert('You Have No Permission To Change The Details')</script>");
                     }
                 }
                 else
@@ -113,16 +122,16 @@ namespace SREX
                 }
 
                 string dateOfTour;
-                if (tbDateOfTour.Text != null){
-                    DateTime DDay = DateTime.ParseExact(tbDateOfTour.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-                    dateOfTour = DDay.ToString("dd/MM/yyyy");
+                if (tbDateOfTour.Text == ""){
+                    dateOfTour = originalDate.Text;                    
                 }
                 else
                 {
-                    dateOfTour = originalDate.Text;
+                    DateTime DDay = DateTime.ParseExact(tbDateOfTour.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    dateOfTour = DDay.ToString("dd/MM/yyyy");
                 }
 
-                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text));
+                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(tbLimit.Text));
 
                 if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == "")
                 {

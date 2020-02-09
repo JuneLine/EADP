@@ -16,10 +16,10 @@ namespace SREX
             List<GuideTour> OneTour;
             List<GuideTour> OneTourInfo;
 
-            int id = Int16.Parse(Request.QueryString["tourId"]);
-
-            if (id != 0)
+            if (Request.QueryString["tourId"] != null)
             {
+                int id = int.Parse(Request.QueryString["tourId"]);
+
                 GuideTour tour = new GuideTour();
                 OneTour = tour.GetOne(id);
                 DataListNameOnly.DataSource = OneTour;
@@ -29,6 +29,15 @@ namespace SREX
                 OneTourInfo = tourInfo.GetOneInfo(id);
                 DataListInfo.DataSource = OneTourInfo;
                 DataListInfo.DataBind();
+
+                foreach (GuideTour Items in OneTour)
+                {
+                    if (Items.Limit == 0)
+                    {                        
+                        BtnPurchaseTicks.Visible = false;
+                        OutOfTickets.Visible = true;
+                    }
+                }
 
                 if (Session["UserId"] != null)
                 {
@@ -45,7 +54,7 @@ namespace SREX
             else
             {
                 Response.Redirect("GuidedTour.aspx");
-            }      
+            }
         }
 
         protected void BtnPurchaseTicks_Click(object sender, EventArgs e)

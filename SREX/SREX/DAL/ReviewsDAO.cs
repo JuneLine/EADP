@@ -65,7 +65,7 @@ namespace SREX.DAL
 
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);            
-            SQLCmd = new SqlCommand("Select * from PageReviews", Connection);
+            SQLCmd = new SqlCommand("Select * from PageReviews ORDER BY Id DESC", Connection);
            
             List<Reviews> rows = new List<Reviews>();
 

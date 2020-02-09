@@ -14,17 +14,21 @@
                         <label for="AttractionName">Tour Name: </label>
                         <asp:TextBox runat="server" ID="tbTourName" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <div class="form-group">
-                        <div>
-                            <label for="tbDateOfTour">(Optional)Date Of Tour: </label>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label for="tbDateOfTour">Date Of Tour (Optional): </label>
                             <asp:TextBox runat="server" ID="tbDateOfTour" CssClass="form-control" placeholder="DD/MM/YYYY" TextMode="Date"></asp:TextBox>
                             <asp:Label runat="server" ID="originalDate" Visible="false"></asp:Label>
                         </div>
-                        <div>
-                            <label for="TourPicture">Picture: </label>
-                            <asp:FileUpload runat="server" ID="FileTourPicture" CssClass="form-control" />
-                            <asp:Label runat="server" ID="HiddenPictureName" Visible="false"></asp:Label>
+                        <div class="col-sm-4">
+                            <label for="tbDateOfTour">Limit: </label>
+                            <asp:TextBox runat="server" ID="tbLimit" CssClass="form-control"></asp:TextBox>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="TourPicture">Picture: </label>
+                        <asp:FileUpload runat="server" ID="FileTourPicture" CssClass="form-control" />
+                        <asp:Label runat="server" ID="HiddenPictureName" Visible="false"></asp:Label>
                     </div>
                     <div class="form-group">
                         <label for="TourCaption">Tour Caption: </label>

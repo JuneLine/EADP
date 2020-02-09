@@ -22,23 +22,30 @@ namespace SREX
                 {
                     List<GuideTour> Listing;
 
-                    int id = Int16.Parse(Request.QueryString["tourId"]);
-
-                    GuideTour Tour = new GuideTour();
-                    Listing = Tour.GetOne(id);
-                    DataListTourInfo.DataSource = Listing;
-                    DataListTourInfo.DataBind();
-
-                    foreach (GuideTour item in Listing)
+                    if (Request.QueryString["tourId"] != null)
                     {
-                        lbltourname.Text = item.tourName.ToString();
-                        AdultPerTicket.Text = item.AdultCost.ToString();
-                        ChildPerTicket.Text = item.ChildCost.ToString();
-                        SeniorPerTicket.Text = item.SeniorCost.ToString();
-                    }
+                        int id = int.Parse(Request.QueryString["tourId"]);
 
-                    tbUserName.Text = Session["Username"].ToString();
-                    tbUserEmail.Text = Session["Email"].ToString();
+                        GuideTour Tour = new GuideTour();
+                        Listing = Tour.GetOne(id);
+                        DataListTourInfo.DataSource = Listing;
+                        DataListTourInfo.DataBind();
+
+                        foreach (GuideTour item in Listing)
+                        {
+                            lbltourname.Text = item.tourName.ToString();
+                            AdultPerTicket.Text = item.AdultCost.ToString();
+                            ChildPerTicket.Text = item.ChildCost.ToString();
+                            SeniorPerTicket.Text = item.SeniorCost.ToString();
+                        }
+
+                        tbUserName.Text = Session["Username"].ToString();
+                        tbUserEmail.Text = Session["Email"].ToString();
+                    }
+                    else
+                    {
+                        Response.Redirect("GuidedTour.aspx");
+                    }
                 }
                 else
                 {
