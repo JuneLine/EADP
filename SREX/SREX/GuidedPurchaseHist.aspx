@@ -6,24 +6,37 @@
         <div class="well" style="margin-top: 20px;">
             <h3 class="text-center">Guided Tour Purchases</h3>
         </div>
-        <asp:DataList runat="server" ID="DataListHist" RepeatLayout="Table" CssClass="table">
-            <HeaderTemplate>
-                <th class="text-center">Date Purchased</th>
-                <th class="text-center">Tickets Bought</th>
-                <th class="text-center">Total Cost</th>
-                <th class="text-center">Tour Detail</th>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <td class="text-center"><%#Eval("Date") %></td>
-                <td class="text-center"><%#Eval("AdultQuantity") %> Adults, <%#Eval("ChildQuantity") %> Child, <%#Eval("SeniorQuantity") %> Seniors</td>
-                <td class="text-center">SGD<%#Eval("PaymentAmount") %></td>
-                <td class="text-center">
-                    <button type="button" class="btn btn-info btn-sm" id="showData" onserverclick="showData_ServerClick" runat="server" value='<%#Eval("tourId") %>'>View</button>
-                </td>
-            </ItemTemplate>
-        </asp:DataList>
-        <div class="text-center">
-            <asp:Button ID="BtnBackToMain" runat="server" Text="Back" class="btn btn-primary" OnClick="BtnBackToMain_Click" />
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h5><span class="glyphicon"></span>Tour Bought</h5>
+                        </div>
+                        <div class="col-xs-2" style="float: right">
+                            <div class="text-center">
+                                <asp:Button ID="BtnBackToMain" runat="server" Text="Back To Tour" class="btn btn-primary btn-sm btn-block" OnClick="BtnBackToMain_Click" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <asp:DataList runat="server" ID="DataListHist" RepeatLayout="Table" CssClass="table">
+                <HeaderTemplate>
+                    <th class="text-center">Date Purchased</th>
+                    <th class="text-center">Tickets Bought</th>
+                    <th class="text-center">Total Cost</th>
+                    <th class="text-center">Tour Detail</th>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <td class="text-center"><%#Eval("Date") %></td>
+                    <td class="text-center"><%#Eval("AdultQuantity") %> Adults, <%#Eval("ChildQuantity") %> Child, <%#Eval("SeniorQuantity") %> Seniors</td>
+                    <td class="text-center">SGD<%#Eval("PaymentAmount") %></td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-info btn-sm" id="showData" onserverclick="showData_ServerClick" runat="server" value='<%#Eval("tourId") %>'>View</button>
+                    </td>
+                </ItemTemplate>
+            </asp:DataList>
         </div>
     </div>
     <asp:Panel runat="server" CssClass="myPanelDetails" ID="GuideDetails" Visible="false">
