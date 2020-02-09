@@ -38,7 +38,11 @@ namespace SREX
                 valid = false;
             }
 
-            if(tbActivity1.Text == null && tbActivity2.Text == null && tbActivity3.Text == null && tbActivity4.Text == null && tbActivity5.Text == null && tbActivity6.Text == null && tbActivity7.Text == null)
+            if (tbActivity1.Text == null && tbActivity2.Text == null && tbActivity3.Text == null && tbActivity4.Text == null && tbActivity5.Text == null && tbActivity6.Text == null && tbActivity7.Text == null)
+            {
+                valid = false;
+            }
+            if (DropDownListmeetTime.SelectedValue == "NIL")
             {
                 valid = false;
             }
@@ -131,7 +135,7 @@ namespace SREX
             else
             {
                 Response.Write("<script>alert('Please Fill In The Field')</script>");
-            }                              
+            }
         }
     }
 }

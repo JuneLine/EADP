@@ -40,7 +40,7 @@ namespace SREX
                                 tbChildCost.Text = item.ChildCost.ToString();
                                 tbSeniorCost.Text = item.SeniorCost.ToString();
                                 HiddenPictureName.Text = item.tourPic.ToString();
-                                tbLimit.Text = item.Limit.ToString();
+                                Limit.Value = item.Limit.ToString();
                             }
 
                             foreach (GuideTour item in Details)
@@ -92,6 +92,10 @@ namespace SREX
             {
                 valid = false;
             }
+            if (DropDownListmeetTime.SelectedValue == "NIL")
+            {
+                valid = false;
+            }
 
             return valid;
         }
@@ -103,7 +107,7 @@ namespace SREX
             {
                 GuideTour Info1 = new GuideTour();
                 GuideTour Info2 = new GuideTour();
-                int id = Int16.Parse(Request.QueryString["tourId"]);
+                int id = int.Parse(Request.QueryString["tourId"]);
 
                 string Picture;
                 if (FileTourPicture.HasFile)
@@ -131,7 +135,7 @@ namespace SREX
                     dateOfTour = DDay.ToString("dd/MM/yyyy");
                 }
 
-                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(tbLimit.Text));
+                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(Limit.Value));
 
                 if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == "")
                 {

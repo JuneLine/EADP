@@ -15,9 +15,7 @@
                             <div class="col-sm-5 well">
                                 <asp:Image runat="server" ImageUrl='<%# String.Format("Pictures/{0}", Eval("tourPic") ) %>' Height="250px" Width="800px" />
                             </div>                            
-                            <div class="col-sm-7">
-                                <br />
-                                <br />
+                            <div class="col-sm-7" style="margin-top:1%;">                                
                                 <table>
                                     <tr>
                                         <td class="col-sm-4">MeetUp: </td>
@@ -32,12 +30,29 @@
                                         <td><h3><b> <%#Eval("Limit") %> </b></h3></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-sm-4">Cost: <br /> (GST not included)</td>
-                                        <td><br /><h3> Adult: SGD<b><%#Eval("AdultCost") %></b>,<br /> Children: SGD<b><%#Eval("ChildCost") %></b>,<br /> Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b></h3></td>
+                                        <td class="col-sm-4">Cost: <br />(Per Pax ++)</td>
+                                        <td>
+                                            <br />
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Adult: </td>
+                                                    <td><h3>SGD<b><%#Eval("AdultCost") %></b></h3></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Children: </td>
+                                                    <td><h3>SGD<b><%#Eval("ChildCost") %></b></h3></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Senior Citizens:</td>
+                                                    <td><h3>SGD<b><%#Eval("SeniorCost") %></b></h3></td>
+                                                </tr>
+                                            </table>
+                                        </td>
                                     </tr>
                                 </table>                                                                                              
                             </div>
                         </div>
+                        <%--<br /><h3> Adult: SGD<b><%#Eval("AdultCost") %></b>,<br /> Children: SGD<b><%#Eval("ChildCost") %></b>,<br /> Senior Citizens: SGD<b><%#Eval("SeniorCost") %></b></h3>--%>
                     </ItemTemplate>
                 </asp:DataList>
             </div>

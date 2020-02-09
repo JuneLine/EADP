@@ -6,7 +6,8 @@
     <div class="well text-center">
         <h2>Page Review</h2>
     </div>
-    <div class="container well body-container-own">
+    <br />
+    <div class="container body-container-own" style="background-image: linear-gradient(to bottom, aliceblue, skyblue, aliceblue); border-radius:25px">
         <br />
         <div class="text-center">
             <input type="button" runat="server" id="btnAddComment" class="btn btn-primary" value="Add Comment" data-toggle="modal" data-target="#AddComment" />
@@ -15,23 +16,27 @@
         <br />
         <asp:DataList runat="server" ID="dlComments" RepeatLayout="Flow">
             <ItemTemplate>
-                <div class="row well">
+                <div class="row">
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-1">
-                        <asp:Label runat="server" Text='<%# Eval("userName") %>'></asp:Label>
-                    </div>
-                    <div class="col-sm-8">
-                        <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="5" Width="100%" Enabled="false" Style="padding: 1%;" ReadOnly="True" />
-                        Comment Made on : <%#Eval("date") %>
-                        <p style="float: right;" runat="server" visible='<%#Eval("IsMe")%>'>                           
-                            <button runat="server" value='<%#Eval("id") %>' ID="btnOpenEditPanel" class="btn btn-default" onserverclick="btnOpenEditPanel_Click">Edit</button>
-                        </p>
-                    </div>
-                    <div class="col-sm-2">
-                        Ratings:
+                    <div class="well col-sm-10">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1">
+                            <asp:Label runat="server" Text='<%# Eval("userName") %>'></asp:Label>
+                        </div>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="commentbox" Text='<%# Bind("comments") %>' TextMode="MultiLine" Rows="5" Width="100%" Enabled="false" Style="padding: 1%;" ReadOnly="True" />
+                            Comment Made on : <%#Eval("date") %>
+                            <p style="float: right;" runat="server" visible='<%#Eval("IsMe")%>'>
+                                <button runat="server" value='<%#Eval("id") %>' id="btnOpenEditPanel" class="btn btn-default" onserverclick="btnOpenEditPanel_Click">Edit</button>
+                            </p>
+                        </div>
+                        <div class="col-sm-2">
+                            Ratings:
                         <br />
-                        <%#Eval("rating") %> / 10.0
+                            <%#Eval("rating") %> / 10.0
+                        </div>
                     </div>
+                    <div class="col-sm-1"></div>
                 </div>
             </ItemTemplate>
         </asp:DataList>
@@ -49,12 +54,12 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="form-group col-sm-8">
-                            <label for="tbName">Username </label>
+                            <label for="tbName">Username: </label>
                             <asp:TextBox runat="server" ID="tbName" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="form-group col-sm-4">
                             <div class="row">
-                                <label for="tbRating">Ratings </label>
+                                <label for="tbRating">Ratings: </label>
                                 <div class="row">
                                     <div class="col-sm-7">
                                         <input type="number" id="rating" max="10" min="0" runat="server" class="form-control" />

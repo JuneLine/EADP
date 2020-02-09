@@ -15,17 +15,17 @@
                         <h2>Personal Particulars</h2>
                         <br />
                         <div class="form-group">
-                            <label for="tbUserName">Name: <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Fill In Your Name" ForeColor="red" ControlToValidate="tbUserName">*</asp:RequiredFieldValidator></label>
+                            <label for="tbUserName">Name:</label>
                             <asp:TextBox runat="server" class="form-control" ID="tbUserName"></asp:TextBox>                            
                         </div>
                         <br />
                         <div class="form-group">
-                            <label for="tbUserEmail">E-mail: <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Fill In Your Email" ForeColor="red" ControlToValidate="tbUserEmail">*</asp:RequiredFieldValidator></label>
+                            <label for="tbUserEmail">E-mail:</label>
                             <asp:TextBox runat="server" class="form-control" ID="tbUserEmail"></asp:TextBox>
                         </div>
                         <br />
                         <div class="form-group">
-                            <label for="tbUserContact">Contact: <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please Fill In Your Contact" ForeColor="red" ControlToValidate="tbUserContact">*</asp:RequiredFieldValidator></label>
+                            <label for="tbUserContact">Contact:</label>
                             <asp:TextBox runat="server" class="form-control" ID="tbUserContact"></asp:TextBox>
                             <asp:Label runat="server" ID="lbltourname" Visible="false"></asp:Label>
                         </div>
@@ -34,10 +34,8 @@
                 <div class="col-sm-8" style="font-size: 1.2em; padding-left: 5%;">
                     <h2>Tour Details</h2>
                     <div class="row">
+                        <br />
                         <asp:DataList ID="DataListTourInfo" runat="server" RepeatLayout="Flow">
-                            <HeaderTemplate>
-                                <h3>Information</h3>
-                            </HeaderTemplate>
                             <ItemTemplate>
                                 <div class="row">
                                     <div class="col-sm-5">
@@ -158,19 +156,21 @@
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Confirm</button>
         </div>
     </div>
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog" style="top:15%;">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header text-center">                    
                     <h4 class="modal-title">Confirmation</h4>
                 </div>
                 <div class="modal-body text-center">
-                    <p>Confirm The Purchase?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <asp:Button runat="server" Text="Purchase" class="btn btn-primary" ID="btnBuyTicket" OnClick="btnBuyTicket_Click" />
+                    <h2>Confirm The Purchase?</h2>
+                    <br />
+                    <br />
+                    <br /><br />
+                    <br />
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:left">Close</button>
+                    <asp:Button runat="server" Text="Purchase" class="btn btn-primary" ID="btnBuyTicket" OnClick="btnBuyTicket_Click" style="float:right"/>
+                    <br />
                 </div>
             </div>
         </div>

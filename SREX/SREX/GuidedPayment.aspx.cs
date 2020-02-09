@@ -57,56 +57,97 @@ namespace SREX
 
         protected void btnBuyTicket_Click(object sender, EventArgs e)
         {
-            if (lblFinalAmount.Text != "0")
+            if(tbUserName.Text.ToString() != "")
             {
-                int purchId = 0;
-                string userId = Session["userId"].ToString();
-                int tourId = Int16.Parse(Request.QueryString["tourId"]);
-                string Date = DateTime.Now.ToShortDateString();
-                GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString() ,tourId);
-                int result = insertRecord.CreatePurchases();
-                if (result == 1)
-                {                    
-                    Response.Redirect("GuidedPurchaseHist.aspx");
+                if(tbUserEmail.Text.ToString() != "")
+                {
+                    if(tbUserContact.Text.ToString() != "")
+                    {
+                        if (lblFinalAmount.Text != "0")
+                        {
+                            int id = int.Parse(Request.QueryString["tourId"]);
+                            List<GuideTour> Limitation;
+                            GuideTour getresult = new GuideTour();
+                            Limitation = getresult.GetOne(id);
+                            foreach (GuideTour item in Limitation)
+                            {
+                                if (item.Limit > (int.Parse(tbAdultQuantity.Text) + int.Parse(tbChildQuantity.Text) + int.Parse(tbSeniorQuantity.Text)))
+                                {
+                                    int purchId = 0;
+                                    string userId = Session["userId"].ToString();
+                                    int tourId = Int16.Parse(Request.QueryString["tourId"]);
+                                    string Date = DateTime.Now.ToShortDateString();
+                                    GuideTour insertRecord = new GuideTour(purchId, Date, tbUserName.Text, tbUserEmail.Text, tbUserContact.Text, int.Parse(tbAdultQuantity.Text), int.Parse(tbChildQuantity.Text), int.Parse(tbSeniorQuantity.Text), Convert.ToDecimal(lblFinalAmount.Text), userId, lbltourname.Text.ToString(), tourId);
+                                    int result = insertRecord.CreatePurchases();
+                                    if (result == 1)
+                                    {
+                                        Response.Redirect("GuidedPurchaseHist.aspx");
+                                    }
+                                }
+                                else
+                                {
+                                    Response.Write("<script>alert('There Is No Enought Tickets To Accomodate To Your Need')</script>");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Please Fill In your Quantity')</script>");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Please Fill In your Contact')</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Please Fill In your Email')</script>");
                 }
             }
             else
             {
-                Response.Write("<script>alert('Please Fill In your Quantity')</script>");
+                Response.Write("<script>alert('Please Fill In your name')</script>");
             }
-
         }
 
         protected void btnCalculateTotal_Click(object sender, EventArgs e)
         {
             GuideTour cal = new GuideTour();
 
-            decimal adultcost = Convert.ToDecimal(AdultPerTicket.Text);
-            int QuantityAdult = int.Parse(tbAdultQuantity.Text);
-            decimal resultAdult = cal.CalculateCost(adultcost, QuantityAdult);
+            if(tbAdultQuantity.Text.ToString() == "" || tbChildQuantity.Text.ToString() == "" || tbSeniorQuantity.Text.ToString() == "")
+            {
+                Response.Write("<script>alert('Please Fill In your Quantity')</script>");
+            }
+            else
+            {
+                decimal adultcost = Convert.ToDecimal(AdultPerTicket.Text);
+                int QuantityAdult = int.Parse(tbAdultQuantity.Text);
+                decimal resultAdult = cal.CalculateCost(adultcost, QuantityAdult);
 
-            lblAdultTotal.Text = resultAdult.ToString();
+                lblAdultTotal.Text = resultAdult.ToString();
 
-            decimal childcost = Convert.ToDecimal(ChildPerTicket.Text);
-            int QuantityChild = int.Parse(tbChildQuantity.Text);
-            decimal resultChild = cal.CalculateCost(childcost, QuantityChild);
+                decimal childcost = Convert.ToDecimal(ChildPerTicket.Text);
+                int QuantityChild = int.Parse(tbChildQuantity.Text);
+                decimal resultChild = cal.CalculateCost(childcost, QuantityChild);
 
-            lblChildTotal.Text = resultChild.ToString();
+                lblChildTotal.Text = resultChild.ToString();
 
-            decimal seniorcost = Convert.ToDecimal(SeniorPerTicket.Text);
-            int QuantitySenior = int.Parse(tbSeniorQuantity.Text);
-            decimal resultSenior = cal.CalculateCost(seniorcost, QuantitySenior);
+                decimal seniorcost = Convert.ToDecimal(SeniorPerTicket.Text);
+                int QuantitySenior = int.Parse(tbSeniorQuantity.Text);
+                decimal resultSenior = cal.CalculateCost(seniorcost, QuantitySenior);
 
-            lblSeniorTotal.Text = resultSenior.ToString();
+                lblSeniorTotal.Text = resultSenior.ToString();
 
-            lblTotalAmount.Text = Math.Round((Convert.ToDecimal(lblAdultTotal.Text) + Convert.ToDecimal(lblChildTotal.Text) + Convert.ToDecimal(lblSeniorTotal.Text)), 2).ToString();
+                lblTotalAmount.Text = Math.Round((Convert.ToDecimal(lblAdultTotal.Text) + Convert.ToDecimal(lblChildTotal.Text) + Convert.ToDecimal(lblSeniorTotal.Text)), 2).ToString();
 
-            decimal resultGST = Math.Round(cal.CalculateGST(Convert.ToDecimal(lblTotalAmount.Text)), 2);
-            lblGST.Text = resultGST.ToString();
-            decimal resultService = Math.Round(cal.CalculateService(Convert.ToDecimal(lblTotalAmount.Text)), 2);
-            lblService.Text = resultService.ToString();
+                decimal resultGST = Math.Round(cal.CalculateGST(Convert.ToDecimal(lblTotalAmount.Text)), 2);
+                lblGST.Text = resultGST.ToString();
+                decimal resultService = Math.Round(cal.CalculateService(Convert.ToDecimal(lblTotalAmount.Text)), 2);
+                lblService.Text = resultService.ToString();
 
-            lblFinalAmount.Text = Math.Round((Convert.ToDecimal(lblTotalAmount.Text) + Convert.ToDecimal(lblGST.Text) + Convert.ToDecimal(lblService.Text)), 2).ToString();
+                lblFinalAmount.Text = Math.Round((Convert.ToDecimal(lblTotalAmount.Text) + Convert.ToDecimal(lblGST.Text) + Convert.ToDecimal(lblService.Text)), 2).ToString();
+            }            
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

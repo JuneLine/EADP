@@ -21,6 +21,9 @@
                     </div>
                 </div>
             </div>
+            <div id="alertMessage" runat="server" role="alert">
+                <asp:Label runat="server" ID="NoHist"></asp:Label>
+            </div>
             <asp:DataList runat="server" ID="DataListHist" RepeatLayout="Table" CssClass="table">
                 <HeaderTemplate>
                     <th class="text-center">Date Purchased</th>
@@ -45,12 +48,19 @@
             <h3 class="text-center" style="font-weight: bold;">Tour Details</h3>
         </div>
         <div class="modal-content">
-            <asp:Label runat="server" ID="lbltourname"></asp:Label>
+            <div class="text-center">
+                <asp:Label runat="server" ID="lbltourname"></asp:Label>
+            </div>
             <br />
-            <asp:Label runat="server" ID="lbltourDate"></asp:Label>
+            <div class="row text-center">
+                <div class="col-sm-4">
+                    <asp:Label runat="server" ID="lbltourDate"></asp:Label>
+                </div>
+                <div class="col-sm-8">
+                    <asp:Label runat="server" ID="lblMeetUp"></asp:Label>
+                </div>
+            </div>
             <br />
-            <asp:Label runat="server" ID="lblMeetUp"></asp:Label>
-
             <asp:DataList ID="DataListInfo" runat="server" RepeatLayout="Table" CssClass="table table-bordered">
                 <ItemTemplate>
                     <asp:Table runat="server" CssClass="table table-bordered">

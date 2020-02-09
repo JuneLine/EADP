@@ -24,8 +24,19 @@ namespace SREX
 
                 GuideTour rows = new GuideTour();
                 Hist = rows.GetHist(Id);
-                DataListHist.DataSource = Hist;
-                DataListHist.DataBind();
+                if (Hist.Count == 0)
+                {
+                    NoHist.Text = "Your History is empty!";
+                    NoHist.ForeColor = System.Drawing.Color.Red;
+                    alertMessage.Attributes.Add("class", "alert text-center alert-warning");
+                    DataListHist.Visible = false;
+                }
+                else
+                {
+                    NoHist.Visible = false;
+                    DataListHist.DataSource = Hist;
+                    DataListHist.DataBind();
+                }
             }
             else
             {
@@ -61,7 +72,7 @@ namespace SREX
                 lbltourname.Text = items.tourName.ToString();
                 lbltourDate.Text = items.Date.ToString();
                 lblMeetUp.Text = items.meetUpTime.ToString() + " @ " + items.meetUpLocation.ToString();
-            }      
+            }
         }
 
         protected void closeDetailPanel_ServerClick(object sender, EventArgs e)

@@ -10,7 +10,7 @@
             <div class="input-group col-sm-12 col-lg-12">
                 <asp:TextBox ID="SearchTour" class="form-control" placeholder="Search For Tour Name" runat="server"></asp:TextBox>
                 <span class="input-group-btn">
-                    <asp:Button ID="ButtonSearchName" runat="server" class="btn btn-default" Text="Search" OnClick="ButtonSearchName_Click"/>
+                    <asp:Button ID="ButtonSearchName" runat="server" class="btn btn-primary" Text="Search" OnClick="ButtonSearchName_Click"/>
                 </span>
             </div>
             <br />

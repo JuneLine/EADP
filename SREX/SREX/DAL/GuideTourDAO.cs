@@ -393,7 +393,6 @@ namespace SREX.DAL
             return rows;
         }
 
-
         public int InsertPurchases(GuideTour Listing)
         {
             int result = 0;
