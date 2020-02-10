@@ -9,7 +9,7 @@
         <div class="row">
             <div class="form-group col-sm-8">
                 <label for="tbName">Username: <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Fill In Your Name" ControlToValidate="EditName">*</asp:RequiredFieldValidator></label>
-                <asp:TextBox runat="server" ID="EditName" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="EditName" CssClass="form-control" Enabled="false" ReadOnly="true"></asp:TextBox>
             </div>
             <div class="form-group col-sm-4">
                 <div class="row">

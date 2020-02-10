@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="form-group col-sm-8">
                             <label for="tbName">Username: </label>
-                            <asp:TextBox runat="server" ID="tbName" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="tbName" CssClass="form-control" Enabled="false" ReadOnly="true"></asp:TextBox>
                         </div>
                         <div class="form-group col-sm-4">
                             <div class="row">

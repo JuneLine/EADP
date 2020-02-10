@@ -63,10 +63,10 @@ namespace SREX.BLL
             return List;
         }
 
-        public int EditComment(string id, string name, string comment, decimal rating)
+        public int EditComment(string id, string comment, decimal rating)
         {
             ReviewsDAO List = new ReviewsDAO();
-            int result = List.UpdateComment(id, name, comment, rating);
+            int result = List.UpdateComment(id, comment, rating);
             return result;
         }
     }

@@ -124,7 +124,7 @@ namespace SREX
 
                                             GuideTour TimeActivity = new GuideTour(tourInfoId, DropDownListTime1.SelectedValue.ToString(), tbActivity1.Text.ToString(), DropDownListTime2.SelectedValue.ToString(), tbActivity2.Text.ToString(), DropDownListTime3.SelectedValue.ToString(), tbActivity3.Text.ToString(), DropDownListTime4.SelectedValue.ToString(), tbActivity4.Text.ToString(), DropDownListTime5.SelectedValue.ToString(), tbActivity5.Text.ToString(), DropDownListTime6.SelectedValue.ToString(), tbActivity6.Text.ToString(), DropDownListTime7.SelectedValue.ToString(), tbActivity7.Text.ToString(), tourId);
                                             int result2 = TimeActivity.CreateTourInfo();
-                                            if (result2 == 1)
+                                            if (result1 == 1 && result2 == 1)
                                             {
                                                 Response.Redirect("GuidedTour.aspx");
                                             }

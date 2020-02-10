@@ -16,7 +16,7 @@ namespace SREX
             string id = Request.QueryString["id"];
             if (!IsPostBack)
             {
-                if(Session["UserId"] == null)
+                if (Session["UserId"] == null)
                 {
                     Response.Redirect("Review.aspx");
                 }
@@ -27,22 +27,20 @@ namespace SREX
                     one = get.GetOneComment(id);
                     foreach (Reviews item in one)
                     {
-                        EditName.Text = item.username.ToString();
-                        EditRating.Value = item.rating.ToString();
-                        EditComment.Text = item.Comments.ToString();
+                        if(item.userId.ToString() == Session["UserId"].ToString())
+                        {
+                            EditName.Text = item.username.ToString();
+                            EditRating.Value = item.rating.ToString();
+                            EditComment.Text = item.Comments.ToString();
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('You Have NO Access')</script>");
+                            Response.Redirect("Review.aspx");
+                        }
                     }
                 }
             }
-        }
-
-        public bool ValidateName()
-        {
-            bool valid = true;
-            if (EditName.Text == "")
-            {
-                valid = false;
-            }
-            return valid;
         }
 
         public bool ValidateComment()
@@ -72,34 +70,27 @@ namespace SREX
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (ValidateName())
+            if (ValidateComment())
             {
-                if (ValidateComment())
+                if (ValidateRating())
                 {
-                    if (ValidateRating())
+                    string id = Request.QueryString["Id"];
+                    Reviews Upd = new Reviews();
+                    int result = Upd.EditComment(id, EditComment.Text.ToString(), Convert.ToDecimal(EditRating.Value.ToString()));
+                    if (result == 1)
                     {
-                        string id = Request.QueryString["Id"];
-                        Reviews Upd = new Reviews();
-                        int result = Upd.EditComment(id, EditName.Text.ToString(), EditComment.Text.ToString(), Convert.ToDecimal(EditRating.Value.ToString()));
-                        if (result == 1)
-                        {
-                            Response.Redirect("Review.aspx");
-                        }
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Please Fill In Your Ratings :)')</script>");
+                        Response.Redirect("Review.aspx");
                     }
                 }
                 else
                 {
-                    Response.Write("<script>alert('Please Fill In Your Comment :)')</script>");
+                    Response.Write("<script>alert('Please Fill In Your Ratings :)')</script>");
                 }
             }
             else
             {
-                Response.Write("<script>alert('Please Fill In Your Name :)')</script>");
+                Response.Write("<script>alert('Please Fill In Your Comment :)')</script>");
             }
-        }
+        }        
     }
 }

@@ -71,7 +71,7 @@ namespace SREX
                             Limitation = getresult.GetOne(id);
                             foreach (GuideTour item in Limitation)
                             {
-                                if (item.Limit > (int.Parse(tbAdultQuantity.Text) + int.Parse(tbChildQuantity.Text) + int.Parse(tbSeniorQuantity.Text)))
+                                if (item.Limit >= (int.Parse(tbAdultQuantity.Text) + int.Parse(tbChildQuantity.Text) + int.Parse(tbSeniorQuantity.Text)))
                                 {
                                     int purchId = 0;
                                     string userId = Session["userId"].ToString();

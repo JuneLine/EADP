@@ -102,17 +102,16 @@ namespace SREX.DAL
             return rows;
         }
 
-        public int UpdateComment(string id, string name, string comment, decimal rating)
+        public int UpdateComment(string id, string comment, decimal rating)
         {
             int result = 0;
 
             string ConnectDB = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection Connection = new SqlConnection(ConnectDB);
 
-            string sqlStmt = @"UPDATE PageReviews SET userName = @paraName, comments = @paraComment, ratings = @paraRating where Id = @paraId";
+            string sqlStmt = @"UPDATE PageReviews SET comments = @paraComment, ratings = @paraRating where Id = @paraId";
 
-            SqlCommand SQlCmd = new SqlCommand(sqlStmt, Connection);
-            SQlCmd.Parameters.AddWithValue("@paraName", name);
+            SqlCommand SQlCmd = new SqlCommand(sqlStmt, Connection);            
             SQlCmd.Parameters.AddWithValue("@paraComment", comment);
             SQlCmd.Parameters.AddWithValue("@paraRating", rating);
             SQlCmd.Parameters.AddWithValue("@paraId", id);
