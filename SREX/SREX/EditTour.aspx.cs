@@ -84,17 +84,19 @@ namespace SREX
         {
             bool valid = true;
 
-            if (tbTourName.Text == "" || tbLocation.Text == "" || tbSeniorCost.Text == "" || tbAdultCost.Text == "" || tbChildCost.Text == "")
+            if(tbActivity1.Text == null || tbActivity2.Text == null || tbActivity3.Text == null || tbActivity4.Text == null || tbActivity5.Text == null)
             {
                 valid = false;
             }
-            if (tbActivity1.Text == null && tbActivity2.Text == null && tbActivity3.Text == null && tbActivity4.Text == null && tbActivity5.Text == null && tbActivity6.Text == null && tbActivity7.Text == null)
+
+            if(DropDownListTime1.SelectedValue == "NIL" || DropDownListTime2.SelectedValue == "NIL" || DropDownListTime3.SelectedValue == "NIL" || DropDownListTime4.SelectedValue == "NIL" || DropDownListTime5.SelectedValue == "NIL")
             {
                 valid = false;
             }
-            if (DropDownListmeetTime.SelectedValue == "NIL")
+
+            if (!valid)
             {
-                valid = false;
+                Response.Write("<script>alert('Please Fill At Least 5 Timings and Locations From The Top')</script>");
             }
 
             return valid;
@@ -135,8 +137,6 @@ namespace SREX
                     dateOfTour = DDay.ToString("dd/MM/yyyy");
                 }
 
-                int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(Limit.Value));
-
                 if (DropDownListTime1.SelectedValue == "-Select-" || tbActivity1.Text == "")
                 {
                     tbActivity1.Text = "NIL";
@@ -165,15 +165,16 @@ namespace SREX
                 {
                     tbActivity7.Text = "NIL";
                 }
-                int result2 = Info2.UpdateGuideTourInfo(DropDownListTime1.SelectedValue.ToString(), tbActivity1.Text.ToString(), DropDownListTime2.SelectedValue.ToString(), tbActivity2.Text.ToString(), DropDownListTime3.SelectedValue.ToString(), tbActivity3.Text.ToString(), DropDownListTime4.SelectedValue.ToString(), tbActivity4.Text.ToString(), DropDownListTime5.SelectedValue.ToString(), tbActivity5.Text.ToString(), DropDownListTime6.SelectedValue.ToString(), tbActivity6.Text.ToString(), DropDownListTime7.SelectedValue.ToString(), tbActivity7.Text.ToString(), id);
-                if (result1 == 1 && result2 == 1)
-                {
-                    Response.Redirect("GuidedTour.aspx");
-                }
-            }
-            else
-            {
-                Response.Write("<script>alert('Please Fill In The Field')</script>");
+
+                if (tbTourName.Text != null && tbTourCaption.Text != null && DropDownListmeetTime.SelectedValue != "-Select-" && tbLocation.Text != null && tbAdultCost.Text != null && tbSeniorCost.Text != null && tbSeniorCost.Text != null ){
+                    int result1 = Info1.UpdateGuideTour(id, tbTourName.Text.ToString(), Picture, tbTourCaption.Text.ToString(), dateOfTour, DropDownListmeetTime.SelectedValue.ToString(), tbLocation.Text.ToString(), Convert.ToDecimal(tbAdultCost.Text), Convert.ToDecimal(tbChildCost.Text), Convert.ToDecimal(tbSeniorCost.Text), int.Parse(Limit.Value));
+
+                    int result2 = Info2.UpdateGuideTourInfo(DropDownListTime1.SelectedValue.ToString(), tbActivity1.Text.ToString(), DropDownListTime2.SelectedValue.ToString(), tbActivity2.Text.ToString(), DropDownListTime3.SelectedValue.ToString(), tbActivity3.Text.ToString(), DropDownListTime4.SelectedValue.ToString(), tbActivity4.Text.ToString(), DropDownListTime5.SelectedValue.ToString(), tbActivity5.Text.ToString(), DropDownListTime6.SelectedValue.ToString(), tbActivity6.Text.ToString(), DropDownListTime7.SelectedValue.ToString(), tbActivity7.Text.ToString(), id);
+                    if (result1 == 1 && result2 == 1)
+                    {
+                        Response.Redirect("GuidedTour.aspx");
+                    }
+                }                               
             }
         }
     }

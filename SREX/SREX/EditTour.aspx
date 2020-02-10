@@ -7,11 +7,14 @@
         <div class="well text-center">
             <h2><b>EditTour</b></h2>
         </div>
-        <div class="container" style="padding: 5%;">
+        <div class="container">
             <fieldset>
+                <div class="row text-center">
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"/>
+                </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="AttractionName">Tour Name: <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Fill in the Tour Name" ControlToValidate="tbTourName">*</asp:RequiredFieldValidator></label>
+                        <label for="AttractionName">Tour Name: <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please fill the required field" ControlToValidate="tbTourName" ForeColor="Red">*</asp:RequiredFieldValidator></label>
                         <asp:TextBox runat="server" ID="tbTourName" CssClass="form-control"></asp:TextBox>                        
                     </div>
                     <div class="form-group row">
@@ -21,22 +24,22 @@
                             <asp:Label runat="server" ID="originalDate" Visible="false"></asp:Label>
                         </div>
                         <div class="col-sm-4">
-                            <label for="tbDateOfTour">Limit: <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please Fill in the Limit" ControlToValidate="Limit">*</asp:RequiredFieldValidator> </label>
+                            <label for="tbDateOfTour">Limit: <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="Limit" ForeColor="Red">*</asp:RequiredFieldValidator> </label>
                             <input type="number" runat="server" ID="Limit" class="form-control" min="0" max="1000"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="TourPicture">Picture: </label>
+                        <label for="TourPicture">Picture (Optional): </label>
                         <asp:FileUpload runat="server" ID="FileTourPicture" CssClass="form-control" />
                         <asp:Label runat="server" ID="HiddenPictureName" Visible="false"></asp:Label>
                     </div>
                     <div class="form-group">
-                        <label for="TourCaption">Tour Caption: <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please Fill in the Caption" ControlToValidate="tbTourCaption">*</asp:RequiredFieldValidator></label>
+                        <label for="TourCaption">Tour Caption: <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbTourCaption" ForeColor="Red">*</asp:RequiredFieldValidator></label>
                         <asp:TextBox runat="server" ID="tbTourCaption" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-4">
-                            <label for="DropDownListTime">Meet Up Time: </label>
+                            <label for="DropDownListTime">Meet Up Time: <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="red" ControlToValidate="DropDownListmeetTime" InitialValue="NIL">*</asp:RequiredFieldValidator></label>
                             <asp:DropDownList ID="DropDownListmeetTime" runat="server" CssClass="form-control">
                                 <asp:ListItem Text="-Select" Value="NIL">-Select-</asp:ListItem>
                                 <asp:ListItem>0000</asp:ListItem>
@@ -66,22 +69,22 @@
                             </asp:DropDownList>
                         </div>
                         <div class="col-sm-8">
-                            <label for="tbMeetUpLocation">Meet Up Location: <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please Fill in the Meet Up Location" ControlToValidate="tbLocation">*</asp:RequiredFieldValidator></label>
+                            <label for="tbMeetUpLocation">Meet Up Location: <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbLocation" ForeColor="Red">*</asp:RequiredFieldValidator></label>
                             <asp:TextBox runat="server" ID="tbLocation" CssClass="form-control" placeholder="E.g Khatib MRT"></asp:TextBox>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-4">
-                            <label for="tbAdultCost" class="label-inline">Adult Price: <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please Fill in the Cost" ControlToValidate="tbAdultCost">*</asp:RequiredFieldValidator></label>
-                            <asp:TextBox runat="server" ID="tbAdultCost" CssClass="form-control"></asp:TextBox>
+                            <label for="tbAdultCost" class="label-inline">Adult Price: <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbAdultCost" ForeColor="Red">*</asp:RequiredFieldValidator></label>
+                            <asp:TextBox runat="server" ID="tbAdultCost" CssClass="form-control" TextMode="Number"></asp:TextBox>
                         </div>
                         <div class="col-sm-4">
-                            <label for="tbChildCost">Child Price: <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please Fill in the Cost" ControlToValidate="tbChildCost">*</asp:RequiredFieldValidator></label>
-                            <asp:TextBox runat="server" ID="tbChildCost" CssClass="form-control"></asp:TextBox>
+                            <label for="tbChildCost">Child Price: <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="tbChildCost" ForeColor="Red">*</asp:RequiredFieldValidator></label>
+                            <asp:TextBox runat="server" ID="tbChildCost" CssClass="form-control" TextMode="Number"></asp:TextBox>
                         </div>
                         <div class="col-sm-4">
-                            <label for="tbSeniorCost">Senior Price: <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Please Fill in the Cost" ControlToValidate="tbSeniorCost">*</asp:RequiredFieldValidator></label>
-                            <asp:TextBox runat="server" ID="tbSeniorCost" CssClass="form-control"></asp:TextBox>
+                            <label for="tbSeniorCost">Senior Price: <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="tbSeniorCost" ForeColor="Red">*</asp:RequiredFieldValidator></label>
+                            <asp:TextBox runat="server" ID="tbSeniorCost" CssClass="form-control" TextMode="Number"></asp:TextBox>
                         </div>
                     </div>
                 </div>
