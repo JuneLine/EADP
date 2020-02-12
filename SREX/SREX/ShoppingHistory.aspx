@@ -6,6 +6,21 @@
             position: fixed;
             top: 25%;
             left: 37.5%;
+            z-index: 1031;           
+            animation-name: animatetop;
+            animation-duration: 1s;
+        }
+
+        @-webkit-keyframes animatetop {
+            from {
+                top: -100px;
+                opacity: 0
+            }
+
+            to {
+                top: 25%;
+                opacity: 1
+            }
         }
     </style>
 
@@ -59,7 +74,7 @@
             </p>
         </div>
     </asp:Panel>
-    <div id="QRDiv" runat="server" class="styleQR" visible="false">       
+    <div id="QRDiv" runat="server" class="styleQR" visible="false">
         <button class="close" onclick='document.getElementById("MainContent_QRDiv").style.display = "none"; return false;'><span>&times</span></button>
         <asp:Panel ID="QR" runat="server" Width="410" Height="410"></asp:Panel>
     </div>

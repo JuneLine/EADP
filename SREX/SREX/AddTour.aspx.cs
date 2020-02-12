@@ -19,7 +19,7 @@ namespace SREX
             {
                 if (Session["role"].ToString() != "Admin")
                 {
-                    Response.Redirect("GuideTour.aspx");
+                    Response.Redirect("GuidesTour.aspx");
                 }
             }
             else

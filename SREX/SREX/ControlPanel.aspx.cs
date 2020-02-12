@@ -88,6 +88,7 @@ namespace SREX
         protected void ButtonToRestock_Click(object sender, EventArgs e)
         {
             Panel1.Visible = true;
+            Panel1.Style.Add("display", "block");
             Button btn = (Button)sender;
             string s = btn.Attributes["Stuff"];
             Product prod = new Product();

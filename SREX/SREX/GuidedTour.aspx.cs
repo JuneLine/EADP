@@ -18,7 +18,7 @@ namespace SREX
             {
                 if (Session["UserId"] != null)
                 {
-                    if (Session["role"].ToString() == "Admin")
+                    if (Session["role"].ToString() == "Admin" || Session["role"].ToString() == "Guide")
                     {
                         BtnAddTours.Style["display"] = "inline-block";
                     }

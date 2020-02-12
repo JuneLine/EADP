@@ -60,7 +60,7 @@
     </div>
 
     <div class="row text-center col-lg-12 col-sm-12">
-        <asp:Label ID="LabelNothing" runat="server" Text="" CssClass="text-center" style="text-align:center;"></asp:Label>
+        <asp:Label ID="LabelNothing" runat="server" Text="" CssClass="text-center" style="text-align:center;margin-bottom:20px;"></asp:Label>
     </div>
 
 
