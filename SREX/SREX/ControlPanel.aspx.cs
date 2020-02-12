@@ -109,7 +109,6 @@ namespace SREX
             prod.increaseProductStock(s, Convert.ToInt32(RestockAmount.Text));
 
             RestockAmount.Text = "";
-            Panel1.Visible = false;
 
             ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         }

@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .styleQR {
+            padding: 1%;
+            background-color: white;
             position: fixed;
             top: 25%;
             left: 37.5%;
@@ -33,7 +35,7 @@
             <th class="text-center" style="height: 38px">Purchase Date</th>
             <th class="text-center" style="height: 38px">Total Cost</th>
             <th class="text-center" style="height: 38px">Order Detail</th>
-            <th class="text-center" style="height: 38px">QR Code</th>
+            <th class="text-center" style="height: 38px">QR Code (Item Collection)</th>
         </HeaderTemplate>
         <ItemTemplate>
             <td class="text-center"><%#Eval("OrderID") %></td>
