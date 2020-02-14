@@ -12,7 +12,12 @@
 * Itinerary
 
 
-1. Right click project name and select Manage NuGet Packages
-2. Select browse and search for QRCoder
-3. Install QRCoder latest version
-4. Run the code
+
+
+
+
+
+1.Right click project name and select Manage NuGet Packages
+2.Select browse and search for QRCoder
+3.Install QRCoder latest version
+4.Run the code
